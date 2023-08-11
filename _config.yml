@@ -1,0 +1,85 @@
+include: ['_pages', '_data', '_properties', 'js',]
+email: your-email@example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+plugins:
+  - jekyll-feed
+permalink: /:title
+algolia:
+  application_id: 'SZ1NFM42A3'
+  index_name: 'scout'
+  search_only_api_key: 'c7f2201fd5f842587c801eb1a87e88a2'
+defaults:
+-scope:
+  path: ""
+  values:
+    layout: default
+    _options:
+      content: &content_defaults
+        uploads_dir: "uploads/:title"
+        format: p h1 h2 h3 h4 h5 h6 div
+        styles: /assets/css/theme.css
+        undo: true
+        redo: true
+        left: text-left
+        center: text-center
+        right: text-right
+        justify: justify-content-center
+        bold: true
+        italic: true
+        underline: true
+        strike: true
+        subscript: false
+        superscript: false
+        blockquote: true
+        table: true
+        copyformatting: true
+        removeformat: true
+        numberedlist: true
+        bulletedlist: true
+        outdent: false
+        indent: false
+        image: true
+        link: true
+        embed: true
+collections:
+ properties:
+   output: true   
+-scope:
+      type: pages
+      path: _pages/index.html
+      values:
+        permalink:
+-scope:
+  path: "_properties"
+  type: "page"
+  values:
+  layout: "properties"
+_structures:
+  sub_text:
+    type: text
+    label: Secondary text
+    comment: Appears at the bellow title in banner
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-archives
+  - jekyll-algolia
+# Excluded items can be processed by explicitly listing the directories or
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

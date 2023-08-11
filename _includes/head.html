@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+{% capture seo %}{% seo %}<meta name="keywords" content="{{page.keywords}}">{% endcapture %}
+{{seo | remove: "Jekyll"}}
+
+<!-- Viewport-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Favicon and Touch Icons-->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/img/favicon/site.webmanifest">
+<link rel="mask-icon" color="#fe6a6a" href="/assets/img/favicon/safari-pinned-tab.svg">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+<!-- Vendor Styles including: Font Icons, Plugins, etc.-->
+<link rel="stylesheet" media="screen" href="assets/vendor/simplebar/dist/simplebar.min.css"/>
+<link rel="stylesheet" media="screen" href="assets/vendor/tiny-slider/dist/tiny-slider.css"/>
+<!-- Main Theme Styles + Bootstrap-->
+<link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
