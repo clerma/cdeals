@@ -47,9 +47,10 @@ _inputs:
     type: number
     label: Original price
     comment: Optional. Shown crossed out next to your price.
-  buy_link:
-    type: url
-    label: Stripe Payment Link
+  anycart_id:
+    type: text
+    label: AnyCart product ID
+    comment: Must match the product ID in your AnyCart dashboard (set stock to 1 there for one-off items).
   affiliate_url:
     type: url
     label: Affiliate link

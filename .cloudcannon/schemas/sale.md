@@ -6,7 +6,7 @@ category:
 condition: Excellent
 price:
 compare_at:
-buy_link:
+anycart_id:
 shipping: Free USPS shipping (US only)
 date:
 images: []

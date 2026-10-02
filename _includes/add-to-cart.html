@@ -1,0 +1,17 @@
+{% comment %}
+  AnyCart add-to-cart button for an item you sell.
+  Usage: {% include add-to-cart.html product=p class="btn btn-primary" %}
+  `anycart_id` must match the product's ID in your AnyCart dashboard. AnyCart
+  re-checks price and stock on its server at checkout, so set stock to 1 there
+  for one-off used items.
+{% endcomment %}
+{% assign p = include.product %}
+<button type="button" class="anycart-add-item {{ include.class }}"
+  data-item-id="{{ p.anycart_id }}"
+  data-item-name="{{ p.title | escape }}"
+  data-item-price="{{ p.price }}"
+  data-item-url="{{ p.url | absolute_url }}"
+  data-item-image="{{ p.images[0] | absolute_url }}"
+  data-item-max-quantity="{{ p.quantity | default: 1 }}">
+  <i class="ci-cart me-1"></i>{{ include.label | default: "Add to cart" }}
+</button>

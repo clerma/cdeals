@@ -6,7 +6,7 @@ category: Tablets
 condition: Excellent  # Like new | Excellent | Good | Fair
 price: 349
 compare_at: 599       # optional: original retail price, shown crossed out
-buy_link: https://buy.stripe.com/test_REPLACE_ME   # your Stripe Payment Link
+anycart_id: ipad-air-5-64gb   # product ID from your AnyCart dashboard
 shipping: Free USPS Priority shipping (US only)
 date: 2026-10-01
 images:

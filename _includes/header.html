@@ -4,7 +4,7 @@
       <a class="navbar-brand fw-bold fs-3 me-4 order-lg-1" href="{{ '/' | relative_url }}"><i class="ci-bag text-primary me-2"></i>{{ site.title }}</a>
       <div class="navbar-toolbar d-flex align-items-center order-lg-3">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Menu"><span class="navbar-toggler-icon"></span></button>
-        <a class="btn btn-primary btn-shadow d-none d-sm-inline-block" href="{{ '/shop/' | relative_url }}"><i class="ci-cart me-2"></i>Shop my items</a>
+        <button class="btn btn-primary btn-shadow" type="button" data-anycart-open><i class="ci-cart me-2"></i>Cart <span class="badge bg-light text-dark rounded-pill ms-1" data-anycart-count>0</span></button>
       </div>
       <div class="collapse navbar-collapse me-auto order-lg-2" id="navbarCollapse">
         <hr class="my-3 d-lg-none">

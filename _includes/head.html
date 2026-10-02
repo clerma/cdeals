@@ -9,6 +9,9 @@
 <link rel="stylesheet" media="screen" href="{{ '/assets/vendor/simplebar/dist/simplebar.min.css' | relative_url }}">
 <link rel="stylesheet" media="screen" href="{{ '/assets/vendor/tiny-slider/dist/tiny-slider.css' | relative_url }}">
 <link rel="stylesheet" media="screen" href="{{ '/assets/css/theme.min.css' | relative_url }}">
+{% if site.anycart_api_key != "" %}
+<script src="https://cdn.anycart.dev/v1/anycart.js" data-api-key="{{ site.anycart_api_key }}" data-hide-button defer></script>
+{% endif %}
 <style>
   .product-card .card-img-top img { aspect-ratio: 1 / 1; object-fit: cover; width: 100%; }
   .product-card.is-sold .card-img-top img { filter: grayscale(1); opacity: .6; }

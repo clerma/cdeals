@@ -6,7 +6,7 @@ category: Wearables
 condition: Good
 price: 129
 compare_at: 429
-buy_link: https://buy.stripe.com/test_REPLACE_ME
+anycart_id: apple-watch-s5-44mm
 shipping: Free USPS shipping (US only)
 date: 2026-09-12
 images:

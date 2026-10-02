@@ -11,6 +11,10 @@ url: "" # e.g. https://cdeals.com
 baseurl: ""
 contact_email: you@example.com # shown on item pages for questions
 
+# AnyCart (https://anycart.co) handles the cart and checkout for items you sell.
+# Paste the public key from your AnyCart dashboard (starts with ac_live_).
+anycart_api_key: ""
+
 # Shown in the footer and on every affiliate deal.
 affiliate_disclosure: >-
   Some links on this site are affiliate links. If you buy through them I may

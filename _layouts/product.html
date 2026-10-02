@@ -59,8 +59,8 @@ layout: default
         <a class="btn btn-primary btn-shadow btn-lg d-block w-100 mb-2" href="{{ p.affiliate_url }}" target="_blank" rel="sponsored nofollow noopener"><i class="ci-external-link me-2"></i>Get this deal at {{ p.store }}</a>
         <p class="fs-xs text-muted mb-4">Prices change often, so check the price on {{ p.store }} before you buy. {{ site.affiliate_disclosure }}</p>
       {% else %}
-        <a class="btn btn-primary btn-shadow btn-lg d-block w-100 mb-2" href="{{ p.buy_link }}"><i class="ci-cart me-2"></i>Buy now</a>
-        <p class="fs-sm text-muted mb-4"><i class="ci-security-check me-1"></i>Secure checkout by Stripe
+        {% include add-to-cart.html product=p class="btn btn-primary btn-shadow btn-lg d-block w-100 mb-2" %}
+        <p class="fs-sm text-muted mb-4"><i class="ci-security-check me-1"></i>Secure checkout through Stripe
           {% if p.shipping %}<br><i class="ci-delivery me-1"></i>{{ p.shipping }}{% endif %}</p>
       {% endif %}
 
