@@ -1,0 +1,20 @@
+{% comment %}
+  Usage: {% include product-grid.html items=list id="grid-id" filters=true %}
+{% endcomment %}
+{% if include.filters %}
+  {% assign cats = include.items | map: "category" | uniq | sort %}
+  {% if cats.size > 1 %}
+  <div class="d-flex flex-wrap gap-2 mb-4" data-filter-group="#{{ include.id }}">
+    <button class="btn btn-outline-accent btn-sm rounded-pill active" type="button" data-filter="*">All</button>
+    {% for c in cats %}<button class="btn btn-outline-accent btn-sm rounded-pill" type="button" data-filter="{{ c | slugify }}">{{ c }}</button>{% endfor %}
+  </div>
+  {% endif %}
+{% endif %}
+<div class="row mx-n2" id="{{ include.id }}">
+  {% assign today = site.time | date: "%Y-%m-%d" %}
+  {% for p in include.items %}
+    {% comment %} Hide affiliate deals once their `expires` date has passed (checked at build time). {% endcomment %}
+    {% if p.expires %}{% assign exp = p.expires | date: "%Y-%m-%d" %}{% if exp < today %}{% continue %}{% endif %}{% endif %}
+    {% include product-card.html product=p %}
+  {% endfor %}
+</div>

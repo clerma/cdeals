@@ -1,0 +1,81 @@
+---
+layout: default
+---
+{% assign p = page %}
+{% assign is_deal = false %}{% if p.type == "affiliate" %}{% assign is_deal = true %}{% endif %}
+{% assign is_sold = false %}{% if p.status == "sold" %}{% assign is_sold = true %}{% endif %}
+<div class="bg-secondary py-4">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb flex-lg-nowrap mb-0">
+        <li class="breadcrumb-item"><a class="text-nowrap" href="{{ '/' | relative_url }}"><i class="ci-home"></i>Home</a></li>
+        {% if is_deal %}
+          <li class="breadcrumb-item text-nowrap"><a href="{{ '/deals/' | relative_url }}">Deals</a></li>
+        {% else %}
+          <li class="breadcrumb-item text-nowrap"><a href="{{ '/shop/' | relative_url }}">For sale</a></li>
+        {% endif %}
+        <li class="breadcrumb-item text-nowrap active" aria-current="page">{{ p.title }}</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<section class="container py-5">
+  <div class="row">
+    <!-- Gallery -->
+    <div class="col-lg-6 mb-4">
+      <div class="product-gallery-main rounded-3 overflow-hidden mb-3">
+        <img data-gallery-main src="{{ p.images[0] | relative_url }}" alt="{{ p.title | escape }}">
+      </div>
+      {% if p.images.size > 1 %}
+      <div class="d-flex flex-wrap gap-2">
+        {% for img in p.images %}
+          <img class="product-thumb rounded border" data-gallery-thumb src="{{ img | relative_url }}" alt="{{ p.title | escape }} photo {{ forloop.index }}">
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Details -->
+    <div class="col-lg-6 ps-lg-5">
+      <span class="fs-sm text-muted">{{ p.category }}</span>
+      <h1 class="h2 mb-3">{{ p.title }}</h1>
+
+      <div class="mb-3">
+        <span class="h3 fw-normal text-accent me-1">${{ p.price }}</span>
+        {% if p.compare_at %}<del class="text-muted fs-lg me-3">${{ p.compare_at }}</del>{% endif %}
+        {% if is_sold %}
+          <span class="badge bg-secondary align-middle">Sold</span>
+        {% elsif is_deal %}
+          <span class="badge bg-info align-middle">Deal @ {{ p.store }}</span>
+        {% else %}
+          <span class="badge bg-success align-middle">Condition: {{ p.condition | default: "Used" }}</span>
+        {% endif %}
+      </div>
+
+      {% if is_sold %}
+        <div class="alert alert-secondary">This one's gone. Check out <a href="{{ '/shop/' | relative_url }}">what's still for sale</a>.</div>
+      {% elsif is_deal %}
+        <a class="btn btn-primary btn-shadow btn-lg d-block w-100 mb-2" href="{{ p.affiliate_url }}" target="_blank" rel="sponsored nofollow noopener"><i class="ci-external-link me-2"></i>Get this deal at {{ p.store }}</a>
+        <p class="fs-xs text-muted mb-4">Prices change often, so check the price on {{ p.store }} before you buy. {{ site.affiliate_disclosure }}</p>
+      {% else %}
+        <a class="btn btn-primary btn-shadow btn-lg d-block w-100 mb-2" href="{{ p.buy_link }}"><i class="ci-cart me-2"></i>Buy now</a>
+        <p class="fs-sm text-muted mb-4"><i class="ci-security-check me-1"></i>Secure checkout by Stripe
+          {% if p.shipping %}<br><i class="ci-delivery me-1"></i>{{ p.shipping }}{% endif %}</p>
+      {% endif %}
+
+      {% if p.highlights %}
+      <h2 class="h6">Highlights</h2>
+      <ul class="list-unstyled fs-sm mb-4">
+        {% for h in p.highlights %}<li class="d-flex mb-2"><i class="ci-check-circle text-success mt-1 me-2"></i>{{ h }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+
+      <div class="mb-4">{{ content }}</div>
+
+      {% unless is_deal %}
+      <p class="fs-sm"><i class="ci-mail me-1"></i>Questions about this item? <a href="mailto:{{ site.contact_email }}?subject={{ p.title | url_encode }}">Email me</a></p>
+      {% endunless %}
+    </div>
+  </div>
+</section>

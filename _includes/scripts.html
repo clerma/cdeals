@@ -1,7 +1,26 @@
- <!-- Vendor scrits: js libraries and plugins-->
- <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
- <script src="vendor/simplebar/dist/simplebar.min.js"></script>
- <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
- <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
- <!-- Main theme script-->
- <script src="js/theme.min.js"></script>
+<script src="{{ '/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/vendor/simplebar/dist/simplebar.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/vendor/tiny-slider/dist/min/tiny-slider.js' | relative_url }}"></script>
+<script src="{{ '/assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/theme.min.js' | relative_url }}"></script>
+<script>
+  // Category filter: buttons with data-filter toggle cards with data-category.
+  document.querySelectorAll('[data-filter-group]').forEach(function (group) {
+    var target = document.querySelector(group.dataset.filterGroup);
+    group.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-filter]');
+      if (!btn) return;
+      group.querySelectorAll('[data-filter]').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      target.querySelectorAll('[data-category]').forEach(function (card) {
+        card.hidden = btn.dataset.filter !== '*' && card.dataset.category !== btn.dataset.filter;
+      });
+    });
+  });
+  // Product gallery thumbnails swap the main image.
+  document.querySelectorAll('[data-gallery-thumb]').forEach(function (thumb) {
+    thumb.addEventListener('click', function () {
+      document.querySelector('[data-gallery-main]').src = thumb.src;
+    });
+  });
+</script>

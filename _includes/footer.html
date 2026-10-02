@@ -1,14 +1,33 @@
- <!-- Footer-->
- <footer class="border-top py-5">
-    <div class="container text-center pt-3 pt-lg-4">
-      <h3 class="fw-light">Still not convinced?</h3>
-      <h2 class="pb-4">Add premium support and lifetime updates to this.</h2><a class="btn btn-primary btn-lg" href="https://themes.getbootstrap.com/product/cartzilla-bootstrap-e-commerce-template-ui-kit/" target="_blank" rel="noopener"><i class="ci-cart me-2"></i>Buy Cartzilla</a>
-      <hr class="my-5">
-      <div class="fs-ms text-muted text-center">© All rights reserved. Made by <a class="text-muted" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a></div>
+<footer class="bg-dark pt-5">
+  <div class="container pb-4">
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <h3 class="h5 text-light">{{ site.title }}</h3>
+        <p class="fs-sm text-light opacity-60 mb-0">{{ site.tagline }}</p>
+      </div>
+      <div class="col-md-3 col-6 mb-4">
+        <h3 class="widget-title text-light">Browse</h3>
+        <ul class="widget-list">
+          <li class="widget-list-item"><a class="widget-list-link text-light opacity-60" href="{{ '/shop/' | relative_url }}">For sale</a></li>
+          <li class="widget-list-item"><a class="widget-list-link text-light opacity-60" href="{{ '/deals/' | relative_url }}">Deals</a></li>
+          <li class="widget-list-item"><a class="widget-list-link text-light opacity-60" href="{{ '/about/' | relative_url }}">About &amp; disclosure</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-6 mb-4">
+        <h3 class="widget-title text-light">Contact</h3>
+        <a class="fs-sm text-light opacity-60" href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+      </div>
     </div>
-  </footer>
-  <!-- Toolbar for handheld devices (Default)-->
-  <div class="handheld-toolbar">
-    <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item" href="account-wishlist.html"><span class="handheld-toolbar-icon"><i class="ci-heart"></i></span><span class="handheld-toolbar-label">Wishlist</span></a><a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a><a class="d-table-cell handheld-toolbar-item" href="shop-cart.html"><span class="handheld-toolbar-icon"><i class="ci-cart"></i><span class="badge bg-primary rounded-pill ms-1">4</span></span><span class="handheld-toolbar-label">$265.00</span></a></div>
+    <hr class="hr-light mb-4">
+    <p class="fs-xs text-light opacity-50 mb-2">{{ site.affiliate_disclosure }}</p>
+    <p class="fs-xs text-light opacity-50 mb-0">&copy; {{ site.time | date: "%Y" }} {{ site.author }}</p>
   </div>
-  <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">   </i></a>
+</footer>
+<div class="handheld-toolbar">
+  <div class="d-table table-layout-fixed w-100">
+    <a class="d-table-cell handheld-toolbar-item" href="{{ '/shop/' | relative_url }}"><span class="handheld-toolbar-icon"><i class="ci-bag"></i></span><span class="handheld-toolbar-label">For sale</span></a>
+    <a class="d-table-cell handheld-toolbar-item" href="{{ '/deals/' | relative_url }}"><span class="handheld-toolbar-icon"><i class="ci-discount"></i></span><span class="handheld-toolbar-label">Deals</span></a>
+    <a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a>
+  </div>
+</div>
+<a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up"></i></a>
