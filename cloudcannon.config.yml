@@ -57,6 +57,7 @@ _inputs:
   affiliate_url:
     type: url
     label: Affiliate link
+    comment: Amazon needs your Associates link. Any other store can be a plain product link if Sovrn or Skimlinks is set up in _config.yml.
   store:
     type: text
     comment: Store name shown on the button, e.g. Amazon.

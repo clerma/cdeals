@@ -39,6 +39,16 @@ The text under the front matter becomes the item description. Put photos in `ass
 
 AnyCart re-checks every price at checkout against its dashboard, so the price in the item file only controls what the page and cart show. Keep the two in sync.
 
+## Affiliate links
+
+| Store | What to paste in `affiliate_url` |
+|---|---|
+| Amazon | Your Amazon Associates link (SiteStripe or `?tag=yourtag-20`). Sovrn and Skimlinks don't pay on Amazon. |
+| Any other store (Woot, MacSales/OWC, Office Depot, Best Buy, ...) | The plain product link, once `sovrn_key` or `skimlinks_id` is set in `_config.yml`. Their script turns it into an affiliate link when clicked. |
+| A store you joined directly (Impact, CJ) | That network's tracking link. You keep the full commission. |
+
+Sovrn and Skimlinks keep about 25% of commissions, so join a store directly once it sends you a lot of sales. Set only one of the two keys.
+
 ## Settings
 
 Edit the top of `_config.yml`: `title`, `tagline`, `url`, `contact_email`, `affiliate_disclosure`.

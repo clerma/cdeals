@@ -15,6 +15,13 @@ contact_email: you@example.com # shown on item pages for questions
 # Paste the public key from your AnyCart dashboard (starts with ac_live_).
 anycart_api_key: ""
 
+# Automatic affiliate links for deals from any store except Amazon.
+# Fill in ONE of these (leave the other blank). With it set, a deal's
+# affiliate_url can be a plain store link (woot.com/..., macsales.com/...)
+# and it earns automatically. Amazon links still need your Associates tag.
+sovrn_key: ""      # Sovrn Commerce: campaign API key (Settings > "<>" icon)
+skimlinks_id: ""   # Skimlinks: publisher ID, e.g. 123456X1234567 (Settings > Install)
+
 # Shown in the footer and on every affiliate deal.
 affiliate_disclosure: >-
   Some links on this site are affiliate links. If you buy through them I may

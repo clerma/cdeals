@@ -21,6 +21,8 @@
   .page-content h3 { font-size: 1.1rem; }
 </style>
 
+{% include auto-affiliate.html %}
+
 {% if site.anycart_api_key != "" %}
 <!-- AnyCart: cart drawer + checkout. data-hide-button because the header has its own cart button. -->
 <script src="https://cdn.anycart.dev/v1/anycart.js" data-api-key="{{ site.anycart_api_key }}" data-hide-button defer></script>
