@@ -1,0 +1,12 @@
+---
+layout: default
+---
+{% comment %}
+  Simple text page. Front matter: title, heading (optional, defaults to title), width (optional, px).
+  The page's Markdown body is the content.
+{% endcomment %}
+{% include page-header.html title=page.title %}
+<section class="container pb-5 mb-2 mb-md-3 mb-lg-4" style="max-width: {{ page.width | default: 800 }}px">
+  <h1 class="h3 mb-4">{{ page.heading | default: page.title }}</h1>
+  <div class="page-content fs-base">{{ content }}</div>
+</section>

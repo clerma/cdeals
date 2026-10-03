@@ -1,8 +1,59 @@
 ---
 title: Used tech for sale + deals I've found
+description: Hand-checked used tech for sale direct from me, plus tech deals I've found around the web.
 permalink: /
+
+# Everything below is home page content. Items themselves come from _products/.
+just_listed_title: Just listed
+for_sale_title: For sale by me
+deals_title: Deals I found
+
+hero:
+  - kicker: Used, tested, and priced to sell
+    title: Gear I've upgraded from
+    image: /assets/images/theme/hero-headphones.png
+    link: /shop/
+    button: Shop my items
+  - kicker: Handpicked from around the web
+    title: Today's best tech deals
+    image: /assets/images/theme/hero-ipad.png
+    link: /deals/
+    button: See deals
+  - kicker: Every item reset and checked
+    title: Honest condition notes
+    image: /assets/images/theme/hero-vr.png
+    link: /about/
+    button: How it works
+
+features:
+  - icon: ci-delivery
+    title: Ships in 2 business days
+    text: Tracked shipping on every order
+  - icon: ci-credit-card
+    title: Secure checkout
+    text: Card payments through Stripe
+  - icon: ci-check-shield
+    title: Honest condition
+    text: Reset, checked, and photographed by me
+  - icon: ci-chat
+    title: Real person support
+    text: Email me with any question
+
+banner:
+  title: Used & tested
+  text: Sold direct, no marketplace fees
+  button: Shop all items
+  link: /shop/
+  image: /assets/images/theme/banner-laptop.png
+
+deals_banner:
+  title: Deals I found this week
+  text: Handpicked from Amazon, Best Buy, and more
+  image: /assets/images/theme/deals-camera.png
+
+brands: [apple, samsung, sony, canon, motorola]
 ---
-{% assign home = site.data.home %}
+{% assign home = page %}
 {% assign for_sale = site.products | where: "type", "sale" | where: "status", "available" | sort: "date" | reverse %}
 {% assign today = site.time | date: "%Y-%m-%d" %}
 {% assign all_deals = site.products | where: "type", "affiliate" | sort: "date" | reverse %}
@@ -86,7 +137,7 @@ permalink: /
 {% if for_sale.size > 0 %}
 <!-- Just listed (list) -->
 <section class="container pt-5 mt-1 mt-sm-2 mt-md-3 mt-lg-4">
-  <h2 class="h3 pb-2 pb-sm-3">Just listed</h2>
+  <h2 class="h3 pb-2 pb-sm-3">{{ page.just_listed_title }}</h2>
   <div class="row">
     <div class="col-lg-4" data-bs-theme="dark">
       <div class="d-flex flex-column align-items-center justify-content-end h-100 text-center overflow-hidden rounded-5 px-4 px-lg-3 pt-4 pb-5" style="background: #1d2c41 url({{ '/assets/images/theme/banner-bg.jpg' | relative_url }}) center/cover no-repeat">
@@ -117,7 +168,7 @@ permalink: /
 <!-- For sale (grid) -->
 <section class="container pt-5 mt-2 mt-sm-3 mt-lg-4">
   <div class="d-flex align-items-center justify-content-between border-bottom pb-3 pb-md-4">
-    <h2 class="h3 mb-0">For sale by me</h2>
+    <h2 class="h3 mb-0">{{ page.for_sale_title }}</h2>
     <div class="nav ms-3">
       <a class="nav-link animate-underline px-0 py-2" href="{{ '/shop/' | relative_url }}">
         <span class="animate-target">View all</span>
@@ -189,7 +240,7 @@ permalink: /
 <!-- Deals carousel -->
 <section class="container pt-5 mt-2 mt-sm-3 mt-lg-4">
   <div class="d-flex align-items-center justify-content-between border-bottom pb-3 pb-md-4">
-    <h2 class="h3 mb-0">Deals I found</h2>
+    <h2 class="h3 mb-0">{{ page.deals_title }}</h2>
     <div class="nav ms-3">
       <a class="nav-link animate-underline px-0 py-2" href="{{ '/deals/' | relative_url }}">
         <span class="animate-target text-nowrap">View all</span>

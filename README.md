@@ -49,7 +49,16 @@ The output is a static site, so it can be hosted for free on CloudCannon, Netlif
 
 ## Home page and theme
 
-- `_data/home.yml` holds the home page text: hero slides, feature row, banners, and brand logos.
+Every page's content lives in its own front matter (or Markdown body):
+
+| File | What it controls |
+|---|---|
+| `index.html` front matter | Home page: hero slides, feature row, section headings, banners, brand logos |
+| `shop.html` / `deals.html` front matter | Headings, empty-state text, disclosure toggle |
+| `about.md` body | About page text (Markdown, `layout: page`) |
+| `thanks.md`, `404.md` front matter | Message, icon, and buttons (`layout: message`) |
+| `_products/*.md` | Each item: front matter fields + description in the body |
+| `_data/navigation.yml` | Main menu links |
 - `_data/categories.yml` maps each category to an icon for the Categories menu.
 - Theme files live in `assets/css`, `assets/js`, `assets/fonts`, and `assets/images/theme`.
 - Light/dark mode is built in (the sun icon in the header).

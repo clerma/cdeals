@@ -1,0 +1,9 @@
+# Main menu (header, mobile menu). Order here = order on the site.
+- title: Home
+  url: /
+- title: For sale
+  url: /shop/
+- title: Deals
+  url: /deals/
+- title: About
+  url: /about/
