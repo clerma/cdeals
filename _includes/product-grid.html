@@ -1,0 +1,27 @@
+{% comment %}
+  Filterable grid of product cards.
+  Usage: {% include product-grid.html items=list filters=true %}
+  Expired affiliate deals (an `expires` date in the past at build time) are skipped.
+{% endcomment %}
+{% assign today = site.time | date: "%Y-%m-%d" %}
+{% if include.filters %}
+  {% assign cats = include.items | map: "category" | uniq | sort %}
+  <div class="d-flex flex-wrap align-items-center gap-2 pt-4">
+    {% if cats.size > 1 %}
+      <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill active" data-filter="*">All</button>
+      {% for c in cats %}<button type="button" class="btn btn-sm btn-outline-secondary rounded-pill" data-filter="{{ c | slugify }}">{{ c }}</button>{% endfor %}
+    {% endif %}
+    <span class="fs-sm text-body-secondary ms-auto" data-filter-query hidden>Results for "<span></span>" · <a href="?">Clear</a></span>
+  </div>
+{% endif %}
+<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4 pt-4"{% if include.filters %} data-filter-grid{% endif %}>
+  {% for p in include.items %}
+    {% if p.expires %}{% assign exp = p.expires | date: "%Y-%m-%d" %}{% if exp < today %}{% continue %}{% endif %}{% endif %}
+    <div class="col" data-category="{{ p.category | slugify }}" data-search="{{ p.title | append: ' ' | append: p.brand | append: ' ' | append: p.category | append: ' ' | append: p.store | downcase | escape }}">
+      {% include product-card.html product=p %}
+    </div>
+  {% endfor %}
+</div>
+{% if include.filters %}
+  <p class="text-body-secondary py-5 text-center" data-filter-empty hidden>Nothing matches that right now. <a href="?">Show everything</a></p>
+{% endif %}

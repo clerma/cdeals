@@ -1,14 +1,64 @@
- <!-- Footer-->
- <footer class="border-top py-5">
-    <div class="container text-center pt-3 pt-lg-4">
-      <h3 class="fw-light">Still not convinced?</h3>
-      <h2 class="pb-4">Add premium support and lifetime updates to this.</h2><a class="btn btn-primary btn-lg" href="https://themes.getbootstrap.com/product/cartzilla-bootstrap-e-commerce-template-ui-kit/" target="_blank" rel="noopener"><i class="ci-cart me-2"></i>Buy Cartzilla</a>
-      <hr class="my-5">
-      <div class="fs-ms text-muted text-center">© All rights reserved. Made by <a class="text-muted" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a></div>
+{% assign footer_cats = site.products | where: "type", "sale" | where: "status", "available" | map: "category" | uniq | sort %}
+<footer class="footer position-relative bg-dark">
+  <span class="position-absolute top-0 start-0 w-100 h-100 bg-body d-none d-block-dark"></span>
+  <div class="container position-relative z-1 pt-sm-2 pt-md-3 pt-lg-4" data-bs-theme="dark">
+    <div class="row py-5">
+      <div class="col-md-4 pb-4 mb-sm-2">
+        <h4 class="mb-3"><a class="text-dark-emphasis text-decoration-none" href="{{ '/' | relative_url }}">{{ site.title }}</a></h4>
+        <p class="text-body fs-sm mb-3">{{ site.tagline }}</p>
+        <a class="btn btn-secondary" href="mailto:{{ site.contact_email }}"><i class="ci-mail fs-base me-2"></i>Email me</a>
+      </div>
+      <div class="col-md-8">
+        <div class="row row-cols-2 row-cols-sm-3 g-4">
+          <div class="col">
+            <h6 class="mb-3">Shop</h6>
+            <ul class="nav flex-column gap-2">
+              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/shop/' | relative_url }}"><span class="animate-target">All items for sale</span></a></li>
+              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/deals/' | relative_url }}"><span class="animate-target">Deals I found</span></a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h6 class="mb-3">Categories</h6>
+            <ul class="nav flex-column gap-2">
+              {% for c in footer_cats limit: 6 %}
+              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/shop/' | relative_url }}?category={{ c | slugify }}"><span class="animate-target">{{ c }}</span></a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="col">
+            <h6 class="mb-3">Info</h6>
+            <ul class="nav flex-column gap-2">
+              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/about/' | relative_url }}"><span class="animate-target">About &amp; shipping</span></a></li>
+              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/about/' | relative_url }}#disclosure"><span class="animate-target">Affiliate disclosure</span></a></li>
+              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="mailto:{{ site.contact_email }}"><span class="animate-target">Contact</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  </footer>
-  <!-- Toolbar for handheld devices (Default)-->
-  <div class="handheld-toolbar">
-    <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item" href="account-wishlist.html"><span class="handheld-toolbar-icon"><i class="ci-heart"></i></span><span class="handheld-toolbar-label">Wishlist</span></a><a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a><a class="d-table-cell handheld-toolbar-item" href="shop-cart.html"><span class="handheld-toolbar-icon"><i class="ci-cart"></i><span class="badge bg-primary rounded-pill ms-1">4</span></span><span class="handheld-toolbar-label">$265.00</span></a></div>
+
+    <p class="text-body fs-xs mb-4">{{ site.affiliate_disclosure }}</p>
+
+    <div class="d-md-flex align-items-center border-top py-4">
+      <div class="d-flex gap-2 gap-sm-3 justify-content-center ms-md-auto mb-4 mb-md-0 order-md-2">
+        {% assign pay_icons = "visa,mastercard,apple-pay,google-pay" | split: "," %}
+        {% for pay in pay_icons %}
+        <div><img src="{{ '/assets/images/theme/pay-' | append: pay | append: '.svg' | relative_url }}" alt="{{ pay | replace: '-', ' ' | capitalize }}"></div>
+        {% endfor %}
+      </div>
+      <p class="text-body fs-xs text-center text-md-start mb-0 me-4 order-md-1">&copy; {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
+    </div>
   </div>
-  <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">   </i></a>
+</footer>
+
+<!-- Back to top -->
+<div class="floating-buttons position-fixed top-50 end-0 z-sticky me-3 me-xl-4 pb-4">
+  <a class="btn-scroll-top btn btn-sm bg-body border-0 rounded-pill shadow animate-slide-end" href="#top">
+    Top
+    <i class="ci-arrow-right fs-base ms-1 me-n1 animate-target"></i>
+    <span class="position-absolute top-0 start-0 w-100 h-100 border rounded-pill z-0"></span>
+    <svg class="position-absolute top-0 start-0 w-100 h-100 z-1" viewBox="0 0 62 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x=".75" y=".75" width="60.5" height="30.5" rx="15.25" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></rect>
+    </svg>
+  </a>
+</div>

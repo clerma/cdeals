@@ -1,0 +1,5 @@
+{%- comment -%} Formats a number as $1,234.50. Usage: {% include money.html amount=p.price %} {%- endcomment -%}
+{%- assign cents = include.amount | times: 100 | round -%}
+{%- assign dollars = cents | divided_by: 100 -%}
+{%- assign rem = cents | modulo: 100 -%}
+{%- if dollars >= 1000 -%}{%- assign thousands = dollars | divided_by: 1000 -%}{%- assign rest = dollars | modulo: 1000 | prepend: "00" | slice: -3, 3 -%}${{ thousands }},{{ rest }}{%- else -%}${{ dollars }}{%- endif -%}.{%- if rem < 10 -%}0{%- endif -%}{{ rem }}

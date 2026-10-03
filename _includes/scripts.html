@@ -1,7 +1,46 @@
- <!-- Vendor scrits: js libraries and plugins-->
- <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
- <script src="vendor/simplebar/dist/simplebar.min.js"></script>
- <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
- <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
- <!-- Main theme script-->
- <script src="js/theme.min.js"></script>
+<script src="{{ '/assets/js/swiper-bundle.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/theme.min.js' | relative_url }}"></script>
+<script>
+  // Filters on /shop/ and /deals/: category buttons, plus ?category= and ?q= from the URL.
+  (function () {
+    var grid = document.querySelector('[data-filter-grid]');
+    if (!grid) return;
+    var params = new URLSearchParams(location.search);
+    var state = { category: params.get('category') || '*', q: (params.get('q') || '').trim().toLowerCase() };
+    var empty = document.querySelector('[data-filter-empty]');
+    var qLabel = document.querySelector('[data-filter-query]');
+
+    function apply() {
+      var shown = 0;
+      grid.querySelectorAll('[data-category]').forEach(function (card) {
+        var ok = (state.category === '*' || card.dataset.category === state.category) &&
+                 (!state.q || card.dataset.search.indexOf(state.q) !== -1);
+        card.hidden = !ok;
+        if (ok) shown++;
+      });
+      document.querySelectorAll('[data-filter]').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.filter === state.category);
+      });
+      if (empty) empty.hidden = shown > 0;
+      if (qLabel) { qLabel.hidden = !state.q; qLabel.querySelector('span').textContent = state.q; }
+    }
+
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-filter]');
+      if (!btn) return;
+      state.category = btn.dataset.filter;
+      apply();
+    });
+    document.querySelectorAll('input[name="q"]').forEach(function (i) { i.value = params.get('q') || ''; });
+    apply();
+  })();
+
+  // Product gallery: thumbnails swap the main photo.
+  document.querySelectorAll('[data-gallery-thumb]').forEach(function (thumb) {
+    thumb.addEventListener('click', function () {
+      document.querySelector('[data-gallery-main]').src = thumb.dataset.galleryThumb;
+      document.querySelectorAll('[data-gallery-thumb]').forEach(function (t) { t.classList.remove('border-primary'); });
+      thumb.classList.add('border-primary');
+    });
+  });
+</script>

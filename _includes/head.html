@@ -1,19 +1,25 @@
 <meta charset="utf-8">
-{% capture seo %}{% seo %}<meta name="keywords" content="{{page.keywords}}">{% endcapture %}
-{{seo | remove: "Jekyll"}}
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{% seo %}
+{% feed_meta %}
+<link rel="icon" type="image/png" href="{{ '/assets/images/icon-32x32.png' | relative_url }}" sizes="32x32">
+<link rel="apple-touch-icon" href="{{ '/assets/images/icon-180x180.png' | relative_url }}">
 
-<!-- Viewport-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Favicon and Touch Icons-->
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
-<link rel="manifest" href="/assets/img/favicon/site.webmanifest">
-<link rel="mask-icon" color="#fe6a6a" href="/assets/img/favicon/safari-pinned-tab.svg">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="theme-color" content="#ffffff">
-<!-- Vendor Styles including: Font Icons, Plugins, etc.-->
-<link rel="stylesheet" media="screen" href="assets/vendor/simplebar/dist/simplebar.min.css"/>
-<link rel="stylesheet" media="screen" href="assets/vendor/tiny-slider/dist/tiny-slider.css"/>
-<!-- Main Theme Styles + Bootstrap-->
-<link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+<!-- Light/dark mode (runs before CSS to avoid a flash) -->
+<script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
+
+<link rel="preload" href="{{ '/assets/fonts/inter-variable-latin_8100aab2.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/cartzilla-icons_1c2f5f0e.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ '/assets/css/cartzilla-icons.min.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/swiper-bundle.min.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/theme.min.css' | relative_url }}" id="theme-styles">
+<style>
+  .product-card.is-sold img { filter: grayscale(1); opacity: .55; }
+  .product-thumb { width: 88px; cursor: pointer; }
+  [data-category][hidden] { display: none !important; }
+</style>
+
+{% if site.anycart_api_key != "" %}
+<!-- AnyCart: cart drawer + checkout. data-hide-button because the header has its own cart button. -->
+<script src="https://cdn.anycart.dev/v1/anycart.js" data-api-key="{{ site.anycart_api_key }}" data-hide-button defer></script>
+{% endif %}
