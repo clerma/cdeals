@@ -38,6 +38,9 @@ _inputs:
     type: select
     options:
       values: [Like new, Excellent, Good, Fair]
+  brand:
+    type: text
+    comment: Optional. Shown on the item page and used by search and the brand logos on the home page.
   category:
     type: text
     comment: Used for the filter buttons, e.g. Phones, Laptops, Audio.

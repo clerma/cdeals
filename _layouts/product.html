@@ -4,78 +4,75 @@ layout: default
 {% assign p = page %}
 {% assign is_deal = false %}{% if p.type == "affiliate" %}{% assign is_deal = true %}{% endif %}
 {% assign is_sold = false %}{% if p.status == "sold" %}{% assign is_sold = true %}{% endif %}
-<div class="bg-secondary py-4">
-  <div class="container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb flex-lg-nowrap mb-0">
-        <li class="breadcrumb-item"><a class="text-nowrap" href="{{ '/' | relative_url }}"><i class="ci-home"></i>Home</a></li>
-        {% if is_deal %}
-          <li class="breadcrumb-item text-nowrap"><a href="{{ '/deals/' | relative_url }}">Deals</a></li>
-        {% else %}
-          <li class="breadcrumb-item text-nowrap"><a href="{{ '/shop/' | relative_url }}">For sale</a></li>
-        {% endif %}
-        <li class="breadcrumb-item text-nowrap active" aria-current="page">{{ p.title }}</li>
-      </ol>
-    </nav>
-  </div>
-</div>
+{% if is_deal %}
+  {% include page-header.html title=p.title parent="Deals" parent_url="/deals/" %}
+{% else %}
+  {% include page-header.html title=p.title parent="For sale" parent_url="/shop/" %}
+{% endif %}
 
-<section class="container py-5">
+<section class="container pb-5 mb-1 mb-sm-2 mb-md-3 mb-lg-4 mb-xl-5">
   <div class="row">
+
     <!-- Gallery -->
-    <div class="col-lg-6 mb-4">
-      <div class="product-gallery-main rounded-3 overflow-hidden mb-3">
-        <img data-gallery-main src="{{ p.images[0] | relative_url }}" alt="{{ p.title | escape }}">
+    <div class="col-md-6 pb-4 pb-md-0 mb-2 mb-sm-3 mb-md-0">
+      <div class="position-relative bg-body-tertiary rounded-5 overflow-hidden p-4 p-lg-5{% if is_sold %} is-sold product-card{% endif %}">
+        {% include product-badge.html product=p class="position-absolute top-0 start-0 z-2 mt-3 ms-3" %}
+        <div class="ratio ratio-1x1">
+          <img data-gallery-main src="{{ p.images[0] | relative_url }}" alt="{{ p.title | escape }}" style="object-fit: contain">
+        </div>
       </div>
       {% if p.images.size > 1 %}
-      <div class="d-flex flex-wrap gap-2">
+      <div class="d-flex flex-wrap gap-2 pt-3">
         {% for img in p.images %}
-          <img class="product-thumb rounded border" data-gallery-thumb src="{{ img | relative_url }}" alt="{{ p.title | escape }} photo {{ forloop.index }}">
+        <button type="button" class="product-thumb btn p-2 bg-body-tertiary border{% if forloop.first %} border-primary{% endif %} rounded-3" data-gallery-thumb="{{ img | relative_url }}" aria-label="Show photo {{ forloop.index }}">
+          <span class="ratio ratio-1x1"><img src="{{ img | relative_url }}" alt="" style="object-fit: contain"></span>
+        </button>
         {% endfor %}
       </div>
       {% endif %}
     </div>
 
     <!-- Details -->
-    <div class="col-lg-6 ps-lg-5">
-      <span class="fs-sm text-muted">{{ p.category }}</span>
-      <h1 class="h2 mb-3">{{ p.title }}</h1>
+    <div class="col-md-6 col-xl-5 offset-xl-1">
+      <div class="ps-md-4 ps-xl-0">
+        <div class="fs-sm text-body-secondary mb-2">{% if p.brand %}{{ p.brand }} · {% endif %}{{ p.category }}</div>
+        <h1 class="h3 mb-3">{{ p.title }}</h1>
 
-      <div class="mb-3">
-        <span class="h3 fw-normal text-accent me-1">${{ p.price }}</span>
-        {% if p.compare_at %}<del class="text-muted fs-lg me-3">${{ p.compare_at }}</del>{% endif %}
+        <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+          <div class="h3 mb-0">{% include money.html amount=p.price %}</div>
+          {% if p.compare_at %}<del class="fs-lg text-body-tertiary">{% include money.html amount=p.compare_at %}</del>{% endif %}
+          {% unless is_deal %}<span class="badge text-bg-success">Condition: {{ p.condition | default: "Used" }}</span>{% endunless %}
+        </div>
+
         {% if is_sold %}
-          <span class="badge bg-secondary align-middle">Sold</span>
+          <div class="alert alert-secondary d-flex mb-4" role="alert">
+            <i class="ci-check-circle fs-lg pe-1 mt-1 me-2"></i>
+            <div>This one's sold. See <a href="{{ '/shop/' | relative_url }}">what's still for sale</a>.</div>
+          </div>
         {% elsif is_deal %}
-          <span class="badge bg-info align-middle">Deal @ {{ p.store }}</span>
+          <a class="btn btn-lg btn-primary w-100 animate-slide-end mb-3" href="{{ p.affiliate_url }}" target="_blank" rel="sponsored nofollow noopener">
+            Get this deal at {{ p.store }}
+            <i class="ci-external-link fs-lg ms-2 me-n1 animate-target"></i>
+          </a>
+          <p class="fs-xs text-body-secondary mb-4">Prices change often, so check the price at {{ p.store }} before you buy. {{ site.affiliate_disclosure }}</p>
         {% else %}
-          <span class="badge bg-success align-middle">Condition: {{ p.condition | default: "Used" }}</span>
+          {% include add-to-cart.html product=p class="btn btn-lg btn-primary w-100 mb-3" %}
+          <ul class="list-unstyled gap-3 pb-3 mb-4 d-flex flex-column fs-sm">
+            <li class="d-flex align-items-center"><i class="ci-delivery fs-xl text-dark-emphasis me-2"></i>{{ p.shipping | default: "Ships in 2 business days with tracking" }}</li>
+            <li class="d-flex align-items-center"><i class="ci-credit-card fs-xl text-dark-emphasis me-2"></i>Secure checkout through Stripe</li>
+            <li class="d-flex align-items-center"><i class="ci-mail fs-xl text-dark-emphasis me-2"></i><span>Questions? <a href="mailto:{{ site.contact_email }}?subject={{ p.title | url_encode }}">Email me about this item</a></span></li>
+          </ul>
         {% endif %}
+
+        {% if p.highlights %}
+        <h2 class="h6 mb-3">Highlights</h2>
+        <ul class="list-unstyled d-flex flex-column gap-2 fs-sm mb-4">
+          {% for h in p.highlights %}<li class="d-flex align-items-start"><i class="ci-check-circle text-success fs-base mt-1 me-2"></i>{{ h }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+
+        <div class="fs-sm">{{ content }}</div>
       </div>
-
-      {% if is_sold %}
-        <div class="alert alert-secondary">This one's gone. Check out <a href="{{ '/shop/' | relative_url }}">what's still for sale</a>.</div>
-      {% elsif is_deal %}
-        <a class="btn btn-primary btn-shadow btn-lg d-block w-100 mb-2" href="{{ p.affiliate_url }}" target="_blank" rel="sponsored nofollow noopener"><i class="ci-external-link me-2"></i>Get this deal at {{ p.store }}</a>
-        <p class="fs-xs text-muted mb-4">Prices change often, so check the price on {{ p.store }} before you buy. {{ site.affiliate_disclosure }}</p>
-      {% else %}
-        {% include add-to-cart.html product=p class="btn btn-primary btn-shadow btn-lg d-block w-100 mb-2" %}
-        <p class="fs-sm text-muted mb-4"><i class="ci-security-check me-1"></i>Secure checkout through Stripe
-          {% if p.shipping %}<br><i class="ci-delivery me-1"></i>{{ p.shipping }}{% endif %}</p>
-      {% endif %}
-
-      {% if p.highlights %}
-      <h2 class="h6">Highlights</h2>
-      <ul class="list-unstyled fs-sm mb-4">
-        {% for h in p.highlights %}<li class="d-flex mb-2"><i class="ci-check-circle text-success mt-1 me-2"></i>{{ h }}</li>{% endfor %}
-      </ul>
-      {% endif %}
-
-      <div class="mb-4">{{ content }}</div>
-
-      {% unless is_deal %}
-      <p class="fs-sm"><i class="ci-mail me-1"></i>Questions about this item? <a href="mailto:{{ site.contact_email }}?subject={{ p.title | url_encode }}">Email me</a></p>
-      {% endunless %}
     </div>
   </div>
 </section>

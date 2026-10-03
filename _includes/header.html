@@ -1,21 +1,170 @@
-<header class="bg-light shadow-sm navbar-sticky">
-  <div class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand fw-bold fs-3 me-4 order-lg-1" href="{{ '/' | relative_url }}"><i class="ci-bag text-primary me-2"></i>{{ site.title }}</a>
-      <div class="navbar-toolbar d-flex align-items-center order-lg-3">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Menu"><span class="navbar-toggler-icon"></span></button>
-        <button class="btn btn-primary btn-shadow" type="button" data-anycart-open><i class="ci-cart me-2"></i>Cart <span class="badge bg-light text-dark rounded-pill ms-1" data-anycart-count>0</span></button>
+{% assign sale_items = site.products | where: "type", "sale" | where: "status", "available" %}
+{% assign categories = sale_items | map: "category" | uniq | sort %}
+<header class="navbar navbar-expand-lg navbar-dark bg-dark d-block z-fixed p-0" data-sticky-navbar='{"offset": 500}'>
+  <div class="container d-block py-1 py-lg-3" data-bs-theme="dark">
+    <div class="navbar-stuck-hide pt-1"></div>
+    <div class="row flex-nowrap align-items-center g-0">
+      <div class="col col-lg-3 d-flex align-items-center">
+
+        <!-- Mobile menu toggler -->
+        <button type="button" class="navbar-toggler me-4 me-lg-0" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Logo -->
+        <a href="{{ '/' | relative_url }}" class="navbar-brand me-0">
+          <span class="d-none d-sm-flex flex-shrink-0 align-items-center justify-content-center bg-primary text-white rounded-circle me-2" style="width: 36px; height: 36px">
+            <i class="ci-shopping-bag fs-lg"></i>
+          </span>
+          {{ site.title }}
+        </a>
       </div>
-      <div class="collapse navbar-collapse me-auto order-lg-2" id="navbarCollapse">
-        <hr class="my-3 d-lg-none">
-        <ul class="navbar-nav">
-          {% assign nav = "/|Home,/shop/|For sale,/deals/|Deals,/about/|About" | split: "," %}
-          {% for item in nav %}
-            {% assign parts = item | split: "|" %}
-            <li class="nav-item{% if page.url == parts[0] %} active{% endif %}"><a class="nav-link" href="{{ parts[0] | relative_url }}">{{ parts[1] }}</a></li>
-          {% endfor %}
-        </ul>
+      <div class="col col-lg-9 d-flex align-items-center justify-content-end">
+
+        <!-- Search (desktop) -->
+        <form class="position-relative flex-fill d-none d-lg-block pe-4 pe-xl-5" action="{{ '/shop/' | relative_url }}" method="get" role="search">
+          <i class="ci-search position-absolute top-50 translate-middle-y d-flex fs-lg text-white ms-3"></i>
+          <input type="search" name="q" class="form-control form-control-lg form-icon-start border-white rounded-pill" placeholder="Search my items" aria-label="Search my items">
+        </form>
+
+        <!-- Deals link (xl+) -->
+        <a class="d-none d-xl-flex align-items-center text-decoration-none animate-shake navbar-stuck-hide me-3 me-xl-4 me-xxl-5" href="{{ '/deals/' | relative_url }}">
+          <div class="btn btn-icon btn-lg fs-lg text-primary bg-body-secondary bg-opacity-75 pe-none rounded-circle">
+            <i class="ci-percent animate-target"></i>
+          </div>
+          <div class="ps-2 text-nowrap">
+            <div class="fs-xs text-body">Handpicked</div>
+            <div class="fw-medium text-white">Deals I found</div>
+          </div>
+        </a>
+
+        <div class="d-flex align-items-center">
+
+          <!-- Toggles the nav row when the navbar is stuck -->
+          <button type="button" class="navbar-toggler d-none navbar-stuck-show me-3" data-bs-toggle="collapse" data-bs-target="#stuckNav" aria-controls="stuckNav" aria-expanded="false" aria-label="Toggle navigation in navbar stuck state">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Light / dark / auto -->
+          <div class="dropdown">
+            <button type="button" class="theme-switcher btn btn-icon btn-lg btn-outline-secondary fs-lg border-0 rounded-circle animate-scale" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme (light)">
+              <span class="theme-icon-active d-flex animate-target"><i class="ci-sun"></i></span>
+            </button>
+            <ul class="dropdown-menu" style="--cz-dropdown-min-width: 9rem">
+              {% assign modes = "light|ci-sun|Light,dark|ci-moon|Dark,auto|ci-auto|Auto" | split: "," %}
+              {% for m in modes %}{% assign mp = m | split: "|" %}
+              <li>
+                <button type="button" class="dropdown-item{% if forloop.first %} active{% endif %}" data-bs-theme-value="{{ mp[0] }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}">
+                  <span class="theme-icon d-flex fs-base me-2"><i class="{{ mp[1] }}"></i></span>
+                  <span class="theme-label">{{ mp[2] }}</span>
+                  <i class="item-active-indicator ci-check ms-auto"></i>
+                </button>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- Search toggle (mobile) -->
+          <button type="button" class="btn btn-icon btn-lg fs-xl btn-outline-secondary border-0 rounded-circle animate-shake d-lg-none" data-bs-toggle="collapse" data-bs-target="#searchBar" aria-expanded="false" aria-controls="searchBar" aria-label="Toggle search bar">
+            <i class="ci-search animate-target"></i>
+          </button>
+
+          <!-- Cart: opens the AnyCart drawer; the badge shows AnyCart's live item count -->
+          <button type="button" class="btn btn-icon btn-lg btn-secondary position-relative rounded-circle ms-2" data-anycart-open aria-label="Shopping cart">
+            <span class="position-absolute top-0 start-100 mt-n1 ms-n3 badge text-bg-success border border-3 border-dark rounded-pill" style="--cz-badge-padding-y: .25em; --cz-badge-padding-x: .42em" data-anycart-count>0</span>
+            <span class="position-absolute top-0 start-0 d-flex align-items-center justify-content-center w-100 h-100 rounded-circle animate-slide-end fs-lg">
+              <i class="ci-shopping-cart animate-target ms-n1"></i>
+            </span>
+          </button>
+        </div>
       </div>
     </div>
+    <div class="navbar-stuck-hide pb-1"></div>
+  </div>
+
+  <!-- Search (mobile) -->
+  <div class="collapse position-absolute top-100 z-2 w-100 bg-dark d-lg-none" id="searchBar">
+    <form class="container position-relative my-3" data-bs-theme="dark" action="{{ '/shop/' | relative_url }}" method="get" role="search">
+      <i class="ci-search position-absolute top-50 translate-middle-y d-flex fs-lg text-white ms-3"></i>
+      <input type="search" name="q" class="form-control form-icon-start border-white rounded-pill" placeholder="Search my items" aria-label="Search my items" data-autofocus="collapse">
+    </form>
+  </div>
+
+  <!-- Main navigation (offcanvas below lg) -->
+  <div class="collapse navbar-stuck-hide" id="stuckNav">
+    <nav class="offcanvas offcanvas-start" id="navbarNav" tabindex="-1" aria-labelledby="navbarNavLabel">
+      <div class="offcanvas-header py-3">
+        <h5 class="offcanvas-title" id="navbarNavLabel">Browse {{ site.title }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body py-3 py-lg-0">
+        <div class="container px-0 px-lg-3">
+          <div class="row">
+
+            <!-- Categories menu (shown open on the home page) -->
+            <div class="col-lg-3">
+              <div class="navbar-nav">
+                <div class="dropdown w-100">
+                  <div class="cursor-pointer d-none d-lg-block" data-bs-toggle="dropdown" data-bs-trigger="hover" data-bs-theme="dark">
+                    <a class="position-absolute top-0 start-0 w-100 h-100" href="{{ '/shop/' | relative_url }}"><span class="visually-hidden">Categories</span></a>
+                    <button type="button" class="btn btn-lg btn-secondary dropdown-toggle w-100 rounded-bottom-0 justify-content-start pe-none">
+                      <i class="ci-grid fs-lg"></i>
+                      <span class="ms-2 me-auto">Categories</span>
+                    </button>
+                  </div>
+                  <button type="button" class="btn btn-lg btn-secondary dropdown-toggle w-100 justify-content-start d-lg-none mb-2" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                    <i class="ci-grid fs-lg"></i>
+                    <span class="ms-2 me-auto">Categories</span>
+                  </button>
+                  <ul class="dropdown-menu{% if page.url == '/' %} dropdown-menu-static{% endif %} w-100 rounded-top-0 rounded-bottom-4 py-1 p-lg-1" style="--cz-dropdown-spacer: 0; --cz-dropdown-item-padding-y: .625rem; --cz-dropdown-item-spacer: 0">
+                    <li class="pt-2 px-lg-2">
+                      <a class="dropdown-item fw-medium" href="{{ '/shop/' | relative_url }}">
+                        <i class="ci-grid fs-xl opacity-60 pe-1 me-2"></i>
+                        <span class="text-truncate">All items for sale</span>
+                        <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
+                      </a>
+                    </li>
+                    {% for c in categories %}
+                    <li class="px-lg-2">
+                      <a class="dropdown-item fw-medium" href="{{ '/shop/' | relative_url }}?category={{ c | slugify }}">
+                        <i class="{{ site.data.categories[c] | default: 'ci-box' }} fs-xl opacity-60 pe-1 me-2"></i>
+                        <span class="text-truncate">{{ c }}</span>
+                        <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
+                      </a>
+                    </li>
+                    {% endfor %}
+                    <li class="pb-2 px-lg-2">
+                      <a class="dropdown-item fw-medium" href="{{ '/deals/' | relative_url }}">
+                        <i class="ci-percent fs-xl opacity-60 pe-1 me-2"></i>
+                        <span class="text-truncate">Deals I found</span>
+                        <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Page links -->
+            <div class="col-lg-9 d-lg-flex pt-3 pt-lg-0 ps-lg-0">
+              <ul class="navbar-nav position-relative">
+                {% assign nav = "/|Home,/shop/|For sale,/deals/|Deals,/about/|About" | split: "," %}
+                {% for item in nav %}{% assign parts = item | split: "|" %}
+                <li class="nav-item me-lg-n2 me-xl-0">
+                  <a class="nav-link{% if page.url == parts[0] %} active{% endif %}"{% if page.url == parts[0] %} aria-current="page"{% endif %} href="{{ parts[0] | relative_url }}">{{ parts[1] }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+              <hr class="d-lg-none my-3">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="mailto:{{ site.contact_email }}"><i class="ci-mail fs-base opacity-60 me-2"></i>{{ site.contact_email }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
   </div>
 </header>

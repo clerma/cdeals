@@ -1,26 +1,46 @@
-<script src="{{ '/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' | relative_url }}"></script>
-<script src="{{ '/assets/vendor/simplebar/dist/simplebar.min.js' | relative_url }}"></script>
-<script src="{{ '/assets/vendor/tiny-slider/dist/min/tiny-slider.js' | relative_url }}"></script>
-<script src="{{ '/assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/swiper-bundle.min.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/theme.min.js' | relative_url }}"></script>
 <script>
-  // Category filter: buttons with data-filter toggle cards with data-category.
-  document.querySelectorAll('[data-filter-group]').forEach(function (group) {
-    var target = document.querySelector(group.dataset.filterGroup);
-    group.addEventListener('click', function (e) {
+  // Filters on /shop/ and /deals/: category buttons, plus ?category= and ?q= from the URL.
+  (function () {
+    var grid = document.querySelector('[data-filter-grid]');
+    if (!grid) return;
+    var params = new URLSearchParams(location.search);
+    var state = { category: params.get('category') || '*', q: (params.get('q') || '').trim().toLowerCase() };
+    var empty = document.querySelector('[data-filter-empty]');
+    var qLabel = document.querySelector('[data-filter-query]');
+
+    function apply() {
+      var shown = 0;
+      grid.querySelectorAll('[data-category]').forEach(function (card) {
+        var ok = (state.category === '*' || card.dataset.category === state.category) &&
+                 (!state.q || card.dataset.search.indexOf(state.q) !== -1);
+        card.hidden = !ok;
+        if (ok) shown++;
+      });
+      document.querySelectorAll('[data-filter]').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.filter === state.category);
+      });
+      if (empty) empty.hidden = shown > 0;
+      if (qLabel) { qLabel.hidden = !state.q; qLabel.querySelector('span').textContent = state.q; }
+    }
+
+    document.addEventListener('click', function (e) {
       var btn = e.target.closest('[data-filter]');
       if (!btn) return;
-      group.querySelectorAll('[data-filter]').forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      target.querySelectorAll('[data-category]').forEach(function (card) {
-        card.hidden = btn.dataset.filter !== '*' && card.dataset.category !== btn.dataset.filter;
-      });
+      state.category = btn.dataset.filter;
+      apply();
     });
-  });
-  // Product gallery thumbnails swap the main image.
+    document.querySelectorAll('input[name="q"]').forEach(function (i) { i.value = params.get('q') || ''; });
+    apply();
+  })();
+
+  // Product gallery: thumbnails swap the main photo.
   document.querySelectorAll('[data-gallery-thumb]').forEach(function (thumb) {
     thumb.addEventListener('click', function () {
-      document.querySelector('[data-gallery-main]').src = thumb.src;
+      document.querySelector('[data-gallery-main]').src = thumb.dataset.galleryThumb;
+      document.querySelectorAll('[data-gallery-thumb]').forEach(function (t) { t.classList.remove('border-primary'); });
+      thumb.classList.add('border-primary');
     });
   });
 </script>

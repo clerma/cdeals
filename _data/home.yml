@@ -1,0 +1,46 @@
+# Content for the home page. Products themselves come from _products/.
+
+hero:
+  - kicker: Used, tested, and priced to sell
+    title: Gear I've upgraded from
+    image: /assets/images/theme/hero-headphones.png
+    link: /shop/
+    button: Shop my items
+  - kicker: Handpicked from around the web
+    title: Today's best tech deals
+    image: /assets/images/theme/hero-ipad.png
+    link: /deals/
+    button: See deals
+  - kicker: Every item reset and checked
+    title: Honest condition notes
+    image: /assets/images/theme/hero-vr.png
+    link: /about/
+    button: How it works
+
+features:
+  - icon: ci-delivery
+    title: Ships in 2 business days
+    text: Tracked shipping on every order
+  - icon: ci-credit-card
+    title: Secure checkout
+    text: Card payments through Stripe
+  - icon: ci-check-shield
+    title: Honest condition
+    text: Reset, checked, and photographed by me
+  - icon: ci-chat
+    title: Real person support
+    text: Email me with any question
+
+banner:
+  title: Used & tested
+  text: Sold direct, no marketplace fees
+  button: Shop all items
+  link: /shop/
+  image: /assets/images/theme/banner-laptop.png
+
+deals_banner:
+  title: Deals I found this week
+  text: Handpicked from Amazon, Best Buy, and more
+  image: /assets/images/theme/deals-camera.png
+
+brands: [apple, samsung, sony, canon, motorola]

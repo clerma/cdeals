@@ -2,6 +2,7 @@
 title:
 type: affiliate
 category:
+brand:
 price:
 compare_at:
 store: Amazon

@@ -2,46 +2,234 @@
 title: Used tech for sale + deals I've found
 permalink: /
 ---
+{% assign home = site.data.home %}
 {% assign for_sale = site.products | where: "type", "sale" | where: "status", "available" | sort: "date" | reverse %}
-{% assign deals = site.products | where: "type", "affiliate" | sort: "date" | reverse %}
+{% assign today = site.time | date: "%Y-%m-%d" %}
+{% assign all_deals = site.products | where: "type", "affiliate" | sort: "date" | reverse %}
+{% comment %} Live deals only, and the biggest discount for the banner. {% endcomment %}
+{% assign deal_count = 0 %}{% assign best_off = 0 %}
+{% for d in all_deals %}
+  {% if d.expires %}{% assign exp = d.expires | date: "%Y-%m-%d" %}{% if exp < today %}{% continue %}{% endif %}{% endif %}
+  {% assign deal_count = deal_count | plus: 1 %}
+  {% if d.compare_at %}{% assign off = d.price | times: 100.0 | divided_by: d.compare_at | minus: 100 | round | abs %}{% if off > best_off %}{% assign best_off = off %}{% endif %}{% endif %}
+{% endfor %}
 
-<section class="bg-accent py-5">
-  <div class="container py-4 text-center">
-    <h1 class="text-light mb-3">{{ site.tagline }}</h1>
-    <p class="text-light opacity-75 fs-lg mb-4">Gear I've used and tested, sold directly by me. Plus the best tech deals I spot around the web.</p>
-    <a class="btn btn-primary btn-lg me-2 mb-2" href="{{ '/shop/' | relative_url }}"><i class="ci-bag me-2"></i>Shop my items</a>
-    <a class="btn btn-outline-light btn-lg mb-2" href="{{ '/deals/' | relative_url }}"><i class="ci-discount me-2"></i>See today's deals</a>
+<!-- Hero slider -->
+<section class="container pt-4">
+  <div class="row">
+    <div class="col-lg-9 offset-lg-3">
+      <div class="position-relative">
+        <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none-dark rtl-flip" style="background: linear-gradient(90deg, #accbee 0%, #e7f0fd 100%)"></span>
+        <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none d-block-dark rtl-flip" style="background: linear-gradient(90deg, #1b273a 0%, #1f2632 100%)"></span>
+        <div class="row justify-content-center position-relative z-2">
+          <div class="col-xl-5 col-xxl-4 offset-xxl-1 d-flex align-items-center mt-xl-n3">
+            <div class="swiper px-5 pe-xl-0 ps-xxl-0 me-xl-n5" data-swiper='{"spaceBetween": 64, "loop": true, "speed": 400, "controlSlider": "#sliderImages", "autoplay": {"delay": 5500, "disableOnInteraction": false}, "scrollbar": {"el": ".swiper-scrollbar"}}'>
+              <div class="swiper-wrapper">
+                {% for s in home.hero %}
+                <div class="swiper-slide text-center text-xl-start pt-5 py-xl-5">
+                  <p class="text-body">{{ s.kicker }}</p>
+                  <h2 class="display-4 pb-2 pb-xl-4">{{ s.title }}</h2>
+                  <a class="btn btn-lg btn-primary" href="{{ s.link | relative_url }}">
+                    {{ s.button }}
+                    <i class="ci-arrow-up-right fs-lg ms-2 me-n1"></i>
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="col-9 col-sm-7 col-md-6 col-lg-5 col-xl-7">
+            <div class="swiper user-select-none" id="sliderImages" data-swiper='{"allowTouchMove": false, "loop": true, "effect": "fade", "fadeEffect": {"crossFade": true}}'>
+              <div class="swiper-wrapper">
+                {% for s in home.hero %}
+                <div class="swiper-slide d-flex justify-content-end">
+                  <div class="ratio rtl-flip" style="max-width: 495px; --cz-aspect-ratio: calc(537 / 495 * 100%)">
+                    <img src="{{ s.image | relative_url }}" alt="{{ s.title | escape }}">
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center" data-bs-theme="dark">
+          <div class="col-xxl-10">
+            <div class="position-relative mx-5 mx-xxl-0">
+              <div class="swiper-scrollbar mb-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="container pt-5">
-  <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-3 border-bottom">
+<!-- Features -->
+<section class="container pt-5 mt-1 mt-sm-3 mt-lg-4">
+  <div class="row row-cols-2 row-cols-md-4 g-4">
+    {% for f in home.features %}
+    <div class="col">
+      <div class="d-flex flex-column flex-xxl-row align-items-center">
+        <div class="d-flex text-dark-emphasis bg-body-tertiary rounded-circle p-4 mb-3 mb-xxl-0">
+          <i class="{{ f.icon }} fs-2 m-xxl-1"></i>
+        </div>
+        <div class="text-center text-xxl-start ps-xxl-3">
+          <h3 class="h6 mb-1">{{ f.title }}</h3>
+          <p class="fs-sm mb-0">{{ f.text }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% if for_sale.size > 0 %}
+<!-- Just listed (list) -->
+<section class="container pt-5 mt-1 mt-sm-2 mt-md-3 mt-lg-4">
+  <h2 class="h3 pb-2 pb-sm-3">Just listed</h2>
+  <div class="row">
+    <div class="col-lg-4" data-bs-theme="dark">
+      <div class="d-flex flex-column align-items-center justify-content-end h-100 text-center overflow-hidden rounded-5 px-4 px-lg-3 pt-4 pb-5" style="background: #1d2c41 url({{ '/assets/images/theme/banner-bg.jpg' | relative_url }}) center/cover no-repeat">
+        <div class="ratio animate-up-down position-relative z-2 me-lg-4" style="max-width: 300px; margin-bottom: -4%; --cz-aspect-ratio: calc(690 / 640 * 100%)">
+          <img src="{{ home.banner.image | relative_url }}" alt="">
+        </div>
+        <h3 class="display-5 mb-2">{{ home.banner.title }}</h3>
+        <p class="text-body fw-medium mb-4">{{ home.banner.text }}</p>
+        <a class="btn btn-sm btn-primary" href="{{ home.banner.link | relative_url }}">
+          {{ home.banner.button }}
+          <i class="ci-arrow-up-right fs-base ms-1 me-n1"></i>
+        </a>
+      </div>
+    </div>
+    {% assign col1 = for_sale | slice: 0, 4 %}
+    {% assign col2 = for_sale | slice: 4, 4 %}
+    <div class="col-sm-6 col-lg-4 d-flex flex-column gap-3 pt-4 py-lg-4">
+      {% for p in col1 %}{% include product-list-item.html product=p %}{% endfor %}
+    </div>
+    {% if col2.size > 0 %}
+    <div class="col-sm-6 col-lg-4 d-flex flex-column gap-3 pt-4 py-lg-4">
+      {% for p in col2 %}{% include product-list-item.html product=p %}{% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- For sale (grid) -->
+<section class="container pt-5 mt-2 mt-sm-3 mt-lg-4">
+  <div class="d-flex align-items-center justify-content-between border-bottom pb-3 pb-md-4">
     <h2 class="h3 mb-0">For sale by me</h2>
-    <a class="btn btn-outline-accent btn-sm" href="{{ '/shop/' | relative_url }}">View all<i class="ci-arrow-right ms-1"></i></a>
+    <div class="nav ms-3">
+      <a class="nav-link animate-underline px-0 py-2" href="{{ '/shop/' | relative_url }}">
+        <span class="animate-target">View all</span>
+        <i class="ci-chevron-right fs-base ms-1"></i>
+      </a>
+    </div>
   </div>
-  {% if for_sale.size > 0 %}
-    {% assign shown = for_sale | slice: 0, 8 %}
-    {% include product-grid.html items=shown id="home-sale" %}
-  {% else %}
-    <p class="text-muted">Nothing for sale right now. Check back soon.</p>
-  {% endif %}
+  {% assign shown = for_sale | slice: 0, 8 %}
+  {% include product-grid.html items=shown %}
+</section>
+{% endif %}
+
+{% if deal_count > 0 %}
+<!-- Deals banner -->
+<section class="container pt-5 mt-sm-2 mt-md-3 mt-lg-4">
+  <div class="row g-0">
+    <div class="col-md-3 mb-n4 mb-md-0">
+      <div class="position-relative d-flex flex-column align-items-center justify-content-center h-100 py-5">
+        <div class="position-absolute top-0 start-0 w-100 h-100 d-none d-md-block">
+          <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none-dark" style="background-color: #accbee"></span>
+          <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none d-block-dark" style="background-color: #1b273a"></span>
+        </div>
+        <div class="position-absolute top-0 start-0 w-100 h-100 d-md-none">
+          <span class="position-absolute top-0 start-0 w-100 h-100 rounded-top-5 d-none-dark" style="background: linear-gradient(90deg, #accbee 0%, #e7f0fd 100%)"></span>
+          <span class="position-absolute top-0 start-0 w-100 h-100 rounded-top-5 d-none d-block-dark" style="background: linear-gradient(90deg, #1b273a 0%, #1f2632 100%)"></span>
+        </div>
+        {% if best_off > 0 %}
+        <div class="position-relative z-1 text-dark-emphasis fs-sm fw-medium text-uppercase mb-n2">Up to</div>
+        <div class="position-relative z-1 display-1 text-dark-emphasis text-nowrap mb-0">
+          {{ best_off }}
+          <span class="d-inline-block ms-n2">
+            <span class="d-block fs-1">%</span>
+            <span class="d-block fs-5">OFF</span>
+          </span>
+        </div>
+        {% else %}
+        <div class="position-relative z-1 display-1 text-dark-emphasis mb-0"><i class="ci-percent"></i></div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-md-9 position-relative">
+      <div class="position-absolute top-0 start-0 h-100 overflow-hidden rounded-pill z-2 d-none d-md-block" style="color: var(--cz-body-bg); margin-left: -2px">
+        <svg width="4" height="436" viewBox="0 0 4 436" xmlns="http://www.w3.org/2000/svg"><path d="M2 0L1.99998 436" stroke="currentColor" stroke-width="3" stroke-dasharray="8 12" stroke-linecap="round"></path></svg>
+      </div>
+      <div class="position-relative">
+        <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none-dark rtl-flip" style="background: linear-gradient(90deg, #accbee 0%, #e7f0fd 100%)"></span>
+        <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none d-block-dark rtl-flip" style="background: linear-gradient(90deg, #1b273a 0%, #1f2632 100%)"></span>
+        <div class="row align-items-center position-relative z-2">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <div class="text-center text-md-start py-md-5 px-4 ps-md-5 pe-md-0 me-md-n5">
+              <h3 class="text-uppercase fw-bold ps-xxl-3 pb-2 mb-1">{{ home.deals_banner.title }}</h3>
+              <p class="text-body-emphasis ps-xxl-3 mb-3">{{ home.deals_banner.text }}</p>
+              <a class="btn btn-dark ms-xxl-3" href="{{ '/deals/' | relative_url }}">See all {{ deal_count }} deals <i class="ci-arrow-up-right fs-base ms-1 me-n1"></i></a>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex justify-content-center justify-content-md-end pb-5 pb-md-0">
+            <div class="me-xxl-4">
+              <img src="{{ home.deals_banner.image | relative_url }}" class="d-block rtl-flip" width="420" alt="">
+              <div class="d-none d-lg-block" style="margin-bottom: -9%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-none d-lg-block" style="padding-bottom: 3%"></div>
 </section>
 
-<section class="container pt-4 pb-5">
-  <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 mb-3 border-bottom">
+<!-- Deals carousel -->
+<section class="container pt-5 mt-2 mt-sm-3 mt-lg-4">
+  <div class="d-flex align-items-center justify-content-between border-bottom pb-3 pb-md-4">
     <h2 class="h3 mb-0">Deals I found</h2>
-    <a class="btn btn-outline-accent btn-sm" href="{{ '/deals/' | relative_url }}">View all<i class="ci-arrow-right ms-1"></i></a>
+    <div class="nav ms-3">
+      <a class="nav-link animate-underline px-0 py-2" href="{{ '/deals/' | relative_url }}">
+        <span class="animate-target text-nowrap">View all</span>
+        <i class="ci-chevron-right fs-base ms-1"></i>
+      </a>
+    </div>
   </div>
-  {% assign shown = deals | slice: 0, 8 %}
-  {% include product-grid.html items=shown id="home-deals" %}
+  <div class="position-relative mx-md-1">
+    <button type="button" class="offers-prev btn btn-icon btn-outline-secondary bg-body rounded-circle animate-slide-start position-absolute top-50 start-0 z-2 translate-middle-y ms-n1 d-none d-sm-inline-flex" aria-label="Previous deals">
+      <i class="ci-chevron-left fs-lg animate-target"></i>
+    </button>
+    <button type="button" class="offers-next btn btn-icon btn-outline-secondary bg-body rounded-circle animate-slide-end position-absolute top-50 end-0 z-2 translate-middle-y me-n1 d-none d-sm-inline-flex" aria-label="Next deals">
+      <i class="ci-chevron-right fs-lg animate-target"></i>
+    </button>
+    <div class="swiper py-4 px-sm-3" data-swiper='{"slidesPerView": 2, "spaceBetween": 24, "navigation": {"prevEl": ".offers-prev", "nextEl": ".offers-next"}, "breakpoints": {"768": {"slidesPerView": 3}, "992": {"slidesPerView": 4}}}'>
+      <div class="swiper-wrapper">
+        {% for p in all_deals limit: 12 %}
+          {% if p.expires %}{% assign exp = p.expires | date: "%Y-%m-%d" %}{% if exp < today %}{% continue %}{% endif %}{% endif %}
+          <div class="swiper-slide">{% include product-card.html product=p eager=true %}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <p class="fs-xs text-body-secondary mb-0">{{ site.affiliate_disclosure }}</p>
 </section>
+{% endif %}
 
-<section class="bg-secondary py-5">
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-md-4 mb-4 mb-md-0"><i class="ci-security-check h2 text-primary"></i><h3 class="h6 mt-2">Secure checkout</h3><p class="fs-sm text-muted mb-0">Checkout runs through Stripe. I never see your card details.</p></div>
-      <div class="col-md-4 mb-4 mb-md-0"><i class="ci-check-circle h2 text-primary"></i><h3 class="h6 mt-2">Honest condition notes</h3><p class="fs-sm text-muted mb-0">Every item is reset, checked, and photographed by me.</p></div>
-      <div class="col-md-4"><i class="ci-delivery h2 text-primary"></i><h3 class="h6 mt-2">Fast shipping</h3><p class="fs-sm text-muted mb-0">Items ship within 2 business days with tracking.</p></div>
+<!-- Brands -->
+<section class="container pt-4 pt-md-5 pb-5 mt-sm-2 mb-2 mb-sm-3 mb-md-4 mb-lg-5">
+  <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 g-md-4 g-lg-3 g-xl-4">
+    {% for b in home.brands %}
+    <div class="col">
+      <a class="btn btn-outline-secondary w-100 rounded-4 p-3" href="{{ '/shop/' | relative_url }}?q={{ b }}" aria-label="Shop {{ b | capitalize }}">
+        <img src="{{ '/assets/images/theme/brand-' | append: b | append: '-light.svg' | relative_url }}" class="d-none-dark" alt="{{ b | capitalize }}">
+        <img src="{{ '/assets/images/theme/brand-' | append: b | append: '-dark.svg' | relative_url }}" class="d-none d-block-dark" alt="{{ b | capitalize }}">
+      </a>
+    </div>
+    {% endfor %}
+    <div class="col">
+      <a class="btn btn-outline-secondary w-100 h-100 rounded-4 p-3" href="{{ '/shop/' | relative_url }}">All items <i class="ci-chevron-right fs-base ms-1"></i></a>
     </div>
   </div>
 </section>

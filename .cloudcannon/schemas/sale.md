@@ -3,6 +3,7 @@ title:
 type: sale
 status: available
 category:
+brand:
 condition: Excellent
 price:
 compare_at:

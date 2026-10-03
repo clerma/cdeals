@@ -1,0 +1,15 @@
+{% assign p = include.product %}
+<div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
+  <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
+    <img src="{{ p.images[0] | relative_url }}" alt="{{ p.title | escape }}" loading="lazy" style="object-fit: contain">
+  </div>
+  <div class="w-100 min-w-0 ps-2 ps-sm-3">
+    <div class="fs-xs text-body-tertiary mb-2">{{ p.condition | default: p.store }} · {{ p.category }}</div>
+    <h4 class="mb-2">
+      <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="{{ p.url | relative_url }}">
+        <span class="animate-target">{{ p.title }}</span>
+      </a>
+    </h4>
+    <div class="h5 mb-0">{% include money.html amount=p.price %}{% if p.compare_at %} <del class="text-body-tertiary fs-sm fw-normal">{% include money.html amount=p.compare_at %}</del>{% endif %}</div>
+  </div>
+</div>

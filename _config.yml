@@ -46,13 +46,9 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# _pages holds the original Cartzilla demo pages. Underscore folders are not
-# built, so they stay here only as copy-paste reference for new sections.
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
   - vendor/bundle
   - cloudcannon.config.yml
-  - assets/components
-  - assets/docs

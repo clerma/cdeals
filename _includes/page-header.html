@@ -1,0 +1,7 @@
+<nav class="container pt-3 my-3 my-md-4" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ '/' | relative_url }}">Home</a></li>
+    {% if include.parent_url %}<li class="breadcrumb-item"><a href="{{ include.parent_url | relative_url }}">{{ include.parent }}</a></li>{% endif %}
+    <li class="breadcrumb-item active" aria-current="page">{{ include.title }}</li>
+  </ol>
+</nav>

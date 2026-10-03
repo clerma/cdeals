@@ -1,6 +1,6 @@
 # cDeals
 
-A Jekyll site (Cartzilla theme) that does two jobs:
+A Jekyll site built on the Cartzilla 3 electronics store design that does two jobs:
 
 1. **Sells my used tech.** Items have an **Add to cart** button powered by [AnyCart](https://anycart.co). AnyCart adds a cart drawer, checks prices and stock on its server, and sends buyers to Stripe or Square checkout. There's no server or database to run ($5/month + 1.5% per sale).
 2. **Shares deals.** Affiliate items link out to Amazon, Best Buy, and other stores with `rel="sponsored"` and an FTC disclosure.
@@ -19,6 +19,7 @@ Create one file per item in `_products/` (or use the CloudCannon "Products" form
 | Field | Item I'm selling (`type: sale`) | Affiliate deal (`type: affiliate`) |
 |---|---|---|
 | `title`, `category`, `price`, `images`, `highlights` | ✓ | ✓ |
+| `brand` (search + brand logos on the home page) | optional | optional |
 | `compare_at` (original price, shown crossed out) | optional | optional |
 | `status` (`available` / `sold`) | ✓ | – |
 | `condition`, `shipping` | ✓ | – |
@@ -46,6 +47,9 @@ Edit the top of `_config.yml`: `title`, `tagline`, `url`, `contact_email`, `affi
 
 The output is a static site, so it can be hosted for free on CloudCannon, Netlify, Cloudflare Pages, or GitHub Pages (via a GitHub Action, because this site uses Jekyll 4). Expired deals are hidden at build time, so schedule a daily rebuild if you use `expires`.
 
-## Theme reference
+## Home page and theme
 
-`_pages/` holds the original Cartzilla demo pages. It isn't built and is only there to copy sections from.
+- `_data/home.yml` holds the home page text: hero slides, feature row, banners, and brand logos.
+- `_data/categories.yml` maps each category to an icon for the Categories menu.
+- Theme files live in `assets/css`, `assets/js`, `assets/fonts`, and `assets/images/theme`.
+- Light/dark mode is built in (the sun icon in the header).

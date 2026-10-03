@@ -1,0 +1,17 @@
+# Icon shown next to each category in the Categories menu. Any category used in
+# _products that isn't listed here still works and gets the "box" icon.
+# Icon names: https://cartzilla.createx.studio/docs/icons.html (prefix "ci-")
+Phones: ci-smartphone
+Tablets: ci-tablet
+Laptops: ci-computer
+Computers: ci-computer
+Monitors: ci-monitor
+Audio: ci-headphones
+Headphones: ci-headphones
+Speakers: ci-speaker
+Smart Home: ci-speaker
+Wearables: ci-watch
+Cameras: ci-camera
+Gaming: ci-game
+Power Banks: ci-powerbank
+Storage: ci-hard-drive

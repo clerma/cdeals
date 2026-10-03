@@ -2,23 +2,23 @@
 title: About & disclosure
 permalink: /about/
 ---
-<div class="bg-secondary py-4"><div class="container"><h1 class="h3 mb-0">{{ page.title }}</h1></div></div>
-<section class="container py-5" style="max-width: 760px;">
-  <h2 class="h4">Who's behind this</h2>
-  <p>I'm {{ site.author }}. I buy a lot of tech, and when I upgrade I sell the old gear here instead of
-  dealing with marketplace fees and lowball offers. I also post the best deals I come across.</p>
+{% include page-header.html title=page.title %}
+<section class="container pb-5 mb-2 mb-md-3 mb-lg-4" style="max-width: 800px">
+  <h1 class="h3 mb-4">About {{ site.title }}</h1>
+  <p>I'm {{ site.author }}. I buy a lot of tech, and when I upgrade I sell the old gear here instead of dealing with
+  marketplace fees and lowball offers. I also post the best deals I come across.</p>
 
-  <h2 class="h4 mt-5">Buying from me</h2>
-  <ul>
-    <li>Payment is handled by Stripe. Your card details never touch this site.</li>
+  <h2 class="h5 pt-4">Buying from me</h2>
+  <ul class="d-flex flex-column gap-2">
+    <li>Checkout is handled by AnyCart and Stripe. Your card details never touch this site.</li>
     <li>Items ship within 2 business days. You'll get tracking by email.</li>
     <li>If something arrives not as described, email me within 7 days and I'll make it right.</li>
   </ul>
 
-  <h2 class="h4 mt-5">Affiliate disclosure</h2>
-  <p>{{ site.affiliate_disclosure }} Items on the <a href="{{ '/deals/' | relative_url }}">Deals</a> page are sold
-  by other stores, not by me. As an Amazon Associate I earn from qualifying purchases.</p>
+  <h2 class="h5 pt-4" id="disclosure">Affiliate disclosure</h2>
+  <p>{{ site.affiliate_disclosure }} Items on the <a href="{{ '/deals/' | relative_url }}">Deals</a> page are sold by
+  other stores, not by me. As an Amazon Associate I earn from qualifying purchases.</p>
 
-  <h2 class="h4 mt-5">Contact</h2>
+  <h2 class="h5 pt-4">Contact</h2>
   <p><a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>
 </section>

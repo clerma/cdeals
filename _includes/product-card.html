@@ -1,39 +1,48 @@
 {% comment %}
+  Cartzilla 3 product card. Works for both item types:
+  type "sale" (sold by me through AnyCart) and type "affiliate" (deal at another store).
   Usage: {% include product-card.html product=p %}
-  Works for both item types: type "sale" (sold by me via Stripe) and
-  type "affiliate" (a deal at another store).
 {% endcomment %}
 {% assign p = include.product %}
-{% assign is_deal = false %}{% if p.type == "affiliate" %}{% assign is_deal = true %}{% endif %}
-{% assign is_sold = false %}{% if p.status == "sold" %}{% assign is_sold = true %}{% endif %}
-<div class="col-lg-3 col-md-4 col-6 px-2 mb-4" data-category="{{ p.category | slugify }}">
-  <div class="card product-card{% if is_sold %} is-sold{% endif %}">
-    {% if is_sold %}
-      <span class="badge bg-secondary badge-shadow">Sold</span>
-    {% elsif is_deal %}
-      <span class="badge bg-info badge-shadow">Deal @ {{ p.store }}</span>
-    {% else %}
-      <span class="badge bg-success badge-shadow">{{ p.condition | default: "Used" }}</span>
-    {% endif %}
-    <a class="card-img-top d-block overflow-hidden" href="{{ p.url | relative_url }}">
-      <img src="{{ p.images[0] | relative_url }}" alt="{{ p.title | escape }}" loading="lazy">
-    </a>
-    <div class="card-body py-2">
-      <span class="product-meta d-block fs-xs pb-1">{{ p.category }}</span>
-      <h3 class="product-title fs-sm"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
-      <div class="product-price">
-        <span class="text-accent">${{ p.price }}</span>
-        {% if p.compare_at %}<del class="fs-sm text-muted ms-1">${{ p.compare_at }}</del>{% endif %}
+<div class="product-card animate-underline hover-effect-opacity bg-body rounded{% if p.status == 'sold' %} is-sold{% endif %}">
+  <div class="position-relative">
+    <a class="d-block rounded-top overflow-hidden p-3 p-sm-4" href="{{ p.url | relative_url }}">
+      {% include product-badge.html product=p class="position-absolute top-0 start-0 mt-2 ms-2 mt-lg-3 ms-lg-3" %}
+      <div class="ratio" style="--cz-aspect-ratio: calc(240 / 258 * 100%)">
+        <img src="{{ p.images[0] | relative_url }}" alt="{{ p.title | escape }}"{% unless include.eager %} loading="lazy"{% endunless %} style="object-fit: contain">
       </div>
+    </a>
+  </div>
+  <div class="w-100 min-w-0 px-1 pb-2 px-sm-3 pb-sm-3">
+    <div class="fs-xs text-body-tertiary mb-2">
+      {% if p.type == "affiliate" %}{{ p.store }}{% else %}{{ p.condition | default: "Used" }}{% endif %} · {{ p.category }}
     </div>
-    <div class="card-body pt-0">
-      {% if is_sold %}
-        <span class="btn btn-secondary btn-sm d-block w-100 disabled">Sold</span>
-      {% elsif is_deal %}
-        <a class="btn btn-outline-primary btn-sm d-block w-100" href="{{ p.affiliate_url }}" target="_blank" rel="sponsored nofollow noopener"><i class="ci-external-link fs-sm me-1"></i>Get deal</a>
+    <h3 class="pb-1 mb-2">
+      <a class="d-block fs-sm fw-medium text-truncate" href="{{ p.url | relative_url }}">
+        <span class="animate-target">{{ p.title }}</span>
+      </a>
+    </h3>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="h5 lh-1 mb-0">{% include money.html amount=p.price %}{% if p.compare_at %} <del class="text-body-tertiary fs-sm fw-normal">{% include money.html amount=p.compare_at %}</del>{% endif %}</div>
+      {% if p.status == "sold" %}
+        <span class="fs-xs fw-medium text-body-secondary ms-2">Sold</span>
+      {% elsif p.type == "affiliate" %}
+        <a class="product-card-button btn btn-icon btn-secondary animate-slide-end ms-2" href="{{ p.affiliate_url }}" target="_blank" rel="sponsored nofollow noopener" aria-label="Get this deal at {{ p.store }}">
+          <i class="ci-external-link fs-base animate-target"></i>
+        </a>
       {% else %}
-        {% include add-to-cart.html product=p class="btn btn-primary btn-sm d-block w-100" %}
+        {% include add-to-cart.html product=p icon_only=true %}
       {% endif %}
     </div>
   </div>
+  {% if p.highlights %}
+  <div class="product-card-details position-absolute top-100 start-0 w-100 bg-body rounded-bottom shadow mt-n2 p-3 pt-1">
+    <span class="position-absolute top-0 start-0 w-100 bg-body mt-n2 py-2"></span>
+    <ul class="list-unstyled d-flex flex-column gap-2 m-0">
+      {% for h in p.highlights limit: 3 %}
+      <li class="d-flex align-items-start fs-xs"><i class="ci-check text-success me-2 mt-1"></i><span class="text-dark-emphasis">{{ h }}</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
 </div>
