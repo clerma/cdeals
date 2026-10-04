@@ -62,7 +62,6 @@ defaults:
       layout: product
 
 plugins:
-  - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
 

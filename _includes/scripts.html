@@ -1,4 +1,4 @@
-<script src="{{ '/assets/js/swiper-bundle.min.js' | relative_url }}"></script>
+{% if page.swiper %}<script src="{{ '/assets/js/swiper-bundle.min.js' | relative_url }}"></script>{% endif %}
 <script src="{{ '/assets/js/theme.min.js' | relative_url }}"></script>
 <script>
   // Filters on /shop/ and /deals/: category buttons, plus ?category= and ?q= from the URL.

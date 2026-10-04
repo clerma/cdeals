@@ -79,7 +79,8 @@ Every page's content lives in its own front matter (or Markdown body):
 | `_products/*.md` | Each item: front matter fields + description in the body |
 | `_data/navigation.yml` | Main menu links |
 - `_data/categories.yml` maps each category to an icon for the Categories menu.
-- Theme files live in `assets/css`, `assets/js`, `assets/fonts`, and `assets/images/theme`.
+- Theme files live in `assets/css`, `assets/js`, `assets/fonts`, and `assets/images/theme`. The carousel script (Swiper) only loads on pages with `swiper: true` in their front matter, which right now is just the home page.
+- The `_products/` samples and `assets/uploads/sample-*.png` are placeholders. Delete them once you've added real items.
 - Light/dark mode is built in (the sun icon in the header).
 
 ## Deal finder (review first)
