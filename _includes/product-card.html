@@ -23,7 +23,7 @@
       </a>
     </h3>
     <div class="d-flex align-items-center justify-content-between">
-      <div class="h5 lh-1 mb-0">{% include money.html amount=p.price %}{% if p.compare_at %} <del class="text-body-tertiary fs-sm fw-normal">{% include money.html amount=p.compare_at %}</del>{% endif %}</div>
+      {% include price.html product=p size="card" %}
       {% if p.status == "sold" %}
         <span class="fs-xs fw-medium text-body-secondary ms-2">Sold</span>
       {% elsif p.type == "affiliate" %}

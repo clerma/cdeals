@@ -39,8 +39,7 @@ layout: default
         <h1 class="h3 mb-3">{{ p.title }}</h1>
 
         <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
-          <div class="h3 mb-0">{% include money.html amount=p.price %}</div>
-          {% if p.compare_at %}<del class="fs-lg text-body-tertiary">{% include money.html amount=p.compare_at %}</del>{% endif %}
+          {% include price.html product=p size="page" %}
           {% unless is_deal %}<span class="badge text-bg-success">Condition: {{ p.condition | default: "Used" }}</span>{% endunless %}
         </div>
 

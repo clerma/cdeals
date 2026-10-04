@@ -109,6 +109,32 @@ def feed_items(xml, source, text_of, abs_img)
   end
 end
 
+# Deal write-ups from the source's own pages (e.g. TechBargains, whose RSS only
+# has a title). Returns { url_key => "first paragraph of the write-up" }, used to
+# find the real list/regular price ("This is normally $249", "$99.99 list price").
+# Pages are listed under price_pages: in deal_sources.yml and respect robots.txt.
+def source_price_texts(http, source, max_redirects)
+  texts = {}
+  Array(source["price_pages"]).each do |url|
+    _final, res = http.follow(url, max: max_redirects)
+    next unless res&.ok?
+    Nokogiri::HTML(res.body).css("deal-offer-modal").each do |el|
+      offer = JSON.parse(el[":offer"]) rescue next
+      html = offer["description_tracked"].to_s
+      frag = Nokogiri::HTML.fragment(html)
+      first = (frag.at_css("p") || frag).text.to_s.split(/\n/).first.to_s.strip
+      next if first.empty?
+      links = [offer["outbound_url"], *frag.css("a[href]").map { |a| a["href"] }].compact
+      links.each do |l|
+        dest = DealTools.embedded_destination(l) || l
+        key = DealTools.url_key(dest)
+        texts[key] ||= first if key && !DealTools.tracker?(dest)
+      end
+    end
+  end
+  texts
+end
+
 # ------------------------------------------------------- store pages ---
 def jsonld_products(doc)
   nodes = []
@@ -361,6 +387,16 @@ sources.each do |source|
       end
     end
   items = items.first((source["max_items"] || 30).to_i)
+  if source["price_pages"]
+    price_texts = source_price_texts(http, source, max_redirects)
+    matched = 0
+    items.each do |it|
+      t = price_texts[DealTools.url_key(it[:link])] or next
+      it[:text] = "#{it[:text]} #{t}".strip
+      matched += 1
+    end
+    puts "   price write-ups: #{price_texts.size} from #{Array(source['price_pages']).size} pages, matched #{matched} items"
+  end
   stats[:items_fetched] += items.size
   puts "   #{items.size} items"
   site_source = source.merge("resolve" => source["kind"] == "site" ? "direct" : source["resolve"])

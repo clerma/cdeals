@@ -4,6 +4,7 @@ type: affiliate
 category: Headphones
 brand: Bose
 price: 149
+compare_at: 189
 store: Amazon
 affiliate_url: https://www.amazon.com/dp/B0H34L9X68?tag=cdeals014-20
 expires: 2026-10-11

@@ -4,6 +4,7 @@ type: affiliate
 category: Laptops
 brand: HP
 price: 1199
+compare_at: 1899
 store: Walmart
 affiliate_url: https://www.walmart.com/ip/HyperX-OMEN-15-inch-Gaming-Laptop-PC-15-gb0070wm/20106954575
 expires: 2026-10-11

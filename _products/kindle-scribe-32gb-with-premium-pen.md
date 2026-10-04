@@ -4,6 +4,7 @@ type: affiliate
 category: Tablets
 brand: Amazon
 price: 379.99
+compare_at: 499.99
 store: Amazon
 affiliate_url: https://www.amazon.com/dp/B0DVQQGMCZ?tag=cdeals014-20
 expires: 2026-10-11

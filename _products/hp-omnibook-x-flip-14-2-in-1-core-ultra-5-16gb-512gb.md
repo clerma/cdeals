@@ -4,6 +4,7 @@ type: affiliate
 category: Laptops
 brand: HP
 price: 699.99
+compare_at: 1199.99
 store: Best Buy
 affiliate_url: https://www.bestbuy.com/product/hp-omnibook-x-flip-2-in-1-14-2k-touchscreen-laptop-intel-core-ultra-5-322-2026-16gb-memory-512gb-ssd-atmospheric-blue/JJGWKY4494/sku/6667987
 expires: 2026-10-11

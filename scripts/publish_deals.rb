@@ -88,7 +88,9 @@ queue.each do |e|
       "category" => e["category"],
       "brand" => e["brand"],
       "price" => num.call(e["price"]),
-      "compare_at" => num.call(e["compare_at"]),
+      # Original/list price, only when the source gave a real one higher than the price
+      # (shown struck through with a -NN% badge; left out otherwise).
+      "compare_at" => (c = num.call(e["compare_at"])) && num.call(e["price"]) && c > num.call(e["price"]) ? c : nil,
       "store" => e["store"],
       "affiliate_url" => affiliate,
       "expires" => e["expires"],

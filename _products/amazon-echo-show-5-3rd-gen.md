@@ -4,6 +4,7 @@ type: affiliate
 category: Smart Home
 brand: Amazon
 price: 49.99
+compare_at: 99.99
 store: Amazon
 affiliate_url: https://www.amazon.com/dp/B09B2SBHQK?tag=cdeals014-20
 expires: 2026-10-11

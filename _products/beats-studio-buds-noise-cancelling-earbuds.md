@@ -4,6 +4,7 @@ type: affiliate
 category: Headphones
 brand: Beats
 price: 89.95
+compare_at: 169.95
 store: Amazon
 affiliate_url: https://www.amazon.com/dp/B0C2W1KLSS?tag=cdeals014-20
 expires: 2026-10-11

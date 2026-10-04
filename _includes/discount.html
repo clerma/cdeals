@@ -1,0 +1,14 @@
+{%- comment -%}
+  Prints the whole-number discount (e.g. 28) when the item has both prices and
+  compare_at (original/list price) is higher than price. Prints nothing otherwise.
+  Usage: {% capture off %}{% include discount.html product=p %}{% endcapture %}
+{%- endcomment -%}
+{%- assign _p = include.product -%}
+{%- if _p.compare_at and _p.price -%}
+  {%- assign _was = _p.compare_at | times: 1.0 -%}
+  {%- assign _now = _p.price | times: 1.0 -%}
+  {%- if _was > _now -%}
+    {%- assign _off = _now | divided_by: _was | times: 100 | minus: 100 | abs | round -%}
+    {%- if _off >= 1 -%}{{ _off }}{%- endif -%}
+  {%- endif -%}
+{%- endif -%}
