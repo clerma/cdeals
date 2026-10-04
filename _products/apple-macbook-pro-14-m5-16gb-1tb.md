@@ -5,7 +5,7 @@ category: Laptops
 brand: Apple
 price: 1839
 store: Amazon
-affiliate_url: https://www.amazon.com/dp/B0FWD623D1
+affiliate_url: https://www.amazon.com/dp/B0FWD623D1?tag=cdeals014-20
 expires: 2026-10-11
 date: 2026-10-04
 images:

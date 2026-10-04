@@ -5,7 +5,7 @@ category: Headphones
 brand: Apple
 price: 509.99
 store: Amazon
-affiliate_url: https://www.amazon.com/dp/B0GSS72GZJ
+affiliate_url: https://www.amazon.com/dp/B0GSS72GZJ?tag=cdeals014-20
 expires: 2026-10-11
 date: 2026-10-04
 images:

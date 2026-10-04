@@ -5,7 +5,7 @@ category: Tablets
 brand: Amazon
 price: 103.99
 store: Amazon
-affiliate_url: https://www.amazon.com/dp/B0CNV9F72P
+affiliate_url: https://www.amazon.com/dp/B0CNV9F72P?tag=cdeals014-20
 expires: 2026-10-11
 date: 2026-10-04
 images:

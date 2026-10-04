@@ -30,7 +30,7 @@ skimlinks_id: ""   # Skimlinks: publisher ID, e.g. 123456X1234567 (Settings > In
 
 # Amazon Associates tracking ID, e.g. yourtag-20. The deal finder turns every
 # Amazon link into https://www.amazon.com/dp/ASIN?tag=<this>.
-amazon_tag: ""
+amazon_tag: "cdeals014-20"
 # TODO (optional): Geniuslink group ID. Not used yet; Amazon links stay
 # plain amazon.com/dp links with your tag.
 geniuslink_group: ""
