@@ -77,7 +77,7 @@ brands: [apple, samsung, sony, canon, motorola]
           <div class="col-xl-5 col-xxl-4 offset-xxl-1 d-flex align-items-center mt-xl-n3">
             <div class="swiper px-5 pe-xl-0 ps-xxl-0 me-xl-n5" data-swiper='{"spaceBetween": 64, "loop": true, "speed": 400, "controlSlider": "#sliderImages", "autoplay": {"delay": 5500, "disableOnInteraction": false}, "scrollbar": {"el": ".swiper-scrollbar"}}'>
               <div class="swiper-wrapper">
-                {% for s in home.hero %}
+                {% for s in home.hero %}{% if for_sale.size == 0 and s.link == '/shop/' %}{% continue %}{% endif %}
                 <div class="swiper-slide text-center text-xl-start pt-5 py-xl-5">
                   <p class="text-body">{{ s.kicker }}</p>
                   <h2 class="display-4 pb-2 pb-xl-4">{{ s.title }}</h2>
@@ -93,7 +93,7 @@ brands: [apple, samsung, sony, canon, motorola]
           <div class="col-9 col-sm-7 col-md-6 col-lg-5 col-xl-7">
             <div class="swiper user-select-none" id="sliderImages" data-swiper='{"allowTouchMove": false, "loop": true, "effect": "fade", "fadeEffect": {"crossFade": true}}'>
               <div class="swiper-wrapper">
-                {% for s in home.hero %}
+                {% for s in home.hero %}{% if for_sale.size == 0 and s.link == '/shop/' %}{% continue %}{% endif %}
                 <div class="swiper-slide d-flex justify-content-end">
                   <div class="ratio rtl-flip" style="max-width: 495px; --cz-aspect-ratio: calc(537 / 495 * 100%)">
                     <img src="{{ s.image | relative_url }}" alt="{{ s.title | escape }}">
@@ -269,19 +269,20 @@ brands: [apple, samsung, sony, canon, motorola]
 </section>
 {% endif %}
 
-<!-- Brands -->
+<!-- Brands (search the shop, or the deals while nothing is for sale) -->
+{% if for_sale.size > 0 %}{% assign brand_url = '/shop/' %}{% assign brand_all = 'All items' %}{% else %}{% assign brand_url = '/deals/' %}{% assign brand_all = 'All deals' %}{% endif %}
 <section class="container pt-4 pt-md-5 pb-5 mt-sm-2 mb-2 mb-sm-3 mb-md-4 mb-lg-5">
   <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 g-md-4 g-lg-3 g-xl-4">
     {% for b in home.brands %}
     <div class="col">
-      <a class="btn btn-outline-secondary w-100 rounded-4 p-3" href="{{ '/shop/' | relative_url }}?q={{ b }}" aria-label="Shop {{ b | capitalize }}">
+      <a class="btn btn-outline-secondary w-100 rounded-4 p-3" href="{{ brand_url | relative_url }}?q={{ b }}" aria-label="{{ b | capitalize }}">
         <img src="{{ '/assets/images/theme/brand-' | append: b | append: '-light.svg' | relative_url }}" class="d-none-dark" alt="{{ b | capitalize }}">
         <img src="{{ '/assets/images/theme/brand-' | append: b | append: '-dark.svg' | relative_url }}" class="d-none d-block-dark" alt="{{ b | capitalize }}">
       </a>
     </div>
     {% endfor %}
     <div class="col">
-      <a class="btn btn-outline-secondary w-100 h-100 rounded-4 p-3" href="{{ '/shop/' | relative_url }}">All items <i class="ci-chevron-right fs-base ms-1"></i></a>
+      <a class="btn btn-outline-secondary w-100 h-100 rounded-4 p-3" href="{{ brand_url | relative_url }}">{{ brand_all }} <i class="ci-chevron-right fs-base ms-1"></i></a>
     </div>
   </div>
 </section>

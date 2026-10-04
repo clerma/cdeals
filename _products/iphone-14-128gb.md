@@ -1,6 +1,7 @@
 ---
 title: iPhone 14 128GB, Unlocked — Blue
 type: sale
+published: false   # sample item, hidden until real gear is listed (delete this line to show it)
 status: available
 category: Phones
 brand: Apple

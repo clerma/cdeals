@@ -5,4 +5,108 @@
 # You can edit title, price, compare_at, category, brand, highlights,
 # affiliate_url, etc. before approving. Entries with a blank affiliate_url
 # (store link not found) need the store link pasted in first.
-[]
+- id: d-5f52c80
+  status: new
+  title: 'KOTIN M70B Gaming PC: Ryzen 5 9600X, RX 9060 XT, 16GB DDR5, 1TB SSD'
+  store: ''
+  price: 1100.0
+  category: Computers
+  brand: KOTIN
+  affiliate_url: ''
+  image: https://static.slickdealscdn.com/attachment/4/6/0/2/4/2/2/300x300/21796200.thumb
+  highlights: []
+  summary: The store has it for $1100. Prices change fast, so check the price before
+    you buy.
+  expires: 2026-10-11
+  found: &1 2026-10-04
+  source: slickdeals
+  source_link: https://slickdeals.net/f/20093892-kotin-m70b-gaming-pc-ryzen-5-9600x-radeon-rx-9060-xt-16gb-16gb-ddr5-1tb-ssd-1100?utm_source=rss&utm_content=fp&utm_medium=RSS2
+  source_title: 'KOTIN M70B Gaming PC: Ryzen 5 9600X, RX 9060 XT, 16GB DDR5, 1TB SSD
+    $1100 + Free S&H'
+  notes: Store link not found (no outbound link in feed item). Paste the store link
+    into affiliate_url before approving.
+- id: d-6c5203f
+  status: new
+  title: 15.6" AOC 16T20 FHD 60Hz IPS Portable Monitor
+  store: Amazon
+  price: 47.5
+  category: Monitors
+  brand: Prime
+  affiliate_url: ''
+  image: https://static.slickdealscdn.com/attachment/3/0/3/6/3/4/6/300x300/21802599.thumb
+  highlights:
+  - Prime members only
+  summary: Amazon has it for $47.50. Prices change fast, so check the price before
+    you buy.
+  expires: 2026-10-11
+  found: *1
+  source: slickdeals
+  source_link: https://slickdeals.net/f/20082051-prime-members-15-6-aoc-16t20-fhd-60hz-ips-portable-monitor-47-50-free-s-h?utm_source=rss&utm_content=fp&utm_medium=RSS2
+  source_title: 'Prime Members: 15.6" AOC 16T20 FHD 60Hz IPS Portable Monitor $47.50
+    + Free S&H'
+  notes: Store link not found (robots.txt disallows slickdeals.net/click). Paste the
+    store link into affiliate_url before approving.
+- id: d-a0c2176
+  status: new
+  title: Klipsch ProMedia Lumina 2.1 PC Speaker System w/ RGB Lighting Effects
+  store: Amazon
+  price: 250.0
+  category: Speakers
+  brand: Klipsch
+  affiliate_url: ''
+  image: https://static.slickdealscdn.com/attachment/1/1/7/1/5/2/7/300x300/21799023.thumb
+  highlights: []
+  summary: Amazon has it for $250. Prices change fast, so check the price before you
+    buy.
+  expires: 2026-10-11
+  found: *1
+  source: slickdeals
+  source_link: https://slickdeals.net/f/20095572-249-99-klipsch-promedia-lumina-2-1-computer-gaming-system-with-subwoofer-and-rgb-lighting-effects-built-in-at-amazon?utm_source=rss&utm_content=fp&utm_medium=RSS2
+  source_title: Klipsch ProMedia Lumina 2.1 PC Speaker System w/ RGB Lighting Effects
+    $250 + Free S&H
+  notes: Store link not found (robots.txt disallows slickdeals.net/click). Paste the
+    store link into affiliate_url before approving.
+- id: d-306987a
+  status: new
+  title: Bose SoundLink Max SE Portable Bluetooth Speaker
+  store: Best Buy
+  price: 229.0
+  compare_at: 349.0
+  discount_pct: 34
+  category: Speakers
+  brand: Bose
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1789443090-draftworks_img_pq6281p24v9f9llpkah.jpeg?h=600&w=600
+  highlights:
+  - "$120 under its usual price"
+  - Free shipping
+  summary: Best Buy has it for $229, down from $349. Prices change fast, so check
+    the price before you buy.
+  expires: 2026-10-11
+  found: *1
+  source: dealnews
+  source_link: https://www.dealnews.com/products/Bose/Bose-Sound-Link-Max-SE-Portable-Bluetooth-Speaker/535138.html?iref=rss
+  source_title: Bose SoundLink Max SE Portable Bluetooth Speaker for $229 + free shipping
+  notes: Store link not found (redirected to a bot dead-end (www.dealnews.com)). Paste
+    the store link into affiliate_url before approving.
+- id: d-4bb50ec
+  status: new
+  title: Open-Box DJI Osmo 360 8K Camera w/ Standard Combo
+  store: AliExpress
+  price: 284.01
+  category: Cameras
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1790965864-s883d4be6f64344c6b11e992513e4295ei-jpg_960x960q75-jpg.avif?h=600&w=600
+  highlights:
+  - Free shipping
+  - May need a coupon or promo code at checkout
+  summary: AliExpress has it for $284.01. Prices change fast, so check the price before
+    you buy.
+  expires: 2026-10-06
+  found: *1
+  source: dealnews
+  source_link: https://www.dealnews.com/Open-Box-DJI-Osmo-360-8-K-Camera-w-Standard-Combo-for-284-free-shipping/22235139.html?iref=rss
+  source_title: Open-Box DJI Osmo 360 8K Camera w/ Standard Combo for $284 + free
+    shipping
+  notes: Store link not found (redirected to a bot dead-end (www.dealnews.com)). Paste
+    the store link into affiliate_url before approving.

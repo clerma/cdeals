@@ -13,10 +13,11 @@
           <div class="col">
             <h6 class="mb-3">Shop</h6>
             <ul class="nav flex-column gap-2">
-              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/shop/' | relative_url }}"><span class="animate-target">All items for sale</span></a></li>
+              {% if footer_cats.size > 0 %}<li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/shop/' | relative_url }}"><span class="animate-target">All items for sale</span></a></li>{% endif %}
               <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/deals/' | relative_url }}"><span class="animate-target">Deals I found</span></a></li>
             </ul>
           </div>
+          {% if footer_cats.size > 0 %}
           <div class="col">
             <h6 class="mb-3">Categories</h6>
             <ul class="nav flex-column gap-2">
@@ -25,6 +26,7 @@
               {% endfor %}
             </ul>
           </div>
+          {% endif %}
           <div class="col">
             <h6 class="mb-3">Info</h6>
             <ul class="nav flex-column gap-2">

@@ -7,7 +7,7 @@ description: >-
   Hand-checked used tech for sale direct from me, plus tech deals I've found
   around the web.
 author: Carlos Lerma
-url: "" # e.g. https://cdeals.com
+url: "https://cdeals.co"
 baseurl: ""
 contact_email: you@example.com # shown on item pages for questions
 
@@ -26,11 +26,11 @@ anycart_api_key: ""
 # affiliate_url can be a plain store link (woot.com/..., macsales.com/...)
 # and it earns automatically. Amazon links still need your Associates tag.
 sovrn_key: ""      # Sovrn Commerce: campaign API key (Settings > "<>" icon)
-skimlinks_id: ""   # Skimlinks: publisher ID, e.g. 123456X1234567 (Settings > Install)
+skimlinks_id: "310483X1798959"   # Skimlinks: publisher ID, e.g. 123456X1234567 (Settings > Install)
 
 # Amazon Associates tracking ID, e.g. yourtag-20. The deal finder turns every
 # Amazon link into https://www.amazon.com/dp/ASIN?tag=<this>.
-amazon_tag: ""
+amazon_tag: "cdeals014-20"
 # TODO (optional): Geniuslink group ID. Not used yet; Amazon links stay
 # plain amazon.com/dp links with your tag.
 geniuslink_group: ""

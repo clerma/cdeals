@@ -1,6 +1,7 @@
 ---
 title: Apple Watch Series 5, 44mm Aluminium
 type: sale
+published: false   # sample item, hidden until real gear is listed (delete this line to show it)
 status: sold
 category: Wearables
 brand: Apple
