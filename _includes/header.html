@@ -148,10 +148,9 @@
             <!-- Page links -->
             <div class="col-lg-9 d-lg-flex pt-3 pt-lg-0 ps-lg-0">
               <ul class="navbar-nav position-relative">
-                {% assign nav = "/|Home,/shop/|For sale,/deals/|Deals,/about/|About" | split: "," %}
-                {% for item in nav %}{% assign parts = item | split: "|" %}
+                {% for item in site.data.navigation %}
                 <li class="nav-item me-lg-n2 me-xl-0">
-                  <a class="nav-link{% if page.url == parts[0] %} active{% endif %}"{% if page.url == parts[0] %} aria-current="page"{% endif %} href="{{ parts[0] | relative_url }}">{{ parts[1] }}</a>
+                  <a class="nav-link{% if page.url == item.url %} active{% endif %}"{% if page.url == item.url %} aria-current="page"{% endif %} href="{{ item.url | relative_url }}">{{ item.title }}</a>
                 </li>
                 {% endfor %}
               </ul>

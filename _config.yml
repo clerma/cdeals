@@ -11,9 +11,29 @@ url: "" # e.g. https://cdeals.com
 baseurl: ""
 contact_email: you@example.com # shown on item pages for questions
 
+# Used by the Terms, Privacy, and Returns pages. Replace the [BRACKETED]
+# placeholders before launch.
+legal_name: "[YOUR FULL NAME OR BUSINESS NAME]"   # who runs the site / sells the items
+governing_law_state: "[STATE, e.g. Texas — confirm]"
+hosting_provider: "[HOSTING PROVIDER, e.g. CloudCannon / Netlify]"
+
 # AnyCart (https://anycart.co) handles the cart and checkout for items you sell.
 # Paste the public key from your AnyCart dashboard (starts with ac_live_).
 anycart_api_key: ""
+
+# Automatic affiliate links for deals from any store except Amazon.
+# Fill in ONE of these (leave the other blank). With it set, a deal's
+# affiliate_url can be a plain store link (woot.com/..., macsales.com/...)
+# and it earns automatically. Amazon links still need your Associates tag.
+sovrn_key: ""      # Sovrn Commerce: campaign API key (Settings > "<>" icon)
+skimlinks_id: ""   # Skimlinks: publisher ID, e.g. 123456X1234567 (Settings > Install)
+
+# Amazon Associates tracking ID, e.g. yourtag-20. The deal finder turns every
+# Amazon link into https://www.amazon.com/dp/ASIN?tag=<this>.
+amazon_tag: ""
+# TODO (optional): Geniuslink group ID. Not used yet; Amazon links stay
+# plain amazon.com/dp links with your tag.
+geniuslink_group: ""
 
 # Shown in the footer and on every affiliate deal.
 affiliate_disclosure: >-
@@ -42,7 +62,6 @@ defaults:
       layout: product
 
 plugins:
-  - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
 
@@ -52,3 +71,4 @@ exclude:
   - Gemfile.lock
   - vendor/bundle
   - cloudcannon.config.yml
+  - scripts

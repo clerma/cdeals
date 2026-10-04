@@ -1,0 +1,17 @@
+{% comment %}
+  Automatic affiliate links (Sovrn Commerce or Skimlinks). Loads only when the
+  matching key is set in _config.yml. Use one service, not both: if both are
+  set, only Sovrn loads so links aren't rewritten twice.
+{% endcomment %}
+{% if site.sovrn_key and site.sovrn_key != "" %}
+<script>
+  var vglnk = { key: '{{ site.sovrn_key }}' };
+  (function (d, t) {
+    var s = d.createElement(t); s.type = 'text/javascript'; s.async = true;
+    s.src = 'https://cdn.viglink.com/api/vglnk.js';
+    var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);
+  }(document, 'script'));
+</script>
+{% elsif site.skimlinks_id and site.skimlinks_id != "" %}
+<script src="https://s.skimresources.com/js/{{ site.skimlinks_id }}.skimlinks.js" async></script>
+{% endif %}

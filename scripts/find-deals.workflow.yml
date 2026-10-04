@@ -1,0 +1,86 @@
+# TO ENABLE: move this file to .github/workflows/find-deals.yml (GitHub web UI:
+# Add file > Create new file, paste it in). It was committed here because the
+# token used to push this branch is not allowed to create workflow files.
+#
+# Daily deal finder. Adds CANDIDATES to _deal_queue/queue.yml on the
+# `deals-queue` branch and opens (or updates) a PR for review. It never
+# publishes to master on its own: deals only go live when you merge the PR.
+#
+# Review flow: on the deals-queue branch, set `status: approved` (or rejected)
+# on entries in _deal_queue/queue.yml, then re-run this workflow ("Run
+# workflow" button). Approved entries become _products/*.md on that branch.
+# Merge the PR to publish them.
+name: Find deals
+
+on:
+  schedule:
+    - cron: "17 13 * * *" # 13:17 UTC daily (8:17 AM Central during daylight time)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: find-deals
+  cancel-in-progress: false
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      BUNDLE_WITH: deals
+      QUEUE_BRANCH: deals-queue
+      BASE_BRANCH: ${{ github.event.repository.default_branch }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Switch to the queue branch (merging in the latest site)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin "$QUEUE_BRANCH" >/dev/null; then
+            git checkout -B "$QUEUE_BRANCH" "origin/$QUEUE_BRANCH"
+            git merge --no-edit "origin/$BASE_BRANCH"
+          else
+            git checkout -b "$QUEUE_BRANCH"
+          fi
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Publish approved / drop rejected candidates
+        run: bundle exec ruby scripts/publish_deals.rb
+
+      - name: Find new candidates
+        run: bundle exec ruby scripts/find_deals.rb | tee find-deals.log
+
+      - name: Commit and open/update the review PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          { echo '```'; cat find-deals.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          git add _deal_queue _products assets/uploads/deals 2>/dev/null || git add _deal_queue _products
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "Deal finder: update review queue ($(date -u +%Y-%m-%d))"
+            git push origin "$QUEUE_BRANCH"
+          fi
+          if ! git diff --quiet "origin/$BASE_BRANCH...HEAD" -- _deal_queue _products assets/uploads/deals 2>/dev/null; then
+            if [ -z "$(gh pr list --head "$QUEUE_BRANCH" --base "$BASE_BRANCH" --state open --json number -q '.[0].number')" ]; then
+              gh pr create --base "$BASE_BRANCH" --head "$QUEUE_BRANCH" \
+                --title "Deal candidates for review" \
+                --body "New deal candidates from the daily finder are in \`_deal_queue/queue.yml\`. Nothing is live yet.
+
+          1. Edit \`_deal_queue/queue.yml\` on this branch: set \`status: approved\` or \`status: rejected\` (and fix titles, prices, categories, or paste a store link where \`affiliate_url\` is blank).
+          2. Run the **Find deals** workflow again (Actions tab, Run workflow). Approved entries become \`_products/*.md\` here.
+          3. Review the new product files, then merge to publish." \
+                || echo "::warning::Couldn't open the PR. Turn on Settings > Actions > General > 'Allow GitHub Actions to create and approve pull requests', or open it by hand from the $QUEUE_BRANCH branch."
+            fi
+          fi

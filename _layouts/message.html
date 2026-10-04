@@ -1,0 +1,17 @@
+---
+layout: default
+---
+{% comment %}
+  Centered message page (thank you, 404). Front matter:
+  icon, big_text, heading, text, buttons: [{label, url, style}]
+{% endcomment %}
+<section class="container py-5 my-lg-4 text-center" style="max-width: 640px">
+  {% if page.icon %}<div class="d-inline-flex text-success bg-success-subtle rounded-circle p-4 mb-4"><i class="{{ page.icon }} fs-1"></i></div>{% endif %}
+  {% if page.big_text %}<div class="display-1 mb-2">{{ page.big_text }}</div>{% endif %}
+  <h1 class="h3">{{ page.heading | default: page.title }}</h1>
+  {% if page.text %}<p class="fs-lg text-body-secondary mb-4">{{ page.text }}</p>{% endif %}
+  {{ content }}
+  {% for b in page.buttons %}
+    <a class="btn btn-lg {{ b.style | default: 'btn-primary' }} m-1" href="{{ b.url | relative_url }}">{{ b.label }}</a>
+  {% endfor %}
+</section>

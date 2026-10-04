@@ -54,12 +54,13 @@ layout: default
             Get this deal at {{ p.store }}
             <i class="ci-external-link fs-lg ms-2 me-n1 animate-target"></i>
           </a>
-          <p class="fs-xs text-body-secondary mb-4">Prices change often, so check the price at {{ p.store }} before you buy. {{ site.affiliate_disclosure }}</p>
+          <p class="fs-xs text-body-secondary mb-4">Prices change often, so check the price at {{ p.store }} before you buy. {{ site.affiliate_disclosure }} <a class="text-body-secondary" href="{{ '/disclosure/' | relative_url }}">Learn more</a></p>
         {% else %}
           {% include add-to-cart.html product=p class="btn btn-lg btn-primary w-100 mb-3" %}
           <ul class="list-unstyled gap-3 pb-3 mb-4 d-flex flex-column fs-sm">
             <li class="d-flex align-items-center"><i class="ci-delivery fs-xl text-dark-emphasis me-2"></i>{{ p.shipping | default: "Ships in 2 business days with tracking" }}</li>
             <li class="d-flex align-items-center"><i class="ci-credit-card fs-xl text-dark-emphasis me-2"></i>Secure checkout through Stripe</li>
+            <li class="d-flex align-items-center"><i class="ci-rotate-ccw fs-xl text-dark-emphasis me-2"></i><a href="{{ '/returns/' | relative_url }}">Returns &amp; shipping</a></li>
             <li class="d-flex align-items-center"><i class="ci-mail fs-xl text-dark-emphasis me-2"></i><span>Questions? <a href="mailto:{{ site.contact_email }}?subject={{ p.title | url_encode }}">Email me about this item</a></span></li>
           </ul>
         {% endif %}

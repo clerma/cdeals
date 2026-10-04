@@ -1,7 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 {% seo %}
-{% feed_meta %}
 <link rel="icon" type="image/png" href="{{ '/assets/images/icon-32x32.png' | relative_url }}" sizes="32x32">
 <link rel="apple-touch-icon" href="{{ '/assets/images/icon-180x180.png' | relative_url }}">
 
@@ -11,13 +10,17 @@
 <link rel="preload" href="{{ '/assets/fonts/inter-variable-latin_8100aab2.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ '/assets/fonts/cartzilla-icons_1c2f5f0e.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ '/assets/css/cartzilla-icons.min.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/swiper-bundle.min.css' | relative_url }}">
+{% if page.swiper %}<link rel="stylesheet" href="{{ '/assets/css/swiper-bundle.min.css' | relative_url }}">{% endif %}
 <link rel="stylesheet" href="{{ '/assets/css/theme.min.css' | relative_url }}" id="theme-styles">
 <style>
   .product-card.is-sold img { filter: grayscale(1); opacity: .55; }
   .product-thumb { width: 88px; cursor: pointer; }
   [data-category][hidden] { display: none !important; }
+  .page-content h2 { font-size: 1.25rem; padding-top: 1rem; }
+  .page-content h3 { font-size: 1.1rem; }
 </style>
+
+{% include auto-affiliate.html %}
 
 {% if site.anycart_api_key != "" %}
 <!-- AnyCart: cart drawer + checkout. data-hide-button because the header has its own cart button. -->

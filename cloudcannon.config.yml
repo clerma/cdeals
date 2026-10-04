@@ -57,6 +57,7 @@ _inputs:
   affiliate_url:
     type: url
     label: Affiliate link
+    comment: Amazon needs your Associates link. Any other store can be a plain product link if Sovrn or Skimlinks is set up in _config.yml.
   store:
     type: text
     comment: Store name shown on the button, e.g. Amazon.
@@ -70,6 +71,47 @@ _inputs:
     type: image
   highlights:
     type: array
+
+  # Page front matter
+  hero:
+    type: array
+    comment: Home page hero slides.
+    options:
+      structures: _structures.hero_slide
+  features:
+    type: array
+    options:
+      structures: _structures.feature
+  buttons:
+    type: array
+    options:
+      structures: _structures.button
+  brands:
+    type: multiselect
+    options:
+      values: [apple, samsung, sony, canon, motorola]
+  image:
+    type: image
+  show_disclosure:
+    type: switch
+  updated:
+    type: date
+    label: Last updated
+    comment: Shown under the heading on policy pages. Change it whenever you edit the policy.
+
+_structures:
+  hero_slide:
+    values:
+      - label: Slide
+        value: { kicker: "", title: "", image: "", link: /shop/, button: Shop now }
+  feature:
+    values:
+      - label: Feature
+        value: { icon: ci-check-shield, title: "", text: "" }
+  button:
+    values:
+      - label: Button
+        value: { label: "", url: /, style: btn-primary }
 
 paths:
   uploads: assets/uploads

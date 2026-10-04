@@ -2,23 +2,27 @@
 title: For sale
 description: Used tech I'm selling directly. Checked, reset, and shipped by me.
 permalink: /shop/
+heading: For sale by me
+empty_text: Nothing for sale right now. Check back soon, or see the deals I found.
+sold_heading: Recently sold
+sold_limit: 8
 ---
 {% assign items = site.products | where: "type", "sale" | sort: "date" | reverse %}
 {% assign available = items | where: "status", "available" %}
 {% assign sold = items | where: "status", "sold" %}
 {% include page-header.html title=page.title %}
 <section class="container pb-5 mb-2 mb-md-3 mb-lg-4">
-  <h1 class="h3 mb-1">For sale by me</h1>
+  <h1 class="h3 mb-1">{{ page.heading }}</h1>
   <p class="text-body-secondary mb-0">{{ page.description }}</p>
   {% if available.size > 0 %}
     {% include product-grid.html items=available filters=true %}
   {% else %}
-    <p class="text-body-secondary pt-4">Nothing for sale right now. Check back soon, or see the <a href="{{ '/deals/' | relative_url }}">deals I found</a>.</p>
+    <p class="text-body-secondary pt-4">{{ page.empty_text }} <a href="{{ '/deals/' | relative_url }}">See deals</a></p>
   {% endif %}
 
   {% if sold.size > 0 %}
-    <div class="border-bottom pt-5 pb-3"><h2 class="h5 mb-0">Recently sold</h2></div>
-    {% assign recent = sold | slice: 0, 8 %}
+    <div class="border-bottom pt-5 pb-3"><h2 class="h5 mb-0">{{ page.sold_heading }}</h2></div>
+    {% assign recent = sold | slice: 0, page.sold_limit %}
     {% include product-grid.html items=recent %}
   {% endif %}
 </section>

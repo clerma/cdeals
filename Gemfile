@@ -4,7 +4,6 @@ source "https://rubygems.org"
 gem "jekyll", "~> 4.3"
 
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
 end
@@ -16,3 +15,10 @@ platforms :mingw, :x64_mingw, :mswin, :jruby do
 end
 
 gem "webrick", "~> 1.8" # needed for `jekyll serve` on Ruby 3+
+
+# Deal finder (scripts/find_deals.rb, scripts/publish_deals.rb). Not needed to
+# build the site, so it's optional. To use it locally:
+#   bundle config set --local with deals && bundle install
+group :deals, optional: true do
+  gem "nokogiri", "~> 1.16"
+end

@@ -1,0 +1,8 @@
+# Deal candidates waiting for review. Written by scripts/find_deals.rb.
+# Nothing here is on the site. For each entry set
+#   status: approved   -> scripts/publish_deals.rb turns it into _products/<slug>.md
+#   status: rejected   -> removed and remembered so it never comes back
+# You can edit title, price, compare_at, category, brand, highlights,
+# affiliate_url, etc. before approving. Entries with a blank affiliate_url
+# (store link not found) need the store link pasted in first.
+[]

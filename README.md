@@ -39,9 +39,28 @@ The text under the front matter becomes the item description. Put photos in `ass
 
 AnyCart re-checks every price at checkout against its dashboard, so the price in the item file only controls what the page and cart show. Keep the two in sync.
 
+## Affiliate links
+
+| Store | What to paste in `affiliate_url` |
+|---|---|
+| Amazon | Your Amazon Associates link (SiteStripe or `?tag=yourtag-20`). Sovrn and Skimlinks don't pay on Amazon. |
+| Any other store (Woot, MacSales/OWC, Office Depot, Best Buy, ...) | The plain product link, once `sovrn_key` or `skimlinks_id` is set in `_config.yml`. Their script turns it into an affiliate link when clicked. |
+| A store you joined directly (Impact, CJ) | That network's tracking link. You keep the full commission. |
+
+Sovrn and Skimlinks keep about 25% of commissions, so join a store directly once it sends you a lot of sales. Set only one of the two keys.
+
 ## Settings
 
-Edit the top of `_config.yml`: `title`, `tagline`, `url`, `contact_email`, `affiliate_disclosure`.
+Edit the top of `_config.yml`: `title`, `tagline`, `url`, `contact_email`, `affiliate_disclosure`, plus `legal_name`, `governing_law_state`, and `hosting_provider` for the policy pages.
+
+## Policy pages
+
+`disclosure.md` (/disclosure/), `terms.md` (/terms/), `privacy.md` (/privacy/), and `returns.md` (/returns/) are Markdown pages on the `page` layout, linked from the footer. Each has an `updated:` date, shown as "Last updated", so change it whenever you edit a policy. Anything in `[BRACKETS]` is a placeholder you still need to fill in:
+
+- `_config.yml`: `legal_name`, `governing_law_state`, `hosting_provider`.
+- `returns.md` front matter: where you ship, shipping cost, return window, who pays return shipping, restocking fee, refund timing, and how long buyers have to report shipping damage.
+
+These pages are a starting point, not legal advice.
 
 ## Hosting
 
@@ -49,7 +68,69 @@ The output is a static site, so it can be hosted for free on CloudCannon, Netlif
 
 ## Home page and theme
 
-- `_data/home.yml` holds the home page text: hero slides, feature row, banners, and brand logos.
+Every page's content lives in its own front matter (or Markdown body):
+
+| File | What it controls |
+|---|---|
+| `index.html` front matter | Home page: hero slides, feature row, section headings, banners, brand logos |
+| `shop.html` / `deals.html` front matter | Headings, empty-state text, disclosure toggle |
+| `about.md` body | About page text (Markdown, `layout: page`) |
+| `thanks.md`, `404.md` front matter | Message, icon, and buttons (`layout: message`) |
+| `_products/*.md` | Each item: front matter fields + description in the body |
+| `_data/navigation.yml` | Main menu links |
 - `_data/categories.yml` maps each category to an icon for the Categories menu.
-- Theme files live in `assets/css`, `assets/js`, `assets/fonts`, and `assets/images/theme`.
+- Theme files live in `assets/css`, `assets/js`, `assets/fonts`, and `assets/images/theme`. The carousel script (Swiper) only loads on pages with `swiper: true` in their front matter, which right now is just the home page.
+- The `_products/` samples and `assets/uploads/sample-*.png` are placeholders. Delete them once you've added real items.
 - Light/dark mode is built in (the sun icon in the header).
+
+## Deal finder (review first)
+
+A Ruby script checks a few deal feeds every day and adds **candidates** to a review queue. Nothing goes on the site until you approve it.
+
+### Setup
+
+```sh
+bundle config set --local with deals   # the finder's gems (nokogiri) are an optional group
+bundle install
+```
+
+Put your Amazon Associates ID in `amazon_tag` in `_config.yml`. Every Amazon link becomes `https://www.amazon.com/dp/ASIN?tag=yourtag-20`. Links to other stores stay as plain store links, and Sovrn or Skimlinks turns them into affiliate links if you've set one up. The finder strips the feed sites' own affiliate tags and tracking parameters.
+
+### Sources and filters: `_data/deal_sources.yml`
+
+- `feeds:` lists RSS feeds (TechBargains, Slickdeals, DealNews, Ben's Bargains). `resolve:` tells the finder how to find the real store link for each feed.
+- `sites:` lists store pages to watch (commented examples are in the file). It reads products from the page's JSON-LD by default, or uses the CSS selectors you give it.
+- `filters:` sets max age, min discount %, price range, and include/exclude keywords.
+- `categories:` maps keywords to the categories in `_data/categories.yml`. Items that don't match a category are skipped.
+- `defaults:` sets `expires_days`, how many candidates to add per run and per source, how long unreviewed candidates stay in the queue, and whether approved images are downloaded or hotlinked.
+- `http:` sets the User-Agent, timeouts, and a delay between requests to the same host. robots.txt is respected, including Crawl-delay. Like any feed reader, the finder doesn't check robots.txt for the feed URLs themselves.
+
+### Run it
+
+```sh
+bundle exec ruby scripts/find_deals.rb            # add candidates to _deal_queue/queue.yml
+bundle exec ruby scripts/find_deals.rb --dry-run -v   # see what it would add and why items were skipped
+```
+
+Each candidate in `_deal_queue/queue.yml` has a short title the finder writes itself, price, original price (when known), store, category, brand, image, the cleaned `affiliate_url`, an `expires` date, and `source`/`source_link` so you know where it came from. The finder skips anything already in `_products/`, already in the queue, or rejected before (`_deal_queue/rejected.yml`). Jekyll ignores the `_deal_queue/` folder.
+
+### Review and approve
+
+Edit any field you like, then either:
+
+- run `bundle exec ruby scripts/publish_deals.rb approve d-1a2b3c4` (or `reject d-...`), or
+- set `status: approved` / `status: rejected` in the queue and run `bundle exec ruby scripts/publish_deals.rb`.
+
+Each approved candidate becomes `_products/<slug>.md` with `type: affiliate`. Its image is saved to `assets/uploads/deals/`. Candidates with a blank `affiliate_url` (the store link couldn't be found) need the store link pasted in before they can be approved.
+
+### Daily GitHub Action
+
+The workflow is in `scripts/find-deals.workflow.yml`. Move it to `.github/workflows/find-deals.yml` to turn it on (on GitHub: Add file → Create new file, paste it in). Once enabled, it runs every day at 13:17 UTC. You can also start it from the Actions tab. It commits new candidates to the `deals-queue` branch and opens a PR called "Deal candidates for review". To approve deals on GitHub, edit `_deal_queue/queue.yml` on that branch and re-run the workflow. Approved entries turn into product files on the branch, and merging the PR publishes them. The workflow uses the built-in `GITHUB_TOKEN`. For it to open the PR, turn on **Settings → Actions → General → Allow GitHub Actions to create and approve pull requests**.
+
+### Known limits
+
+- **Slickdeals:** robots.txt disallows the `/click` store links, so the finder leaves them alone. Slickdeals candidates come with the store name and price but a blank link.
+- **DealNews:** store links redirect scripts to a "dead-end" page, so they stay blank.
+- **Ben's Bargains:** store links are behind a POST click tracker that robots.txt disallows, so they stay blank.
+- **TechBargains:** links go straight to the store, so these always resolve.
+- **Store product pages:** Amazon, Walmart, and Best Buy return a captcha or time out for scripts, so the finder uses the feed's price and photo for them. The original price is often unknown for those.
