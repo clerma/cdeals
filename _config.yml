@@ -22,6 +22,13 @@ anycart_api_key: ""
 sovrn_key: ""      # Sovrn Commerce: campaign API key (Settings > "<>" icon)
 skimlinks_id: ""   # Skimlinks: publisher ID, e.g. 123456X1234567 (Settings > Install)
 
+# Amazon Associates tracking ID, e.g. yourtag-20. The deal finder turns every
+# Amazon link into https://www.amazon.com/dp/ASIN?tag=<this>.
+amazon_tag: ""
+# TODO (optional): Geniuslink group ID. Not used yet; Amazon links stay
+# plain amazon.com/dp links with your tag.
+geniuslink_group: ""
+
 # Shown in the footer and on every affiliate deal.
 affiliate_disclosure: >-
   Some links on this site are affiliate links. If you buy through them I may
@@ -59,3 +66,4 @@ exclude:
   - Gemfile.lock
   - vendor/bundle
   - cloudcannon.config.yml
+  - scripts

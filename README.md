@@ -72,3 +72,55 @@ Every page's content lives in its own front matter (or Markdown body):
 - `_data/categories.yml` maps each category to an icon for the Categories menu.
 - Theme files live in `assets/css`, `assets/js`, `assets/fonts`, and `assets/images/theme`.
 - Light/dark mode is built in (the sun icon in the header).
+
+## Deal finder (review first)
+
+A Ruby script checks a few deal feeds every day and adds **candidates** to a review queue. Nothing goes on the site until you approve it.
+
+### Setup
+
+```sh
+bundle config set --local with deals   # the finder's gems (nokogiri) are an optional group
+bundle install
+```
+
+Put your Amazon Associates ID in `amazon_tag` in `_config.yml`. Every Amazon link becomes `https://www.amazon.com/dp/ASIN?tag=yourtag-20`. Links to other stores stay as plain store links, and Sovrn or Skimlinks turns them into affiliate links if you've set one up. The finder strips the feed sites' own affiliate tags and tracking parameters.
+
+### Sources and filters: `_data/deal_sources.yml`
+
+- `feeds:` lists RSS feeds (TechBargains, Slickdeals, DealNews, Ben's Bargains). `resolve:` tells the finder how to find the real store link for each feed.
+- `sites:` lists store pages to watch (commented examples are in the file). It reads products from the page's JSON-LD by default, or uses the CSS selectors you give it.
+- `filters:` sets max age, min discount %, price range, and include/exclude keywords.
+- `categories:` maps keywords to the categories in `_data/categories.yml`. Items that don't match a category are skipped.
+- `defaults:` sets `expires_days`, how many candidates to add per run and per source, how long unreviewed candidates stay in the queue, and whether approved images are downloaded or hotlinked.
+- `http:` sets the User-Agent, timeouts, and a delay between requests to the same host. robots.txt is respected, including Crawl-delay. Like any feed reader, the finder doesn't check robots.txt for the feed URLs themselves.
+
+### Run it
+
+```sh
+bundle exec ruby scripts/find_deals.rb            # add candidates to _deal_queue/queue.yml
+bundle exec ruby scripts/find_deals.rb --dry-run -v   # see what it would add and why items were skipped
+```
+
+Each candidate in `_deal_queue/queue.yml` has a short title the finder writes itself, price, original price (when known), store, category, brand, image, the cleaned `affiliate_url`, an `expires` date, and `source`/`source_link` so you know where it came from. The finder skips anything already in `_products/`, already in the queue, or rejected before (`_deal_queue/rejected.yml`). Jekyll ignores the `_deal_queue/` folder.
+
+### Review and approve
+
+Edit any field you like, then either:
+
+- run `bundle exec ruby scripts/publish_deals.rb approve d-1a2b3c4` (or `reject d-...`), or
+- set `status: approved` / `status: rejected` in the queue and run `bundle exec ruby scripts/publish_deals.rb`.
+
+Each approved candidate becomes `_products/<slug>.md` with `type: affiliate`. Its image is saved to `assets/uploads/deals/`. Candidates with a blank `affiliate_url` (the store link couldn't be found) need the store link pasted in before they can be approved.
+
+### Daily GitHub Action
+
+The workflow is in `scripts/find-deals.workflow.yml`. Move it to `.github/workflows/find-deals.yml` to turn it on (on GitHub: Add file → Create new file, paste it in). Once enabled, it runs every day at 13:17 UTC. You can also start it from the Actions tab. It commits new candidates to the `deals-queue` branch and opens a PR called "Deal candidates for review". To approve deals on GitHub, edit `_deal_queue/queue.yml` on that branch and re-run the workflow. Approved entries turn into product files on the branch, and merging the PR publishes them. The workflow uses the built-in `GITHUB_TOKEN`. For it to open the PR, turn on **Settings → Actions → General → Allow GitHub Actions to create and approve pull requests**.
+
+### Known limits
+
+- **Slickdeals:** robots.txt disallows the `/click` store links, so the finder leaves them alone. Slickdeals candidates come with the store name and price but a blank link.
+- **DealNews:** store links redirect scripts to a "dead-end" page, so they stay blank.
+- **Ben's Bargains:** store links are behind a POST click tracker that robots.txt disallows, so they stay blank.
+- **TechBargains:** links go straight to the store, so these always resolve.
+- **Store product pages:** Amazon, Walmart, and Best Buy return a captcha or time out for scripts, so the finder uses the feed's price and photo for them. The original price is often unknown for those.

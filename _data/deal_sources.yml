@@ -1,0 +1,138 @@
+# Deal finder settings: scripts/find_deals.rb reads this file.
+# The finder only adds CANDIDATES to _deal_queue/queue.yml. Nothing goes live
+# until you approve it (see "Deal finder" in README.md).
+
+# ---------------------------------------------------------------------------
+# Global filters
+# ---------------------------------------------------------------------------
+filters:
+  max_age_hours: 48          # skip feed items posted longer ago than this
+  min_discount_pct: 15       # skip deals with a known discount below this
+  allow_unknown_discount: true   # keep deals whose original price isn't known
+  min_price: 10
+  max_price: 3000
+  # Every candidate must match one of these words (title/feed text). Leave
+  # empty to allow anything that maps to a category below.
+  include_keywords: []
+  # Anything matching one of these is skipped.
+  exclude_keywords:
+    - credit card
+    - gift card
+    - cashback
+    - subscription
+    - membership
+    - case for
+    - screen protector
+    - cable
+    - adapter
+    - kids
+    - toddler
+    - shirt
+    - shoes
+    - jacket
+    - backpack
+    - sleeve
+    - bag
+    - stand
+    - mount
+    - extender
+    - skin
+    - replacement
+  require_category: true     # skip items that don't map to a category below
+
+# Category = a key from _data/categories.yml. Matched against the title with
+# whole-word, case-insensitive matching; the FIRST matching category wins, so
+# keep specific ones above general ones.
+categories:
+  Power Banks: [power bank, portable charger, battery pack]
+  Headphones: [headphones, headphone, earbuds, airpods, earphones, headset]
+  Speakers: [speaker, soundbar, sound bar]
+  Wearables: [smartwatch, smart watch, apple watch, galaxy watch, fitness tracker, fitbit, garmin]
+  Tablets: [ipad, tablet, galaxy tab, kindle, fire hd]
+  Computers: [desktop, desktop pc, tower pc, mac mini, imac, mini pc, gaming pc, mac studio, all-in-one pc]
+  Laptops: [laptop, macbook, chromebook, notebook pc, ultrabook]
+  Phones: [iphone, galaxy s2, pixel 9, pixel 10, pixel 11, smartphone, unlocked phone]
+  Monitors: [monitor, gaming display, portable display]
+  Cameras: [camera, mirrorless, dslr, gopro, webcam, dashcam, dash cam]
+  Gaming: [nintendo switch, playstation, ps5, xbox, steam deck, gaming controller, dualsense, xbox controller, switch pro controller]
+  Storage: [ssd, hard drive, microsd, sd card, flash drive, nas, external drive]
+  Smart Home: [echo dot, smart plug, smart display, video doorbell, security camera, mesh wifi, router]
+  Audio: [turntable, dac, amplifier, receiver, microphone]
+
+defaults:
+  expires_days: 7            # used when the feed doesn't give an end date
+  max_candidates_per_run: 25
+  max_candidates_per_source: 8   # so one busy feed can't fill the whole run
+  queue_max_days: 10         # pending candidates older than this are dropped
+  images: download           # on publish: "download" into assets/uploads/deals/ or "hotlink"
+
+# ---------------------------------------------------------------------------
+# Fetching
+# ---------------------------------------------------------------------------
+http:
+  user_agent: "cDealsFinder/1.0 (+https://github.com/clerma/cdeals)"
+  open_timeout: 8
+  read_timeout: 20
+  min_delay_seconds: 2       # per host; robots.txt Crawl-delay wins if longer
+  respect_robots: true       # don't fetch URLs robots.txt disallows
+  max_redirects: 8
+# Don't fetch product pages on these hosts: they serve a captcha / time out
+# for scripts (tested Oct 2026). The finder still cleans the URL and uses the
+# feed's price/title/image.
+skip_store_fetch_hosts: [amazon.com, walmart.com, bestbuy.com]
+
+# ---------------------------------------------------------------------------
+# Feeds
+# resolve: how to find the real store link
+#   direct       - the feed item link IS the store link (TechBargains)
+#   content_link - first outbound link in the item HTML (link_selector)
+#   page         - open the feed's deal page and use the link matching link_selector
+#   none         - don't try; candidate is queued with a blank affiliate_url
+#                  for you to paste the store link before approving
+# ---------------------------------------------------------------------------
+feeds:
+  - id: techbargains
+    name: TechBargains
+    url: https://www.techbargains.com/rss.xml
+    resolve: direct
+    max_items: 120
+  - id: slickdeals
+    name: Slickdeals Frontpage
+    url: https://slickdeals.net/newsearch.php?mode=frontpage&searcharea=deals&searchin=first&rss=1
+    resolve: content_link
+    link_selector: 'a[data-cta="outclick"]'
+    max_items: 25
+  - id: dealnews
+    name: DealNews
+    url: https://www.dealnews.com/?rss=1
+    resolve: page
+    link_selector: 'a[href*="/lw/click.html"]'
+    max_items: 40
+  - id: bensbargains
+    name: Ben's Bargains
+    url: https://www.bensbargains.com/rss/
+    resolve: none   # store links are behind a POST click tracker that robots.txt disallows
+    max_items: 20
+
+# ---------------------------------------------------------------------------
+# Store pages to watch (optional). The finder reads products from the page's
+# JSON-LD (schema.org Product / Offer / ItemList) by default. If a store
+# doesn't publish JSON-LD, give CSS selectors instead. Respects robots.txt.
+# ---------------------------------------------------------------------------
+sites: []
+#  - id: woot-electronics
+#    name: Woot Electronics
+#    store: Woot
+#    url: https://electronics.woot.com/
+#    max_items: 20
+#  - id: owc-deals
+#    name: OWC deals
+#    store: OWC
+#    url: https://eshop.macsales.com/deals/
+#    selectors:             # only needed when the page has no JSON-LD
+#      item: ".product-card"
+#      title: ".product-title"
+#      link: "a"            # href is used
+#      price: ".price-now"
+#      compare_at: ".price-was"
+#      image: "img"         # src is used
