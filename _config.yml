@@ -11,6 +11,12 @@ url: "" # e.g. https://cdeals.com
 baseurl: ""
 contact_email: you@example.com # shown on item pages for questions
 
+# Used by the Terms, Privacy, and Returns pages. Replace the [BRACKETED]
+# placeholders before launch.
+legal_name: "[YOUR FULL NAME OR BUSINESS NAME]"   # who runs the site / sells the items
+governing_law_state: "[STATE, e.g. Texas — confirm]"
+hosting_provider: "[HOSTING PROVIDER, e.g. CloudCannon / Netlify]"
+
 # AnyCart (https://anycart.co) handles the cart and checkout for items you sell.
 # Paste the public key from your AnyCart dashboard (starts with ac_live_).
 anycart_api_key: ""

@@ -51,7 +51,16 @@ Sovrn and Skimlinks keep about 25% of commissions, so join a store directly once
 
 ## Settings
 
-Edit the top of `_config.yml`: `title`, `tagline`, `url`, `contact_email`, `affiliate_disclosure`.
+Edit the top of `_config.yml`: `title`, `tagline`, `url`, `contact_email`, `affiliate_disclosure`, plus `legal_name`, `governing_law_state`, and `hosting_provider` for the policy pages.
+
+## Policy pages
+
+`disclosure.md` (/disclosure/), `terms.md` (/terms/), `privacy.md` (/privacy/), and `returns.md` (/returns/) are Markdown pages on the `page` layout, linked from the footer. Each has an `updated:` date, shown as "Last updated", so change it whenever you edit a policy. Anything in `[BRACKETS]` is a placeholder you still need to fill in:
+
+- `_config.yml`: `legal_name`, `governing_law_state`, `hosting_provider`.
+- `returns.md` front matter: where you ship, shipping cost, return window, who pays return shipping, restocking fee, refund timing, and how long buyers have to report shipping damage.
+
+These pages are a starting point, not legal advice.
 
 ## Hosting
 

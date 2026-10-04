@@ -2,11 +2,13 @@
 layout: default
 ---
 {% comment %}
-  Simple text page. Front matter: title, heading (optional, defaults to title), width (optional, px).
+  Simple text page. Front matter: title, heading (optional, defaults to title), width (optional, px),
+  updated (optional date, shown as "Last updated").
   The page's Markdown body is the content.
 {% endcomment %}
 {% include page-header.html title=page.title %}
 <section class="container pb-5 mb-2 mb-md-3 mb-lg-4" style="max-width: {{ page.width | default: 800 }}px">
-  <h1 class="h3 mb-4">{{ page.heading | default: page.title }}</h1>
+  <h1 class="h3 {% if page.updated %}mb-2{% else %}mb-4{% endif %}">{{ page.heading | default: page.title }}</h1>
+  {% if page.updated %}<p class="fs-sm text-body-secondary mb-4">Last updated {{ page.updated | date: "%B %-d, %Y" }}</p>{% endif %}
   <div class="page-content fs-base">{{ content }}</div>
 </section>

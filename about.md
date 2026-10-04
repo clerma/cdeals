@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About & disclosure
+title: About
 heading: About cDeals
 permalink: /about/
 ---
@@ -11,12 +11,12 @@ marketplace fees and lowball offers. I also post the best deals I come across.
 
 - Checkout is handled by AnyCart and Stripe. Your card details never touch this site.
 - Items ship within 2 business days. You'll get tracking by email.
-- If something arrives not as described, email me within 7 days and I'll make it right.
+- If something arrives not as described, I'll make it right. See [Returns & Shipping]({{ '/returns/' | relative_url }}).
 
-## Affiliate disclosure {#disclosure}
+## Deals and affiliate links
 
-{{ site.affiliate_disclosure }} Items on the [Deals]({{ '/deals/' | relative_url }}) page are sold by other stores,
-not by me. As an Amazon Associate I earn from qualifying purchases.
+Items on the [Deals]({{ '/deals/' | relative_url }}) page are sold by other stores, not by me.
+{{ site.affiliate_disclosure }} The [Affiliate Disclosure]({{ '/disclosure/' | relative_url }}) has the details.
 
 ## Contact
 

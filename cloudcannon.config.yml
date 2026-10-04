@@ -94,6 +94,10 @@ _inputs:
     type: image
   show_disclosure:
     type: switch
+  updated:
+    type: date
+    label: Last updated
+    comment: Shown under the heading on policy pages. Change it whenever you edit the policy.
 
 _structures:
   hero_slide:

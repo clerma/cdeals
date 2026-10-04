@@ -13,7 +13,7 @@ show_disclosure: true
   {% if page.show_disclosure %}
   <div class="alert alert-info d-flex fs-sm mb-0" role="alert">
     <i class="ci-info fs-lg pe-1 mt-1 me-2"></i>
-    <div>{{ site.affiliate_disclosure }}</div>
+    <div>{{ site.affiliate_disclosure }} <a class="alert-link" href="{{ '/disclosure/' | relative_url }}">Learn more</a></div>
   </div>
   {% endif %}
   {% include product-grid.html items=deals filters=true %}
