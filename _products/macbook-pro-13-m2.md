@@ -1,6 +1,7 @@
 ---
 title: MacBook Pro 13" M2, 8GB / 256GB
 type: sale
+published: false   # sample item, hidden until real gear is listed (delete this line to show it)
 status: available
 category: Laptops
 brand: Apple

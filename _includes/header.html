@@ -1,5 +1,11 @@
 {% assign sale_items = site.products | where: "type", "sale" | where: "status", "available" %}
 {% assign categories = sale_items | map: "category" | uniq | sort %}
+{% comment %} With nothing for sale, search looks through the deals and the shop links are hidden. {% endcomment %}
+{% if sale_items.size > 0 %}
+  {% assign search_url = '/shop/' %}{% assign search_label = 'Search my items' %}
+{% else %}
+  {% assign search_url = '/deals/' %}{% assign search_label = 'Search deals' %}
+{% endif %}
 <header class="navbar navbar-expand-lg navbar-dark bg-dark d-block z-fixed p-0" data-sticky-navbar='{"offset": 500}'>
   <div class="container d-block py-1 py-lg-3" data-bs-theme="dark">
     <div class="navbar-stuck-hide pt-1"></div>
@@ -22,9 +28,9 @@
       <div class="col col-lg-9 d-flex align-items-center justify-content-end">
 
         <!-- Search (desktop) -->
-        <form class="position-relative flex-fill d-none d-lg-block pe-4 pe-xl-5" action="{{ '/shop/' | relative_url }}" method="get" role="search">
+        <form class="position-relative flex-fill d-none d-lg-block pe-4 pe-xl-5" action="{{ search_url | relative_url }}" method="get" role="search">
           <i class="ci-search position-absolute top-50 translate-middle-y d-flex fs-lg text-white ms-3"></i>
-          <input type="search" name="q" class="form-control form-control-lg form-icon-start border-white rounded-pill" placeholder="Search my items" aria-label="Search my items">
+          <input type="search" name="q" class="form-control form-control-lg form-icon-start border-white rounded-pill" placeholder="{{ search_label }}" aria-label="{{ search_label }}">
         </form>
 
         <!-- Deals link (xl+) -->
@@ -84,9 +90,9 @@
 
   <!-- Search (mobile) -->
   <div class="collapse position-absolute top-100 z-2 w-100 bg-dark d-lg-none" id="searchBar">
-    <form class="container position-relative my-3" data-bs-theme="dark" action="{{ '/shop/' | relative_url }}" method="get" role="search">
+    <form class="container position-relative my-3" data-bs-theme="dark" action="{{ search_url | relative_url }}" method="get" role="search">
       <i class="ci-search position-absolute top-50 translate-middle-y d-flex fs-lg text-white ms-3"></i>
-      <input type="search" name="q" class="form-control form-icon-start border-white rounded-pill" placeholder="Search my items" aria-label="Search my items" data-autofocus="collapse">
+      <input type="search" name="q" class="form-control form-icon-start border-white rounded-pill" placeholder="{{ search_label }}" aria-label="{{ search_label }}" data-autofocus="collapse">
     </form>
   </div>
 
@@ -106,7 +112,7 @@
               <div class="navbar-nav">
                 <div class="dropdown w-100">
                   <div class="cursor-pointer d-none d-lg-block" data-bs-toggle="dropdown" data-bs-trigger="hover" data-bs-theme="dark">
-                    <a class="position-absolute top-0 start-0 w-100 h-100" href="{{ '/shop/' | relative_url }}"><span class="visually-hidden">Categories</span></a>
+                    <a class="position-absolute top-0 start-0 w-100 h-100" href="{{ search_url | relative_url }}"><span class="visually-hidden">Categories</span></a>
                     <button type="button" class="btn btn-lg btn-secondary dropdown-toggle w-100 rounded-bottom-0 justify-content-start pe-none">
                       <i class="ci-grid fs-lg"></i>
                       <span class="ms-2 me-auto">Categories</span>
@@ -117,6 +123,7 @@
                     <span class="ms-2 me-auto">Categories</span>
                   </button>
                   <ul class="dropdown-menu{% if page.url == '/' %} dropdown-menu-static{% endif %} w-100 rounded-top-0 rounded-bottom-4 py-1 p-lg-1" style="--cz-dropdown-spacer: 0; --cz-dropdown-item-padding-y: .625rem; --cz-dropdown-item-spacer: 0">
+                    {% if sale_items.size > 0 %}
                     <li class="pt-2 px-lg-2">
                       <a class="dropdown-item fw-medium" href="{{ '/shop/' | relative_url }}">
                         <i class="ci-grid fs-xl opacity-60 pe-1 me-2"></i>
@@ -124,6 +131,7 @@
                         <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
                       </a>
                     </li>
+                    {% endif %}
                     {% for c in categories %}
                     <li class="px-lg-2">
                       <a class="dropdown-item fw-medium" href="{{ '/shop/' | relative_url }}?category={{ c | slugify }}">
@@ -133,7 +141,7 @@
                       </a>
                     </li>
                     {% endfor %}
-                    <li class="pb-2 px-lg-2">
+                    <li class="pb-2 px-lg-2{% if sale_items.size == 0 %} pt-2{% endif %}">
                       <a class="dropdown-item fw-medium" href="{{ '/deals/' | relative_url }}">
                         <i class="ci-percent fs-xl opacity-60 pe-1 me-2"></i>
                         <span class="text-truncate">Deals I found</span>
@@ -149,6 +157,7 @@
             <div class="col-lg-9 d-lg-flex pt-3 pt-lg-0 ps-lg-0">
               <ul class="navbar-nav position-relative">
                 {% for item in site.data.navigation %}
+                {% if item.url == '/shop/' and sale_items.size == 0 %}{% continue %}{% endif %}
                 <li class="nav-item me-lg-n2 me-xl-0">
                   <a class="nav-link{% if page.url == item.url %} active{% endif %}"{% if page.url == item.url %} aria-current="page"{% endif %} href="{{ item.url | relative_url }}">{{ item.title }}</a>
                 </li>

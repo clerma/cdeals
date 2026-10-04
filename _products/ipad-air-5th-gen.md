@@ -1,6 +1,7 @@
 ---
 title: iPad Air (5th gen) 64GB Wi-Fi — Space Gray
 type: sale            # sale = I'm selling it | affiliate = deal at another store
+published: false   # sample item, hidden until real gear is listed (delete this line to show it)
 status: available     # available | sold
 category: Tablets
 brand: Apple

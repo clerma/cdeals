@@ -26,7 +26,7 @@ anycart_api_key: ""
 # affiliate_url can be a plain store link (woot.com/..., macsales.com/...)
 # and it earns automatically. Amazon links still need your Associates tag.
 sovrn_key: ""      # Sovrn Commerce: campaign API key (Settings > "<>" icon)
-skimlinks_id: ""   # Skimlinks: publisher ID, e.g. 123456X1234567 (Settings > Install)
+skimlinks_id: "310483X1798959"   # Skimlinks: publisher ID, e.g. 123456X1234567 (Settings > Install)
 
 # Amazon Associates tracking ID, e.g. yourtag-20. The deal finder turns every
 # Amazon link into https://www.amazon.com/dp/ASIN?tag=<this>.

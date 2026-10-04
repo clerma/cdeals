@@ -3,7 +3,8 @@ title: For sale
 description: Used tech I'm selling directly. Checked, reset, and shipped by me.
 permalink: /shop/
 heading: For sale by me
-empty_text: Nothing for sale right now. Check back soon, or see the deals I found.
+empty_heading: Nothing for sale right now
+empty_text: Check back soon. New gear gets listed here when I upgrade. In the meantime, see the deals I found.
 sold_heading: Recently sold
 sold_limit: 8
 ---
@@ -17,7 +18,12 @@ sold_limit: 8
   {% if available.size > 0 %}
     {% include product-grid.html items=available filters=true %}
   {% else %}
-    <p class="text-body-secondary pt-4">{{ page.empty_text }} <a href="{{ '/deals/' | relative_url }}">See deals</a></p>
+    <div class="text-center bg-body-tertiary rounded-5 py-5 px-4 mt-4">
+      <div class="d-inline-flex text-dark-emphasis bg-body rounded-circle p-4 mb-3"><i class="ci-box fs-2"></i></div>
+      <h2 class="h5 mb-2">{{ page.empty_heading }}</h2>
+      <p class="text-body-secondary mb-4">{{ page.empty_text }}</p>
+      <a class="btn btn-primary" href="{{ '/deals/' | relative_url }}">See the deals I found <i class="ci-arrow-up-right fs-base ms-1 me-n1"></i></a>
+    </div>
   {% endif %}
 
   {% if sold.size > 0 %}
