@@ -7,7 +7,7 @@ description: >-
   Hand-checked used tech for sale direct from me, plus tech deals I've found
   around the web.
 author: Carlos Lerma
-url: "" # e.g. https://cdeals.com
+url: "https://cdeals.co"
 baseurl: ""
 contact_email: you@example.com # shown on item pages for questions
 
