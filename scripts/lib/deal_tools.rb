@@ -218,7 +218,8 @@ module DealTools
     if t.length > 75
       t = t[0, 75].sub(/\s+\S*\z/, "")
     end
-    t = t.sub(/(\s+(with|w\/|and|&|for|in|of|plus|\+|-|–))+\z/i, "").sub(/[\s,;:\-–—(\/&]+\z/, "")
+    t = t.sub(/\s*\([^)]*\z/, "") # drop a parenthesis cut off by truncation
+    t = t.sub(/(\s+(with|w\/|and|&|for|in|of|plus|\+|-|–|built-in))+\z/i, "").sub(/[\s,;:\-–—(\/&]+\z/, "")
     t
   end
 

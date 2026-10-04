@@ -61,7 +61,7 @@ categories:
 
 defaults:
   expires_days: 7            # used when the feed doesn't give an end date
-  max_candidates_per_run: 25
+  max_candidates_per_run: 40
   max_candidates_per_source: 8   # so one busy feed can't fill the whole run
   queue_max_days: 10         # pending candidates older than this are dropped
   images: download           # on publish: "download" into assets/uploads/deals/ or "hotlink"
@@ -95,7 +95,8 @@ feeds:
     name: TechBargains
     url: https://www.techbargains.com/rss.xml
     resolve: direct
-    max_items: 120
+    max_items: 250
+    max_candidates: 25   # links go straight to the store, so allow more from here
   - id: slickdeals
     name: Slickdeals Frontpage
     url: https://slickdeals.net/newsearch.php?mode=frontpage&searcharea=deals&searchin=first&rss=1
