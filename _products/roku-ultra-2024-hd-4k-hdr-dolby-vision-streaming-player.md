@@ -16,12 +16,21 @@ highlights:
 - "$70 under its usual price"
 source: newegg-outlet
 specs:
-- label: Panel
-  value: 4K
+- label: Brand
+  value: Roku
+- label: Model
+  value: 4850R
+- label: Part Number
+  value: 4850R
+- label: Type
+  value: Digital Media Streamer
+- label: Color
+  value: Black
+- label: Remote Control
+  value: Roku Voice Remote Pro (2nd edition)
 why_deal: Newegg has it for $79.99, down from $149.99. Prices change fast, so check
   the price before you buy.
-description: 'This is the Roku Ultra 2024 HD/4K/HDR/ Dolby Vision Streaming Player.
-  From the listing: panel 4K. I posted it after checking the price at Newegg. Worth
-  a look for movies, sports, and everyday watching.'
+description: I looked at the Roku Ultra 2024 HD/4K/HDR/ Dolby Vision Streaming Player.
+  Our fastest streaming player ever Unmatched cinematic picture & sound Roku Voice
 ---
-This is the Roku Ultra 2024 HD/4K/HDR/ Dolby Vision Streaming Player. From the listing: panel 4K. I posted it after checking the price at Newegg. Worth a look for movies, sports, and everyday watching.
+I looked at the Roku Ultra 2024 HD/4K/HDR/ Dolby Vision Streaming Player. Our fastest streaming player ever Unmatched cinematic picture & sound Roku Voice Remote Pro with backlit buttons and a rechargeable battery Access to all your favorite shows plus free, live, and trending TV. I saw it at Newegg and wanted a clean product write-up here.

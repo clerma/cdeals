@@ -16,17 +16,21 @@ highlights:
 - "$52 under its usual price"
 source: newegg-outlet
 specs:
-- label: Display
+- label: Brand
+  value: MSI
+- label: Model
+  value: MAG27CQ6PF
+- label: Part Number
+  value: 9S6-3CD94M-016
+- label: Cabinet Color
+  value: Metallic Black
+- label: Screen Size
   value: 27"
-- label: Panel
-  value: QHD
-- label: Refresh rate
-  value: 180 Hz
+- label: Widescreen
+  value: 'Yes'
 why_deal: Newegg has it for $137.99, down from $189.99. Prices change fast, so check
   the price before you buy.
-description: 'This is the MSI 27" QHD 2K 1440P 180Hz AMD FreeSync 0.5ms HDR Ready
-  Anti-Flicker. From the listing: display 27", panel QHD, refresh rate 180 Hz. I posted
-  it after checking the price at Newegg. Worth a look if you''re building or updating
-  a desktop setup.'
+description: I looked at the MSI 27" QHD 2K 1440P 180Hz AMD FreeSync 0.5ms HDR Ready
+  Anti-Flicker. Rapid VA Panel - Provides 0.5ms (GtG, Min.) response time, optimizes
 ---
-This is the MSI 27" QHD 2K 1440P 180Hz AMD FreeSync 0.5ms HDR Ready Anti-Flicker. From the listing: display 27", panel QHD, refresh rate 180 Hz. I posted it after checking the price at Newegg. Worth a look if you're building or updating a desktop setup.
+I looked at the MSI 27" QHD 2K 1440P 180Hz AMD FreeSync 0.5ms HDR Ready Anti-Flicker. Rapid VA Panel - Provides 0.5ms (GtG, Min.) response time, optimizes screen colors and brightness. WQHD High Resolution - Games will look even better, displaying more details. I saw it at Newegg and wanted a clean product write-up here.

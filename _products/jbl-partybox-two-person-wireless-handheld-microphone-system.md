@@ -15,12 +15,21 @@ highlights:
 - "$40 under its usual price"
 source: bh-deals
 specs:
-- label: Style
-  value: Wireless
+- label: Wireless Technology
+  value: Digital 2.4 GHz
+- label: Diversity
+  value: Non-Diversity
+- label: Max Operating Range
+  value: 98.4' / 30 m
+- label: Receiver Type
+  value: 1x Plug-In (1/4" TS)
+- label: Number of Audio Channels
+  value: '2'
+- label: Included Transmitters
+  value: 2x Handheld
 why_deal: B&H Photo has it for $129.95, down from $169.95. Prices change fast, so
   check the price before you buy.
-description: 'This is the JBL PartyBox Two-Person Wireless Handheld Microphone System
-  (2.4 GHz). From the listing: style Wireless. I posted it after checking the price
-  at B&H Photo. Worth a look if you want better sound without a big setup.'
+description: I looked at the JBL PartyBox Two-Person Wireless Handheld Microphone
+  System (2.4 GHz). Use Two Wireless Handheld Mics at Once, Dual-Channel Wireless
 ---
-This is the JBL PartyBox Two-Person Wireless Handheld Microphone System (2.4 GHz). From the listing: style Wireless. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.
+I looked at the JBL PartyBox Two-Person Wireless Handheld Microphone System (2.4 GHz). Use Two Wireless Handheld Mics at Once, Dual-Channel Wireless Receiver, For PartyBox Speakers, Receiver Plugs into 1/4" Mic Input, Cardioid Condenser Mics for Clear Sound. I saw it at B&H Photo and wanted a clean product write-up here.

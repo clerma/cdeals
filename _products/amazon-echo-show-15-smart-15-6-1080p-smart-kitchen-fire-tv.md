@@ -20,10 +20,8 @@ specs:
   value: 1080p
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the Amazon Echo Show 15 Smart 15.6" 1080p Smart Kitchen Fire
-  TV. From the listing: display 15.6", panel 1080p. I posted it because Amazon had
-  a strong price when I checked. Prices move, so confirm the current price at Amazon
-  before you buy.'
+description: 'I pulled these listing details for the Amazon Echo Show 15 Smart 15.6"
+  1080p Smart Kitchen Fire TV: display 15.6", panel 1080p. I posted the Amazon'
 source: techbargains-amazon-devices
 ---
-This is the Amazon Echo Show 15 Smart 15.6" 1080p Smart Kitchen Fire TV. From the listing: display 15.6", panel 1080p. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I pulled these listing details for the Amazon Echo Show 15 Smart 15.6" 1080p Smart Kitchen Fire TV: display 15.6", panel 1080p. I posted the Amazon listing so you can confirm the live price.

@@ -16,17 +16,22 @@ highlights:
 - "$35 under its usual price"
 source: newegg-outlet
 specs:
-- label: Display
+- label: Brand
+  value: MSI
+- label: Series
+  value: Pro Series
+- label: Model
+  value: PRO MP273L E14
+- label: Part Number
+  value: PRO MP273L E14
+- label: Cabinet Color
+  value: Matte Black
+- label: Screen Size
   value: 27"
-- label: Panel
-  value: Full HD
-- label: Refresh rate
-  value: 144 Hz
 why_deal: Newegg has it for $94.99, down from $129.99. Prices change fast, so check
   the price before you buy.
-description: 'This is the MSI 27" Full HD 144Hz IPS with AMD Adaptive Sync 1ms HDR
-  Ready 102% sRGB. From the listing: display 27", panel Full HD, refresh rate 144
-  Hz. I posted it after checking the price at Newegg. Worth a look if you''re building
-  or updating a desktop setup.'
+description: I looked at the MSI 27" Full HD 144Hz IPS with AMD Adaptive Sync 1ms
+  HDR Ready 102% sRGB. Enjoy the high-quality entertainment with a smoother 144Hz
+  high
 ---
-This is the MSI 27" Full HD 144Hz IPS with AMD Adaptive Sync 1ms HDR Ready 102% sRGB. From the listing: display 27", panel Full HD, refresh rate 144 Hz. I posted it after checking the price at Newegg. Worth a look if you're building or updating a desktop setup.
+I looked at the MSI 27" Full HD 144Hz IPS with AMD Adaptive Sync 1ms HDR Ready 102% sRGB. Enjoy the high-quality entertainment with a smoother 144Hz high refresh rate. TÜV certified display ensures the protection and health of eyesight. I saw it at Newegg and wanted a clean product write-up here.

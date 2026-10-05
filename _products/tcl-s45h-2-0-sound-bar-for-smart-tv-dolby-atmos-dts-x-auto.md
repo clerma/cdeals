@@ -17,16 +17,20 @@ highlights:
 source: newegg-outlet
 why_deal: Newegg has it for $65.99, down from $129.99. Prices change fast, so check
   the price before you buy.
-description: 'This is the TCL S45H 2.0 Sound Bar for Smart TV | Dolby Atmos DTS:X
-  Auto Room. From the listing: display 81.0", style Wireless, connectivity Bluetooth.
-  I posted it after checking the price at Newegg. Worth a look for movies, sports,
-  and everyday watching.'
+description: 'I looked at the TCL S45H 2.0 Sound Bar for Smart TV | Dolby Atmos DTS:X
+  Auto Room. Why Choose TCL: TCL is a global leader in TVs and audio, combining'
 specs:
-- label: Display
-  value: 81.0"
-- label: Style
-  value: Wireless
-- label: Connectivity
-  value: Bluetooth
+- label: Brand
+  value: TCL
+- label: Model
+  value: S45H
+- label: Part Number
+  value: S45H
+- label: Type
+  value: SoundBar
+- label: Channels
+  value: '2.0'
+- label: Color
+  value: Black
 ---
-This is the TCL S45H 2.0 Sound Bar for Smart TV | Dolby Atmos DTS:X Auto Room. From the listing: display 81.0", style Wireless, connectivity Bluetooth. I posted it after checking the price at Newegg. Worth a look for movies, sports, and everyday watching.
+I looked at the TCL S45H 2.0 Sound Bar for Smart TV | Dolby Atmos DTS:X Auto Room. Why Choose TCL: TCL is a global leader in TVs and audio, combining innovative technology with reliable performance. Enjoy award-winning sound, durable design, and customer support that keeps your entertainment experience worry-freeImmersive Dolby Atmos & DTS Virtual:X Sound: Experience real cinematic sound from a slim soundbar. I saw it at Newegg and wanted a clean product write-up here.

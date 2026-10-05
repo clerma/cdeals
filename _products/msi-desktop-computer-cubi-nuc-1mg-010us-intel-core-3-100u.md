@@ -15,15 +15,21 @@ highlights:
 - "$200 under its usual price"
 source: newegg-outlet
 specs:
-- label: Processor
+- label: Best Seller Ranking
+  value: "#21 in Mini PC"
+- label: Type
+  value: Business Desktops & Workstations
+- label: CPU Type
   value: Intel Core 3
-- label: Memory
-  value: 8GB
+- label: Form Factor
+  value: Mini PC
+- label: CPU Name
+  value: Intel Core 3 100U
+- label: Optical Drive Type
+  value: 'No'
 why_deal: Newegg has it for $679, down from $879. Prices change fast, so check the
   price before you buy.
-description: 'This is the MSI Desktop Computer Cubi NUC 1MG-010US Intel Core 3 100U
-  8GB DDR5 500GB. From the listing: processor Intel Core 3, memory 8GB. I posted it
-  after checking the price at Newegg. Worth a look if you''re building or updating
-  a desktop setup.'
+description: I looked at the MSI Desktop Computer Cubi NUC 1MG-010US Intel Core 3
+  100U 8GB DDR5 500GB. Intel Core 3 100U 8GB DDR5 500GB PCIe SSD Windows 11 Pro 64-bit
 ---
-This is the MSI Desktop Computer Cubi NUC 1MG-010US Intel Core 3 100U 8GB DDR5 500GB. From the listing: processor Intel Core 3, memory 8GB. I posted it after checking the price at Newegg. Worth a look if you're building or updating a desktop setup.
+I looked at the MSI Desktop Computer Cubi NUC 1MG-010US Intel Core 3 100U 8GB DDR5 500GB. Intel Core 3 100U 8GB DDR5 500GB PCIe SSD Windows 11 Pro 64-bit No Screen Intel Graphics Components brands may vary. I saw it at Newegg and wanted a clean product write-up here.

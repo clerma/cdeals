@@ -16,11 +16,21 @@ highlights:
 - "$413 under its usual price"
 source: bh-used
 specs:
-- label: Type
-  value: Mirrorless
+- label: Lens Mount
+  value: Canon RF
+- label: Effective Sensor Resolution
+  value: 32.5 Megapixel (6960 x 4640)
+- label: Image Sensor
+  value: APS-C
+- label: Image Stabilization
+  value: Sensor-Shift
+- label: Max Video Output
+  value: 1080p
+- label: Memory Card Slot
+  value: 'Dual Slot: SD/SDHC/SDXC (UHS-II)'
 why_deal: B&H Photo has it for $1236.50, down from $1649. Prices change fast, so check
   the price before you buy.
-description: 'This is the Canon EOS R7 Mirrorless Camera. From the listing: type Mirrorless.
-  I posted it after checking the price at B&H Photo. Worth a look for photos and video.'
+description: I looked at the Canon EOS R7 Mirrorless Camera. Shutter, 2.36m-Dot OLED
+  EVF, 1.6m-Dot Vari-Angle Touchscreen LCD, Sensor-Shift 5-Axis Image Stabilization,
 ---
-This is the Canon EOS R7 Mirrorless Camera. From the listing: type Mirrorless. I posted it after checking the price at B&H Photo. Worth a look for photos and video.
+I looked at the Canon EOS R7 Mirrorless Camera. Shutter, 2.36m-Dot OLED EVF, 1.6m-Dot Vari-Angle Touchscreen LCD, Sensor-Shift 5-Axis Image Stabilization, Dual UHS-II Memory Card Slots, Multi-Function Shoe, Wi-Fi and Bluetooth. I saw it at B&H Photo and wanted a clean product write-up here.

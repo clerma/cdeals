@@ -18,12 +18,17 @@ source: bh-used
 specs:
 - label: Display
   value: 23.8"
+- label: Panel
+  value: IPS
 - label: Refresh rate
   value: 120 Hz
+- label: Resolution
+  value: 1920x1080
+- label: Connectivity
+  value: USB-C
 why_deal: B&H Photo has it for $183.95, down from $259.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Dell UltraSharp 23.8" 120 Hz Monitor. From the listing:
-  display 23.8", refresh rate 120 Hz. I posted it after checking the price at B&H
-  Photo. Worth a look if you''re building or updating a desktop setup.'
+description: I looked at the Dell UltraSharp 23.8" 120 Hz Monitor. 23.8" 16:9 IPS
+  Panel, HDMI | DisplayPort, 1920 x 1080 Resolution at 120 Hz, 5 ms Response Time,
 ---
-This is the Dell UltraSharp 23.8" 120 Hz Monitor. From the listing: display 23.8", refresh rate 120 Hz. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the Dell UltraSharp 23.8" 120 Hz Monitor. 23.8" 16:9 IPS Panel, HDMI | DisplayPort, 1920 x 1080 Resolution at 120 Hz, 5 ms Response Time, 1000:1 Static Contrast Ratio, 250 Nits Brightness, 16.7 Million Colors, 100% sRGB, 85% DCI-P3, 100% BT.709, USB-A & USB-C Ports. I saw it at B&H Photo and wanted a clean product write-up here.

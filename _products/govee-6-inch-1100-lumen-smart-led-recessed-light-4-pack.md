@@ -14,17 +14,12 @@ highlights:
 - 4-pack 6-inch smart recessed lights
 - 1100 lumens each
 specs:
-- label: Size
+- label: Display
   value: 6"
-- label: Pack
-  value: 4
-- label: Brightness
-  value: 1100 lumens
-- label: Feature
-  value: Smart recessed / canless
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the Govee 6" 1100-Lumen Smart LED Recessed Light (4-Pack). From the listing: size 6", pack 4, brightness 1100 lumens, feature Smart recessed / canless. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.'
+description: 'I pulled these listing details for the Govee 6" 1100-Lumen Smart LED
+  Recessed Light (4-Pack): display 6". I posted the Amazon listing so you can confirm'
 source: techbargains
 ---
-This is the Govee 6" 1100-Lumen Smart LED Recessed Light (4-Pack). From the listing: size 6", pack 4, brightness 1100 lumens, feature Smart recessed / canless. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I pulled these listing details for the Govee 6" 1100-Lumen Smart LED Recessed Light (4-Pack): display 6". I posted the Amazon listing so you can confirm the live price.

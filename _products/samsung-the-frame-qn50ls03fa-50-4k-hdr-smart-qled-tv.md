@@ -15,14 +15,21 @@ highlights:
 - "$200 under its usual price"
 source: bh-deals-categories
 specs:
-- label: Display
-  value: 50"
-- label: Panel
-  value: 4K
+- label: Display Size
+  value: 49.5"
+- label: Panel Type
+  value: Quantum Dot LCD (QLED)
+- label: Native Resolution
+  value: 3840 x 2160
+- label: HDR Support
+  value: 'Yes: HDR10/HDR10+/Hybrid Log Gamma'
+- label: Variable Refresh Technology
+  value: 'No'
+- label: A/V Inputs
+  value: Antenna / HDMI
 why_deal: B&H Photo has it for $897.99, down from $1097.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Samsung The Frame QN50LS03FA 50" 4K HDR Smart QLED TV. From
-  the listing: display 50", panel 4K. I posted it after checking the price at B&H
-  Photo. Worth a look for movies, sports, and everyday watching.'
+description: I looked at the Samsung The Frame QN50LS03FA 50" 4K HDR Smart QLED TV.
+  4K UHD 3840 x 2160 QLED Panel, Art Mode & Modern Picture Frame Design, Quantum HDR,
 ---
-This is the Samsung The Frame QN50LS03FA 50" 4K HDR Smart QLED TV. From the listing: display 50", panel 4K. I posted it after checking the price at B&H Photo. Worth a look for movies, sports, and everyday watching.
+I looked at the Samsung The Frame QN50LS03FA 50" 4K HDR Smart QLED TV. 4K UHD 3840 x 2160 QLED Panel, Art Mode & Modern Picture Frame Design, Quantum HDR, HDR10+ & HLG Support, Smart TV Powered by One UI Tizen, 60 Hz Native Refresh Rate, Motion Xcelerator & ALLM Support. I saw it at B&H Photo and wanted a clean product write-up here.

@@ -26,9 +26,7 @@ specs:
   value: 14"
 why_deal: Best Buy has it for $699.99, down from $1199.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the HP OmniBook X Flip 14" 2-in-1, Core Ultra 5 (16GB/512GB).
-  From the listing: processor Core Ultra 5, memory 16GB, storage 512GB, display 14".
-  I posted it after checking the price at Best Buy. Worth a look if you need a portable
-  computer for work or school.'
+description: 'I pulled these listing details for the HP OmniBook X Flip 14" 2-in-1,
+  Core Ultra 5 (16GB/512GB): processor Core Ultra 5, memory 16GB, storage 512GB,'
 ---
-This is the HP OmniBook X Flip 14" 2-in-1, Core Ultra 5 (16GB/512GB). From the listing: processor Core Ultra 5, memory 16GB, storage 512GB, display 14". I posted it after checking the price at Best Buy. Worth a look if you need a portable computer for work or school.
+I pulled these listing details for the HP OmniBook X Flip 14" 2-in-1, Core Ultra 5 (16GB/512GB): processor Core Ultra 5, memory 16GB, storage 512GB, display 14". I saw it at Best Buy and wanted a clean product write-up here.

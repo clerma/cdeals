@@ -19,8 +19,7 @@ specs:
   value: 21.5"
 why_deal: Woot has it for $37.02, down from $100.04. Prices change fast, so check
   the price before you buy.
-description: 'This is the StarTech 21.5in 16:9 Computer Monitor. From the listing:
-  display 21.5". I posted it after checking the price at Woot. Worth a look if you''re
-  building or updating a desktop setup.'
+description: 'I looked at the StarTech 21.5in 16:9 Computer Monitor. Sign up for our
+  Daily Digest emails! Shipping Note: Shipping to Alaska, Hawaii, PO Boxes, and APO'
 ---
-This is the StarTech 21.5in 16:9 Computer Monitor. From the listing: display 21.5". I posted it after checking the price at Woot. Worth a look if you're building or updating a desktop setup.
+I looked at the StarTech 21.5in 16:9 Computer Monitor. Sign up for our Daily Digest emails! Shipping Note: Shipping to Alaska, Hawaii, PO Boxes, and APO addresses is not available for this item Warranty: 90 Day Woot Limited Warranty. I saw it at Woot and wanted a clean product write-up here.

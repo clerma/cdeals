@@ -15,14 +15,21 @@ highlights:
 - "$45 under its usual price"
 source: bh-deals
 specs:
-- label: Storage
-  value: 1TB
-- label: Form
-  value: Portable
+- label: Total Capacity
+  value: 1 TB
+- label: Drive Type
+  value: PCIe SSD
+- label: Default OS Support
+  value: Universal Computer/Mobile OS Support
+- label: System Connection
+  value: USB-C 3.1/3.2 Gen 2
+- label: Read Speed
+  value: 'Maximum: 1050 MB/s'
+- label: Write Speed
+  value: 'Maximum: 1000 MB/s'
 why_deal: B&H Photo has it for $229.99, down from $274.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Samsung 1TB T7 Portable SSD (Titan Gray). From the listing:
-  storage 1TB, form Portable. I posted it after checking the price at B&H Photo. Worth
-  a look as a useful add-on for your gear.'
+description: I looked at the Samsung 1TB T7 Portable SSD (Titan Gray). 1TB Capacity,
+  USB 3.2 Gen 2 Interface, PCIe NVMe Technology, Read Speeds up to 1050 MB/s, Write
 ---
-This is the Samsung 1TB T7 Portable SSD (Titan Gray). From the listing: storage 1TB, form Portable. I posted it after checking the price at B&H Photo. Worth a look as a useful add-on for your gear.
+I looked at the Samsung 1TB T7 Portable SSD (Titan Gray). 1TB Capacity, USB 3.2 Gen 2 Interface, PCIe NVMe Technology, Read Speeds up to 1050 MB/s, Write Speeds up to 1000 MB/s, 256-Bit AES Hardware Encryption. I saw it at B&H Photo and wanted a clean product write-up here.

@@ -16,17 +16,21 @@ highlights:
 - "$90 under its usual price"
 source: newegg-outlet
 specs:
+- label: Brand
+  value: ASRock
+- label: Model
+  value: B850M Riptide WiFi
+- label: CPU Socket Type
+  value: AM5
+- label: CPU Type
+  value: Ryzen 7000 Series / Ryzen 8000 Series / Ryzen 9000 Series
 - label: Chipset
   value: AMD B850
-- label: Connectivity
-  value: WiFi
-- label: Form
-  value: Micro ATX
+- label: Number of Memory Slots
+  value: 4x288pin (DDR5)
 why_deal: Newegg has it for $99.99, down from $189.99. Prices change fast, so check
   the price before you buy.
-description: 'This is the ASRock B850M Riptide WiFi AM5 AMD B850 Micro ATX Motherboard.
-  From the listing: chipset AMD B850, connectivity WiFi, form Micro ATX. I posted
-  it after checking the price at Newegg. Worth a look if you''re building or updating
-  a desktop setup.'
+description: I looked at the ASRock B850M Riptide WiFi AM5 AMD B850 Micro ATX Motherboard.
+  Supports AMD Socket AM5 Ryzen 9000, 8000 and 7000 Series Processors 12+2+1
 ---
-This is the ASRock B850M Riptide WiFi AM5 AMD B850 Micro ATX Motherboard. From the listing: chipset AMD B850, connectivity WiFi, form Micro ATX. I posted it after checking the price at Newegg. Worth a look if you're building or updating a desktop setup.
+I looked at the ASRock B850M Riptide WiFi AM5 AMD B850 Micro ATX Motherboard. Supports AMD Socket AM5 Ryzen 9000, 8000 and 7000 Series Processors 12+2+1 Phase Power Design, Dr.MOS for VCore+SOC+MISC 4 x DDR5 DIMMs Supports Dual Channel, up to 8000+ (OC) 1 PCIe 5.0 x16, 1 PCIe 4.0 x4 Graphics Output Options: 1 HDMI, 1 DisplayPort Realtek ALC1220 7.1 CH HD Audio Codec, Nahimic Audio 1 Blazing M.2 (PCIe Gen5x4), 1 Hyper M.2 (PCIe Gen4x4), 1 M.2 (PCIe Gen4x2), 4 SATA3 2 USB 3.2 Gen2 Type-A+C (Rear), 1 USB 3.2 Gen1 Type-C (Front), 6 USB 3.2 Gen1 (2 Rear, 4 Front), 8 USB 2.0 (4 Rear, 4 Front) Realtek 2.5G LAN 802.11be WiFi 7 +Bluetooth Supports M.2 Bottom Heatsink, BIOS Flashback. I saw it at Newegg and wanted a clean product write-up here.

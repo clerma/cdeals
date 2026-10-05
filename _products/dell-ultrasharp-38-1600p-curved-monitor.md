@@ -18,12 +18,19 @@ source: bh-used
 specs:
 - label: Display
   value: 38"
+- label: Panel
+  value: IPS
+- label: Refresh rate
+  value: 60 Hz
+- label: Resolution
+  value: 3840x1600
+- label: Connectivity
+  value: USB-C
 - label: Form
   value: Curved
 why_deal: B&H Photo has it for $879.95, down from $1099.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Dell UltraSharp 38" 1600p Curved Monitor. From the listing:
-  display 38", form Curved. I posted it after checking the price at B&H Photo. Worth
-  a look if you''re building or updating a desktop setup.'
+description: I looked at the Dell UltraSharp 38" 1600p Curved Monitor. 38" 21:9 IPS
+  Panel, HDMI 2.1 | DisplayPort 1.4 | 2.5GbE RJ45, USB-C and USB-A 3.2 Gen 2 | 3.5mm,
 ---
-This is the Dell UltraSharp 38" 1600p Curved Monitor. From the listing: display 38", form Curved. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the Dell UltraSharp 38" 1600p Curved Monitor. 38" 21:9 IPS Panel, HDMI 2.1 | DisplayPort 1.4 | 2.5GbE RJ45, USB-C and USB-A 3.2 Gen 2 | 3.5mm, WQHD+ 3840 x 1600 at 60 Hz, 2300R Curvature, 8 and 5 ms Response Times, 2000:1 Static Contrast Ratio, 300 nits Brightness. I saw it at B&H Photo and wanted a clean product write-up here.

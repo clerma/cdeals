@@ -16,8 +16,20 @@ highlights:
 source: bh-deals
 why_deal: B&H Photo has it for $269, down from $399. Prices change fast, so check
   the price before you buy.
-description: This is the HP 3201DW Color LaserJet Pro Printer. It's filed under Accessories
-  on this site. I posted it after checking the price at B&H Photo. Worth a look as
-  a useful add-on for your gear.
+description: 'I looked at the HP 3201DW Color LaserJet Pro Printer. Color Printing,
+  Duty Cycle: 40,000 Pages, First Page Out: 10.9 Seconds, Print Speed: 26 ppm, USB,'
+specs:
+- label: Functions
+  value: Print
+- label: Printing Technology
+  value: Laser
+- label: Color Type
+  value: Color
+- label: Configuration
+  value: 4x Individual Cartridge
+- label: Print Resolution
+  value: 'Color: 600 x 600 dpi (Optimized)Black: 600 x 600 dpi (Optimized)'
+- label: Wireless
+  value: Wi-Fi
 ---
-This is the HP 3201DW Color LaserJet Pro Printer. It's filed under Accessories on this site. I posted it after checking the price at B&H Photo. Worth a look as a useful add-on for your gear.
+I looked at the HP 3201DW Color LaserJet Pro Printer. Color Printing, Duty Cycle: 40,000 Pages, First Page Out: 10.9 Seconds, Print Speed: 26 ppm, USB, Ethernet & Wi-Fi Connectivity, Print Resolution: 600 x 600 dpi, 2" LCD Display, Compact Size. I saw it at B&H Photo and wanted a clean product write-up here.

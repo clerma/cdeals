@@ -17,16 +17,21 @@ highlights:
 - "$110 under its usual price"
 source: bh-used
 specs:
-- label: Display
+- label: Display Size
   value: 27"
-- label: Panel
-  value: 4K
-- label: Connectivity
-  value: USB-C
+- label: Panel Type
+  value: IPS-Type LCD
+- label: Native Resolution
+  value: 3840 x 2160
+- label: Maximum Brightness
+  value: 350 nits / cd/m2
+- label: HDR Support
+  value: 'Yes'
+- label: Color Support
+  value: 1.07 Billion Colors
 why_deal: B&H Photo has it for $339.95, down from $449.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Dell Pro 27" Plus P2725QE 4K UHD USB-C Hub IPS Monitor.
-  From the listing: display 27", panel 4K, connectivity USB-C. I posted it after checking
-  the price at B&H Photo. Worth a look if you''re building or updating a desktop setup.'
+description: I looked at the Dell Pro 27" Plus P2725QE 4K UHD USB-C Hub IPS Monitor.
+  27" 16:9 IPS Panel, HDMI | DisplayPort | USB-C, 3840 x 2160 at 100 Hz, 5 ms (GtG)
 ---
-This is the Dell Pro 27" Plus P2725QE 4K UHD USB-C Hub IPS Monitor. From the listing: display 27", panel 4K, connectivity USB-C. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the Dell Pro 27" Plus P2725QE 4K UHD USB-C Hub IPS Monitor. 27" 16:9 IPS Panel, HDMI | DisplayPort | USB-C, 3840 x 2160 at 100 Hz, 5 ms (GtG) Response Time, 1500:1 Static Contrast Ratio, 350 nits of Brightness, 1.07 Billion Colors, 99% sRGB Color Gamut. I saw it at B&H Photo and wanted a clean product write-up here.

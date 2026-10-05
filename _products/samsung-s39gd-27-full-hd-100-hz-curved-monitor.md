@@ -17,19 +17,22 @@ highlights:
 - "$32 under its usual price"
 source: bh-used
 specs:
-- label: Display
+- label: Display Size
   value: 27"
-- label: Panel
-  value: Full HD
-- label: Refresh rate
-  value: 100 Hz
-- label: Form
-  value: Curved
+- label: Panel Type
+  value: VA LCD
+- label: Native Resolution
+  value: 1920 x 1080
+- label: Maximum Brightness
+  value: 250 nits / cd/m2
+- label: HDR Support
+  value: 'No'
+- label: Color Support
+  value: 16.7 Million Colors
 why_deal: B&H Photo has it for $77.95, down from $109.99. Prices change fast, so check
   the price before you buy.
-description: 'This is the Samsung S39GD 27" Full HD 100 Hz Curved Monitor. From the
-  listing: display 27", panel Full HD, refresh rate 100 Hz, form Curved. I posted
-  it after checking the price at B&H Photo. Worth a look if you''re building or updating
-  a desktop setup.'
+description: I looked at the Samsung S39GD 27" Full HD 100 Hz Curved Monitor. 27"
+  16:9 1800R Curved VA Panel, HDMI 1.4 | VGA, Full HD (1080p) 1920 x 1080 at 100 Hz,
+  4
 ---
-This is the Samsung S39GD 27" Full HD 100 Hz Curved Monitor. From the listing: display 27", panel Full HD, refresh rate 100 Hz, form Curved. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the Samsung S39GD 27" Full HD 100 Hz Curved Monitor. 27" 16:9 1800R Curved VA Panel, HDMI 1.4 | VGA, Full HD (1080p) 1920 x 1080 at 100 Hz, 4 ms (GtG) Response Time, 4000:1 Static Contrast Ratio, 250 nits Brightness, 16.7 Million Colors. I saw it at B&H Photo and wanted a clean product write-up here.

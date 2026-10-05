@@ -23,10 +23,13 @@ specs:
   value: 4K
 - label: Refresh rate
   value: 120 Hz
+- label: Resolution
+  value: 3840x2160
+- label: Connectivity
+  value: Thunderbolt 4
 why_deal: B&H Photo has it for $532.95, down from $649.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Dell UltraSharp 27" 4K HDR 120 Hz Monitor. From the listing:
-  display 27", panel 4K, refresh rate 120 Hz. I posted it after checking the price
-  at B&H Photo. Worth a look if you''re building or updating a desktop setup.'
+description: I looked at the Dell UltraSharp 27" 4K HDR 120 Hz Monitor. 27" 16:9 IPS
+  Black Panel, HDMI | DisplayPort | Thunderbolt 4, UHD 4K 3840 x Open-box B&H deal.
 ---
-This is the Dell UltraSharp 27" 4K HDR 120 Hz Monitor. From the listing: display 27", panel 4K, refresh rate 120 Hz. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the Dell UltraSharp 27" 4K HDR 120 Hz Monitor. 27" 16:9 IPS Black Panel, HDMI | DisplayPort | Thunderbolt 4, UHD 4K 3840 x 2160 at 120 Hz, 8/5 ms Response Time (GtG), 3000:1 Static Contrast Ratio, 600 nits Brightness, 1.07 Billion Colors with HDR. I saw this B&H listing (803561954-USE) and wanted a clean product write-up here. This page is the open-box listing.

@@ -15,12 +15,21 @@ highlights:
 - "$50 under its usual price"
 source: bh-deals
 specs:
-- label: Style
-  value: True Wireless
+- label: Wearing Style
+  value: Dual Ear True Wireless Earbud
+- label: Earpiece Design
+  value: In-Ear (Intra-Aural)
+- label: Active Noise Cancellation
+  value: 'Yes'
+- label: Frequency Response
+  value: 20 Hz to 20 kHz
+- label: Built-In Controls
+  value: 'Yes'
+- label: Noise Cancelling Microphone
+  value: 'Yes'
 why_deal: B&H Photo has it for $59.95, down from $109.95. Prices change fast, so check
   the price before you buy.
-description: 'This is the JBL Tune Flex 2 True Wireless Noise-Canceling Earbuds (Black).
-  From the listing: style True Wireless. I posted it after checking the price at B&H
-  Photo. Worth a look if you want better sound without a big setup.'
+description: I looked at the JBL Tune Flex 2 True Wireless Noise-Canceling Earbuds
+  (Black). For Travel and Everyday Listening, 12mm Dynamic Drivers with JBL Pure Bass,
 ---
-This is the JBL Tune Flex 2 True Wireless Noise-Canceling Earbuds (Black). From the listing: style True Wireless. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.
+I looked at the JBL Tune Flex 2 True Wireless Noise-Canceling Earbuds (Black). For Travel and Everyday Listening, 12mm Dynamic Drivers with JBL Pure Bass, JBL Spatial Sound, Adaptive Noise Canceling, Ambient Aware and TalkThru Functions, 6 Mics for Crystal-Clear Calls. I saw it at B&H Photo and wanted a clean product write-up here.

@@ -16,8 +16,7 @@ highlights:
 source: woot
 why_deal: Woot has it for $13.99, down from $34.70. Prices change fast, so check the
   price before you buy.
-description: This is the QcK Large Gaming Mousepad White. It's filed under Accessories
-  on this site. I posted it after checking the price at Woot. Worth a look as a useful
-  add-on for your gear.
+description: 'I looked at the QcK Large Gaming Mousepad White. Sign up for our Daily
+  Digest emails! Shipping Note: Shipping to Alaska, Hawaii, PO Boxes, and APO'
 ---
-This is the QcK Large Gaming Mousepad White. It's filed under Accessories on this site. I posted it after checking the price at Woot. Worth a look as a useful add-on for your gear.
+I looked at the QcK Large Gaming Mousepad White. Sign up for our Daily Digest emails! Shipping Note: Shipping to Alaska, Hawaii, PO Boxes, and APO addresses is not available for this item Warranty: 90 Day Woot Limited Warranty. I saw it at Woot and wanted a clean product write-up here.

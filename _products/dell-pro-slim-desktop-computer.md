@@ -16,8 +16,10 @@ highlights:
 source: bh-deals
 why_deal: B&H Photo has it for $999, down from $1596.82. Prices change fast, so check
   the price before you buy.
-description: This is the Dell Pro Slim Desktop Computer. It's filed under Computers
-  on this site. I posted it after checking the price at B&H Photo. Worth a look if
-  you're building or updating a desktop setup.
+description: I looked at the Dell Pro Slim Desktop Computer. 3.4 GHz Intel Core Ultra
+  5 235 14-Core, 16GB 5600 MT/s DDR5 RAM, 512GB M.2 NVMe SSD, Integrated Intel
+specs:
+- label: Processor
+  value: Intel Core Ultra 5
 ---
-This is the Dell Pro Slim Desktop Computer. It's filed under Computers on this site. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the Dell Pro Slim Desktop Computer. 3.4 GHz Intel Core Ultra 5 235 14-Core, 16GB 5600 MT/s DDR5 RAM, 512GB M.2 NVMe SSD, Integrated Intel Graphics, Gigabit Ethernet Port, USB 3.2 Gen 1 | USB 2.0, DisplayPort 1.4a | HDMI 2.1, Includes USB Keyboard & Mouse. I saw it at B&H Photo and wanted a clean product write-up here.

@@ -15,14 +15,21 @@ highlights:
 - "$50 under its usual price"
 source: bh-deals-categories
 specs:
-- label: Connectivity
-  value: Bluetooth
-- label: Form
-  value: Portable
+- label: Power Output
+  value: 45 W
+- label: Drivers
+  value: 1x 2.1 x 4" / 53 x 93 mm Woofer1x 1" / 20 mm Tweeter
+- label: Frequency Response
+  value: 56 Hz to 20 kHz
+- label: Built-In Mic
+  value: 'No'
+- label: Bluetooth
+  value: Bluetooth 5.4
+- label: Media/Memory Card Slot
+  value: 'No'
 why_deal: B&H Photo has it for $149.95, down from $199.95. Prices change fast, so
   check the price before you buy.
-description: 'This is the JBL Charge 6 Portable Bluetooth Speaker (Black). From the
-  listing: connectivity Bluetooth, form Portable. I posted it after checking the price
-  at B&H Photo. Worth a look if you want better sound without a big setup.'
+description: I looked at the JBL Charge 6 Portable Bluetooth Speaker (Black). 45W
+  2-Way Speaker System, Water- & Dustproof Design, Can Handle Drops up to 3.3',
 ---
-This is the JBL Charge 6 Portable Bluetooth Speaker (Black). From the listing: connectivity Bluetooth, form Portable. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.
+I looked at the JBL Charge 6 Portable Bluetooth Speaker (Black). 45W 2-Way Speaker System, Water- & Dustproof Design, Can Handle Drops up to 3.3', Improved Quality with AI Sound Boost, Up to 24 Hours of Battery Life, Up to 4 Extra Hours with Playtime Boost. I saw it at B&H Photo and wanted a clean product write-up here.

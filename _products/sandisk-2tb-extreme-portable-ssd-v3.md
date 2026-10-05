@@ -15,14 +15,21 @@ highlights:
 - "$230 under its usual price"
 source: bh-deals-categories
 specs:
-- label: Storage
-  value: 2TB
-- label: Form
-  value: Portable
+- label: Total Capacity
+  value: 2 TB
+- label: Drive Type
+  value: PCIe SSD
+- label: Default OS Support
+  value: Not Specified by Manufacturer
+- label: System Connection
+  value: USB-C 3.2 Gen 2x2
+- label: Read Speed
+  value: 'Maximum: 2000 MB/s'
+- label: Encryption Support
+  value: 'Yes: Hardware-Based'
 why_deal: B&H Photo has it for $449.99, down from $679.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the SANDISK 2TB Extreme Portable SSD V3. From the listing: storage
-  2TB, form Portable. I posted it after checking the price at B&H Photo. Worth a look
-  as a useful add-on for your gear.'
+description: I looked at the SANDISK 2TB Extreme Portable SSD V3. 2TB Total Storage
+  Capacity, 20 Gb/s USB-C 3.2 Gen 2x2 Interface, Read Speeds up to 2000 MB/s, Bus
 ---
-This is the SANDISK 2TB Extreme Portable SSD V3. From the listing: storage 2TB, form Portable. I posted it after checking the price at B&H Photo. Worth a look as a useful add-on for your gear.
+I looked at the SANDISK 2TB Extreme Portable SSD V3. 2TB Total Storage Capacity, 20 Gb/s USB-C 3.2 Gen 2x2 Interface, Read Speeds up to 2000 MB/s, Bus Powered, 256-Bit AES Encryption, IP65 Dust and Water Resistance, Drop Resistant up to 9.8', Bus Power | Plug-and-Play, Carabiner Loop for Easy Transport, SANDISK App. I saw it at B&H Photo and wanted a clean product write-up here.

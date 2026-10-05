@@ -14,14 +14,24 @@ highlights:
 - Sold by Woot
 source: woot
 specs:
-- label: Panel
-  value: 4K
-- label: Generation
-  value: 1th gen
+- label: Size
+  value: 99 mm x 30 mm x 14 mm (only housing) | 108 mm x 30 mm x 14 mm (including
+    the con
+- label: Weight
+  value: 53.6 g
+- label: Processor
+  value: Quad-core 1.7 GHz
+- label: GPU
+  value: IMG GE8300
+- label: Storage
+  value: 8 GB
+- label: Wifi
+  value: Dual-band, dual-antenna wifi (MIMO) for faster streaming and fewer dropped
+    conne
 why_deal: Woot has it for $16.99. Prices change fast, so check the price before you
   buy.
-description: 'This is the Amazon Fire TV Stick 4K (1st Gen) with Alexa Voice Remote
-  (3rd Gen). From the listing: panel 4K, generation 1th gen. I posted it after checking
-  the price at Woot. Worth a look for movies, sports, and everyday watching.'
+description: 'I pulled these listing details for the Amazon Fire TV Stick 4K (1st
+  Gen) with Alexa Voice Remote (3rd Gen): size 99 mm x 30 mm x 14 mm (only housing)
+  |'
 ---
-This is the Amazon Fire TV Stick 4K (1st Gen) with Alexa Voice Remote (3rd Gen). From the listing: panel 4K, generation 1th gen. I posted it after checking the price at Woot. Worth a look for movies, sports, and everyday watching.
+I pulled these listing details for the Amazon Fire TV Stick 4K (1st Gen) with Alexa Voice Remote (3rd Gen): size 99 mm x 30 mm x 14 mm (only housing) | 108 mm x 30 mm x 14 mm (including the con, weight 53.6 g, processor Quad-core 1.7 GHz, gpu IMG GE8300. I saw it at Woot and wanted a clean product write-up here.

@@ -17,11 +17,21 @@ highlights:
 - "$642 under its usual price"
 source: bh-used
 specs:
-- label: Type
-  value: Mirrorless
+- label: Lens Mount
+  value: Canon RF
+- label: Effective Sensor Resolution
+  value: 45 Megapixel (8192 x 5464)
+- label: Image Sensor
+  value: Full-Frame
+- label: Image Stabilization
+  value: Sensor-Shift
+- label: Video I/O
+  value: 1x Micro-HDMI Output
+- label: Power I/O
+  value: 1x USB-C Input
 why_deal: B&H Photo has it for $2356.95, down from $2999. Prices change fast, so check
   the price before you buy.
-description: 'This is the Canon EOS R5 Mirrorless Camera. From the listing: type Mirrorless.
-  I posted it after checking the price at B&H Photo. Worth a look for photos and video.'
+description: I looked at the Canon EOS R5 Mirrorless Camera. Shutter, Dual Pixel CMOS
+  AF II with 1053 Points, 3.2" Vari-Angle Touchscreen LCD, Subject Tracking with
 ---
-This is the Canon EOS R5 Mirrorless Camera. From the listing: type Mirrorless. I posted it after checking the price at B&H Photo. Worth a look for photos and video.
+I looked at the Canon EOS R5 Mirrorless Camera. Shutter, Dual Pixel CMOS AF II with 1053 Points, 3.2" Vari-Angle Touchscreen LCD, Subject Tracking with Deep Learning, CFexpress & SD UHS-II Memory Card Slots. I saw it at B&H Photo and wanted a clean product write-up here.

@@ -15,14 +15,21 @@ highlights:
 - "$70 under its usual price"
 source: bh-deals
 specs:
-- label: Display
+- label: Display Size
   value: 27"
-- label: Panel
-  value: 4K
+- label: Panel Type
+  value: IPS-Type LCD
+- label: Native Resolution
+  value: 3840 x 2160
+- label: Maximum Brightness
+  value: 300 nits / cd/m2
+- label: HDR Support
+  value: 'Yes: HDR10'
+- label: Color Support
+  value: 1.07 Billion Colors
 why_deal: B&H Photo has it for $179.99, down from $249.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Samsung ViewFinity S7 S71H 27" 4K HDR Monitor. From the
-  listing: display 27", panel 4K. I posted it after checking the price at B&H Photo.
-  Worth a look if you''re building or updating a desktop setup.'
+description: I looked at the Samsung ViewFinity S7 S71H 27" 4K HDR Monitor. 27" 16:9
+  IPS Panel, HDMI 2.0 | DisplayPort 1.2 | 3.5mm, UHD 4K 3840 x 2160 at 60 Hz, 5 ms
 ---
-This is the Samsung ViewFinity S7 S71H 27" 4K HDR Monitor. From the listing: display 27", panel 4K. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the Samsung ViewFinity S7 S71H 27" 4K HDR Monitor. 27" 16:9 IPS Panel, HDMI 2.0 | DisplayPort 1.2 | 3.5mm, UHD 4K 3840 x 2160 at 60 Hz, 5 ms (GtG) Response Time, 1000:1 Static Contrast Ratio, 300 nits Brightness, 1.07 Billion Colors with HDR10. I saw it at B&H Photo and wanted a clean product write-up here.

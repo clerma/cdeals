@@ -26,9 +26,7 @@ specs:
   value: 13"
 why_deal: MacHeist has it for $529.99, down from $999. Prices change fast, so check
   the price before you buy.
-description: 'This is the Apple MacBook Air (2020) 13" M1 8CPU 7GPU 8GB RAM 256GB
-  SSD Space Gray. From the listing: chip M1, memory 8GB, storage 256GB SSD, display
-  13". I posted it after checking the price at MacHeist. Worth a look if you need
-  a portable computer for work or school.'
+description: I looked at the Apple MacBook Air (2020) 13" M1 8CPU 7GPU 8GB RAM 256GB
+  SSD Space Gray. Light, fast, and built to last! The MacBook Air M1 delivers a
 ---
-This is the Apple MacBook Air (2020) 13" M1 8CPU 7GPU 8GB RAM 256GB SSD Space Gray. From the listing: chip M1, memory 8GB, storage 256GB SSD, display 13". I posted it after checking the price at MacHeist. Worth a look if you need a portable computer for work or school.
+I looked at the Apple MacBook Air (2020) 13" M1 8CPU 7GPU 8GB RAM 256GB SSD Space Gray. Light, fast, and built to last! The MacBook Air M1 delivers a stunning 13.3" Retina display, silent fanless design, and all-day battery life for work or play. I saw it at MacHeist and wanted a clean product write-up here.

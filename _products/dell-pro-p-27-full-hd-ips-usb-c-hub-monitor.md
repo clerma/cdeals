@@ -20,12 +20,15 @@ specs:
   value: 27"
 - label: Panel
   value: Full HD
+- label: Refresh rate
+  value: 120 Hz
+- label: Resolution
+  value: 1920x1080
 - label: Connectivity
   value: USB-C
 why_deal: B&H Photo has it for $239.95, down from $299.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Dell Pro P 27" Full HD IPS USB-C Hub Monitor. From the listing:
-  display 27", panel Full HD, connectivity USB-C. I posted it after checking the price
-  at B&H Photo. Worth a look if you''re building or updating a desktop setup.'
+description: I looked at the Dell Pro P 27" Full HD IPS USB-C Hub Monitor. 27" 16:9
+  IPS Panel, HDMI | DisplayPort | USB-C, FHD 1920 x 1080 at 120 Hz, 5 ms (GtG)
 ---
-This is the Dell Pro P 27" Full HD IPS USB-C Hub Monitor. From the listing: display 27", panel Full HD, connectivity USB-C. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the Dell Pro P 27" Full HD IPS USB-C Hub Monitor. 27" 16:9 IPS Panel, HDMI | DisplayPort | USB-C, FHD 1920 x 1080 at 120 Hz, 5 ms (GtG) Response Time, 1500:1 Static Contrast Ratio, 300 nits Brightness, 16.7 Million Colors, 1 x RJ45 GbE Port. I saw it at B&H Photo and wanted a clean product write-up here.

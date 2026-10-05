@@ -17,13 +17,20 @@ highlights:
 source: newegg-outlet
 why_deal: Newegg has it for $119.99, down from $309.99. Prices change fast, so check
   the price before you buy.
-description: 'This is the HP OFFICEJET PRO 9125 ALL-IN-ONE PRINTER. From the listing:
-  display 12", resolution 1200x1200. I posted it after checking the price at Newegg.
-  Worth a look as a useful add-on for your gear.'
+description: I looked at the HP OFFICEJET PRO 9125 ALL-IN-ONE PRINTER. Up to 22 ppm
+  Black Print Speed Up to 22 ppm Color Print Speed 1200 x 1200 dpi Black Print
 specs:
-- label: Display
-  value: 12"
-- label: Resolution
-  value: 1200x1200
+- label: Best Seller Ranking
+  value: "#12 in Inkjet Printers"
+- label: Black Print Speed
+  value: Up to 22 ppm
+- label: Black Print Quality
+  value: 1200 x 1200 dpi
+- label: Brand
+  value: HP Print & Supplies
+- label: Part Number
+  value: C2VZ0A#B1H
+- label: Color Print Speed
+  value: Up to 22 ppm
 ---
-This is the HP OFFICEJET PRO 9125 ALL-IN-ONE PRINTER. From the listing: display 12", resolution 1200x1200. I posted it after checking the price at Newegg. Worth a look as a useful add-on for your gear.
+I looked at the HP OFFICEJET PRO 9125 ALL-IN-ONE PRINTER. Up to 22 ppm Black Print Speed Up to 22 ppm Color Print Speed 1200 x 1200 dpi Black Print Quality 4800 x 1200 dpi Color Print Quality. I saw it at Newegg and wanted a clean product write-up here.

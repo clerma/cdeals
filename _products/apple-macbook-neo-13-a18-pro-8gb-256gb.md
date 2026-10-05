@@ -25,9 +25,7 @@ specs:
   value: 13"
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the Apple MacBook Neo 13" A18 Pro (8GB/256GB). From the listing:
-  chip A18 Pro, memory 8GB, storage 256GB, display 13". I posted it because Amazon
-  had a strong price when I checked. Prices move, so confirm the current price at
-  Amazon before you buy.'
+description: 'I pulled these listing details for the Apple MacBook Neo 13" A18 Pro
+  (8GB/256GB): chip A18 Pro, memory 8GB, storage 256GB, display 13". I posted the'
 ---
-This is the Apple MacBook Neo 13" A18 Pro (8GB/256GB). From the listing: chip A18 Pro, memory 8GB, storage 256GB, display 13". I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I pulled these listing details for the Apple MacBook Neo 13" A18 Pro (8GB/256GB): chip A18 Pro, memory 8GB, storage 256GB, display 13". I posted the Amazon listing so you can confirm the live price.

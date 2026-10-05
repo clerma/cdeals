@@ -14,17 +14,13 @@ highlights:
 - 4-pack Matter Wi-Fi A19 bulbs
 - 800 lumens each
 specs:
-- label: Bulb
-  value: A19 E26
-- label: Pack
-  value: 4
-- label: Brightness
-  value: 800 lumens
-- label: Feature
-  value: Matter / color changing
+- label: Chip
+  value: A19
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the Linkind Matter A19 E26 Smart Color-Changing LED Light Bulbs (4-Pack). From the listing: bulb A19 E26, pack 4, brightness 800 lumens, feature Matter / color changing. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.'
+description: 'I pulled these listing details for the Linkind Matter A19 E26 Smart
+  Color-Changing LED Light Bulbs (4-Pack): chip A19. I posted the Amazon listing so
+  you'
 source: techbargains
 ---
-This is the Linkind Matter A19 E26 Smart Color-Changing LED Light Bulbs (4-Pack). From the listing: bulb A19 E26, pack 4, brightness 800 lumens, feature Matter / color changing. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I pulled these listing details for the Linkind Matter A19 E26 Smart Color-Changing LED Light Bulbs (4-Pack): chip A19. I posted the Amazon listing so you can confirm the live price.

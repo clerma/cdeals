@@ -15,12 +15,21 @@ highlights:
 - "$15 under its usual price"
 source: bh-deals
 specs:
-- label: Style
-  value: Wired
+- label: Wearing Style
+  value: Dual Ear with Headband
+- label: Open/Closed-Back
+  value: Closed-Back
+- label: Impedance
+  value: 32 Ohms
+- label: Active Noise Cancellation
+  value: 'No'
+- label: Frequency Response
+  value: 20 Hz to 20 kHz
+- label: Built-In Mic
+  value: Yes (on Boom)
 why_deal: B&H Photo has it for $29.95, down from $44.95. Prices change fast, so check
   the price before you buy.
-description: 'This is the JBL Quantum 100M2 Wired Gaming Headset (Black). From the
-  listing: style Wired. I posted it after checking the price at B&H Photo. Worth a
-  look for playing at home or on the go.'
+description: I looked at the JBL Quantum 100M2 Wired Gaming Headset (Black). 40mm
+  Dynamic Drivers, Detachable Boom Microphone, Breathable Fabric Memory Foam Earcups,
 ---
-This is the JBL Quantum 100M2 Wired Gaming Headset (Black). From the listing: style Wired. I posted it after checking the price at B&H Photo. Worth a look for playing at home or on the go.
+I looked at the JBL Quantum 100M2 Wired Gaming Headset (Black). 40mm Dynamic Drivers, Detachable Boom Microphone, Breathable Fabric Memory Foam Earcups, Directional Voice-Focused Pickup, Built-In 3.5mm 3.9' Cable, Padded Headband, Compatible with PC and Gaming Consoles. I saw it at B&H Photo and wanted a clean product write-up here.

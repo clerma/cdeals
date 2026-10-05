@@ -17,16 +17,21 @@ highlights:
 - "$60 under its usual price"
 source: bh-used
 specs:
-- label: Display
+- label: Display Size
   value: 27"
-- label: Panel
-  value: 1440p
-- label: Refresh rate
-  value: 144 Hz
+- label: Panel Type
+  value: IPS-Type LCD
+- label: Native Resolution
+  value: 2560 x 1440
+- label: HDR Support
+  value: 'Yes: HDR10'
+- label: Color Support
+  value: 1.07 Billion Colors (10-Bit)
+- label: Color Gamut
+  value: 97% DCI-P3100% sRGB
 why_deal: B&H Photo has it for $238.95, down from $299. Prices change fast, so check
   the price before you buy.
-description: 'This is the ASUS ProArt PA278CGRV 27" 1440p HDR 144 Hz Monitor. From
-  the listing: display 27", panel 1440p, refresh rate 144 Hz. I posted it after checking
-  the price at B&H Photo. Worth a look if you''re building or updating a desktop setup.'
+description: I looked at the ASUS ProArt PA278CGRV 27" 1440p HDR 144 Hz Monitor. 27"
+  16:9 IPS Panel, HDMI | DisplayPort | USB-C (96W), QHD (1440p) 2560 x 1440 at 144
 ---
-This is the ASUS ProArt PA278CGRV 27" 1440p HDR 144 Hz Monitor. From the listing: display 27", panel 1440p, refresh rate 144 Hz. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the ASUS ProArt PA278CGRV 27" 1440p HDR 144 Hz Monitor. 27" 16:9 IPS Panel, HDMI | DisplayPort | USB-C (96W), QHD (1440p) 2560 x 1440 at 144 Hz, 5 ms (GtG) Response Time, 3000:1 Static Contrast Ratio, 400 nits Peak Brightness, 1.07 Billion Colors with HDR10. I saw it at B&H Photo and wanted a clean product write-up here.

@@ -17,13 +17,9 @@ source: techbargains
 specs:
 - label: Suction
   value: 8000Pa
-- label: Feature
-  value: LiDAR
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the Roborock Q7 L5 8000Pa LiDAR Mapping Robot Vacuum & Mop.
-  From the listing: suction 8000Pa, feature LiDAR. I posted it because Amazon had
-  a strong price when I checked. Prices move, so confirm the current price at Amazon
-  before you buy.'
+description: 'I pulled these listing details for the Roborock Q7 L5 8000Pa LiDAR Mapping
+  Robot Vacuum & Mop: suction 8000Pa. I posted the Amazon listing so you can'
 ---
-This is the Roborock Q7 L5 8000Pa LiDAR Mapping Robot Vacuum & Mop. From the listing: suction 8000Pa, feature LiDAR. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I pulled these listing details for the Roborock Q7 L5 8000Pa LiDAR Mapping Robot Vacuum & Mop: suction 8000Pa. I posted the Amazon listing so you can confirm the live price.

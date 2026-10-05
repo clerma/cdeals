@@ -15,12 +15,15 @@ highlights:
 - "$25 under its usual price"
 source: newegg-outlet
 specs:
+- label: Best Seller Ranking
+  value: "#12 in Other Computer Accessories"
+- label: First Listed on Newegg
+  value: November 03, 2021
 - label: Style
   value: Wireless
 why_deal: Newegg has it for $69.29, down from $93.99. Prices change fast, so check
   the price before you buy.
-description: 'This is the Dell KM7120W Wireless Keyboard and Mouse Combo. From the
-  listing: style Wireless. I posted it after checking the price at Newegg. Worth a
-  look as a useful add-on for your gear.'
+description: 'I looked at the Dell KM7120W Wireless Keyboard and Mouse Combo. Type:
+  Bundle-Keyboard Mouse Model:580-AISY. I saw it at Newegg and wanted a clean product'
 ---
-This is the Dell KM7120W Wireless Keyboard and Mouse Combo. From the listing: style Wireless. I posted it after checking the price at Newegg. Worth a look as a useful add-on for your gear.
+I looked at the Dell KM7120W Wireless Keyboard and Mouse Combo. Type: Bundle-Keyboard Mouse Model:580-AISY. I saw it at Newegg and wanted a clean product write-up here.

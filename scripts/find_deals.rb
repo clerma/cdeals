@@ -21,6 +21,7 @@ require_relative "lib/polite_http"
 require_relative "lib/fetcher"
 require_relative "lib/direct_sources"
 require_relative "lib/deal_copy"
+require_relative "lib/source_cache"
 
 
 
@@ -487,11 +488,26 @@ build_candidate = lambda do |item, source|
 
   money_s = ->(v) { v == v.round ? "$#{v.round}" : format("$%.2f", v) }
   amazon = DealCopy.amazon?(store, store_url)
-  specs_preview = DealCopy.specs_from_text(short, extra: title, category: category)
+  overview = ""
+  page_specs = []
+  begin
+    fm_probe = { "title" => short, "brand" => brand, "store" => store, "affiliate_url" => store_url }
+    enrich_url = SourceCache.enrichment_url(fm_probe)
+    if enrich_url && !enrich_url.empty? && !SourceCache.amazon_url?(enrich_url)
+      data = SourceCache.fetch_page(enrich_url, cfg: cfg, source_id: "find")
+      unless data["error"]
+        overview = data["overview"].to_s
+        page_specs = data["specs"] || []
+      end
+    end
+  rescue StandardError => err
+    warn "  enrich soft-fail: #{err.message[0, 80]}"
+  end
+  specs_preview = DealCopy.merge_specs(page_specs, DealCopy.specs_from_text(short, extra: "#{title} #{overview}", category: category))
   # Full product summary (what it is / who it's for). The price "why it's a deal"
   # line is rebuilt at publish time into why_deal / the deal tab.
   summary = DealCopy.summary(title: short, category: category, brand: brand, store: store,
-                             specs: specs_preview, amazon: amazon)
+                             specs: specs_preview, amazon: amazon, overview: overview)
 
   dedupe_key = key || item[:link]
   entry = {

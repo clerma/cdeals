@@ -20,11 +20,11 @@ specs:
   value: 16GB
 - label: Storage
   value: 256GB SSD
+- label: Connectivity
+  value: Wi-Fi 7
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the Apple Mac Mini M6 Desktop (16GB RAM, 256GB SSD). From the
-  listing: chip M6, memory 16GB, storage 256GB SSD. I posted it because Amazon had
-  a strong price when I checked. Prices move, so confirm the current price at Amazon
-  before you buy.'
+description: I looked at the Apple Mac Mini M6 Desktop (16GB RAM, 256GB SSD). Do it
+  all with the ultracompact Mac mini with M6 or M5 Pro. Mac mini now with M6 and
 ---
-This is the Apple Mac Mini M6 Desktop (16GB RAM, 256GB SSD). From the listing: chip M6, memory 16GB, storage 256GB SSD. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I looked at the Apple Mac Mini M6 Desktop (16GB RAM, 256GB SSD). Do it all with the ultracompact Mac mini with M6 or M5 Pro. Mac mini now with M6 and M5 Pro. I posted the Amazon listing so you can confirm the live price.

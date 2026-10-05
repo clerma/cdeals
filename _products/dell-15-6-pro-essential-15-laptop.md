@@ -18,11 +18,20 @@ highlights:
 source: bh-used
 why_deal: B&H Photo has it for $929.95, down from $1192.44. Prices change fast, so
   check the price before you buy.
-description: 'This is the Dell 15.6" Pro Essential 15 Laptop. From the listing: display
-  15.6". I posted it after checking the price at B&H Photo. Worth a look if you need
-  a portable computer for work or school.'
+description: I looked at the Dell 15.6" Pro Essential 15 Laptop. Intel Core i7-1355U
+  10-Core (13th Gen), 16GB DDR5 | 512GB M.2 SSD, 15.6" 1920 x 1080 IPS 120 Hz
 specs:
-- label: Display
+- label: Operating System
+  value: Windows 11 Pro
+- label: Processor
+  value: Intel Core i7-1355U
+- label: GPU
+  value: Intel UHD Graphics
+- label: Installed RAM
+  value: 16 GB
+- label: Display Size
   value: 15.6"
+- label: Native Resolution
+  value: 1920 x 1080
 ---
-This is the Dell 15.6" Pro Essential 15 Laptop. From the listing: display 15.6". I posted it after checking the price at B&H Photo. Worth a look if you need a portable computer for work or school.
+I looked at the Dell 15.6" Pro Essential 15 Laptop. Intel Core i7-1355U 10-Core (13th Gen), 16GB DDR5 | 512GB M.2 SSD, 15.6" 1920 x 1080 IPS 120 Hz Display, Integrated Intel UHD Graphics, SD Card Reader, Wi-Fi 6 (802.11ax) | Bluetooth, USB 3.2 Gen 1 | USB 2.0 | HDMI 1.4. I saw it at B&H Photo and wanted a clean product write-up here.

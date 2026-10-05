@@ -17,8 +17,7 @@ highlights:
 source: techbargains-pages
 why_deal: Dell has it for $959.99, down from $1129.99. Prices change fast, so check
   the price before you buy.
-description: This is the Dell Slim Desktop. It's filed under Computers on this site.
-  I posted it after checking the price at Dell. Worth a look if you're building or
-  updating a desktop setup.
+description: I looked at the Dell Slim Desktop. Compact desktop for everyday productivity
+  and creativity. AMD Ryzen™ 5 150 (6c, 3.3GHz Base, 4.6GHz Turbo, 19MB Cache,
 ---
-This is the Dell Slim Desktop. It's filed under Computers on this site. I posted it after checking the price at Dell. Worth a look if you're building or updating a desktop setup.
+I looked at the Dell Slim Desktop. Compact desktop for everyday productivity and creativity. AMD Ryzen™ 5 150 (6c, 3.3GHz Base, 4.6GHz Turbo, 19MB Cache, 54W) Windows 11 Home AMD Radeon™ 660M. I saw it at Dell and wanted a clean product write-up here.

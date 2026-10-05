@@ -15,17 +15,21 @@ highlights:
 - "$170 under its usual price"
 source: bh-deals
 specs:
-- label: Display
+- label: Display Size
   value: 27"
-- label: Panel
-  value: OLED
-- label: Refresh rate
-  value: 180 Hz
+- label: Panel Type
+  value: Quantum Dot OLED (QD-OLED)
+- label: Native Resolution
+  value: 2560 x 1440
+- label: Maximum Brightness
+  value: 200 nits / cd/m2
+- label: HDR Support
+  value: 'Yes: HDR10'
+- label: Color Support
+  value: 1.07 Billion Colors
 why_deal: B&H Photo has it for $329.99, down from $499.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Samsung Odyssey OLED G5 G50SF 27" 1440p HDR 180 Hz Gaming
-  Monitor. From the listing: display 27", panel OLED, refresh rate 180 Hz. I posted
-  it after checking the price at B&H Photo. Worth a look if you''re building or updating
-  a desktop setup.'
+description: I looked at the Samsung Odyssey OLED G5 G50SF 27" 1440p HDR 180 Hz Gaming
+  Monitor. Review Samsung OLED G5 G50SF. I saw it at B&H Photo and wanted a clean
 ---
-This is the Samsung Odyssey OLED G5 G50SF 27" 1440p HDR 180 Hz Gaming Monitor. From the listing: display 27", panel OLED, refresh rate 180 Hz. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the Samsung Odyssey OLED G5 G50SF 27" 1440p HDR 180 Hz Gaming Monitor. Review Samsung OLED G5 G50SF. I saw it at B&H Photo and wanted a clean product write-up here.

@@ -15,12 +15,21 @@ highlights:
 - "$10 under its usual price"
 source: bh-deals
 specs:
-- label: Style
-  value: On-Ear
+- label: Wearing Style
+  value: 'Dual Ear with HeadbandFoldable: Yes Earpiece Swivel: Yes'
+- label: Open/Closed-Back
+  value: Closed-Back
+- label: Impedance
+  value: 24 Ohms
+- label: Active Noise Cancellation
+  value: 'No'
+- label: Frequency Response
+  value: 12 Hz to 22 kHz
+- label: Built-In Mic
+  value: 'No'
 why_deal: B&H Photo has it for $14.99, down from $24.99. Prices change fast, so check
   the price before you buy.
-description: 'This is the Sony MDR-ZX110 On-Ear Headphones (Black). From the listing:
-  style On-Ear. I posted it after checking the price at B&H Photo. Worth a look if
-  you want better sound without a big setup.'
+description: I looked at the Sony MDR-ZX110 On-Ear Headphones (Black). 30mm Dynamic
+  Drivers, 12 Hz to 22 kHz Frequency Response, Earcups Swivel and Fold For
 ---
-This is the Sony MDR-ZX110 On-Ear Headphones (Black). From the listing: style On-Ear. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.
+I looked at the Sony MDR-ZX110 On-Ear Headphones (Black). 30mm Dynamic Drivers, 12 Hz to 22 kHz Frequency Response, Earcups Swivel and Fold For Portability. I saw it at B&H Photo and wanted a clean product write-up here.

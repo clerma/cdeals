@@ -15,14 +15,21 @@ highlights:
 - "$30 under its usual price"
 source: bh-deals
 specs:
-- label: Connectivity
-  value: Bluetooth
-- label: Form
-  value: Portable
+- label: Power Output
+  value: 16 W
+- label: Drivers
+  value: 1x 1.7 x 3" / 43 x 80 mm Full-Range
+- label: Frequency Response
+  value: 70 Hz to 20 kHz
+- label: Built-In Mic
+  value: 'No'
+- label: Bluetooth
+  value: Bluetooth 5.4
+- label: Signal to Noise Ratio
+  value: ">80 dB"
 why_deal: B&H Photo has it for $69.95, down from $99.95. Prices change fast, so check
   the price before you buy.
-description: 'This is the JBL Grip Portable Bluetooth Speaker (Black). From the listing:
-  connectivity Bluetooth, form Portable. I posted it after checking the price at B&H
-  Photo. Worth a look if you want better sound without a big setup.'
+description: I looked at the JBL Grip Portable Bluetooth Speaker (Black). 16W of Audio
+  Output, 1.7 x 3.1" Full Range Speaker, JBL Pro Sound with AI Sound Boost,
 ---
-This is the JBL Grip Portable Bluetooth Speaker (Black). From the listing: connectivity Bluetooth, form Portable. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.
+I looked at the JBL Grip Portable Bluetooth Speaker (Black). 16W of Audio Output, 1.7 x 3.1" Full Range Speaker, JBL Pro Sound with AI Sound Boost, Waterproof, Dustproof & Drop-Proof, Up to 12 Hours of Playback, 2 Extra Hours with Playtime Boost, Built-In Ambient Light. I saw it at B&H Photo and wanted a clean product write-up here.

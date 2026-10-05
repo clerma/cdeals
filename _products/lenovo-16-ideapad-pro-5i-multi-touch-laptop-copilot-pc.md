@@ -17,12 +17,21 @@ highlights:
 - "$540 under its usual price"
 source: bh-used
 specs:
-- label: Display
+- label: Operating System
+  value: Windows 11 Home
+- label: Processor
+  value: Intel Core Ultra 9 386H
+- label: GPU
+  value: NVIDIA GeForce RTX 5050 with 8 GB GDDR7 VRAM
+- label: Installed RAM
+  value: 32 GB
+- label: Display Size
   value: 16"
+- label: Native Resolution
+  value: 2880 x 1800
 why_deal: B&H Photo has it for $2158.95, down from $2699. Prices change fast, so check
   the price before you buy.
-description: 'This is the Lenovo 16" IdeaPad Pro 5i Multi-Touch Laptop Copilot+ PC.
-  From the listing: display 16". I posted it after checking the price at B&H Photo.
-  Worth a look if you need a portable computer for work or school.'
+description: I looked at the Lenovo 16" IdeaPad Pro 5i Multi-Touch Laptop Copilot+
+  PC. 2.1 GHz Intel Core Ultra 9 386H 16-Core, 32GB LPDDR5x RAM | 1TB M.2 PCIe 4.0
 ---
-This is the Lenovo 16" IdeaPad Pro 5i Multi-Touch Laptop Copilot+ PC. From the listing: display 16". I posted it after checking the price at B&H Photo. Worth a look if you need a portable computer for work or school.
+I looked at the Lenovo 16" IdeaPad Pro 5i Multi-Touch Laptop Copilot+ PC. 2.1 GHz Intel Core Ultra 9 386H 16-Core, 32GB LPDDR5x RAM | 1TB M.2 PCIe 4.0 SSD, 16" 2880 x 1800 OLED 120 Hz Touchscreen, NVIDIA GeForce RTX 5050 (8GB GDDR7), Wi-Fi 7 (802.11be) | Bluetooth 5.4, SD Card Slot. I saw it at B&H Photo and wanted a clean product write-up here.

@@ -18,9 +18,7 @@ specs:
   value: GPS + Cellular
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the Apple Watch Ultra 4 GPS + Cellular 49mm Natural Titanium
-  Case Smartwatch. From the listing: connectivity GPS + Cellular. I posted it because
-  Amazon had a strong price when I checked. Prices move, so confirm the current price
-  at Amazon before you buy.'
+description: I looked at the Apple Watch Ultra 4 GPS + Cellular 49mm Natural Titanium
+  Case Smartwatch. Apple Watch is the ultimate device for a healthy life. Available
 ---
-This is the Apple Watch Ultra 4 GPS + Cellular 49mm Natural Titanium Case Smartwatch. From the listing: connectivity GPS + Cellular. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I looked at the Apple Watch Ultra 4 GPS + Cellular 49mm Natural Titanium Case Smartwatch. Apple Watch is the ultimate device for a healthy life. Available in three models: Apple Watch Series 12, Apple Watch Ultra 4, and Apple Watch SE 3. I posted the Amazon listing so you can confirm the live price.

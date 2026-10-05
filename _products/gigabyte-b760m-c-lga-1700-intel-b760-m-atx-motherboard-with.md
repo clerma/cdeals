@@ -16,14 +16,22 @@ highlights:
 - "$56 under its usual price"
 source: newegg-outlet
 specs:
+- label: Brand
+  value: GIGABYTE
+- label: Model
+  value: B760M C
+- label: CPU Socket Type
+  value: LGA 1700
+- label: CPU Type
+  value: Celeron / Intel Core 12th Gen (LGA 1700) / Intel Core 13th Gen (LGA 1700)
+    / Pentium Gold
 - label: Chipset
   value: Intel B760
-- label: Form
-  value: ATX
+- label: Number of Memory Slots
+  value: 4x288pin (DDR5)
 why_deal: Newegg has it for $83.99, down from $139.99. Prices change fast, so check
   the price before you buy.
-description: 'This is the GIGABYTE B760M C LGA 1700 Intel B760 M-ATX Motherboard with
-  DDR5, M.2. From the listing: chipset Intel B760, form ATX. I posted it after checking
-  the price at Newegg. Worth a look if you''re building or updating a desktop setup.'
+description: 'I looked at the GIGABYTE B760M C LGA 1700 Intel B760 M-ATX Motherboard
+  with DDR5, M.2. Intel LGA 1700 Socket: Supports 13th and 12th Gen Intel Core Series'
 ---
-This is the GIGABYTE B760M C LGA 1700 Intel B760 M-ATX Motherboard with DDR5, M.2. From the listing: chipset Intel B760, form ATX. I posted it after checking the price at Newegg. Worth a look if you're building or updating a desktop setup.
+I looked at the GIGABYTE B760M C LGA 1700 Intel B760 M-ATX Motherboard with DDR5, M.2. Intel LGA 1700 Socket: Supports 13th and 12th Gen Intel Core Series Processors DDR5 Compatible: Dual Channel DDR5, 4 DIMMs Sturdy Power Design: 6+1+1 Hybrid Digital VRM Design Thermal Design: Enlarged MOSFET Heatsink Next Gen Connectivity: PCIe 5.0 exansion slot, NVMe PCIe 4.0 x2 M.2, USB 3.2 Gen 2 Type-C Networking: 1GbE LAN, Realtek Wi-Fi AC Fine Tuning Features: RGB FUSION 2.0, Supports Addressable LED & RGB LED Strips, Smart Fan 6, Q-Flash Plus Update BIOS without installing, CPU, Memory, and GPU. I saw it at Newegg and wanted a clean product write-up here.

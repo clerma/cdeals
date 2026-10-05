@@ -15,12 +15,21 @@ highlights:
 - "$40 under its usual price"
 source: bh-deals-categories
 specs:
-- label: Style
-  value: True Wireless
+- label: Wearing Style
+  value: Dual Ear True Wireless with Ear Clip/Hook
+- label: Earpiece Design
+  value: Earbud (Intra-Concha)
+- label: Active Noise Cancellation
+  value: 'Yes'
+- label: Frequency Response
+  value: 20 Hz to 20 kHz
+- label: Built-In Controls
+  value: Yes (on Earpiece)
+- label: Noise Cancelling Microphone
+  value: Not Specified by Manufacturer
 why_deal: B&H Photo has it for $89.95, down from $129.95. Prices change fast, so check
   the price before you buy.
-description: 'This is the JBL Endurance Peak 4 True Wireless In-Ear Sport Headphones
-  (Black). From the listing: style True Wireless. I posted it after checking the price
-  at B&H Photo. Worth a look if you want better sound without a big setup.'
+description: I looked at the JBL Endurance Peak 4 True Wireless In-Ear Sport Headphones
+  (Black). 10mm Dynamic Drivers, IP68-Rated Dustproof and Waterproof, Up to 12
 ---
-This is the JBL Endurance Peak 4 True Wireless In-Ear Sport Headphones (Black). From the listing: style True Wireless. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.
+I looked at the JBL Endurance Peak 4 True Wireless In-Ear Sport Headphones (Black). 10mm Dynamic Drivers, IP68-Rated Dustproof and Waterproof, Up to 12 Hours of Playback with ANC Off, Charging Case with 36 Extra Hours, Powerhook and Twist-Lock Ear Hooks, 6 Beamforming Microphones. I saw it at B&H Photo and wanted a clean product write-up here.

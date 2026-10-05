@@ -17,13 +17,11 @@ specs:
 - label: Panel
   value: 1080p
 - label: Generation
-  value: 2th gen
+  value: 2nd gen
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the Ring Indoor Cam 2nd Gen 1080p Color Night Vision Security
-  Camera. From the listing: panel 1080p, generation 2th gen. I posted it because Amazon
-  had a strong price when I checked. Prices move, so confirm the current price at
-  Amazon before you buy.'
+description: I looked at the Ring Indoor Cam 2nd Gen 1080p Color Night Vision Security
+  Camera. Protect your home & watch over what's important from your phone with
 source: techbargains-amazon-devices
 ---
-This is the Ring Indoor Cam 2nd Gen 1080p Color Night Vision Security Camera. From the listing: panel 1080p, generation 2th gen. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I looked at the Ring Indoor Cam 2nd Gen 1080p Color Night Vision Security Camera. Protect your home & watch over what's important from your phone with video doorbells, security cameras, alarms, smart lighting & more. Protect your home & watch over what's important from your phone with video doorbells, security cameras, alarms, smart lighting & more. I posted the Amazon listing so you can confirm the live price.

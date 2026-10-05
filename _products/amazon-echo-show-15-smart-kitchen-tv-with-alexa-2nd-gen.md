@@ -15,12 +15,21 @@ highlights:
 - "$100 under its usual price"
 source: bh-deals
 specs:
-- label: Generation
-  value: 2th gen
+- label: Screen Size
+  value: 15.6"
+- label: Resolution
+  value: 1920 x 1080
+- label: Camera
+  value: 'Megapixels: 13 Zoom: 3.3x'
+- label: Wi-Fi
+  value: Wi-Fi 6E (802.11ax)
+- label: Speakers
+  value: 2 x 2" Woofers 2 x 0.6" Tweeters
+- label: Sensors
+  value: ALS RGB Accelerometer
 why_deal: B&H Photo has it for $249.99, down from $349.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Amazon Echo Show 15 Smart Kitchen TV with Alexa (2nd Gen).
-  From the listing: generation 2th gen. I posted it after checking the price at B&H
-  Photo. Worth a look for movies, sports, and everyday watching.'
+description: I looked at the Amazon Echo Show 15 Smart Kitchen TV with Alexa (2nd
+  Gen). Full HD 1080p Resolution 15.6" Display, Stream TV via Popular Apps with Fire
 ---
-This is the Amazon Echo Show 15 Smart Kitchen TV with Alexa (2nd Gen). From the listing: generation 2th gen. I posted it after checking the price at B&H Photo. Worth a look for movies, sports, and everyday watching.
+I looked at the Amazon Echo Show 15 Smart Kitchen TV with Alexa (2nd Gen). Full HD 1080p Resolution 15.6" Display, Stream TV via Popular Apps with Fire TV, Built-In Voice Control with Alexa, Use Widgets for Family Organization, Control Smart Home Devices. I saw it at B&H Photo and wanted a clean product write-up here.

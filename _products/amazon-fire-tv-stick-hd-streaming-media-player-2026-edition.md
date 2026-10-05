@@ -15,12 +15,21 @@ highlights:
 - "$24 under its usual price"
 source: bh-deals
 specs:
-- label: Year
-  value: '2026'
+- label: Max Video Output
+  value: via HDMIOnly 1080p
+- label: Video I/O
+  value: HDMI
+- label: Video Output
+  value: via HDMI1920 x 1080 via HDMI1920 x 1080 via HDMI1920 x 1080
+- label: Broadcast System
+  value: 'No'
+- label: HDR Support
+  value: 'Yes: HDR10/HDR10+/Hybrid Log Gamma'
+- label: Upscaling
+  value: 'No'
 why_deal: B&H Photo has it for $22.50, down from $46.50. Prices change fast, so check
   the price before you buy.
-description: 'This is the Amazon Fire TV Stick HD Streaming Media Player (2026 Edition).
-  From the listing: year 2026. I posted it after checking the price at B&H Photo.
-  Worth a look for movies, sports, and everyday watching.'
+description: I looked at the Amazon Fire TV Stick HD Streaming Media Player (2026
+  Edition). Review Amazon Fire TV Stick HD. I saw it at B&H Photo and wanted a clean
 ---
-This is the Amazon Fire TV Stick HD Streaming Media Player (2026 Edition). From the listing: year 2026. I posted it after checking the price at B&H Photo. Worth a look for movies, sports, and everyday watching.
+I looked at the Amazon Fire TV Stick HD Streaming Media Player (2026 Edition). Review Amazon Fire TV Stick HD. I saw it at B&H Photo and wanted a clean product write-up here.
