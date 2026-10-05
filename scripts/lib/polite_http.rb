@@ -81,6 +81,27 @@ class PoliteHTTP
     [current, Response.new(status: 0, url: current, error: "too many redirects")]
   end
 
+  # True when robots.txt for this URL's host could be read (directly, from the
+  # disk cache, or seeded by the Fetcher). An unreadable robots.txt counts as
+  # "allow" for plain fetches, but the Fetcher won't spend ZenRows credits on a
+  # host whose robots.txt it hasn't actually read.
+  def robots_read?(url)
+    u = URI.parse(url)
+    robots_for(u)
+    @robots_ok["#{u.scheme}://#{u.host}"] == true
+  end
+
+  # robots.txt text obtained another way (the Fetcher reads it through ZenRows
+  # when the host refuses direct connections). Cached like a normal read.
+  def seed_robots(url, txt)
+    u = URI.parse(url)
+    key = "#{u.scheme}://#{u.host}"
+    return if txt.to_s.strip.empty?
+    @robots.delete(key)
+    cached_robots(key, force: txt) { txt }
+    robots_for(u)
+  end
+
   private
 
   def match_rule?(rule, path)
@@ -91,9 +112,11 @@ class PoliteHTTP
 
   def robots_for(u)
     key = "#{u.scheme}://#{u.host}"
+    @robots_ok ||= {}
     @robots[key] ||= begin
       rules = { allow: [], disallow: [], delay: nil }
       txt = cached_robots(key) { raw_get("#{key}/robots.txt") }
+      @robots_ok[key] = !txt.to_s.strip.empty?
       applies = false
       seen_rule = false
       txt.to_s.each_line do |line|
@@ -117,10 +140,10 @@ class PoliteHTTP
   # robots.txt is cached in memory for the run and on disk (tmp/robots-cache,
   # git-ignored) for robots_cache_hours (default 24) so repeated runs don't
   # re-request it. An empty answer (error) is never cached on disk.
-  def cached_robots(key)
+  def cached_robots(key, force: nil)
     return yield if @robots_cache_dir.nil?
     file = File.join(@robots_cache_dir, key.sub(%r{\Ahttps?://}, "").gsub(/[^a-z0-9.\-]/i, "_") + ".txt")
-    return File.read(file) if File.exist?(file) && Time.now - File.mtime(file) < @robots_cache_hours * 3600
+    return File.read(file) if force.nil? && File.exist?(file) && Time.now - File.mtime(file) < @robots_cache_hours * 3600
     txt = yield
     unless txt.to_s.empty?
       FileUtils.mkdir_p(@robots_cache_dir)

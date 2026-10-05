@@ -5,6 +5,7 @@ require "net/http"
 require "uri"
 require "date"
 require "fileutils"
+require "nokogiri"
 require_relative "polite_http"
 
 # One place that decides HOW a page is fetched for the deal finder.
@@ -16,7 +17,8 @@ require_relative "polite_http"
 # Rules for ZenRows (see "zenrows:" in deal_sources.yml):
 #   * robots.txt of the target site is checked first, same as a plain fetch.
 #   * never used for a host that has an official source (API / feed) configured,
-#     even a planned one that is still disabled.
+#     even a planned one that is still disabled. Exception: an official API
+#     source marked zenrows_until_key: true blocks ZenRows only once its key is set.
 #   * cheapest tier first: plain (free) -> js_render (5 credits) -> premium tiers
 #     only when the source sets allow_premium: true. The tier that worked is
 #     remembered per source so the next run starts there.
@@ -92,6 +94,31 @@ class Fetcher
     sid = source["id"].to_s
     return Result.new(ok: false, url: url, via: "zenrows", credits: 0, error: "ZenRows not used: #{host_of(url)} has an official source configured") if official_host?(url)
     return Result.new(ok: false, url: url, via: "zenrows", credits: 0, error: "ZenRows skipped: ZENROWS_API_KEY is not set") unless zenrows_key?
+    # robots.txt must actually have been read before credits are spent. Some
+    # stores refuse direct connections from this machine; then robots.txt itself
+    # is read through ZenRows (basic request, 1 credit; js_render, 5 credits, if
+    # the host requires it; never premium proxies), cached 24h on disk.
+    unless @http.robots_read?(url)
+      robots_url = url.sub(%r{\A(https?://[^/]+).*\z}, '\\1/robots.txt')
+      if credits_this_month + 1 > @cap
+        return Result.new(ok: false, url: url, via: "zenrows", credits: 0, error: "ZenRows monthly credit cap reached (#{credits_this_month}/#{@cap})")
+      end
+      status, body, credits, _err = zenrows_get(robots_url, {})
+      record(sid, credits || (status.to_i.between?(200, 299) ? 1 : 0))
+      # Some hosts are only reachable with js_render (5 credits); never premium proxies.
+      if !status.to_i.between?(200, 299) && credits_this_month + 5 <= @cap
+        status, body, credits, _err = zenrows_get(robots_url, TIER_PARAMS["js"])
+        record(sid, credits || (status.to_i.between?(200, 299) ? 5 : 0))
+        body = Nokogiri::HTML(body).text if body.to_s.include?("<html") && defined?(Nokogiri)
+      end
+      @http.seed_robots(url, body) if status.to_i.between?(200, 299) && body =~ /user-agent/i
+      unless @http.robots_read?(url)
+        return Result.new(ok: false, url: url, via: "zenrows", credits: 0, error: "robots.txt for #{host_of(url)} could not be read; not fetching")
+      end
+      unless @http.allowed?(url)
+        return Result.new(ok: false, url: url, via: "zenrows", credits: 0, error: "robots.txt disallows #{url}")
+      end
+    end
 
     zr = source["zenrows"] || {}
     tiers = %w[plain js]
@@ -181,8 +208,13 @@ class Fetcher
   # Hosts covered by an official source (official_for: [...]), INCLUDING
   # planned/disabled ones: once a store has an official API or feed in the
   # config, ZenRows is never used for it.
+  # One exception: an official API source with `zenrows_until_key: true` only
+  # blocks ZenRows once its key (env:) is set. Until then a separate
+  # `fetch: zenrows` source for that store may run (Best Buy: top-deals pages
+  # until BESTBUY_API_KEY exists, then the API takes over).
   def official_hosts(cfg)
     Array(cfg["sites"]).chain(Array(cfg["feeds"]), Array(cfg["official_sources"]))
+                       .reject { |s| s["zenrows_until_key"] == true && Array(s["env"]).any? { |k| ENV[k].to_s.strip.empty? } }
                        .flat_map { |s| Array(s["official_for"]) }
                        .map { |h| h.to_s.downcase.sub(/\Awww\./, "") }.uniq
   end
