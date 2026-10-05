@@ -26,21 +26,10 @@
       <div class="col col-lg-9 d-flex align-items-center justify-content-end">
 
         <!-- Search (desktop) -->
-        <form class="position-relative flex-fill d-none d-lg-block pe-4 pe-xl-5" action="{{ search_url | relative_url }}" method="get" role="search">
+        <form class="position-relative flex-fill d-none d-lg-block pe-2 pe-lg-3" action="{{ search_url | relative_url }}" method="get" role="search">
           <i class="ci-search position-absolute top-50 translate-middle-y d-flex fs-lg text-white ms-3"></i>
           <input type="search" name="q" class="form-control form-control-lg form-icon-start border-white rounded-pill" placeholder="{{ search_label }}" aria-label="{{ search_label }}">
         </form>
-
-        <!-- Deals link (xl+) -->
-        <a class="d-none d-xl-flex align-items-center text-decoration-none animate-shake navbar-stuck-hide me-3 me-xl-4 me-xxl-5" href="{{ '/deals/' | relative_url }}">
-          <div class="btn btn-icon btn-lg fs-lg text-primary bg-body-secondary bg-opacity-75 pe-none rounded-circle">
-            <i class="ci-percent animate-target"></i>
-          </div>
-          <div class="ps-2 text-nowrap">
-            <div class="fs-xs text-body">Handpicked</div>
-            <div class="fw-medium text-white">Deals I found</div>
-          </div>
-        </a>
 
         <div class="d-flex align-items-center">
 
