@@ -16,9 +16,7 @@ highlights:
 source: techbargains-pages
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: This is the Fractal Design North XL Computer Case (GPUs up to 413 mm).
-  It's filed under Computers on this site. I posted it because Amazon had a strong
-  price when I checked. Prices move, so confirm the current price at Amazon before
-  you buy.
+description: I filed the Fractal Design North XL Computer Case (GPUs up to 413 mm)
+  as a deal worth checking. I posted the Amazon listing so you can confirm the live
 ---
-This is the Fractal Design North XL Computer Case (GPUs up to 413 mm). It's filed under Computers on this site. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I filed the Fractal Design North XL Computer Case (GPUs up to 413 mm) as a deal worth checking. I posted the Amazon listing so you can confirm the live price.

@@ -16,15 +16,21 @@ highlights:
 - "$70 under its usual price"
 source: newegg-outlet
 specs:
-- label: Style
-  value: Wireless
-- label: Connectivity
-  value: Bluetooth
+- label: Brand
+  value: Ultimate Ears
+- label: Name
+  value: Ultimate Ears MEGABOOM 4 Wireless Bluetooth® Speaker (Black)
+- label: Model
+  value: 984-001964
+- label: Part Number
+  value: 984-001964
+- label: Color
+  value: Black
+- label: Speaker Type
+  value: Bluetooth Speaker
 why_deal: Newegg has it for $129.99, down from $199.99. Prices change fast, so check
   the price before you buy.
-description: 'This is a Logitech audio: Ultimate Ears MEGABOOM 4 Wireless Bluetooth
-  Speaker - Active Black. From the listing: style Wireless, connectivity Bluetooth.
-  I posted it after checking the price at Newegg. Worth a look if you want better
-  sound without a big setup.'
+description: 'I looked at this Logitech pick: Ultimate Ears MEGABOOM 4 Wireless Bluetooth
+  Speaker - Active Black. The MEGABOOM 4 portable waterproof Bluetooth speaker'
 ---
-This is a Logitech audio: Ultimate Ears MEGABOOM 4 Wireless Bluetooth Speaker - Active Black. From the listing: style Wireless, connectivity Bluetooth. I posted it after checking the price at Newegg. Worth a look if you want better sound without a big setup.
+I looked at this Logitech pick: Ultimate Ears MEGABOOM 4 Wireless Bluetooth Speaker - Active Black. The MEGABOOM 4 portable waterproof Bluetooth speaker features a bigger size and larger woofer for powerful 360-degree sound and thundering bass with great balance and clarity. This waterproof portable speaker has a massive 20-hour battery life and the latest cell technology, so you can boom all day long. I saw it at Newegg and wanted a clean product write-up here.

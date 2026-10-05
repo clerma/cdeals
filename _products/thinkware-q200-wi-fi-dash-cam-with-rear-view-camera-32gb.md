@@ -15,14 +15,22 @@ highlights:
 - "$50 under its usual price"
 source: bh-deals
 specs:
-- label: Storage
-  value: 32GB microSD
-- label: Connectivity
-  value: Wi-Fi
+- label: Image Sensor
+  value: Size-Unspecified
+- label: Sensor Resolution
+  value: 4 MP (Front Camera)2.1 MP (Rear Camera)
+- label: Field of View
+  value: 'Front Camera: 125° Diagonal'
+- label: Included Memory Card Capacity
+  value: 32 GB
+- label: Supercapacitor
+  value: 'Yes'
+- label: Internal Recording
+  value: 2560 x 14401920 x 1080
 why_deal: B&H Photo has it for $159.99, down from $209.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Thinkware Q200 Wi-Fi Dash Cam with Rear-View Camera & 32GB
-  microSD Card. From the listing: storage 32GB microSD, connectivity Wi-Fi. I posted
-  it after checking the price at B&H Photo. Worth a look for photos and video.'
+description: I looked at the Thinkware Q200 Wi-Fi Dash Cam with Rear-View Camera &
+  32GB microSD Card. Front- & Rear-View Recording, 2560 x 1440 Front Resolution at
+  30
 ---
-This is the Thinkware Q200 Wi-Fi Dash Cam with Rear-View Camera & 32GB microSD Card. From the listing: storage 32GB microSD, connectivity Wi-Fi. I posted it after checking the price at B&H Photo. Worth a look for photos and video.
+I looked at the Thinkware Q200 Wi-Fi Dash Cam with Rear-View Camera & 32GB microSD Card. Front- & Rear-View Recording, 2560 x 1440 Front Resolution at 30 fps, 1080p Rear Resolution at 30 fps, Low-Light Recording, 125° Diagonal Field of View, Advanced Driver Assistance System. I saw it at B&H Photo and wanted a clean product write-up here.

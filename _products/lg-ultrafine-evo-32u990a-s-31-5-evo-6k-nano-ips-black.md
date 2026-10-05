@@ -17,14 +17,21 @@ highlights:
 - "$260 under its usual price"
 source: bh-used
 specs:
-- label: Display
+- label: Display Size
   value: 31.5"
-- label: Panel
-  value: 6K
+- label: Panel Type
+  value: IPS-Type LCD
+- label: Native Resolution
+  value: 6144 x 3456
+- label: Maximum Brightness
+  value: 450 nits / cd/m2
+- label: HDR Support
+  value: 'Yes'
+- label: Color Support
+  value: 1.07 Billion Colors (10-Bit)
 why_deal: B&H Photo has it for $1039.95, down from $1299.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the LG UltraFine evo 32U990A-S 31.5" evo 6K Nano IPS Black Monitor.
-  From the listing: display 31.5", panel 6K. I posted it after checking the price
-  at B&H Photo. Worth a look if you''re building or updating a desktop setup.'
+description: I looked at the LG UltraFine evo 32U990A-S 31.5" evo 6K Nano IPS Black
+  Monitor. 31.5" 16:9 Nano IPS Black Panel, HDMI | DisplayPort | Thunderbolt 5 (96W),
 ---
-This is the LG UltraFine evo 32U990A-S 31.5" evo 6K Nano IPS Black Monitor. From the listing: display 31.5", panel 6K. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the LG UltraFine evo 32U990A-S 31.5" evo 6K Nano IPS Black Monitor. 31.5" 16:9 Nano IPS Black Panel, HDMI | DisplayPort | Thunderbolt 5 (96W), UHD 6K 6144 x 3456 at 60 Hz, 5 ms GtG Response Time, 2000:1 Static Contrast Ratio, 450 Nits Brightness. I saw it at B&H Photo and wanted a clean product write-up here.

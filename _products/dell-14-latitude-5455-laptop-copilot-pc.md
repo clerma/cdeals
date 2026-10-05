@@ -16,12 +16,22 @@ highlights:
 - "$492 under its usual price"
 source: bh-used
 specs:
-- label: Display
+- label: Operating System
+  value: Windows 11 Pro
+- label: Processor
+  value: Qualcomm Snapdragon X Plus X1P-64-100
+- label: GPU
+  value: Adreno
+- label: Installed RAM
+  value: 16 GB
+- label: Display Size
   value: 14"
+- label: Native Resolution
+  value: 1920 x 1200
 why_deal: B&H Photo has it for $1475.95, down from $1968. Prices change fast, so check
   the price before you buy.
-description: 'This is the Dell 14" Latitude 5455 Laptop Copilot+ PC. From the listing:
-  display 14". I posted it after checking the price at B&H Photo. Worth a look if
-  you need a portable computer for work or school.'
+description: I looked at the Dell 14" Latitude 5455 Laptop Copilot+ PC. Snapdragon
+  X Plus X1P-64-100 10-Core, 16GB LPDDR5X | 512GB M.2 NVMe SSD, 14" 1920 x 1200 60
+  Hz
 ---
-This is the Dell 14" Latitude 5455 Laptop Copilot+ PC. From the listing: display 14". I posted it after checking the price at B&H Photo. Worth a look if you need a portable computer for work or school.
+I looked at the Dell 14" Latitude 5455 Laptop Copilot+ PC. Snapdragon X Plus X1P-64-100 10-Core, 16GB LPDDR5X | 512GB M.2 NVMe SSD, 14" 1920 x 1200 60 Hz Display, Integrated Qualcomm Adreno Graphics, Integrated Hexagon NPU (Up to 45 TOPS), Wi-Fi 7 | Bluetooth 5.4. I saw it at B&H Photo and wanted a clean product write-up here.

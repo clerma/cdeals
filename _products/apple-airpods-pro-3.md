@@ -17,8 +17,10 @@ highlights:
 source: techbargains
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: This is the Apple AirPods Pro 3. It's filed under Audio on this site.
-  I posted it because Amazon had a strong price when I checked. Prices move, so confirm
-  the current price at Amazon before you buy.
+description: I looked at the Apple AirPods Pro 3. AirPods Pro 3 — The world’s best
+  in-ear Active Noise Cancellation, heart rate sensing during workouts, and an
+specs:
+- label: Style
+  value: in-ear
 ---
-This is the Apple AirPods Pro 3. It's filed under Audio on this site. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I looked at the Apple AirPods Pro 3. AirPods Pro 3 — The world’s best in-ear Active Noise Cancellation, heart rate sensing during workouts, and an improved hearing health experience. Up to 2x more than AirPods Pro 2.1 An exceptional spatial listening experience, with high-definition, three-dimensional audio.4 All-new heart rate sensing. I posted the Amazon listing so you can confirm the live price.

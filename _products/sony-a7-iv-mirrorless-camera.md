@@ -14,12 +14,16 @@ images:
 highlights:
 - "$500 under its usual price"
 source: bh-deals
-specs:
-- label: Type
-  value: Mirrorless
 why_deal: B&H Photo has it for $1998, down from $2498. Prices change fast, so check
   the price before you buy.
-description: 'This is the Sony a7 IV Mirrorless Camera. From the listing: type Mirrorless.
-  I posted it after checking the price at B&H Photo. Worth a look for photos and video.'
+description: I looked at the Sony a7 IV Mirrorless Camera. Fast Hybrid AF, Real-time
+  Eye AF, Focus Breathing Compensation, 5-Axis SteadyShot Image Stabilization,
+specs:
+- label: Display
+  value: 3"
+- label: Panel
+  value: 4K
+- label: Sensor
+  value: 33MP
 ---
-This is the Sony a7 IV Mirrorless Camera. From the listing: type Mirrorless. I posted it after checking the price at B&H Photo. Worth a look for photos and video.
+I looked at the Sony a7 IV Mirrorless Camera. Fast Hybrid AF, Real-time Eye AF, Focus Breathing Compensation, 5-Axis SteadyShot Image Stabilization, Creative Looks and Soft Skin Effect, 4K 15p UVC/UAC Streaming via USB Type-C. I saw it at B&H Photo and wanted a clean product write-up here.

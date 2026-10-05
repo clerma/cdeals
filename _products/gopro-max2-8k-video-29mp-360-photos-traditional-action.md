@@ -19,13 +19,9 @@ specs:
   value: 8K
 - label: Sensor
   value: 29MP
-- label: Type
-  value: '360'
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the Gopro Max2 8K Video 29MP 360 Photos Traditional Action Camera
-  w/ 6. From the listing: panel 8K, sensor 29MP, type 360. I posted it because Amazon
-  had a strong price when I checked. Prices move, so confirm the current price at
-  Amazon before you buy.'
+description: 'I pulled these listing details for the Gopro Max2 8K Video 29MP 360
+  Photos Traditional Action Camera w/ 6: panel 8K, sensor 29MP. I posted the Amazon'
 ---
-This is the Gopro Max2 8K Video 29MP 360 Photos Traditional Action Camera w/ 6. From the listing: panel 8K, sensor 29MP, type 360. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I pulled these listing details for the Gopro Max2 8K Video 29MP 360 Photos Traditional Action Camera w/ 6: panel 8K, sensor 29MP. I posted the Amazon listing so you can confirm the live price.

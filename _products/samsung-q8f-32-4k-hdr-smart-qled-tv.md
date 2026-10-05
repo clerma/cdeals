@@ -15,14 +15,21 @@ highlights:
 - "$100 under its usual price"
 source: bh-deals-categories
 specs:
-- label: Display
-  value: 32"
-- label: Panel
-  value: 4K
+- label: Display Size
+  value: 31.5"
+- label: Panel Type
+  value: Quantum Dot LCD (QLED)
+- label: Native Resolution
+  value: 3840 x 2160
+- label: HDR Support
+  value: 'Yes: HDR10/Hybrid Log Gamma'
+- label: Variable Refresh Technology
+  value: 'No'
+- label: A/V Inputs
+  value: Antenna / HDMI
 why_deal: B&H Photo has it for $397.99, down from $497.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Samsung Q8F 32" 4K HDR Smart QLED TV. From the listing:
-  display 32", panel 4K. I posted it after checking the price at B&H Photo. Worth
-  a look for movies, sports, and everyday watching.'
+description: I looked at the Samsung Q8F 32" 4K HDR Smart QLED TV. UHD 4K 3840 x 2160
+  QLED Panel, HDR, HDR10+ & HLG, Smart TV Powered by One UI Tizen, 60 Hz Native
 ---
-This is the Samsung Q8F 32" 4K HDR Smart QLED TV. From the listing: display 32", panel 4K. I posted it after checking the price at B&H Photo. Worth a look for movies, sports, and everyday watching.
+I looked at the Samsung Q8F 32" 4K HDR Smart QLED TV. UHD 4K 3840 x 2160 QLED Panel, HDR, HDR10+ & HLG, Smart TV Powered by One UI Tizen, 60 Hz Native Refresh Rate, Motion Xcelerator & ALLM, 3 x HDMI & 2 x USB-A, Wi-Fi, Bluetooth & LAN Connectivity, Alexa. I saw it at B&H Photo and wanted a clean product write-up here.

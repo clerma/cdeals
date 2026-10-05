@@ -15,12 +15,21 @@ highlights:
 - "$14 under its usual price"
 source: bh-deals
 specs:
-- label: Style
-  value: Wireless
+- label: Wireless Technology
+  value: Digital 2.4 GHz
+- label: Diversity
+  value: Non-Diversity
+- label: Max Operating Range
+  value: 1312.3' / 400 m
+- label: Receiver Type
+  value: 1x Camera-Mount
+- label: Number of Audio Channels
+  value: '2'
+- label: Included Transmitters
+  value: 1x Clip-On with Microphone
 why_deal: B&H Photo has it for $45, down from $59. Prices change fast, so check the
   price before you buy.
-description: 'This is the DJI Mic Mini Compact Wireless Microphone System for Camera
-  & Smartphone. From the listing: style Wireless. I posted it after checking the price
-  at B&H Photo. Worth a look if you want better sound without a big setup.'
+description: I looked at the DJI Mic Mini Compact Wireless Microphone System for Camera
+  & Smartphone. 1-Person Interviews, Videos, Streaming, Connects to Cameras,
 ---
-This is the DJI Mic Mini Compact Wireless Microphone System for Camera & Smartphone. From the listing: style Wireless. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.
+I looked at the DJI Mic Mini Compact Wireless Microphone System for Camera & Smartphone. 1-Person Interviews, Videos, Streaming, Connects to Cameras, iOS/Android Devices, 1 x Clip-On Transmitter with Mic, Compact Dual-Channel Receiver, 2-Level Noise Cancelling. I saw it at B&H Photo and wanted a clean product write-up here.

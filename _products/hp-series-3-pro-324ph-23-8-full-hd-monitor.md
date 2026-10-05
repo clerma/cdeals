@@ -17,14 +17,21 @@ highlights:
 - "$32 under its usual price"
 source: bh-used
 specs:
-- label: Display
+- label: Display Size
   value: 23.8"
-- label: Panel
-  value: Full HD
+- label: Panel Type
+  value: IPS-Type LCD
+- label: Native Resolution
+  value: 1920 x 1080
+- label: Maximum Brightness
+  value: 250 nits / cd/m2
+- label: HDR Support
+  value: 'Yes'
+- label: Color Support
+  value: 16.7 Million Colors (6-Bit+FRC)
 why_deal: B&H Photo has it for $87.50, down from $119. Prices change fast, so check
   the price before you buy.
-description: 'This is the HP Series 3 Pro 324ph 23.8" Full HD Monitor. From the listing:
-  display 23.8", panel Full HD. I posted it after checking the price at B&H Photo.
-  Worth a look if you''re building or updating a desktop setup.'
+description: I looked at the HP Series 3 Pro 324ph 23.8" Full HD Monitor. 23.8" 16:9
+  IPS Panel, HDMI 1.4 | DisplayPort 1.2 | VGA, Full HD (1080p) 1920 x 1080 at 100
 ---
-This is the HP Series 3 Pro 324ph 23.8" Full HD Monitor. From the listing: display 23.8", panel Full HD. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the HP Series 3 Pro 324ph 23.8" Full HD Monitor. 23.8" 16:9 IPS Panel, HDMI 1.4 | DisplayPort 1.2 | VGA, Full HD (1080p) 1920 x 1080 at 100 Hz, 5 ms (GtG) Response Time with Overdrive, 1000:1 Static Contrast Ratio, 250 nits Brightness, 16.7 Million Colors. I saw it at B&H Photo and wanted a clean product write-up here.

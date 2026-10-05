@@ -18,8 +18,7 @@ specs:
   value: 1TB microSDXC
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the SanDisk Ultra 1TB microSDXC Memory Card. From the listing:
-  storage 1TB microSDXC. I posted it because Amazon had a strong price when I checked.
-  Prices move, so confirm the current price at Amazon before you buy.'
+description: 'I pulled these listing details for the SanDisk Ultra 1TB microSDXC Memory
+  Card: storage 1TB microSDXC. I posted the Amazon listing so you can confirm the'
 ---
-This is the SanDisk Ultra 1TB microSDXC Memory Card. From the listing: storage 1TB microSDXC. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I pulled these listing details for the SanDisk Ultra 1TB microSDXC Memory Card: storage 1TB microSDXC. I posted the Amazon listing so you can confirm the live price.

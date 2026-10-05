@@ -21,12 +21,18 @@ specs:
   value: 49"
 - label: Panel
   value: WQHD
+- label: Refresh rate
+  value: 60 Hz
+- label: Resolution
+  value: 5120x1440
+- label: Connectivity
+  value: USB-C
 - label: Form
   value: Curved
 why_deal: B&H Photo has it for $949.95, down from $1399.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Dell UltraSharp 49 U4924DW 49" WQHD Ultrawide Curved Monitor.
-  From the listing: display 49", panel WQHD, form Curved. I posted it after checking
-  the price at B&H Photo. Worth a look if you''re building or updating a desktop setup.'
+description: I looked at the Dell UltraSharp 49 U4924DW 49" WQHD Ultrawide Curved
+  Monitor. 49" 32:9 IPS Black Curved Panel, HDMI | DisplayPort | USB-C, WQHD 5120
+  x
 ---
-This is the Dell UltraSharp 49 U4924DW 49" WQHD Ultrawide Curved Monitor. From the listing: display 49", panel WQHD, form Curved. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the Dell UltraSharp 49 U4924DW 49" WQHD Ultrawide Curved Monitor. 49" 32:9 IPS Black Curved Panel, HDMI | DisplayPort | USB-C, WQHD 5120 x 1440 Resolution at 60 Hz, 0.5 ms (Overdrive) Response Time, 2000:1 Static Contrast Ratio, 350 nits Peak Brightness. I saw it at B&H Photo and wanted a clean product write-up here.

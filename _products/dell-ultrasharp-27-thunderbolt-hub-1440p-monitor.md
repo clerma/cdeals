@@ -21,13 +21,15 @@ specs:
   value: 27"
 - label: Panel
   value: 1440p
+- label: Refresh rate
+  value: 120 Hz
+- label: Resolution
+  value: 2560x1440
 - label: Connectivity
   value: Thunderbolt
 why_deal: B&H Photo has it for $439.95, down from $649.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Dell UltraSharp 27" Thunderbolt Hub 1440p Monitor. From
-  the listing: display 27", panel 1440p, connectivity Thunderbolt. I posted it after
-  checking the price at B&H Photo. Worth a look if you''re building or updating a
-  desktop setup.'
+description: I looked at the Dell UltraSharp 27" Thunderbolt Hub 1440p Monitor. 27"
+  16:9 IPS Panel, HDMI | DisplayPort | Thunderbolt 4, 2560 x 1440 at 120 Hz, 5 ms
 ---
-This is the Dell UltraSharp 27" Thunderbolt Hub 1440p Monitor. From the listing: display 27", panel 1440p, connectivity Thunderbolt. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the Dell UltraSharp 27" Thunderbolt Hub 1440p Monitor. 27" 16:9 IPS Panel, HDMI | DisplayPort | Thunderbolt 4, 2560 x 1440 at 120 Hz, 5 ms Response Time, 2000:1 Static Contrast Ratio, 350 Nits Brightness, 1.07 Billions Colors, 100% sRGB, 98% DCI-P3, 100% BT.709, USB-C | USB-A Ports, 178/178° Viewing Angles. I saw it at B&H Photo and wanted a clean product write-up here.

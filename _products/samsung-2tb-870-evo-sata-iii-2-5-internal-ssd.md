@@ -19,8 +19,7 @@ specs:
   value: 2TB
 why_deal: B&H Photo has it for $499.99, down from $879.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Samsung 2TB 870 EVO SATA III 2.5" Internal SSD. From the
-  listing: storage 2TB. I posted it after checking the price at B&H Photo. Worth a
-  look as a useful add-on for your gear.'
+description: I looked at the Samsung 2TB 870 EVO SATA III 2.5" Internal SSD. 2TB Storage
+  Capacity, 2.5" Form Factor, SATA III 6 Gb/s Interface, 2GB LPDDR4 Cache, Up to
 ---
-This is the Samsung 2TB 870 EVO SATA III 2.5" Internal SSD. From the listing: storage 2TB. I posted it after checking the price at B&H Photo. Worth a look as a useful add-on for your gear.
+I looked at the Samsung 2TB 870 EVO SATA III 2.5" Internal SSD. 2TB Storage Capacity, 2.5" Form Factor, SATA III 6 Gb/s Interface, 2GB LPDDR4 Cache, Up to 560 MB/s Sequential Read Speed, Up to 530 MB/s Sequential Write Speed, Samsung MKX Controller, MLC V-NAND Technology. I saw it at B&H Photo and wanted a clean product write-up here.

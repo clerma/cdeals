@@ -19,10 +19,15 @@ specs:
   value: 27"
 - label: Panel
   value: Full HD
+- label: Refresh rate
+  value: 120 Hz
+- label: Resolution
+  value: 1920x1080
+- label: Connectivity
+  value: USB-C
 why_deal: B&H Photo has it for $199.99, down from $249.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Dell Pro P 27" Full HD IPS Monitor. From the listing: display
-  27", panel Full HD. I posted it after checking the price at B&H Photo. Worth a look
-  if you''re building or updating a desktop setup.'
+description: I looked at the Dell Pro P 27" Full HD IPS Monitor. 27" 16:9 IPS Panel,
+  HDMI | DisplayPort, FHD 1920 x 1080 at 120 Hz, 5 ms (GtG) Response Time, 1500:1
 ---
-This is the Dell Pro P 27" Full HD IPS Monitor. From the listing: display 27", panel Full HD. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the Dell Pro P 27" Full HD IPS Monitor. 27" 16:9 IPS Panel, HDMI | DisplayPort, FHD 1920 x 1080 at 120 Hz, 5 ms (GtG) Response Time, 1500:1 Static Contrast Ratio, 300 nits Brightness, 16.7 Million Colors, 99% sRGB Color Gamut, 15W USB-C Downstream Port. I saw it at B&H Photo and wanted a clean product write-up here.

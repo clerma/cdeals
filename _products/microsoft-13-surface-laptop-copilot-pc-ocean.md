@@ -17,12 +17,21 @@ highlights:
 - "$300 under its usual price"
 source: bh-used
 specs:
-- label: Display
+- label: Operating System
+  value: Windows 11 Home
+- label: Processor
+  value: Qualcomm Snapdragon X Plus
+- label: GPU
+  value: Adreno
+- label: Installed RAM
+  value: 8 GB
+- label: Display Size
   value: 13"
+- label: Native Resolution
+  value: 1920 x 1280
 why_deal: B&H Photo has it for $949.95, down from $1249.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Microsoft 13" Surface Laptop Copilot+ PC (Ocean). From the
-  listing: display 13". I posted it after checking the price at B&H Photo. Worth a
-  look if you need a portable computer for work or school.'
+description: I looked at the Microsoft 13" Surface Laptop Copilot+ PC (Ocean). Snapdragon
+  X Plus 8-Core, 16GB LPDDR5x | 512GB UFS Storage, 13" 1920 x 1280 PixelSense
 ---
-This is the Microsoft 13" Surface Laptop Copilot+ PC (Ocean). From the listing: display 13". I posted it after checking the price at B&H Photo. Worth a look if you need a portable computer for work or school.
+I looked at the Microsoft 13" Surface Laptop Copilot+ PC (Ocean). Snapdragon X Plus 8-Core, 16GB LPDDR5x | 512GB UFS Storage, 13" 1920 x 1280 PixelSense Touchscreen, Integrated Qualcomm Adreno Graphics, Wi-Fi 7 (802.11be) | Bluetooth 5.4, USB-C 3.2 Gen 2 | USB-A 3.2 Gen 1. I saw it at B&H Photo and wanted a clean product write-up here.

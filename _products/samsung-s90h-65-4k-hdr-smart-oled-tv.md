@@ -15,14 +15,21 @@ highlights:
 - "$800 under its usual price"
 source: bh-deals-categories
 specs:
-- label: Display
-  value: 65"
-- label: Panel
-  value: 4K
+- label: Display Size
+  value: 64.5"
+- label: Panel Type
+  value: OLED
+- label: Native Resolution
+  value: 3840 x 2160
+- label: HDR Support
+  value: 'Yes: HDR10+/Hybrid Log Gamma'
+- label: Variable Refresh Technology
+  value: FreeSync Premium Pro, G-Sync, Variable Refresh Rate (VRR)
+- label: A/V Inputs
+  value: Antenna / HDMI
 why_deal: B&H Photo has it for $1697.99, down from $2497.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Samsung S90H 65" 4K HDR Smart OLED TV. From the listing:
-  display 65", panel 4K. I posted it after checking the price at B&H Photo. Worth
-  a look for movies, sports, and everyday watching.'
+description: I looked at the Samsung S90H 65" 4K HDR Smart OLED TV. UHD 4K 3840 x
+  2160 OLED Panel, OLED HDR+ with Glare Free Screen Surface, Smart TV Powered by Tizen,
 ---
-This is the Samsung S90H 65" 4K HDR Smart OLED TV. From the listing: display 65", panel 4K. I posted it after checking the price at B&H Photo. Worth a look for movies, sports, and everyday watching.
+I looked at the Samsung S90H 65" 4K HDR Smart OLED TV. UHD 4K 3840 x 2160 OLED Panel, OLED HDR+ with Glare Free Screen Surface, Smart TV Powered by Tizen, 165 Hz Maximum Refresh Rate, ALLM, VRR, G-Sync, FreeSync Premium Pro, 4 x HDMI, 1 x with eARC | 3 x USB-A. I saw it at B&H Photo and wanted a clean product write-up here.

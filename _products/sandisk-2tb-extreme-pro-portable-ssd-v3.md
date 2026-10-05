@@ -15,14 +15,21 @@ highlights:
 - "$149 under its usual price"
 source: bh-deals-categories
 specs:
-- label: Storage
-  value: 2TB
-- label: Form
-  value: Portable
+- label: Total Capacity
+  value: 2 TB
+- label: Drive Type
+  value: Unspecified SSD
+- label: Default OS Support
+  value: Universal Computer/Mobile OS Support
+- label: System Connection
+  value: USB-C (USB4)
+- label: Read Speed
+  value: 'Maximum: 4000 MB/s'
+- label: Write Speed
+  value: 'Maximum: 3800 MB/sSustained: 3100 MB/s'
 why_deal: B&H Photo has it for $549.99, down from $698.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the SANDISK 2TB Extreme PRO Portable SSD V3. From the listing:
-  storage 2TB, form Portable. I posted it after checking the price at B&H Photo. Worth
-  a look as a useful add-on for your gear.'
+description: I looked at the SANDISK 2TB Extreme PRO Portable SSD V3. Review SANDISK
+  Extreme PRO V3. I saw it at B&H Photo and wanted a clean product write-up here.
 ---
-This is the SANDISK 2TB Extreme PRO Portable SSD V3. From the listing: storage 2TB, form Portable. I posted it after checking the price at B&H Photo. Worth a look as a useful add-on for your gear.
+I looked at the SANDISK 2TB Extreme PRO Portable SSD V3. Review SANDISK Extreme PRO V3. I saw it at B&H Photo and wanted a clean product write-up here.

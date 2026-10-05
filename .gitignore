@@ -6,3 +6,8 @@ vendor/bundle/
 .DS_Store
 tmp/
 vendor/
+
+# Deal enrichment cache (lives under /workspace/cdeals-cache by default)
+/workspace/cdeals-cache/
+
+cache/

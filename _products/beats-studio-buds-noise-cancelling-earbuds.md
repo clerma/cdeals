@@ -20,8 +20,7 @@ specs:
   value: Noise Cancelling
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the Beats Studio Buds+ Noise Cancelling Earbuds. From the listing:
-  style Noise Cancelling. I posted it because Amazon had a strong price when I checked.
-  Prices move, so confirm the current price at Amazon before you buy.'
+description: 'I pulled these listing details for the Beats Studio Buds+ Noise Cancelling
+  Earbuds: style Noise Cancelling. I posted the Amazon listing so you can confirm'
 ---
-This is the Beats Studio Buds+ Noise Cancelling Earbuds. From the listing: style Noise Cancelling. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I pulled these listing details for the Beats Studio Buds+ Noise Cancelling Earbuds: style Noise Cancelling. I posted the Amazon listing so you can confirm the live price.

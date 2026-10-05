@@ -18,8 +18,7 @@ highlights:
 source: techbargains
 why_deal: Walmart has it for $1199, down from $1899. Prices change fast, so check
   the price before you buy.
-description: This is the HP HyperX Omen 15 Gaming Laptop, Ryzen 7 + RTX 5060. It's
-  filed under Laptops on this site. I posted it after checking the price at Walmart.
-  Worth a look if you need a portable computer for work or school.
+description: I filed the HP HyperX Omen 15 Gaming Laptop, Ryzen 7 + RTX 5060 as a
+  deal worth checking. I saw it at Walmart and wanted a clean product write-up here.
 ---
-This is the HP HyperX Omen 15 Gaming Laptop, Ryzen 7 + RTX 5060. It's filed under Laptops on this site. I posted it after checking the price at Walmart. Worth a look if you need a portable computer for work or school.
+I filed the HP HyperX Omen 15 Gaming Laptop, Ryzen 7 + RTX 5060 as a deal worth checking. I saw it at Walmart and wanted a clean product write-up here.

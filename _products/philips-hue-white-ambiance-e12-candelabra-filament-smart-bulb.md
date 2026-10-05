@@ -14,15 +14,13 @@ images:
 highlights:
 - Hue White Ambiance filament candelabra bulb
 specs:
-- label: Base
-  value: E12 candelabra
-- label: Feature
-  value: White Ambiance filament
-- label: Equivalent
+- label: Power
   value: 40W
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the Philips Hue White Ambiance E12 Candelabra Filament LED Smart Bulb (40W Equivalent). From the listing: base E12 candelabra, feature White Ambiance filament, equivalent 40W. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.'
+description: I looked at the Philips Hue White Ambiance E12 Candelabra Filament LED
+  Smart Bulb (40W Equivalent). Explore Philips Hue smart lighting. The best smart
+  LED
 source: slickdeals
 ---
-This is the Philips Hue White Ambiance E12 Candelabra Filament LED Smart Bulb (40W Equivalent). From the listing: base E12 candelabra, feature White Ambiance filament, equivalent 40W. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I looked at the Philips Hue White Ambiance E12 Candelabra Filament LED Smart Bulb (40W Equivalent). Explore Philips Hue smart lighting. The best smart LED lights for daily routines and special moments. I posted the Amazon listing so you can confirm the live price.

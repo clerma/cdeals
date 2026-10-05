@@ -15,12 +15,21 @@ highlights:
 - "$140 under its usual price"
 source: bh-deals-categories
 specs:
-- label: Style
-  value: Over-Ear
+- label: Wearing Style
+  value: 'Dual Ear with HeadbandFoldable: No Earpiece Swivel: No'
+- label: Open/Closed-Back
+  value: Open-Back
+- label: Impedance
+  value: 30 Ohms
+- label: Active Noise Cancellation
+  value: 'No'
+- label: Frequency Response
+  value: 5 Hz to 40 kHz
+- label: Built-In Mic
+  value: 'No'
 why_deal: B&H Photo has it for $159.99, down from $299.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Philips Fidelio X2HR Over-Ear Open-Back Headphones. From
-  the listing: style Over-Ear. I posted it after checking the price at B&H Photo.
-  Worth a look if you want better sound without a big setup.'
+description: I looked at the Philips Fidelio X2HR Over-Ear Open-Back Headphones. Pristine
+  Response between 5 Hz & 40 kHz, Natural Soundstage, Earcups Minimize Unwanted
 ---
-This is the Philips Fidelio X2HR Over-Ear Open-Back Headphones. From the listing: style Over-Ear. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.
+I looked at the Philips Fidelio X2HR Over-Ear Open-Back Headphones. Pristine Response between 5 Hz & 40 kHz, Natural Soundstage, Earcups Minimize Unwanted Reflection, Includes Detachable Cable, Includes 3.5mm to 1/4" Adapter, Comfortable Hammock-Style Headband. I saw it at B&H Photo and wanted a clean product write-up here.

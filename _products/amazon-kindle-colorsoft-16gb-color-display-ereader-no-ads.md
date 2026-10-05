@@ -18,9 +18,9 @@ specs:
   value: 16GB
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the Amazon Kindle Colorsoft 16GB Color Display eReader (No Ads).
-  From the listing: storage 16GB. I posted it because Amazon had a strong price when
-  I checked. Prices move, so confirm the current price at Amazon before you buy.'
+description: 'I pulled these listing details for the Amazon Kindle Colorsoft 16GB
+  Color Display eReader (No Ads): storage 16GB. I posted the Amazon listing so you
+  can'
 source: techbargains-amazon-devices
 ---
-This is the Amazon Kindle Colorsoft 16GB Color Display eReader (No Ads). From the listing: storage 16GB. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I pulled these listing details for the Amazon Kindle Colorsoft 16GB Color Display eReader (No Ads): storage 16GB. I posted the Amazon listing so you can confirm the live price.

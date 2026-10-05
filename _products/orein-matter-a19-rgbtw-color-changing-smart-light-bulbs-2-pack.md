@@ -14,19 +14,12 @@ images:
 highlights:
 - Matter-compatible color-changing A19 bulbs
 specs:
-- label: Bulb
+- label: Chip
   value: A19
-- label: Pack
-  value: 2
-- label: Power
-  value: 9W
-- label: Brightness
-  value: 800 lumens
-- label: Feature
-  value: Matter / RGBTW
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'This is the OREiN Matter Smart A19 RGBTW Color Changing LED Light Bulbs with Remote (2-Pack). From the listing: bulb A19, pack 2, power 9W, brightness 800 lumens, feature Matter / RGBTW. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.'
+description: 'I pulled these listing details for the OREiN Matter Smart A19 RGBTW
+  Color Changing LED Light Bulbs with Remote (2-Pack): chip A19. I posted the Amazon'
 source: techbargains
 ---
-This is the OREiN Matter Smart A19 RGBTW Color Changing LED Light Bulbs with Remote (2-Pack). From the listing: bulb A19, pack 2, power 9W, brightness 800 lumens, feature Matter / RGBTW. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I pulled these listing details for the OREiN Matter Smart A19 RGBTW Color Changing LED Light Bulbs with Remote (2-Pack): chip A19. I posted the Amazon listing so you can confirm the live price.

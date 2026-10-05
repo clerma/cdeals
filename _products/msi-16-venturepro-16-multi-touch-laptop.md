@@ -17,12 +17,21 @@ highlights:
 - "$252 under its usual price"
 source: bh-used
 specs:
+- label: Processor
+  value: Intel Core 7
+- label: Memory
+  value: 32GB
+- label: Storage
+  value: 1TB SSD
 - label: Display
   value: 16"
+- label: Panel
+  value: IPS
+- label: Resolution
+  value: 1920x1200
 why_deal: B&H Photo has it for $1146.95, down from $1399. Prices change fast, so check
   the price before you buy.
-description: 'This is the MSI 16" VenturePro 16 Multi-Touch Laptop. From the listing:
-  display 16". I posted it after checking the price at B&H Photo. Worth a look if
-  you need a portable computer for work or school.'
+description: I looked at the MSI 16" VenturePro 16 Multi-Touch Laptop. 2.5 GHz Intel
+  Core 7 240H, 32GB DDR5 RAM | 1TB SSD, 16" 1920 x 1200 IPS Touchscreen, NVIDIA
 ---
-This is the MSI 16" VenturePro 16 Multi-Touch Laptop. From the listing: display 16". I posted it after checking the price at B&H Photo. Worth a look if you need a portable computer for work or school.
+I looked at the MSI 16" VenturePro 16 Multi-Touch Laptop. 2.5 GHz Intel Core 7 240H, 32GB DDR5 RAM | 1TB SSD, 16" 1920 x 1200 IPS Touchscreen, NVIDIA GeForce RTX 5050 Laptop GPU, 2 x USB-A | 1 x USB-C | 1 x HDMI 2.1. I saw it at B&H Photo and wanted a clean product write-up here.

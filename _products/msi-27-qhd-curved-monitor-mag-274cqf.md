@@ -22,8 +22,8 @@ specs:
   value: Curved
 why_deal: Woot has it for $120.99. Prices change fast, so check the price before you
   buy.
-description: 'This is the MSI 27" QHD Curved Monitor | MAG 274CQF. From the listing:
-  display 27", panel QHD, form Curved. I posted it after checking the price at Woot.
-  Worth a look if you''re building or updating a desktop setup.'
+description: 'I looked at the MSI 27" QHD Curved Monitor | MAG 274CQF. Sign up for
+  our Daily Digest emails! Shipping Note: Shipping to Alaska, Hawaii, APO addresses,
+  or'
 ---
-This is the MSI 27" QHD Curved Monitor | MAG 274CQF. From the listing: display 27", panel QHD, form Curved. I posted it after checking the price at Woot. Worth a look if you're building or updating a desktop setup.
+I looked at the MSI 27" QHD Curved Monitor | MAG 274CQF. Sign up for our Daily Digest emails! Shipping Note: Shipping to Alaska, Hawaii, APO addresses, or PO Boxes is not available for this item. I saw it at Woot and wanted a clean product write-up here.

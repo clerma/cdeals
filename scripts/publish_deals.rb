@@ -14,6 +14,7 @@ require "fileutils"
 require_relative "lib/deal_tools"
 require_relative "lib/polite_http"
 require_relative "lib/deal_copy"
+require_relative "lib/source_cache"
 
 opts = { dry_run: false, images: nil }
 OptionParser.new do |o|
@@ -84,13 +85,27 @@ queue.each do |e|
     slug = "#{base}-#{n += 1}" while File.exist?(File.join(DealTools::PRODUCTS_DIR, "#{slug}.md"))
     affiliate = DealTools.affiliate_url(e["affiliate_url"]) # re-clean in case it was pasted by hand
     amazon = DealCopy.amazon?(e["store"], affiliate)
-    specs = DealCopy.specs_from_text(e["title"], extra: e["source_title"].to_s, category: e["category"])
+    overview = ""
+    page_specs = []
+    begin
+      fm_probe = { "title" => e["title"], "brand" => e["brand"], "store" => e["store"], "affiliate_url" => affiliate }
+      enrich_url = SourceCache.enrichment_url(fm_probe)
+      if enrich_url && !enrich_url.empty? && !SourceCache.amazon_url?(enrich_url)
+        data = SourceCache.fetch_page(enrich_url, cfg: cfg, source_id: "publish")
+        unless data["error"]
+          overview = data["overview"].to_s
+          page_specs = data["specs"] || []
+        end
+      end
+    rescue StandardError => err
+      warn "  enrich soft-fail #{e['id']}: #{err.message[0, 80]}"
+    end
+    title_specs = DealCopy.specs_from_text(e["title"], extra: "#{e['source_title']} #{overview}", category: e["category"])
+    specs = DealCopy.merge_specs(page_specs, title_specs)
     summary = e["summary"].to_s.strip
-    # Replace the old one-liner with grounded copy when the queue still has the
-    # price-only template (or nothing). Keep a human-edited summary as-is.
-    if summary.empty? || summary =~ /\A(?:Amazon has a good price|The store|\S+ has it for \$)/
+    if summary.empty? || summary =~ /filed under|I posted it because|I posted it after checking|\A(?:Amazon has a good price|The store|\S+ has it for \$)/
       summary = DealCopy.summary(title: e["title"], category: e["category"], brand: e["brand"],
-                                 store: e["store"], specs: specs, amazon: amazon)
+                                 store: e["store"], specs: specs, amazon: amazon, overview: overview)
     end
     why = DealCopy.why_deal(price: e["price"], compare_at: e["compare_at"], store: e["store"], amazon: amazon)
     fm = {

@@ -15,12 +15,21 @@ highlights:
 - "$644 under its usual price"
 source: bh-deals
 specs:
-- label: Display
+- label: Operating System
+  value: Windows 11 Pro
+- label: Processor
+  value: Intel Core Ultra 5 235U
+- label: GPU
+  value: Intel Graphics
+- label: Installed RAM
+  value: 16 GB
+- label: Display Size
   value: 16"
+- label: Native Resolution
+  value: 1920 x 1200
 why_deal: B&H Photo has it for $1099, down from $1743.24. Prices change fast, so check
   the price before you buy.
-description: 'This is the Dell 16" Pro 16 Laptop. From the listing: display 16". I
-  posted it after checking the price at B&H Photo. Worth a look if you need a portable
-  computer for work or school.'
+description: I looked at the Dell 16" Pro 16 Laptop. 2.0 GHz Intel Core Ultra 5 vPro
+  12-Core, 16GB DDR5 | 512GB M.2 SSD, 16" 1920 x 1200 60 Hz IPS Display, Integrated
 ---
-This is the Dell 16" Pro 16 Laptop. From the listing: display 16". I posted it after checking the price at B&H Photo. Worth a look if you need a portable computer for work or school.
+I looked at the Dell 16" Pro 16 Laptop. 2.0 GHz Intel Core Ultra 5 vPro 12-Core, 16GB DDR5 | 512GB M.2 SSD, 16" 1920 x 1200 60 Hz IPS Display, Integrated Intel Arc Graphics, Built-In Intel AI Boost NPU (12 TOPS), Gigabit LAN | Wi-Fi 6E | Bluetooth 5.3. I saw it at B&H Photo and wanted a clean product write-up here.

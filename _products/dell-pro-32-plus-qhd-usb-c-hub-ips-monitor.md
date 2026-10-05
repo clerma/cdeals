@@ -17,16 +17,21 @@ highlights:
 - "$192 under its usual price"
 source: bh-used
 specs:
-- label: Display
+- label: Display Size
   value: 32"
-- label: Panel
-  value: QHD
-- label: Connectivity
-  value: USB-C
+- label: Panel Type
+  value: IPS-Type LCD
+- label: Native Resolution
+  value: 2560 x 1440
+- label: Maximum Brightness
+  value: 350 nits / cd/m2
+- label: HDR Support
+  value: 'Yes'
+- label: Color Support
+  value: 1.07 Billion Colors
 why_deal: B&H Photo has it for $407.95, down from $599.99. Prices change fast, so
   check the price before you buy.
-description: 'This is the Dell Pro 32" Plus QHD USB-C Hub IPS Monitor. From the listing:
-  display 32", panel QHD, connectivity USB-C. I posted it after checking the price
-  at B&H Photo. Worth a look if you''re building or updating a desktop setup.'
+description: I looked at the Dell Pro 32" Plus QHD USB-C Hub IPS Monitor. 31.5" 16:9
+  IPS Panel, HDMI | DisplayPort, USB-C Ports | USB-A Ports | RJ45 Port, 2560 x 1440
 ---
-This is the Dell Pro 32" Plus QHD USB-C Hub IPS Monitor. From the listing: display 32", panel QHD, connectivity USB-C. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.
+I looked at the Dell Pro 32" Plus QHD USB-C Hub IPS Monitor. 31.5" 16:9 IPS Panel, HDMI | DisplayPort, USB-C Ports | USB-A Ports | RJ45 Port, 2560 x 1440 Resolution at 100 Hz, 5 ms Response Time, Up to 90W of Power Delivery, 1.07 Billion Colors | 99% sRGB, 350 Nits Brightness. I saw it at B&H Photo and wanted a clean product write-up here.

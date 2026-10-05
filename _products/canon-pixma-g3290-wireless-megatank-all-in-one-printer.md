@@ -15,12 +15,21 @@ highlights:
 - "$70 under its usual price"
 source: bh-deals
 specs:
-- label: Style
-  value: Wireless
+- label: Functions
+  value: Print, Scan, Copy
+- label: Printing Technology
+  value: Inkjet
+- label: Color Type
+  value: Color
+- label: Configuration
+  value: 4x Built-In Tank
+- label: Ink Color
+  value: 1x Cyan1x Magenta1x Yellow1x Black
+- label: Print Resolution
+  value: 4800 x 1200 dpi
 why_deal: B&H Photo has it for $199, down from $269. Prices change fast, so check
   the price before you buy.
-description: 'This is the Canon PIXMA G3290 Wireless MegaTank All-in-One Printer.
-  From the listing: style Wireless. I posted it after checking the price at B&H Photo.
-  Worth a look as a useful add-on for your gear.'
+description: 'I looked at the Canon PIXMA G3290 Wireless MegaTank All-in-One Printer.
+  Print, Copy, Scan, Max Print Resolution: 4800 x 1200 dpi, Print Speed: 11 ipm'
 ---
-This is the Canon PIXMA G3290 Wireless MegaTank All-in-One Printer. From the listing: style Wireless. I posted it after checking the price at B&H Photo. Worth a look as a useful add-on for your gear.
+I looked at the Canon PIXMA G3290 Wireless MegaTank All-in-One Printer. Print, Copy, Scan, Max Print Resolution: 4800 x 1200 dpi, Print Speed: 11 ipm Black / 6 ipm Color, Borderless Prints up to 8.5" Wide, Max Print Size: 8.5 x 14", Optical Scan Resolution: 600 x 1200 dpi. I saw it at B&H Photo and wanted a clean product write-up here.

@@ -17,10 +17,11 @@ source: bh-deals-categories
 specs:
 - label: Style
   value: Wireless
+- label: Connectivity
+  value: Bluetooth
 why_deal: B&H Photo has it for $148, down from $248. Prices change fast, so check
   the price before you buy.
-description: 'This is the Sony ULT WEAR Wireless Over-Ear Noise-Canceling Headphones
-  (Black). From the listing: style Wireless. I posted it after checking the price
-  at B&H Photo. Worth a look if you want better sound without a big setup.'
+description: I looked at the Sony ULT WEAR Wireless Over-Ear Noise-Canceling Headphones
+  (Black). For Commutes, Travel, Gaming & Home TV, ULT Button Boosts Bass,
 ---
-This is the Sony ULT WEAR Wireless Over-Ear Noise-Canceling Headphones (Black). From the listing: style Wireless. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.
+I looked at the Sony ULT WEAR Wireless Over-Ear Noise-Canceling Headphones (Black). For Commutes, Travel, Gaming & Home TV, ULT Button Boosts Bass, Dual-Sensor Noise Canceling, 40mm Drivers with Neodymium Magnets, Thermo-Foaming, Molded Ear Cushions, Swiveling and Folding Design. I saw it at B&H Photo and wanted a clean product write-up here.

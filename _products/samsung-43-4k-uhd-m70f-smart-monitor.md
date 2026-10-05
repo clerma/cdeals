@@ -15,14 +15,18 @@ highlights:
 - Free shipping
 source: techbargains-pages
 specs:
+- label: Aspect Ratio 16
+  value: '9'
+- label: Contrast Ratio 5000
+  value: '1'
 - label: Display
   value: 43"
 - label: Panel
   value: 4K
 why_deal: Woot has it for $279.99, down from $499.99. Prices change fast, so check
   the price before you buy.
-description: 'This is the Samsung 43" 4K UHD M70F Smart Monitor. From the listing:
-  display 43", panel 4K. I posted it after checking the price at Woot. Worth a look
-  if you''re building or updating a desktop setup.'
+description: 'I pulled these listing details for the Samsung 43" 4K UHD M70F Smart
+  Monitor: aspect ratio 16 9, contrast ratio 5000 1, display 43", panel 4K. I saw
+  it at'
 ---
-This is the Samsung 43" 4K UHD M70F Smart Monitor. From the listing: display 43", panel 4K. I posted it after checking the price at Woot. Worth a look if you're building or updating a desktop setup.
+I pulled these listing details for the Samsung 43" 4K UHD M70F Smart Monitor: aspect ratio 16 9, contrast ratio 5000 1, display 43", panel 4K. I saw it at Woot and wanted a clean product write-up here.

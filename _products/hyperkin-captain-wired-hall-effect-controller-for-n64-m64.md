@@ -20,8 +20,7 @@ specs:
   value: Wired
 why_deal: Woot has it for $19.99, down from $29.99. Prices change fast, so check the
   price before you buy.
-description: 'This is the Hyperkin Captain+ Wired Hall Effect Controller for N64/M64.
-  From the listing: style Wired. I posted it after checking the price at Woot. Worth
-  a look for playing at home or on the go.'
+description: 'I pulled these listing details for the Hyperkin Captain+ Wired Hall
+  Effect Controller for N64/M64: style Wired. I saw it at Woot and wanted a clean'
 ---
-This is the Hyperkin Captain+ Wired Hall Effect Controller for N64/M64. From the listing: style Wired. I posted it after checking the price at Woot. Worth a look for playing at home or on the go.
+I pulled these listing details for the Hyperkin Captain+ Wired Hall Effect Controller for N64/M64: style Wired. I saw it at Woot and wanted a clean product write-up here.

@@ -16,8 +16,7 @@ highlights:
 source: target-deals
 why_deal: Target has it for $174.99, down from $204.99. Prices change fast, so check
   the price before you buy.
-description: This is the Fujifilm Instax Mini 13 Instant Camera, 60 Photo Prints,
-  Photo Album, Case. It's filed under Cameras on this site. I posted it after checking
-  the price at Target. Worth a look for photos and video.
+description: I looked at the Fujifilm Instax Mini 13 Instant Camera, 60 Photo Prints,
+  Photo Album, Case. Choose from Same Day Delivery, Drive Up or Order Pickup. Free
 ---
-This is the Fujifilm Instax Mini 13 Instant Camera, 60 Photo Prints, Photo Album, Case. It's filed under Cameras on this site. I posted it after checking the price at Target. Worth a look for photos and video.
+I looked at the Fujifilm Instax Mini 13 Instant Camera, 60 Photo Prints, Photo Album, Case. Choose from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at Target and wanted a clean product write-up here.

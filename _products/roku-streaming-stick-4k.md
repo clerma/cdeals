@@ -15,12 +15,21 @@ highlights:
 - "$35 under its usual price"
 source: bh-deals-categories
 specs:
-- label: Panel
-  value: 4K
+- label: Max Video Output
+  value: via HDMIUp to UHD 4K at 60.00 fps
+- label: HDCP Support
+  value: 'Yes'
+- label: Video Output
+  value: via HDMI3840 x 2160p at 60.00 fps1920 x 1080p
+- label: HDR Support
+  value: 'Yes: HDR10/HDR10+/Dolby Vision/Hybrid Log Gamma'
+- label: Video I/O
+  value: 1x HDMI 2.0 Output
+- label: Wireless
+  value: Wi-Fi 5 (802.11ac)
 why_deal: B&H Photo has it for $44.99, down from $79.99. Prices change fast, so check
   the price before you buy.
-description: 'This is the Roku Streaming Stick 4K. From the listing: panel 4K. I posted
-  it after checking the price at B&H Photo. Worth a look for movies, sports, and everyday
-  watching.'
+description: I looked at the Roku Streaming Stick 4K. Review Roku Streaming Stick
+  4K. I saw it at B&H Photo and wanted a clean product write-up here.
 ---
-This is the Roku Streaming Stick 4K. From the listing: panel 4K. I posted it after checking the price at B&H Photo. Worth a look for movies, sports, and everyday watching.
+I looked at the Roku Streaming Stick 4K. Review Roku Streaming Stick 4K. I saw it at B&H Photo and wanted a clean product write-up here.

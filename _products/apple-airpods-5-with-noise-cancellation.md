@@ -15,8 +15,10 @@ highlights:
 source: techbargains
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: This is the Apple AirPods 5 with Noise Cancellation. It's filed under
-  Audio on this site. I posted it because Amazon had a strong price when I checked.
-  Prices move, so confirm the current price at Amazon before you buy.
+description: I looked at the Apple AirPods 5 with Noise Cancellation. AirPods deliver
+  an unparalleled wireless headphone experience, from magical setup to high-quality
+specs:
+- label: Style
+  value: wireless
 ---
-This is the Apple AirPods 5 with Noise Cancellation. It's filed under Audio on this site. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.
+I looked at the Apple AirPods 5 with Noise Cancellation. AirPods deliver an unparalleled wireless headphone experience, from magical setup to high-quality sound. Available with free engraving. I posted the Amazon listing so you can confirm the live price.
