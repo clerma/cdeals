@@ -41,7 +41,7 @@ Every listing states the item's condition and shows its wear. If what arrives do
 
 ### How to start a return
 
-1. Email [{{ site.contact_email }}](mailto:{{ site.contact_email }}?subject=Return%20request) with your order email and the item name.
+1. Use the [contact form]({{ '/contact/' | relative_url }}) with your order email and the item name (say it's a return request).
 2. Wait for my reply with the return address before shipping anything back.
 3. Ship it with tracking and send me the tracking number.
 
