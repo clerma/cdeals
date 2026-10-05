@@ -16,4 +16,4 @@ highlights:
 - 16GB memory, 1TB SSD
 source: techbargains
 ---
-Amazon has it for $1839. Prices change fast, so check the price before you buy.
+Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.

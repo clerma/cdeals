@@ -3,7 +3,12 @@
 {%- if p.status == "sold" -%}
   <span class="badge text-bg-secondary {{ include.class }}">Sold</span>
 {%- elsif p.type == "affiliate" -%}
+  {%- capture amz_hide -%}{% include amazon-hidden.html product=p %}{%- endcapture -%}
+  {%- if amz_hide != "" -%}
+  <span class="badge text-bg-warning text-wrap text-start lh-sm {{ include.class }}" style="max-width: calc(100% - 1.5rem)">Best deal seen on Amazon</span>
+  {%- else -%}
   <span class="d-flex flex-column align-items-start gap-1 {{ include.class }}"><span class="badge text-bg-info">Deal @ {{ p.store }}</span>{% if pct != "" %}<span class="badge text-bg-danger">-{{ pct }}%</span>{% endif %}</span>
+  {%- endif -%}
 {%- elsif pct != "" -%}
   <span class="badge text-bg-danger {{ include.class }}">-{{ pct }}%</span>
 {%- endif -%}

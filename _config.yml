@@ -31,6 +31,11 @@ skimlinks_id: "310483X1798959"   # Skimlinks: publisher ID, e.g. 123456X1234567 
 # Amazon Associates tracking ID, e.g. yourtag-20. The deal finder turns every
 # Amazon link into https://www.amazon.com/dp/ASIN?tag=<this>.
 amazon_tag: "cdeals014-20"
+# Amazon Associates rules don't allow hand-entered static prices. With this
+# false, Amazon deals show "Best deal seen on Amazon" + "See price at Amazon"
+# instead of price / original price / -NN% (the numbers stay in front matter).
+# Set to true to show them again.
+amazon_show_prices: false
 # TODO (optional): Geniuslink group ID. Not used yet; Amazon links stay
 # plain amazon.com/dp links with your tag.
 geniuslink_group: ""

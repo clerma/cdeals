@@ -16,4 +16,4 @@ highlights:
 - Active noise cancelling over-ear headphones
 source: techbargains
 ---
-Amazon has it for $149. Prices change fast, so check the price before you buy.
+Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.

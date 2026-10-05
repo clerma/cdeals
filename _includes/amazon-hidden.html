@@ -1,0 +1,12 @@
+{%- comment -%}
+  Prints "1" when this is an Amazon deal and Amazon prices are switched off
+  (amazon_show_prices: false in _config.yml, the default). Amazon Associates
+  rules don't allow hand-entered static prices, so the price, original price
+  and -NN% are hidden for these deals; the numbers stay in front matter.
+  Usage: {% capture amz %}{% include amazon-hidden.html product=p %}{% endcapture %}
+{%- endcomment -%}
+{%- assign _ap = include.product -%}
+{%- if _ap.type == "affiliate" and site.amazon_show_prices != true -%}
+  {%- assign _astore = _ap.store | downcase -%}
+  {%- if _astore contains "amazon" or _ap.affiliate_url contains "amazon.com" or _ap.affiliate_url contains "amzn." -%}1{%- endif -%}
+{%- endif -%}

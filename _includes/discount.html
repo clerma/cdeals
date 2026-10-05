@@ -1,10 +1,12 @@
 {%- comment -%}
   Prints the whole-number discount (e.g. 28) when the item has both prices and
-  compare_at (original/list price) is higher than price. Prints nothing otherwise.
+  compare_at (original/list price) is higher than price. Prints nothing otherwise,
+  and nothing for Amazon deals while Amazon prices are hidden.
   Usage: {% capture off %}{% include discount.html product=p %}{% endcapture %}
 {%- endcomment -%}
 {%- assign _p = include.product -%}
-{%- if _p.compare_at and _p.price -%}
+{%- capture _amz -%}{% include amazon-hidden.html product=_p %}{%- endcapture -%}
+{%- if _amz == "" and _p.compare_at and _p.price -%}
   {%- assign _was = _p.compare_at | times: 1.0 -%}
   {%- assign _now = _p.price | times: 1.0 -%}
   {%- if _was > _now -%}

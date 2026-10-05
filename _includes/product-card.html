@@ -22,9 +22,11 @@
         <span class="animate-target">{{ p.title }}</span>
       </a>
     </h3>
+    {% capture amz_hide %}{% include amazon-hidden.html product=p %}{% endcapture %}
     <div class="d-flex align-items-center justify-content-between">
       {% include price.html product=p size="card" %}
-      {% if p.status == "sold" %}
+      {% if amz_hide != "" %}
+      {% elsif p.status == "sold" %}
         <span class="fs-xs fw-medium text-body-secondary ms-2">Sold</span>
       {% elsif p.type == "affiliate" %}
         <a class="product-card-button btn btn-icon btn-secondary animate-slide-end ms-2" href="{{ p.affiliate_url }}" target="_blank" rel="sponsored nofollow noopener" aria-label="Get this deal at {{ p.store }}">

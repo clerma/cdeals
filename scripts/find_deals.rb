@@ -319,15 +319,22 @@ build_candidate = lambda do |item, source|
   short = DealTools.short_title(name, store: store)
   short = DealTools.short_title(title, store: store) if short.length < 8
   highlights = []
-  highlights << "$#{(compare - price).round} under its usual price" if compare
+  highlights << "$#{(compare - price).round} under its usual price" if compare && !(store =~ /amazon/i || store_url.to_s =~ /amazon\.|amzn\./i)
   highlights << "Free shipping" if blob =~ /free ship/i
   highlights << "May need a coupon or promo code at checkout" if blob =~ /\bcoupon\b|\bclip\b|promo code|\bcode\b/i
   highlights << "Prime members only" if blob =~ /prime (members|exclusive|only)/i
   expires = item[:expires] && item[:expires] > today && item[:expires] <= today + 30 ? item[:expires] : today + (defaults["expires_days"] || 7).to_i
 
   money_s = ->(v) { v == v.round ? "$#{v.round}" : format("$%.2f", v) }
-  summary = "#{store.empty? ? 'The store' : store} has it for #{money_s.call(price)}" \
-            "#{compare ? ", down from #{money_s.call(compare)}" : ''}. Prices change fast, so check the price before you buy."
+  amazon = store =~ /amazon/i || store_url.to_s =~ /amazon\.|amzn\./i
+  summary =
+    if amazon
+      # Amazon Associates: no static prices in the text (the site hides Amazon prices too).
+      "Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy."
+    else
+      "#{store.empty? ? 'The store' : store} has it for #{money_s.call(price)}" \
+        "#{compare ? ", down from #{money_s.call(compare)}" : ''}. Prices change fast, so check the price before you buy."
+    end
 
   dedupe_key = key || item[:link]
   entry = {

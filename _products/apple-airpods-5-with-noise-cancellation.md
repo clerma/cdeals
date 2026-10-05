@@ -14,4 +14,4 @@ highlights:
 - Active noise cancellation
 source: techbargains
 ---
-Amazon has it for $129. Prices change fast, so check the price before you buy.
+Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.

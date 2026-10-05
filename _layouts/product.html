@@ -50,7 +50,7 @@ layout: default
           </div>
         {% elsif is_deal %}
           <a class="btn btn-lg btn-primary w-100 animate-slide-end mb-3" href="{{ p.affiliate_url }}" target="_blank" rel="sponsored nofollow noopener">
-            Get this deal at {{ p.store }}
+            {% capture amz_hide %}{% include amazon-hidden.html product=p %}{% endcapture %}{% if amz_hide != "" %}See price at Amazon{% else %}Get this deal at {{ p.store }}{% endif %}
             <i class="ci-external-link fs-lg ms-2 me-n1 animate-target"></i>
           </a>
           <p class="fs-xs text-body-secondary mb-4">Prices change often, so check the price at {{ p.store }} before you buy. {{ site.affiliate_disclosure }} <a class="text-body-secondary" href="{{ '/disclosure/' | relative_url }}">Learn more</a></p>
