@@ -7,5 +7,9 @@
   url: /deals/
 - title: Blog
   url: /blog/
+- title: Submit a deal
+  url: /submit-a-deal/
 - title: About
   url: /about/
+- title: Contact
+  url: /contact/

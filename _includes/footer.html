@@ -7,7 +7,7 @@
       <div class="col-md-4 pb-4 mb-sm-2">
         <h4 class="mb-3"><a class="text-dark-emphasis text-decoration-none" href="{{ '/' | relative_url }}">{{ site.title }}</a></h4>
         <p class="text-body fs-sm mb-3">{{ site.tagline }}</p>
-        <a class="btn btn-secondary" href="mailto:{{ site.contact_email }}"><i class="ci-mail fs-base me-2"></i>Email me</a>
+        <a class="btn btn-secondary" href="{{ '/contact/' | relative_url }}"><i class="ci-mail fs-base me-2"></i>Email me</a>
       </div>
       <div class="col-md-8">
         <div class="row row-cols-2 row-cols-sm-4 g-4">
@@ -34,7 +34,8 @@
               <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/blog/' | relative_url }}"><span class="animate-target">Blog</span></a></li>
               <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/about/' | relative_url }}"><span class="animate-target">About</span></a></li>
               {% if site.selling %}<li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/returns/' | relative_url }}"><span class="animate-target">Returns &amp; shipping</span></a></li>{% endif %}
-              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="mailto:{{ site.contact_email }}"><span class="animate-target">Contact</span></a></li>
+              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/contact/' | relative_url }}"><span class="animate-target">Contact</span></a></li>
+              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/submit-a-deal/' | relative_url }}"><span class="animate-target">Submit a deal</span></a></li>
             </ul>
           </div>
           <div class="col">

@@ -44,3 +44,15 @@
     });
   });
 </script>
+
+{% if page.paperform %}
+<script>
+  (function () {
+    if (window.__cdealsPaperformLoaded) return;
+    window.__cdealsPaperformLoaded = true;
+    var script = document.createElement('script');
+    script.src = 'https://paperform.co/__embed.min.js';
+    document.body.appendChild(script);
+  })();
+</script>
+{% endif %}
