@@ -1,0 +1,53 @@
+{% comment %}
+  Cartzilla blog-grid-v1 / blog-single-v1 sticky sidebar: categories + trending/recent.
+  Social "Follow us" omitted until site.social.links has real URLs.
+{% endcomment %}
+{% assign side_posts = site.posts | slice: 0, 5 %}
+{% assign cat_names = "" %}
+{% for p in site.posts %}
+  {% for c in p.categories %}
+    {% unless cat_names contains c %}
+      {% if cat_names != "" %}{% assign cat_names = cat_names | append: "|||" %}{% endif %}
+      {% assign cat_names = cat_names | append: c %}
+    {% endunless %}
+  {% endfor %}
+{% endfor %}
+{% assign cat_list = cat_names | split: "|||" %}
+
+<aside class="col-lg-4 col-xl-3 offset-xl-1" style="margin-top: -115px">
+  <div class="offcanvas-lg offcanvas-end sticky-lg-top ps-lg-4 ps-xl-0" id="blogSidebar">
+    <div class="d-none d-lg-block" style="height: 115px"></div>
+    <div class="offcanvas-header py-3">
+      <h5 class="offcanvas-title">Sidebar</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#blogSidebar" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-block pt-2 py-lg-0">
+      {% if cat_list.size > 0 and cat_list[0] != "" %}
+      <h4 class="h6 mb-4">Blog categories</h4>
+      <div class="d-flex flex-wrap gap-3">
+        {% for c in cat_list %}
+        <span class="btn btn-outline-secondary px-3 pe-none">{{ c }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if side_posts.size > 0 %}
+      <h4 class="h6 {% if cat_list.size > 0 and cat_list[0] != "" %}pt-5{% endif %} mb-0">Recent posts</h4>
+      {% for post in side_posts %}
+      <article class="hover-effect-scale position-relative d-flex align-items-center{% unless forloop.last %} border-bottom{% endunless %} py-4">
+        <div class="w-100 pe-3">
+          <h3 class="h6 lh-base fs-sm mb-0">
+            <a class="hover-effect-underline stretched-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h3>
+        </div>
+        {% if post.image %}
+        <div class="ratio w-100" style="max-width: 86px; --cz-aspect-ratio: calc(64 / 86 * 100%)">
+          <img src="{{ post.image | relative_url }}" class="rounded-2" alt="" loading="lazy">
+        </div>
+        {% endif %}
+      </article>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</aside>

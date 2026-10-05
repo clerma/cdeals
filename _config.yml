@@ -92,15 +92,33 @@ defaults:
     values:
       layout: category
       sitemap: true
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: Carlos Lerma
+      sitemap: true
+      permalink: /blog/:year/:month/:day/:title/
 
 plugins:
   - jekyll-sitemap
+  - jekyll-feed
+
+# RSS (jekyll-feed): /feed.xml
+feed:
+  path: feed.xml
+  excerpt_only: true
+  posts_limit: 20
 
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
   - vendor/bundle
+  - vendor
   - cloudcannon.config.yml
   - scripts
   - tmp
+  - .cloudcannon
+  - .bundle
