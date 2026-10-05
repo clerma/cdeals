@@ -1,0 +1,83 @@
+/* cDeals brand — accent #53abf4
+   Logo mark on blue backgrounds: #1a384c (see assets/images/brand/*-on-blue.svg)
+   Logo mark on light/white: #53abf4
+   CTAs: #53abf4 by default; on light-blue hero/promo strips use .btn-on-sky (#1a384c) */
+:root,
+[data-bs-theme=light] {
+  --cz-primary: #53abf4;
+  --cz-primary-rgb: 83, 171, 244;
+  --cz-primary-text-emphasis: #2d8fd9;
+  --cz-primary-bg-subtle: #e8f4fc;
+  --cz-primary-border-subtle: #b7dcf9;
+  --cz-link-color: #53abf4;
+  --cz-link-color-rgb: 83, 171, 244;
+  --cz-link-hover-color: #2d8fd9;
+  --cz-link-hover-color-rgb: 45, 143, 217;
+}
+
+[data-bs-theme=dark] {
+  --cz-primary: #53abf4;
+  --cz-primary-rgb: 83, 171, 244;
+  --cz-primary-text-emphasis: #7ec4f7;
+  --cz-primary-bg-subtle: #1a2f3f;
+  --cz-primary-border-subtle: #244a66;
+  --cz-link-color: #53abf4;
+  --cz-link-color-rgb: 83, 171, 244;
+  --cz-link-hover-color: #7ec4f7;
+  --cz-link-hover-color-rgb: 126, 196, 247;
+}
+
+/* Default primary CTA — keep blue hover (theme had leftover coral hover) */
+.btn-primary,
+.product-card .count-input:not(.collapsed) .product-card-button,
+.product-card:hover .product-card-button,
+[data-bs-theme=dark] .product-card:hover .product-card-button {
+  --cz-btn-color: #fff;
+  --cz-btn-bg: #53abf4;
+  --cz-btn-border-color: #53abf4;
+  --cz-btn-hover-color: #fff;
+  --cz-btn-hover-bg: #2d8fd9;
+  --cz-btn-hover-border-color: #2d8fd9;
+  --cz-btn-focus-shadow-rgb: 83, 171, 244;
+  --cz-btn-active-color: #fff;
+  --cz-btn-active-bg: #2473b0;
+  --cz-btn-active-border-color: #2473b0;
+  --cz-btn-disabled-color: #fff;
+  --cz-btn-disabled-bg: #53abf4;
+  --cz-btn-disabled-border-color: #53abf4;
+}
+
+/* CTA on light-blue (#accbee / #e7f0fd) banners — ink for contrast */
+.btn-on-sky {
+  --cz-btn-color: #fff;
+  --cz-btn-bg: #1a384c;
+  --cz-btn-border-color: #1a384c;
+  --cz-btn-hover-color: #fff;
+  --cz-btn-hover-bg: #142c3c;
+  --cz-btn-hover-border-color: #142c3c;
+  --cz-btn-focus-shadow-rgb: 26, 56, 76;
+  --cz-btn-active-color: #fff;
+  --cz-btn-active-bg: #0f2433;
+  --cz-btn-active-border-color: #0f2433;
+  --cz-btn-disabled-color: #fff;
+  --cz-btn-disabled-bg: #1a384c;
+  --cz-btn-disabled-border-color: #1a384c;
+}
+
+.navbar-brand .cdeals-logo-header {
+  height: 40px;
+  width: auto;
+  max-width: 160px;
+  display: block;
+}
+.navbar-brand .cdeals-logo-mark {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+.footer-brand-logo {
+  height: 40px;
+  width: auto;
+  max-width: 180px;
+  display: block;
+}

@@ -17,7 +17,7 @@ author: Carlos Lerma
 url: "https://cdeals.co" # production domain: every canonical URL and schema @id is built from it
 lang: en_US
 currency: USD   # prices in _products are in this currency (used in Product schema)
-logo: ""        # path to your logo, e.g. /assets/images/logo.png — used for Organization schema and as the default share image
+logo: "/assets/images/brand/logo-horizontal.svg"  # Organization schema / default share image
 baseurl: ""
 contact_email: hello@cdeals.co # legal contact in Terms only — UI Email me / Contact use the /contact/ form
 

@@ -18,11 +18,9 @@
         </button>
 
         <!-- Logo -->
-        <a href="{{ '/' | relative_url }}" class="navbar-brand me-0">
-          <span class="d-none d-sm-flex flex-shrink-0 align-items-center justify-content-center bg-primary text-white rounded-circle me-2" style="width: 36px; height: 36px">
-            <i class="ci-shopping-bag fs-lg"></i>
-          </span>
-          {{ site.title }}
+        <a href="{{ '/' | relative_url }}" class="navbar-brand me-0 d-flex align-items-center" aria-label="{{ site.title }}">
+          <img src="{{ '/assets/images/brand/logo-symbol-on-dark.svg' | relative_url }}" class="cdeals-logo-mark d-sm-none" width="28" height="50" alt="">
+          <img src="{{ '/assets/images/brand/logo-horizontal-on-dark.svg' | relative_url }}" class="cdeals-logo-header d-none d-sm-block" width="152" height="40" alt="{{ site.title }}">
         </a>
       </div>
       <div class="col col-lg-9 d-flex align-items-center justify-content-end">
