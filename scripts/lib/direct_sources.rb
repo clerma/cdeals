@@ -35,7 +35,7 @@ module DirectSources
 
   # Fetch every listing URL of a source through the Fetcher; yields (url, body).
   def each_page(fetcher, source, ok_if:)
-    Array(source["urls"]).each do |url|
+    DealTools.source_urls(source).each do |url|
       r = fetcher.fetch(url, source, ok_if: ok_if)
       unless r.ok
         log "#{url}: #{r.error}"
@@ -323,7 +323,7 @@ module DirectSources
   # Adapters for official sources that need a partner account / key first.
   # Listed in deal_sources.yml with enabled: false; flip them on once the
   # adapter is written and the key is in the environment.
-  PLANNED = %w[walmart_affiliate impact_catalog woot_api amazon_paapi].freeze
+  PLANNED = %w[walmart_affiliate impact_catalog woot_api amazon_paapi bestbuy_pages].freeze
 
   PARSERS = {
     "bh" => :bh_items, "newegg" => :newegg_items, "newegg_rss" => :newegg_rss_items,

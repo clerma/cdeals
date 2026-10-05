@@ -7,7 +7,9 @@
 #   bundle exec ruby scripts/find_deals.rb             # normal run
 #   bundle exec ruby scripts/find_deals.rb --dry-run   # print, don't save
 #   options: --source ID (only that feed/site), --limit N (max new candidates),
-#            --verbose (explain every skip)
+#            --verbose (explain every skip),
+#            --deep (also read deep_urls / deep_pages, ignore rotate_daily:
+#                    for an occasional manual deep pass, not the daily run)
 #
 # Needs the optional "deals" gem group:  bundle config set --local with deals && bundle install
 
@@ -27,6 +29,7 @@ OptionParser.new do |o|
   o.on("--source ID") { |v| opts[:source] = v }
   o.on("--limit N", Integer) { |v| opts[:limit] = v }
   o.on("--verbose", "-v") { opts[:verbose] = true }
+  o.on("--deep") { ENV["DEALS_DEEP"] = "1" }
 end.parse!
 
 cfg = DealTools.config
@@ -69,6 +72,18 @@ seen = {}
 DealTools.existing_product_keys.each_key { |k| seen[k] = "already in _products" }
 queue.each { |e| [DealTools.url_key(e["store_url"]), e["source_link"]].compact.each { |k| seen[k] = "already queued" } }
 rejected.each { |e| [e["key"], e["source_link"]].compact.each { |k| seen[k] = "rejected before" } }
+
+# Same product across stores: keep the best price. sig -> { price:, store:, entry: (this run) | file: (published) }
+sig_seen = DealTools.existing_product_signatures.transform_values { |file, store, price| { price: price, store: store, file: file } }
+queue.each do |e|
+  next unless e["status"].to_s == "new" && e["price"]
+  sig = DealTools.product_signature(e["title"], brand: e["brand"]) or next
+  sig_seen[sig] = { price: e["price"].to_f, store: e["store"].to_s, queued: e["id"] } if sig_seen[sig].nil? || e["price"].to_f < sig_seen[sig][:price]
+end
+# Category balance: no single category may take more than this many new candidates per run.
+max_per_category = (defaults["max_candidates_per_category"] || 0).to_i
+cat_counts = Hash.new(0)
+replaced = []
 
 stats = Hash.new(0)
 skips = Hash.new(0)
@@ -151,7 +166,7 @@ end
 # so the store link is read without requesting the tracker.
 def techbargains_page_items(http, source, max_redirects)
   items = {}
-  Array(source["urls"]).each do |url|
+  DealTools.source_urls(source).each do |url|
     _final, res = http.follow(url, max: max_redirects)
     unless res&.ok?
       puts "   #{url}: #{res&.error || "HTTP #{res&.status}"}"
@@ -190,6 +205,7 @@ end
 def woot_items(http, source, max_redirects, cfg_categories)
   strip_ref = ->(u) { u.to_s.sub(/[?#].*\z/, "") }
   offer_urls = []
+  deep = DealTools.deep?
   Array(source["listing_urls"]).each do |url|
     _f, res = http.follow(strip_ref.call(url), max: max_redirects)
     unless res&.ok?
@@ -208,9 +224,9 @@ def woot_items(http, source, max_redirects, cfg_categories)
     next unless res&.ok?
     locs = Nokogiri::XML(res.body).remove_namespaces!.xpath("//url").map { |u| [u.at_xpath("loc")&.text.to_s, u.at_xpath("lastmod")&.text.to_s] }
     locs = locs.select { |l, _| l.include?("/offers/") && l.split("/offers/").last =~ slug_re }
-    offer_urls.concat(locs.sort_by { |_, m| m }.reverse.first((source["max_per_sitemap"] || 40).to_i).map(&:first))
+    offer_urls.concat(locs.sort_by { |_, m| m }.reverse.first(((deep && source["deep_max_per_sitemap"]) || source["max_per_sitemap"] || 40).to_i).map(&:first))
   end
-  offer_urls.uniq.first((source["max_offers"] || 120).to_i).filter_map do |url|
+  offer_urls.uniq.first(((deep && source["deep_max_offers"]) || source["max_offers"] || 120).to_i).filter_map do |url|
     _f, res = http.follow(url, max: max_redirects)
     next unless res&.ok?
     html = res.body
@@ -359,6 +375,7 @@ build_candidate = lambda do |item, source|
   next skip.call(item, "no category keyword in title") if category.nil? && source["require_title_category"]
   category ||= fallback_category
   next skip.call(item, "no matching category") if category.nil? && filters.fetch("require_category", true)
+  next skip.call(item, "category quota reached (#{category})") if max_per_category.positive? && cat_counts[category] >= max_per_category
 
   price = item[:price] || DealTools.first_price(title) || DealTools.first_price(item[:text])
   next skip.call(item, "price outside min/max") if price && ((filters["min_price"] && price < filters["min_price"]) || (filters["max_price"] && price > filters["max_price"]))
@@ -440,13 +457,30 @@ build_candidate = lambda do |item, source|
   next skip.call(item, "same product already found (variant)") if seen[title_key]
   image_url = abs_img.call(data[:image].to_s) || item[:image]
   next skip.call(item, "no product image") if source["require_image"] && image_url.to_s.empty?
+  brand = [data[:brand], item[:brand]].map { |b| b.to_s.strip }.find { |b| !b.empty? } || brand_guess(name)
+  # Same product at another store (or already queued): keep the best price.
+  sig = DealTools.product_signature(short, brand: brand)
+  replaces = nil
+  if sig && (prev = sig_seen[sig])
+    next skip.call(item, "same product cheaper or equal elsewhere") if prev[:price] <= price
+    if prev[:entry]
+      added.delete(prev[:entry])
+      cat_counts[prev[:entry]["category"]] -= 1
+      replaced << "#{prev[:entry]['title']} (#{prev[:store]} $#{prev[:price]}) -> #{store} $#{price}"
+    elsif prev[:file]
+      replaces = prev[:file]
+      notes << "Cheaper than the published #{prev[:file]} (#{prev[:store]} $#{prev[:price]}): remove that one when approving this."
+    elsif prev[:queued]
+      notes << "Cheaper than queued #{prev[:queued]} (#{prev[:store]} $#{prev[:price]}): reject that one."
+    end
+  end
   highlights = Array(item[:highlights]).reject { |h| h.to_s.strip.empty? }
   highlights << "$#{(compare - price).round} under its usual price" if compare && !(store =~ /amazon/i || store_url.to_s =~ /amazon\.|amzn\./i)
   highlights << "Refurbished or open-box: check the condition notes at #{store.empty? ? 'the store' : store}" if title =~ /refurb|reconditioned|renewed|like-new|like new|open[- ]box|scratch/i && highlights.none? { |h| h =~ /used|refurb|open-box/i }
   highlights << "Free shipping" if blob =~ /free ship/i
   highlights << "May need a coupon or promo code at checkout" if blob =~ /\bcoupon\b|\bclip\b|promo code|\bcode\b/i
   highlights << "Prime members only" if blob =~ /prime (members|exclusive|only)/i
-  expires = item[:expires] && item[:expires] > today && item[:expires] <= today + 30 ? item[:expires] : today + (defaults["expires_days"] || 7).to_i
+  expires = item[:expires] && item[:expires] > today && item[:expires] <= today + 30 ? item[:expires] : today + (source["expires_days"] || defaults["expires_days"] || 7).to_i
 
   money_s = ->(v) { v == v.round ? "$#{v.round}" : format("$%.2f", v) }
   amazon = store =~ /amazon/i || store_url.to_s =~ /amazon\.|amzn\./i
@@ -463,12 +497,15 @@ build_candidate = lambda do |item, source|
   entry = {
     "id" => DealTools.deal_id(dedupe_key), "status" => "new", "title" => short, "store" => store,
     "price" => price, "compare_at" => compare, "discount_pct" => discount, "category" => category,
-    "brand" => [data[:brand], item[:brand]].map { |b| b.to_s.strip }.find { |b| !b.empty? } || brand_guess(name),
+    "brand" => brand,
     "affiliate_url" => store_url ? DealTools.affiliate_url(store_url) : "", "store_url" => store_url,
     "image" => image_url, "highlights" => highlights.first(3),
     "summary" => summary, "expires" => expires, "found" => today.dup, "source" => source["id"],
-    "source_link" => item[:page] || item[:link], "source_title" => title[0, 140], "notes" => notes.empty? ? nil : notes.join(" ")
+    "source_link" => item[:page] || item[:link], "source_title" => title[0, 140], "notes" => notes.empty? ? nil : notes.join(" "),
+    "replaces" => replaces
   }.compact
+  sig_seen[sig] = { price: price, store: store, entry: entry } if sig
+  cat_counts[category] += 1
   seen[dedupe_key] = "already queued"
   seen[title_key] = "already queued"
   seen[item[:link]] = "already queued"
@@ -491,6 +528,11 @@ sources.each do |source|
   unless missing_env.empty?
     puts "   skipped: #{missing_env.join(', ')} not set"
     stats[:sources_skipped] += 1
+    next
+  end
+  # unless_env: run only while these are missing (e.g. a ZenRows stand-in until an official API key exists).
+  if Array(source["unless_env"]).any? { |k| !ENV[k].to_s.strip.empty? }
+    puts "   skipped: #{Array(source['unless_env']).join(', ')} is set, the official source takes over"
     next
   end
   if DirectSources::PLANNED.include?(source["parser"].to_s)
@@ -578,6 +620,9 @@ puts "Dropped stale queue entries: #{dropped_stale}" if dropped_stale.positive?
 puts "HTTP requests: #{http.stats[:requests]}, blocked by robots.txt: #{http.stats[:robots_blocked]}, errors: #{http.stats[:errors]}"
 puts "ZenRows: #{fetcher.usage_stats[:requests]} requests, #{fetcher.usage_stats[:credits]} credits this run; " \
      "#{fetcher.credits_this_month}/#{fetcher.cap} credits this month#{fetcher.zenrows_key? ? '' : ' (ZENROWS_API_KEY not set)'}"
+puts "Run: #{DealTools.deep? ? 'deep' : 'daily'}; new per category: #{cat_counts.select { |_, n| n.positive? }.sort_by { |_, n| -n }.map { |c, n| "#{c} #{n}" }.join(', ')}"
+puts "Replaced in this run by a cheaper store: #{replaced.size}" unless replaced.empty?
+replaced.each { |r| puts "  #{r}" }
 puts "Skipped:" unless skips.empty?
 skips.sort_by { |_, n| -n }.each { |r, n| puts "  #{n.to_s.rjust(4)}  #{r}" }
 puts "Unresolved store links:" unless unresolved_reasons.empty?

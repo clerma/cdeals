@@ -172,3 +172,13 @@ The workflow is in `scripts/find-deals.workflow.yml`. Move it to `.github/workfl
 - **Ben's Bargains:** store links are behind a POST click tracker that robots.txt disallows, so they stay blank.
 - **TechBargains:** links go straight to the store, so these always resolve.
 - **Store product pages:** Amazon, Walmart, and Best Buy return a captcha or time out for scripts, so the finder uses the feed's price and photo for them. The original price is often unknown for those.
+
+### Deep runs, paging and volume
+
+- `bundle exec ruby scripts/find_deals.rb --deep` also reads each source's `deep_urls`, `deep_pages` and `deep_max_*` and ignores `rotate_daily`. Use it for an occasional manual pass; the daily workflow runs without it.
+- `pages` + `page_format` (B&H: `{url}/pn/{n}`) read more pages of a listing. TechBargains page 2+ only holds old deals and Newegg ignores `?page=`, so those get depth from more category/store URLs instead.
+- `rotate_daily: K` reads only K of a ZenRows source's URLs per day (Target: 4 of 7 = 20 credits/day).
+- Same product at two stores (brand + model number + size + condition) keeps the cheaper one. A cheaper find than a published deal is queued with `replaces:` and a note.
+- `max_candidates_per_category` (default 45) keeps one category from flooding a run. Per-source `expires_days` (TechBargains/Slickdeals 3-4 days) covers sale events like Prime days.
+- Best Buy: the API takes over once `BESTBUY_API_KEY` is set (`zenrows_until_key`). A ZenRows stand-in source exists but is disabled, because ZenRows requires premium proxies for bestbuy.com (anti-bot). Best Buy deals come in through TechBargains `/stores/bestbuy` meanwhile.
+- ZenRows only spends credits after it has actually read the host's robots.txt (directly, or through ZenRows when the host refuses direct connections).

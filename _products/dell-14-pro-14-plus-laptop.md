@@ -1,0 +1,20 @@
+---
+title: Dell 14" Pro 14 Plus Laptop
+type: affiliate
+category: Laptops
+brand: Dell
+price: 749.95
+compare_at: 1366.57
+store: B&H Photo
+affiliate_url: https://www.bhphotovideo.com/c/product/803396984-USE/dell_fh6nc_14_pro_14_plus.html
+expires: 2026-10-11
+date: 2026-10-04
+images:
+- "/assets/uploads/deals/dell-14-pro-14-plus-laptop.jpg"
+highlights:
+- Used at B&H, condition 9 (Minor surface marks); the original price shown is B&H's
+  new price
+- "$617 under its usual price"
+source: bh-used
+---
+B&H Photo has it for $749.95, down from $1366.57. Prices change fast, so check the price before you buy.

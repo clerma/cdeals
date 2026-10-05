@@ -267,4 +267,55 @@ module DealTools
       h[k] = File.basename(f) if k
     end
   end
+
+  # ------------------------------------------------- deep runs / paging ---
+  # Daily runs read each source's `urls`. A deep run (find_deals.rb --deep, or
+  # DEALS_DEEP=1) also reads `deep_urls`, uses `deep_pages` instead of `pages`
+  # and ignores `rotate_daily`.
+  def deep? = ENV["DEALS_DEEP"] == "1"
+
+  # Listing URLs for a source on this run:
+  #   rotate_daily: K  -> only K of the urls per day, rotating by day of year
+  #                       (keeps daily ZenRows credits small; deep runs read all)
+  #   pages: N + page_format: "{url}/pn/{n}" -> pages 2..N of every url too
+  def source_urls(source, today: Date.today)
+    urls = Array(source["urls"])
+    urls += Array(source["deep_urls"]) if deep?
+    k = source["rotate_daily"].to_i
+    if k.positive? && !deep? && urls.size > k
+      start = (today.yday * k) % urls.size
+      urls = (urls + urls)[start, k]
+    end
+    pages = (deep? ? (source["deep_pages"] || source["pages"]) : source["pages"]).to_i
+    fmt = source["page_format"].to_s
+    return urls if pages <= 1 || fmt.empty?
+    urls.flat_map { |u| [u] + (2..pages).map { |n| fmt.gsub("{url}", u).gsub("{n}", n.to_s) } }
+  end
+
+  # Same product at different stores: brand + model-number-like tokens +
+  # storage sizes + condition. nil when the title has no model-like token
+  # (then only the per-store title check applies).
+  SIG_STOP = /\A(?:19|20)\d\d\z|\A\d+(?:hz|w|mah|mm|in|inch|ft|pack|pk|pcs?|ct|th|nd|rd|st|x)\z|\Awi-?fi\d?\z|\A\d+(?:k|p)\z|\Ausb\d?\z|\Ahdmi\d?\z/
+  def product_signature(title, brand: nil)
+    t = title.to_s.downcase.gsub(/[®™()\[\],|:;"]/, " ")
+    words = t.split(/\s+/).map { |w| w.gsub(/\A[^a-z0-9]+|[^a-z0-9]+\z/, "") }.reject(&:empty?)
+    models = words.select { |w| w =~ /[a-z]/ && w =~ /\d/ && w.length >= 3 && w !~ SIG_STOP && w !~ /\A\d+(?:gb|tb)\z/ }
+    return nil if models.none? { |w| w.gsub(/[^a-z0-9]/, "").length >= 4 }
+    sizes = words.select { |w| w =~ /\A\d+(?:gb|tb)\z/ || w =~ /\A\d{2,3}(?:\.\d)?(?:in|inch)?\z/ }  # storage and screen sizes
+    cond = t =~ /refurb|renewed|open[- ]box|\bused\b|pre-owned/ ? "r" : "n"
+    b = (brand.to_s.strip.empty? ? words.first : brand.to_s.downcase.split.first).to_s
+    "sig:#{b}|#{models.uniq.sort.join(',')}|#{sizes.uniq.sort.join(',')}|#{cond}"
+  end
+
+  # Published deals by signature: { sig => [file, store, price] } (cheapest kept).
+  def existing_product_signatures
+    Dir[File.join(PRODUCTS_DIR, "*.md")].each_with_object({}) do |f, h|
+      fm = front_matter(f)
+      next unless fm["type"].to_s == "affiliate"
+      sig = product_signature(fm["title"], brand: fm["brand"]) or next
+      price = fm["price"].to_f
+      h[sig] = [File.basename(f), fm["store"].to_s, price] if h[sig].nil? || price < h[sig][2]
+    end
+  end
 end
+

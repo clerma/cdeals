@@ -113,9 +113,18 @@ skip_feed_categories:
 fallback_category: Accessories
 
 defaults:
-  expires_days: 7            # used when the feed doesn't give an end date
-  max_candidates_per_run: 200
+  expires_days: 7            # used when the feed doesn't give an end date (per source: expires_days)
+  max_candidates_per_run: 250
   max_candidates_per_source: 8   # so one busy feed can't fill the whole run
+  # Category balance: no category takes more than this many new candidates in
+  # one run (big sale events flood Audio/TV otherwise). 0 = no limit.
+  max_candidates_per_category: 45
+# Daily vs deep runs: the daily routine reads each source's urls (and only
+# rotate_daily of them for ZenRows sources). `find_deals.rb --deep` also reads
+# deep_urls, deep_pages and deep_max_* for an occasional manual deep pass.
+# Same product at two stores (brand + model number + size + condition) keeps
+# only the cheaper one; a cheaper find than a published deal is queued with
+# `replaces:` so the old one can be removed on approval.
   queue_max_days: 10         # pending candidates older than this are dropped
   images: download           # on publish: "download" into assets/uploads/deals/ or "hotlink"
 
@@ -170,7 +179,8 @@ feeds:
     fetch: rss
     resolve: direct
     max_items: 600
-    max_candidates: 80   # links go straight to the store, so allow more from here
+    max_candidates: 100  # links go straight to the store, so allow more from here
+    expires_days: 4
     # The RSS only has titles. These TechBargains pages carry each deal's write-up
     # ("This is normally $249", "$99.99 list price"), which is where the original
     # (compare_at) price comes from. Read once per run; robots.txt is respected.
@@ -190,6 +200,8 @@ feeds:
       - https://www.techbargains.com/stores/amazon
       - https://www.techbargains.com/stores/walmart
       - https://www.techbargains.com/stores/dell
+      - https://www.techbargains.com/sales/prime-day-deals
+      - https://www.techbargains.com/stores/bestbuy
   # Slickdeals moved to sites: (id slickdeals-rss) as leads; its /click store
   # links are disallowed by robots.txt, so the old content_link resolve never worked.
   - id: dealnews
@@ -218,8 +230,9 @@ sites:
     fetch: plain
     parser: techbargains_pages
     max_age_hours: 120
-    max_items: 600
-    max_candidates: 120
+    max_items: 1200
+    max_candidates: 160
+    expires_days: 4          # TechBargains doesn't give end dates; Prime-event deals end fast
     urls:
       - https://www.techbargains.com/
       - https://www.techbargains.com/categories/laptops
@@ -263,6 +276,27 @@ sites:
       - https://www.techbargains.com/stores/lenovo
       - https://www.techbargains.com/stores/hp
       - https://www.techbargains.com/stores/samsung
+      # Amazon's October Prime event: TechBargains' own Prime/Amazon pages
+      # (store links go straight to amazon.com/dp, our tag is added on publish;
+      # Amazon itself is never fetched). Prime deals end fast, see expires_days.
+      - https://www.techbargains.com/sales/prime-day-deals
+      - https://www.techbargains.com/stores/bestbuy        # Best Buy deals with direct links (no ZenRows needed)
+      - https://www.techbargains.com/stores/b-and-h
+      - https://www.techbargains.com/stores/microsoft
+      - https://www.techbargains.com/stores/google-store
+      - https://www.techbargains.com/stores/apple
+      - https://www.techbargains.com/stores/antonline
+      - https://www.techbargains.com/stores/alienware
+      - https://www.techbargains.com/types/editors-choice
+      - https://www.techbargains.com/types/new-release
+      - https://www.techbargains.com/types/windows-11-pc
+      - https://www.techbargains.com/categories/components
+      - https://www.techbargains.com/categories/electronics
+      - https://www.techbargains.com/categories/home-office
+      - https://www.techbargains.com/categories/office-electronics
+      - https://www.techbargains.com/categories/home-theater-tv-accessories
+    # Page 2+ of a TechBargains listing only holds months-old deals (tested
+    # Oct 2026), so depth comes from more category/store pages, not paging.
 
   # Woot (Amazon-owned deal store; not covered by the Amazon tag). Event pages
   # are server-rendered; woot.com/category/computers etc. are built by
@@ -275,14 +309,17 @@ sites:
     store: Woot
     fetch: sitemap
     parser: woot
-    max_offers: 160
-    max_per_sitemap: 45
-    max_candidates: 80
+    max_offers: 200          # every offer page is read (2 s apart), so this is the daily cost
+    max_per_sitemap: 70      # newest offers first (sitemap lastmod)
+    deep_max_offers: 420
+    deep_max_per_sitemap: 160
+    max_candidates: 90
     listing_urls:
       - https://electronics.woot.com/plus/home-entertainment-kickoff
     sitemaps:
       - https://computers.woot.com/sitemap.xml      # = woot.com/category/computers
       - https://electronics.woot.com/sitemap.xml    # = woot.com/category/electronics (TVs, audio, cameras, phones, gaming)
+      - https://home.woot.com/sitemap.xml           # only tech slugs (smart home, robot vacuums, security cams) pass the category filter
 
   # ------------------------------------------------------------------------
   # Stores read directly (tested Oct 2026: robots.txt allows these pages and
@@ -299,10 +336,33 @@ sites:
     require_title_category: true
     require_discount: true     # the store page must show its own original price
     require_image: true
-    max_items: 120
-    max_candidates: 20
+    max_items: 400
+    max_candidates: 40
+    page_format: "{url}/pn/{n}"
+    pages: 3                 # daily: pages 1-3 of the deals list
+    deep_pages: 6
     urls:
       - https://www.bhphotovideo.com/deals-promotions-coupons
+  # B&H deal sub-categories (same listing format as the main deals page).
+  - id: bh-deals-categories
+    name: B&H deals by category
+    store: B&H Photo
+    fetch: plain
+    fallback: none
+    parser: bh
+    require_title_category: true
+    require_discount: true
+    require_image: true
+    max_items: 500
+    max_candidates: 40
+    page_format: "{url}/pn/{n}"
+    pages: 1
+    deep_pages: 2
+    urls:
+      - https://www.bhphotovideo.com/deals-promotions-coupons/Computers-Solutions/ci/9581
+      - https://www.bhphotovideo.com/deals-promotions-coupons/Home-Entertainment/ci/4600/N/4294544179
+      - https://www.bhphotovideo.com/deals-promotions-coupons/Photography/ci/989/N/4294538916
+      - https://www.bhphotovideo.com/deals-promotions-coupons/drone-with-camera/ci/27989/N/3765401970
   # The Used Department landing page has no product list; these are its
   # used sub-category listings (B&H condition grade is added as a highlight).
   - id: bh-used
@@ -314,14 +374,23 @@ sites:
     require_title_category: true
     require_discount: true     # the store page must show its own original price
     require_image: true
-    min_discount_pct: 15
-    max_items: 200
-    max_candidates: 15
+    min_discount_pct: 18
+    max_items: 500
+    max_candidates: 30
+    page_format: "{url}/pn/{n}"
+    pages: 1
+    deep_pages: 3
     urls:
       - https://www.bhphotovideo.com/c/buy/used-mirrorless-cameras/ci/21264/N/4040479538
       - https://www.bhphotovideo.com/c/buy/Notebooks-Netbooks-Tablet-PCs/ci/13995/N/3607616147
       - https://www.bhphotovideo.com/c/buy/used-tablets/ci/23078/N/3607616146
       - https://www.bhphotovideo.com/c/buy/used-computer-monitors-accessories/ci/28343/N/3756184941
+    deep_urls:               # deep runs only (used sub-listings linked from the Used Department hubs)
+      - https://www.bhphotovideo.com/c/buy/Desktop-Computers/ci/13994/N/3607616148
+      - https://www.bhphotovideo.com/c/buy/used-gaming/ci/29951
+      - https://www.bhphotovideo.com/c/buy/used-hard-drives-storage/ci/28344/N/3756184938
+      - https://www.bhphotovideo.com/c/buy/Portable-Audio/ci/15302/N/4294210533
+      - https://www.bhphotovideo.com/c/buy/used-soundbar-speakers/ci/59940
   - id: newegg-outlet
     name: Newegg Outlet / clearance
     store: Newegg
@@ -331,10 +400,32 @@ sites:
     require_title_category: true
     require_discount: true     # the store page must show its own original price
     require_image: true
-    max_items: 80
-    max_candidates: 15
+    max_items: 600
+    max_candidates: 40
+    # The outlet's own category filters (?N=...). Newegg's ?page=N returns
+    # page 1 again, so depth comes from categories. Server parts (EPYC/Xeon
+    # boards), POS and office supplies are left out on purpose.
     urls:
       - https://www.newegg.com/ClearanceStore/EventSaleStore/ID-697
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=100167731   # gaming laptops
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=100167907   # business laptops
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=100897483   # gaming desktops
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=101702291   # monitors
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=100011692   # SSDs
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=100167717   # headphones
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=100006924   # TV & video
+    deep_urls:
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=100019095   # desktop computers
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=101737723   # tablets
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=101737609   # gaming monitors
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=101702348   # keyboard & mouse
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=100006676   # CPUs
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=100023082   # portable speakers
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=100023490   # digital cameras
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=100158092   # wireless networking
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=101705729   # smart home
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=100022269   # handheld gaming
+      - https://www.newegg.com/Newegg-Outlet/EventSaleStore/ID-697?N=100161503   # power banks & chargers
   - id: newegg-rss
     name: Newegg daily deals RSS (official)
     store: Newegg
@@ -369,8 +460,9 @@ sites:
     fetch: rss
     parser: slickdeals_rss
     require_title_category: true   # the frontpage is mostly groceries/toys
-    max_items: 40
-    max_candidates: 10
+    max_items: 100
+    max_candidates: 30             # Amazon leads (ASIN in the feed) resolve; Prime event volume
+    expires_days: 3
     # robots.txt disallows /newsearch.php?*rss=* (the old feed URL), so the
     # frontpage feed at /rss/frontpage is used instead (allowed).
     url: https://slickdeals.net/rss/frontpage
@@ -394,8 +486,11 @@ sites:
     require_title_category: true
     require_discount: true     # the store page must show its own original price
     require_image: true
-    max_items: 120
-    max_candidates: 15
+    max_items: 300
+    max_candidates: 35
+    # Credits: 5 per page. Daily runs read only rotate_daily pages (4 x 5 = 20
+    # credits/day, ~600/month); a --deep run reads all 7 (35 credits).
+    rotate_daily: 4
     zenrows:
       allow_premium: false
       wait_for: 'a[href^="/p/"]'
@@ -405,6 +500,9 @@ sites:
       - https://www.target.com/c/laptop-deals/-/N-tlcnq
       - https://www.target.com/c/computers-tablets-deals/-/N-sg5cj
       - https://www.target.com/c/camera-deals/-/N-x4qm9
+      - https://www.target.com/c/video-game-deals/-/N-0snqs
+      - https://www.target.com/c/smart-home-electronics/all-deals/-/N-556xaZakkos
+      - https://www.target.com/c/smart-tvs-home-theater-electronics/sale/-/N-485uwZ5tdv0
 
   # ------------------------------------------------------------------------
   # Official APIs / partner feeds. Each is skipped until its env vars are set
@@ -418,6 +516,7 @@ sites:
     parser: bestbuy_api
     env: [BESTBUY_API_KEY]
     official_for: [bestbuy.com]
+    zenrows_until_key: true    # blocks ZenRows for bestbuy.com only once BESTBUY_API_KEY is set
     require_title_category: false
     max_items: 200
     max_candidates: 20
@@ -431,6 +530,35 @@ sites:
       - abcat0204000        # Headphones
       - pcmcat209000050006  # iPad & tablets
       - abcat0401000        # Digital cameras
+  # Best Buy pages through ZenRows, only while BESTBUY_API_KEY is missing
+  # (once the key is set this source is skipped and the API above takes over).
+  # DISABLED: tested Oct 4 2026, ZenRows refuses every bestbuy.com URL
+  # (even robots.txt) without premium (residential) proxies, error REQS002
+  # "needs JavaScript rendering and/or Premium Proxies due to its high-level
+  # security defenses", and the box itself gets its connection reset. That's
+  # an anti-bot defense, and getting around it with premium proxies isn't
+  # approved (25 credits/page as well). Best Buy deals come in through
+  # TechBargains' /stores/bestbuy page (direct store links) meanwhile.
+  # Turn on only with Carlos's explicit OK for premium proxies (allow_premium).
+  - id: bestbuy-deals
+    name: Best Buy top deals (ZenRows, until the API key exists)
+    store: Best Buy
+    enabled: false
+    fetch: zenrows
+    parser: bestbuy_pages
+    unless_env: [BESTBUY_API_KEY]
+    require_title_category: true
+    require_discount: true
+    require_image: true
+    rotate_daily: 2
+    max_candidates: 25
+    zenrows:
+      allow_premium: false
+      wait_for: 'a[href*="/product/"]'
+    urls:
+      - https://www.bestbuy.com/top-deals
+      - https://www.bestbuy.com/site/promo/laptop-and-computer-deals
+      - https://www.bestbuy.com/site/all-electronics-on-sale/all-computers-tablets-on-sale/pcmcat1632941704767.c?id=pcmcat1632941704767
   # Planned official sources: adapters not written yet (need partner approval
   # and keys). To add one: write the adapter in scripts/lib/direct_sources.rb,
   # add it to PARSERS, set the env vars, then set enabled: true.
