@@ -18,7 +18,7 @@ specs:
   value: 30000Pa
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Ecovacs Deebot T90 Pro Omni 30000Pa
-  Robot Vacuum with Ozmo Roller: suction 30000Pa. I posted the Amazon listing so'
+description: The Ecovacs Deebot T90 Pro Omni is a robot vacuum with 30000Pa of suction
+  and an Ozmo roller.
 ---
-I pulled these listing details for the Ecovacs Deebot T90 Pro Omni 30000Pa Robot Vacuum with Ozmo Roller: suction 30000Pa. I posted the Amazon listing so you can confirm the live price.
+The Ecovacs Deebot T90 Pro Omni is a robot vacuum with 30000Pa of suction and an Ozmo roller.

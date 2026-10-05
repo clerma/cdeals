@@ -29,7 +29,7 @@ specs:
   value: 1.07 Billion Colors
 why_deal: B&H Photo has it for $999.99, down from $1399.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Samsung ViewFinity S8 S85TH 40" 5K2K HDR 144 Hz Curved
-  Ultrawide Monitor. 40" 21:9 1000R Curved VA Panel, HDMI | DisplayPort | Thunderbolt
+description: I've been eyeing Samsung's ViewFinity S8 S85TH, a 40-inch 21:9 ultrawide
+  with a 1000R curve and a sharp 5K2K (5120 x 2160) VA panel that runs at up to 144
 ---
-I looked at the Samsung ViewFinity S8 S85TH 40" 5K2K HDR 144 Hz Curved Ultrawide Monitor. 40" 21:9 1000R Curved VA Panel, HDMI | DisplayPort | Thunderbolt 5, 5K2K 5120 x 2160 at 144 Hz, FreeSync Premium Pro, 4 ms (GtG) Response Time, 3000:1 Static Contrast Ratio, 350 nits Brightness. I saw it at B&H Photo and wanted a clean product write-up here.
+I've been eyeing Samsung's ViewFinity S8 S85TH, a 40-inch 21:9 ultrawide with a 1000R curve and a sharp 5K2K (5120 x 2160) VA panel that runs at up to 144 Hz with FreeSync Premium Pro. It supports HDR10+, 1.07 billion colors, and 99% sRGB coverage. It's also built to be a desk hub, with Thunderbolt 5 and daisy chain support plus a USB hub, RJ45, KVM, and built-in speakers.

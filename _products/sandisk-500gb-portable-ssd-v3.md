@@ -29,7 +29,8 @@ specs:
   value: 'No'
 why_deal: B&H Photo has it for $109.99, down from $148.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the SANDISK 500GB Portable SSD V3. 500GB Storage Capacity,
-  10 Gb/s USB-C 3.2 Gen 2 Interface, Read Speeds up to 1000 MB/s, Bus Powered, Drop
+description: It connects over USB-C 3.2 Gen 2 with read speeds up to 1000 MB/s, and
+  it's plug-and-play and bus-powered, so you don't need a separate power adapter.
+  It
 ---
-I looked at the SANDISK 500GB Portable SSD V3. 500GB Storage Capacity, 10 Gb/s USB-C 3.2 Gen 2 Interface, Read Speeds up to 1000 MB/s, Bus Powered, Drop Resistant up to 6.6', Plug-and-Play, Carabiner Loop for Easy Transport, SANDISK App. I saw it at B&H Photo and wanted a clean product write-up here.
+It connects over USB-C 3.2 Gen 2 with read speeds up to 1000 MB/s, and it's plug-and-play and bus-powered, so you don't need a separate power adapter. It also comes with a USB-C cable and works with the SanDisk app.

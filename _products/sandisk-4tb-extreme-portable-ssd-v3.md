@@ -29,7 +29,7 @@ specs:
   value: 'Yes: Hardware-Based'
 why_deal: B&H Photo has it for $879.99, down from $1359.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the SANDISK 4TB Extreme Portable SSD V3. 4TB Total Storage
-  Capacity, 20 Gb/s USB-C 3.2 Gen 2x2 Interface, Read Speeds up to 2000 MB/s, Bus
+description: It connects over a 20 Gb/s USB-C 3.2 Gen 2x2 interface and reads at up
+  to 2000 MB/s. 256-bit AES hardware encryption and the SanDisk app round it out.
 ---
-I looked at the SANDISK 4TB Extreme Portable SSD V3. 4TB Total Storage Capacity, 20 Gb/s USB-C 3.2 Gen 2x2 Interface, Read Speeds up to 2000 MB/s, Bus Powered, 256-Bit AES Encryption, IP65 Dust and Water Resistance, Drop Resistant up to 9.8', Bus Power | Plug-and-Play, Carabiner Loop for Easy Transport, SANDISK App. I saw it at B&H Photo and wanted a clean product write-up here.
+It connects over a 20 Gb/s USB-C 3.2 Gen 2x2 interface and reads at up to 2000 MB/s. 256-bit AES hardware encryption and the SanDisk app round it out.

@@ -29,8 +29,7 @@ specs:
   value: 2560 x 14401920 x 1080
 why_deal: B&H Photo has it for $159.99, down from $209.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Thinkware Q200 Wi-Fi Dash Cam with Rear-View Camera &
-  32GB microSD Card. Front- & Rear-View Recording, 2560 x 1440 Front Resolution at
-  30
+description: The Thinkware Q200 is a Wi-Fi dash cam that records both front and rear
+  views, so it covers what happens ahead of you and behind you. The front camera
 ---
-I looked at the Thinkware Q200 Wi-Fi Dash Cam with Rear-View Camera & 32GB microSD Card. Front- & Rear-View Recording, 2560 x 1440 Front Resolution at 30 fps, 1080p Rear Resolution at 30 fps, Low-Light Recording, 125° Diagonal Field of View, Advanced Driver Assistance System. I saw it at B&H Photo and wanted a clean product write-up here.
+The Thinkware Q200 is a Wi-Fi dash cam that records both front and rear views, so it covers what happens ahead of you and behind you. The front camera records at 2560 x 1440 with a 125° diagonal field of view, and the rear camera records in 1080p. It also has low-light recording and an Advanced Driver Assistance System, and you can use the Thinkware Link app on iOS or Android. A 32GB microSD card is included, and the camera takes cards up to 256GB if you want more room.

@@ -22,7 +22,7 @@ specs:
   value: 120 Hz
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Roku Pro Series 65" OLED 4K 120Hz
-  Smart TV: display 65", panel OLED, refresh rate 120 Hz. I posted the Amazon'
+description: The Roku Pro Series is a 65-inch 4K OLED smart TV with a 120Hz refresh
+  rate.
 ---
-I pulled these listing details for the Roku Pro Series 65" OLED 4K 120Hz Smart TV: display 65", panel OLED, refresh rate 120 Hz. I posted the Amazon listing so you can confirm the live price.
+The Roku Pro Series is a 65-inch 4K OLED smart TV with a 120Hz refresh rate.

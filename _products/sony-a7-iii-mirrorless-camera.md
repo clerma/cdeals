@@ -18,8 +18,8 @@ highlights:
 source: bh-used
 why_deal: B&H Photo has it for $1099.95, down from $1698. Prices change fast, so check
   the price before you buy.
-description: I looked at the Sony a7 III Mirrorless Camera. 24MP Full-Frame Exmor
-  R BSI CMOS Sensor, BIONZ X Image Processor & Front-End LSI, 693-Point Hybrid AF
+description: The Sony a7 III is a full-frame mirrorless camera built around a 24MP
+  Exmor R BSI CMOS sensor. On the video side you get UHD 4K30p with HLG and S-Log3
 specs:
 - label: Lens Mount
   value: Sony E
@@ -35,4 +35,4 @@ specs:
 - label: Max Video Output
   value: 4:2:2 8-Bit via HDMIUp to UHD 4K at 23.98/25/29.97 fps
 ---
-I looked at the Sony a7 III Mirrorless Camera. 24MP Full-Frame Exmor R BSI CMOS Sensor, BIONZ X Image Processor & Front-End LSI, 693-Point Hybrid AF System, UHD 4K30p Video with HLG & S-Log3 Gammas, 2.36m-Dot Tru-Finder OLED EVF, 3.0" 922k-Dot Tilting Touchscreen LCD. I saw it at B&H Photo and wanted a clean product write-up here.
+The Sony a7 III is a full-frame mirrorless camera built around a 24MP Exmor R BSI CMOS sensor. On the video side you get UHD 4K30p with HLG and S-Log3 gammas, and the body is weather-sealed, with dual SD slots and built-in Wi-Fi.

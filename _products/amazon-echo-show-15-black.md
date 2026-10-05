@@ -16,7 +16,7 @@ highlights:
 source: target-deals
 why_deal: Target has it for $249.99, down from $349.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Amazon Echo Show 15 - Black. Choose from Same Day Delivery,
-  Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at
+description: This is Amazon's Echo Show 15 in black, part of the Echo Show lineup.
+  It's a good pick if you want to add a bigger Echo Show to your smart home setup.
 ---
-I looked at the Amazon Echo Show 15 - Black. Choose from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at Target and wanted a clean product write-up here.
+This is Amazon's Echo Show 15 in black, part of the Echo Show lineup. It's a good pick if you want to add a bigger Echo Show to your smart home setup.

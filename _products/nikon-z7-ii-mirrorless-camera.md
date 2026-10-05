@@ -17,8 +17,7 @@ highlights:
 source: bh-used
 why_deal: B&H Photo has it for $1478.95, down from $2096.95. Prices change fast, so
   check the price before you buy.
-description: I looked at the Nikon Z7 II Mirrorless Camera. Shooting, ISO 64-25600,
-  493-Point Phase-Detect AF System, 3.6m-Dot OLED Electronic Viewfinder, 3.2"
+description: I also like that it has dual memory card slots and a 3.2" tilting touchscreen.
 specs:
 - label: Lens Mount
   value: Nikon Z
@@ -33,4 +32,4 @@ specs:
 - label: Max Recording Modes
   value: H.264/MOV/MP4 4:2:0 8-BitUp to UHD 4K at 23.98/25/29.97/59.94 fps
 ---
-I looked at the Nikon Z7 II Mirrorless Camera. Shooting, ISO 64-25600, 493-Point Phase-Detect AF System, 3.6m-Dot OLED Electronic Viewfinder, 3.2" 2.1m-Dot Tilting Touchscreen LCD, 5-Axis In-Body Vibration Reduction, Dual Memory Card Slots. I saw it at B&H Photo and wanted a clean product write-up here.
+I also like that it has dual memory card slots and a 3.2" tilting touchscreen.

@@ -17,7 +17,7 @@ highlights:
 source: techbargains-pages
 why_deal: Dell has it for $959.99, down from $1129.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Dell Slim Desktop. Compact desktop for everyday productivity
-  and creativity. AMD Ryzen™ 5 150 (6c, 3.3GHz Base, 4.6GHz Turbo, 19MB Cache,
+description: The Dell Slim Desktop is a compact desktop for everyday productivity
+  and creative work, and its ultra-compact design fits easily into a modern workspace.
 ---
-I looked at the Dell Slim Desktop. Compact desktop for everyday productivity and creativity. AMD Ryzen™ 5 150 (6c, 3.3GHz Base, 4.6GHz Turbo, 19MB Cache, 54W) Windows 11 Home AMD Radeon™ 660M. I saw it at Dell and wanted a clean product write-up here.
+The Dell Slim Desktop is a compact desktop for everyday productivity and creative work, and its ultra-compact design fits easily into a modern workspace. It runs on a 6-core AMD Ryzen 5 150 processor that boosts up to 4.6GHz, with AMD Radeon 660M graphics built in. Windows 11 Home comes installed, so it's ready to set up as a simple home or office computer.

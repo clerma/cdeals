@@ -30,7 +30,8 @@ specs:
   value: 1920 x 1200
 why_deal: B&H Photo has it for $1499.95, down from $2340.50. Prices change fast, so
   check the price before you buy.
-description: I looked at the Dell 16" Pro 16 Plus Laptop. Intel Core Ultra 7 266V
-  vPro 8-Core, 16GB LPDDR5x | 512GB M.2 SSD, 16" 1920 x 1200 60 Hz IPS Display,
+description: The Dell Pro 16 Plus is a big-screen Windows 11 Pro laptop built around
+  an Intel Core Ultra 7 266V vPro 8-core processor with 16GB of LPDDR5x memory and
+  a
 ---
-I looked at the Dell 16" Pro 16 Plus Laptop. Intel Core Ultra 7 266V vPro 8-Core, 16GB LPDDR5x | 512GB M.2 SSD, 16" 1920 x 1200 60 Hz IPS Display, Integrated Intel Arc Graphics, Built-In Intel AI Boost NPU (48 TOPS), Wi-Fi 7 (802.11be) | Bluetooth 5.4. I saw it at B&H Photo and wanted a clean product write-up here.
+The Dell Pro 16 Plus is a big-screen Windows 11 Pro laptop built around an Intel Core Ultra 7 266V vPro 8-core processor with 16GB of LPDDR5x memory and a 512GB SSD. It also has a built-in Intel AI Boost NPU rated at 48 TOPS for on-device AI tasks.

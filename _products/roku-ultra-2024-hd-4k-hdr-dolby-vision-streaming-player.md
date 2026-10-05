@@ -30,7 +30,8 @@ specs:
   value: Roku Voice Remote Pro (2nd edition)
 why_deal: Newegg has it for $79.99, down from $149.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Roku Ultra 2024 HD/4K/HDR/ Dolby Vision Streaming Player.
-  Our fastest streaming player ever Unmatched cinematic picture & sound Roku Voice
+description: The Roku Ultra 2024 is Roku's top streaming player, and Roku calls it
+  its fastest one yet. It handles HD, 4K, HDR and Dolby Vision, so it's a good fit
+  if
 ---
-I looked at the Roku Ultra 2024 HD/4K/HDR/ Dolby Vision Streaming Player. Our fastest streaming player ever Unmatched cinematic picture & sound Roku Voice Remote Pro with backlit buttons and a rechargeable battery Access to all your favorite shows plus free, live, and trending TV. I saw it at Newegg and wanted a clean product write-up here.
+The Roku Ultra 2024 is Roku's top streaming player, and Roku calls it its fastest one yet. It handles HD, 4K, HDR and Dolby Vision, so it's a good fit if you want sharp, cinematic picture and sound on your TV. I like that it includes the Roku Voice Remote Pro, which has backlit buttons and a rechargeable battery. You also get your favorite shows along with free, live and trending TV.

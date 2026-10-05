@@ -16,7 +16,6 @@ highlights:
 source: target-deals
 why_deal: Target has it for $59.99, down from $109.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the JBL Tune Flex 2. Choose from Same Day Delivery, Drive
-  Up or Order Pickup. Free standard shipping with $35 orders. I saw it at Target and
+description: The JBL Tune Flex 2 is an audio product from JBL's Tune lineup.
 ---
-I looked at the JBL Tune Flex 2. Choose from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at Target and wanted a clean product write-up here.
+The JBL Tune Flex 2 is an audio product from JBL's Tune lineup.

@@ -30,7 +30,8 @@ specs:
   value: Matte
 why_deal: Newegg has it for $129.99, down from $184.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Dell Pro 24 Plus Monitor - P2425H, FHD, 100 Hz, USB-C,
-  IPS. Dell 24 inch Full HD 100Hz IPS USB-C Computer Monitor P2425H IPS PANEL
+description: I've been looking at the Dell Pro 24 Plus (P2425H), a 24-inch Full HD
+  IPS monitor that works well for office setups and everyday design or media work.
+  It
 ---
-I looked at the Dell Pro 24 Plus Monitor - P2425H, FHD, 100 Hz, USB-C, IPS. Dell 24 inch Full HD 100Hz IPS USB-C Computer Monitor P2425H IPS PANEL EXCELLENCE - InPlane Switching delivers consistent colors and 178° viewing angles for collaboration across the office. TRUE COLOR REPRODUCTION - 99% sRGB coverage and up to 16.7million colors ensure vivid visuals for design and media work. I saw it at Newegg and wanted a clean product write-up here.
+I've been looking at the Dell Pro 24 Plus (P2425H), a 24-inch Full HD IPS monitor that works well for office setups and everyday design or media work. It runs at 100Hz and covers 99% of the sRGB color space.

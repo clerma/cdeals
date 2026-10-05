@@ -20,8 +20,8 @@ specs:
   value: 2nd gen
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I looked at the Ring Indoor Cam 2nd Gen 1080p Color Night Vision Security
-  Camera. Protect your home & watch over what's important from your phone with
+description: The Ring Indoor Cam (2nd Gen) is a compact security camera for keeping
+  an eye on what's happening inside your home, and you check in on it from your
 source: techbargains-amazon-devices
 ---
-I looked at the Ring Indoor Cam 2nd Gen 1080p Color Night Vision Security Camera. Protect your home & watch over what's important from your phone with video doorbells, security cameras, alarms, smart lighting & more. Protect your home & watch over what's important from your phone with video doorbells, security cameras, alarms, smart lighting & more. I posted the Amazon listing so you can confirm the live price.
+The Ring Indoor Cam (2nd Gen) is a compact security camera for keeping an eye on what's happening inside your home, and you check in on it from your phone. It records in 1080p and has color night vision, so you can still see what's going on after the lights go out.

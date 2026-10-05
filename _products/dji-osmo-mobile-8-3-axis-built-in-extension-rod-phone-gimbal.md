@@ -15,7 +15,7 @@ highlights:
 source: techbargains
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I filed the DJI Osmo Mobile 8 3-Axis Built-in Extension Rod Phone Gimbal
-  as a deal worth checking. I posted the Amazon listing so you can confirm the live
+description: The DJI Osmo Mobile 8 is a 3-axis phone gimbal with a built-in extension
+  rod.
 ---
-I filed the DJI Osmo Mobile 8 3-Axis Built-in Extension Rod Phone Gimbal as a deal worth checking. I posted the Amazon listing so you can confirm the live price.
+The DJI Osmo Mobile 8 is a 3-axis phone gimbal with a built-in extension rod.

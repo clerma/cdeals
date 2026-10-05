@@ -16,9 +16,8 @@ highlights:
 source: bh-deals
 why_deal: B&H Photo has it for $88.99, down from $119.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the OWC Express 1M2 USB4 External SSD Enclosure. 1 x NVMe
-  M.2 SSD Slot, Supports M.2 2230, 2242, and 2280 SSDs, 40 Gb/s USB4 Interface, Up
-  to
+description: The OWC Express 1M2 turns a spare NVMe M.2 SSD into a fast external drive,
+  and it takes 2230, 2242, and 2280 sticks. It connects over a 40 Gb/s USB4
 specs:
 - label: Number of Bays
   value: 1x M.2 (2280) NVMe
@@ -33,4 +32,4 @@ specs:
 - label: Material of Construction
   value: Aluminum
 ---
-I looked at the OWC Express 1M2 USB4 External SSD Enclosure. 1 x NVMe M.2 SSD Slot, Supports M.2 2230, 2242, and 2280 SSDs, 40 Gb/s USB4 Interface, Up to 3836 MB/s Data Transfer Speed, Bus Powered, Aluminum Enclosure, Includes 40 Gb/s USB-C Cable. I saw it at B&H Photo and wanted a clean product write-up here.
+The OWC Express 1M2 turns a spare NVMe M.2 SSD into a fast external drive, and it takes 2230, 2242, and 2280 sticks. It connects over a 40 Gb/s USB4 interface and can hit transfer speeds of up to 3836 MB/s. It's bus powered, so it doesn't need a separate power adapter, and it comes in an aluminum enclosure. OWC also includes a 40 Gb/s USB-C cable and a Phillips PH1 screwdriver for installing your drive.

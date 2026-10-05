@@ -29,7 +29,8 @@ specs:
   value: 4800 x 1200 dpi
 why_deal: B&H Photo has it for $199, down from $269. Prices change fast, so check
   the price before you buy.
-description: 'I looked at the Canon PIXMA G3290 Wireless MegaTank All-in-One Printer.
-  Print, Copy, Scan, Max Print Resolution: 4800 x 1200 dpi, Print Speed: 11 ipm'
+description: Canon's PIXMA G3290 is a wireless all-in-one that prints, copies, and
+  scans, and its MegaTank ink tanks are easy to refill. It prints at up to 4800 x
+  1200
 ---
-I looked at the Canon PIXMA G3290 Wireless MegaTank All-in-One Printer. Print, Copy, Scan, Max Print Resolution: 4800 x 1200 dpi, Print Speed: 11 ipm Black / 6 ipm Color, Borderless Prints up to 8.5" Wide, Max Print Size: 8.5 x 14", Optical Scan Resolution: 600 x 1200 dpi. I saw it at B&H Photo and wanted a clean product write-up here.
+Canon's PIXMA G3290 is a wireless all-in-one that prints, copies, and scans, and its MegaTank ink tanks are easy to refill. It prints at up to 4800 x 1200 dpi, handles borderless prints up to 8.5" wide, and takes paper as large as legal size. It connects over Wi-Fi or USB, and it's compact enough to fit on a small desk.

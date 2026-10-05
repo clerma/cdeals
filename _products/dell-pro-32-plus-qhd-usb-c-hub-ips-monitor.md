@@ -31,7 +31,7 @@ specs:
   value: 1.07 Billion Colors
 why_deal: B&H Photo has it for $407.95, down from $599.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Dell Pro 32" Plus QHD USB-C Hub IPS Monitor. 31.5" 16:9
-  IPS Panel, HDMI | DisplayPort, USB-C Ports | USB-A Ports | RJ45 Port, 2560 x 1440
+description: Colors are a strength too, with 99% sRGB coverage and 178-degree viewing
+  angles, and it comes with an adjustable stand.
 ---
-I looked at the Dell Pro 32" Plus QHD USB-C Hub IPS Monitor. 31.5" 16:9 IPS Panel, HDMI | DisplayPort, USB-C Ports | USB-A Ports | RJ45 Port, 2560 x 1440 Resolution at 100 Hz, 5 ms Response Time, Up to 90W of Power Delivery, 1.07 Billion Colors | 99% sRGB, 350 Nits Brightness. I saw it at B&H Photo and wanted a clean product write-up here.
+Colors are a strength too, with 99% sRGB coverage and 178-degree viewing angles, and it comes with an adjustable stand.

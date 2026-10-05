@@ -22,7 +22,7 @@ specs:
   value: Bluetooth
 why_deal: MacHeist has it for $149.99, down from $249.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Beats Powerbeats Pro 2 Wireless Bluetooth Earbuds - Hyper
-  Purple. The ultimate true wireless sport earbuds. Powerbeats Pro 2 features
+description: Powerbeats Pro 2 are Beats' true wireless sport earbuds in a bold Hyper
+  Purple. They're made for people who want earbuds that keep up with their workouts,
 ---
-I looked at the Beats Powerbeats Pro 2 Wireless Bluetooth Earbuds - Hyper Purple. The ultimate true wireless sport earbuds. Powerbeats Pro 2 features Heart Rate Monitoring for workouts, active noise cancellation, and more. I saw it at MacHeist and wanted a clean product write-up here.
+Powerbeats Pro 2 are Beats' true wireless sport earbuds in a bold Hyper Purple. They're made for people who want earbuds that keep up with their workouts, with built-in heart rate monitoring and active noise cancellation to tune out the gym around you.

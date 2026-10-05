@@ -18,8 +18,8 @@ highlights:
 source: bh-used
 why_deal: B&H Photo has it for $1642.95, down from $2004.17. Prices change fast, so
   check the price before you buy.
-description: I looked at the LG 15.6" gram Multi-Touch Laptop Copilot+ PC. 2.3 GHz
-  Intel Core Ultra 7 355 8-Core, 32GB LPDDR5x | 1TB M.2 NVMe SSD, 15.6" 1920 x 1080
+description: LG's 15.6" gram is a large-screen Copilot+ PC for people who want plenty
+  of performance in an everyday laptop. It runs an 8-core Intel Core Ultra 7 355
 specs:
 - label: Operating System
   value: Windows 11 Home
@@ -34,4 +34,4 @@ specs:
 - label: Native Resolution
   value: 1920 x 1080
 ---
-I looked at the LG 15.6" gram Multi-Touch Laptop Copilot+ PC. 2.3 GHz Intel Core Ultra 7 355 8-Core, 32GB LPDDR5x | 1TB M.2 NVMe SSD, 15.6" 1920 x 1080 IPS Touchscreen, Integrated Intel Graphics, Built-In NPU (49 TOPS), Wi-Fi 6E | Bluetooth 5.4, HDMI | USB-C | USB-A | 3.5mm Audio. I saw it at B&H Photo and wanted a clean product write-up here.
+LG's 15.6" gram is a large-screen Copilot+ PC for people who want plenty of performance in an everyday laptop. It runs an 8-core Intel Core Ultra 7 355 with 32GB of LPDDR5x memory and a 1TB NVMe SSD, and the built-in NPU is rated at 49 TOPS for AI features. The 1920 x 1080 IPS touchscreen is paired with a backlit keyboard and an FHD IR webcam that supports Windows Hello sign-in. For connections, you get Wi-Fi 6E, Bluetooth 5.4, HDMI, USB-C and USB-A ports.

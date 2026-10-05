@@ -19,7 +19,6 @@ specs:
   value: 2nd gen
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Apple 2nd Generation AirTag Tracker:
-  generation 2nd gen. I posted the Amazon listing so you can confirm the live'
+description: The Apple 2nd Generation AirTag is a tracker.
 ---
-I pulled these listing details for the Apple 2nd Generation AirTag Tracker: generation 2nd gen. I posted the Amazon listing so you can confirm the live price.
+The Apple 2nd Generation AirTag is a tracker.

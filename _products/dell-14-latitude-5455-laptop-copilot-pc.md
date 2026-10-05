@@ -30,8 +30,7 @@ specs:
   value: 1920 x 1200
 why_deal: B&H Photo has it for $1475.95, down from $1968. Prices change fast, so check
   the price before you buy.
-description: I looked at the Dell 14" Latitude 5455 Laptop Copilot+ PC. Snapdragon
-  X Plus X1P-64-100 10-Core, 16GB LPDDR5X | 512GB M.2 NVMe SSD, 14" 1920 x 1200 60
-  Hz
+description: The Dell Latitude 5455 is a 14-inch Copilot+ PC that runs on a 10-core
+  Qualcomm Snapdragon X Plus chip. It comes with 16GB of LPDDR5X memory and a 512GB
 ---
-I looked at the Dell 14" Latitude 5455 Laptop Copilot+ PC. Snapdragon X Plus X1P-64-100 10-Core, 16GB LPDDR5X | 512GB M.2 NVMe SSD, 14" 1920 x 1200 60 Hz Display, Integrated Qualcomm Adreno Graphics, Integrated Hexagon NPU (Up to 45 TOPS), Wi-Fi 7 | Bluetooth 5.4. I saw it at B&H Photo and wanted a clean product write-up here.
+The Dell Latitude 5455 is a 14-inch Copilot+ PC that runs on a 10-core Qualcomm Snapdragon X Plus chip. It comes with 16GB of LPDDR5X memory and a 512GB NVMe SSD. It also has a built-in Hexagon NPU rated at up to 45 TOPS, which is what lets it run Microsoft's Copilot features. I like that it covers the practical stuff too: a 1920 x 1200 display, Wi-Fi 7, two USB4 ports alongside a USB-A port and a microSD slot, and Windows 11 Pro preinstalled.

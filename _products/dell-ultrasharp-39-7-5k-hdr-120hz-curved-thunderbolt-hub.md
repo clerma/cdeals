@@ -29,8 +29,7 @@ specs:
   value: Curved
 why_deal: B&H Photo has it for $1499.99, down from $2299.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Dell UltraSharp 39.7" 5K HDR 120Hz Curved Thunderbolt
-  Hub Monitor. 39.7" 21:9 IPS Black Panel, HDMI | DisplayPort | Thunderbolt 4, USB-C
-  |
+description: I've been looking at Dell's UltraSharp 39.7-inch curved monitor, a wide
+  21:9 IPS Black panel that runs at 5K (5120 x 2160) and 120Hz with VRR.
 ---
-I looked at the Dell UltraSharp 39.7" 5K HDR 120Hz Curved Thunderbolt Hub Monitor. 39.7" 21:9 IPS Black Panel, HDMI | DisplayPort | Thunderbolt 4, USB-C | USB-A | 2.5Gb RJ45 | 3.5mm, WUHD 5K 5120 x 2160 at 120 Hz with VRR, 5 ms (Fast) / 8 ms (GtG) Response Times. I saw it at B&H Photo and wanted a clean product write-up here.
+I've been looking at Dell's UltraSharp 39.7-inch curved monitor, a wide 21:9 IPS Black panel that runs at 5K (5120 x 2160) and 120Hz with VRR.

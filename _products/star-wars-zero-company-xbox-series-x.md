@@ -14,7 +14,7 @@ highlights:
 source: slickdeals-rss
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I filed the Star Wars Zero Company: Xbox Series X as a deal worth checking.
-  I posted the Amazon listing so you can confirm the live price.'
+description: Star Wars Zero Company is a Star Wars video game for the Xbox Series
+  X.
 ---
-I filed the Star Wars Zero Company: Xbox Series X as a deal worth checking. I posted the Amazon listing so you can confirm the live price.
+Star Wars Zero Company is a Star Wars video game for the Xbox Series X.

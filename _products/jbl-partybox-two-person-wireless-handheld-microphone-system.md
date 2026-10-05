@@ -29,7 +29,7 @@ specs:
   value: 2x Handheld
 why_deal: B&H Photo has it for $129.95, down from $169.95. Prices change fast, so
   check the price before you buy.
-description: I looked at the JBL PartyBox Two-Person Wireless Handheld Microphone
-  System (2.4 GHz). Use Two Wireless Handheld Mics at Once, Dual-Channel Wireless
+description: If you've got a JBL PartyBox speaker and want two people singing at once,
+  this kit gives you two wireless handheld mics and a dual-channel receiver that
 ---
-I looked at the JBL PartyBox Two-Person Wireless Handheld Microphone System (2.4 GHz). Use Two Wireless Handheld Mics at Once, Dual-Channel Wireless Receiver, For PartyBox Speakers, Receiver Plugs into 1/4" Mic Input, Cardioid Condenser Mics for Clear Sound. I saw it at B&H Photo and wanted a clean product write-up here.
+If you've got a JBL PartyBox speaker and want two people singing at once, this kit gives you two wireless handheld mics and a dual-channel receiver that plugs into the speaker's 1/4" mic input. You get about 100 feet of range over 2.4 GHz with AES 128-bit encryption.

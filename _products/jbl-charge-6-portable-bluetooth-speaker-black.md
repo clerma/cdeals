@@ -29,7 +29,7 @@ specs:
   value: 'No'
 why_deal: B&H Photo has it for $149.95, down from $199.95. Prices change fast, so
   check the price before you buy.
-description: I looked at the JBL Charge 6 Portable Bluetooth Speaker (Black). 45W
-  2-Way Speaker System, Water- & Dustproof Design, Can Handle Drops up to 3.3',
+description: The JBL Charge 6 is a portable Bluetooth speaker with a 45W two-way speaker
+  system and AI Sound Boost for better sound quality. Battery life is rated at
 ---
-I looked at the JBL Charge 6 Portable Bluetooth Speaker (Black). 45W 2-Way Speaker System, Water- & Dustproof Design, Can Handle Drops up to 3.3', Improved Quality with AI Sound Boost, Up to 24 Hours of Battery Life, Up to 4 Extra Hours with Playtime Boost. I saw it at B&H Photo and wanted a clean product write-up here.
+The JBL Charge 6 is a portable Bluetooth speaker with a 45W two-way speaker system and AI Sound Boost for better sound quality. Battery life is rated at up to 24 hours, and Playtime Boost can add up to 4 more.

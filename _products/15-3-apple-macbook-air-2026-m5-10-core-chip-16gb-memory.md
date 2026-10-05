@@ -24,7 +24,7 @@ specs:
   value: 15.3"
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I looked at the 15.3" Apple MacBook Air (2026): M5 10-Core Chip, 16GB
-  Memory, 512GB SSD. MacBook Air laptop with the superfast M5 chip. Lightweight, with'
+description: The 15.3-inch MacBook Air (2026) runs on Apple's M5 chip with 10 cores.
+  It stays lightweight and gets all-day battery life. It's built for AI and Apple
 ---
-I looked at the 15.3" Apple MacBook Air (2026): M5 10-Core Chip, 16GB Memory, 512GB SSD. MacBook Air laptop with the superfast M5 chip. Lightweight, with all-day battery life. I posted the Amazon listing so you can confirm the live price.
+The 15.3-inch MacBook Air (2026) runs on Apple's M5 chip with 10 cores. It stays lightweight and gets all-day battery life. It's built for AI and Apple Intelligence, and this configuration has 16GB of memory and a 512GB SSD.

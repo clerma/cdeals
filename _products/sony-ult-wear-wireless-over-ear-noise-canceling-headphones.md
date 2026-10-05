@@ -21,7 +21,7 @@ specs:
   value: Bluetooth
 why_deal: B&H Photo has it for $148, down from $248. Prices change fast, so check
   the price before you buy.
-description: I looked at the Sony ULT WEAR Wireless Over-Ear Noise-Canceling Headphones
-  (Black). For Commutes, Travel, Gaming & Home TV, ULT Button Boosts Bass,
+description: The Sony ULT WEAR is a set of wireless over-ear noise-canceling headphones
+  made for commutes, travel, gaming and watching TV at home. The ULT button gives
 ---
-I looked at the Sony ULT WEAR Wireless Over-Ear Noise-Canceling Headphones (Black). For Commutes, Travel, Gaming & Home TV, ULT Button Boosts Bass, Dual-Sensor Noise Canceling, 40mm Drivers with Neodymium Magnets, Thermo-Foaming, Molded Ear Cushions, Swiveling and Folding Design. I saw it at B&H Photo and wanted a clean product write-up here.
+The Sony ULT WEAR is a set of wireless over-ear noise-canceling headphones made for commutes, travel, gaming and watching TV at home. The ULT button gives the bass an instant boost. Dual-sensor noise canceling and 40mm drivers with neodymium magnets handle the rest of the sound. They fold and swivel for packing, last up to 30 hours per charge, and can connect to more than one device at a time over multipoint Bluetooth. A 3.5mm cable, a USB cable and a case come in the box.

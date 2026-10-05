@@ -30,7 +30,7 @@ specs:
   value: ">85 dB"
 why_deal: B&H Photo has it for $59.95, down from $79.95. Prices change fast, so check
   the price before you buy.
-description: I looked at the JBL Clip 5 Portable Waterproof Wireless Speaker (Blue).
-  Big JBL Pro Sound in a Small Package, 1.75" Driver with Passive Radiator,
+description: The JBL Clip 5 is a small Bluetooth speaker with a wide built-in carabiner
+  that also works as a handle. It's for anyone who wants big JBL Pro Sound in a
 ---
-I looked at the JBL Clip 5 Portable Waterproof Wireless Speaker (Blue). Big JBL Pro Sound in a Small Package, 1.75" Driver with Passive Radiator, IP67-Certified Waterproof & Dustproof, Integrated Wide Carabiner Clip/Handle, Up to 12 Hours of Playback. I saw it at B&H Photo and wanted a clean product write-up here.
+The JBL Clip 5 is a small Bluetooth speaker with a wide built-in carabiner that also works as a handle. It's for anyone who wants big JBL Pro Sound in a small package. A 1.75" driver with a passive radiator handles the audio, and the IP67 rating means it's waterproof and dustproof. You get up to 12 hours of playback, and Playtime Boost adds 3 more hours. You can also pair two Clip 5s for stereo sound or link it to other JBL Auracast-enabled speakers.

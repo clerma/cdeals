@@ -19,7 +19,7 @@ specs:
   value: Wired
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Turtle Beach Atlas 200 Wired
-  Multiplatform Gaming Headset (PS5, PS4, PC): style Wired. I posted the Amazon listing'
+description: The Turtle Beach Atlas 200 is a wired multiplatform gaming headset for
+  PS5, PS4, and PC.
 ---
-I pulled these listing details for the Turtle Beach Atlas 200 Wired Multiplatform Gaming Headset (PS5, PS4, PC): style Wired. I posted the Amazon listing so you can confirm the live price.
+The Turtle Beach Atlas 200 is a wired multiplatform gaming headset for PS5, PS4, and PC.

@@ -20,7 +20,7 @@ specs:
   value: GPS
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I looked at the Apple Watch SE 3 GPS 40mm. Apple Watch SE 3 is packed
-  with powerful health, fitness, connectivity, and safety features. Available in two
+description: The Apple Watch SE 3 GPS 40mm brings a lot of health, fitness, connectivity,
+  and safety features to Apple's more affordable watch line. I like that you
 ---
-I looked at the Apple Watch SE 3 GPS 40mm. Apple Watch SE 3 is packed with powerful health, fitness, connectivity, and safety features. Available in two great finishes. I posted the Amazon listing so you can confirm the live price.
+The Apple Watch SE 3 GPS 40mm brings a lot of health, fitness, connectivity, and safety features to Apple's more affordable watch line. I like that you get advanced health tracking, including an overnight sleep score, just by wearing it. The smaller 40mm GPS model comes in two finishes and is a good pick for anyone who wants a capable everyday smartwatch.

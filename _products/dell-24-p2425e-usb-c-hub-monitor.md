@@ -31,7 +31,7 @@ specs:
   value: 16.7 Million Colors (8-Bit)
 why_deal: B&H Photo has it for $287.95, down from $359.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Dell 24" P2425E USB-C Hub Monitor. 24" 16:10 IPS Panel,
-  HDMI | DisplayPort | USB-C, 1920 x 1200 at 100 Hz, 5 ms (GtG) Response Time,
+description: Colors cover 99% of sRGB. For connections you get HDMI, DisplayPort and
+  USB-C, and the built-in hub supports Power Delivery.
 ---
-I looked at the Dell 24" P2425E USB-C Hub Monitor. 24" 16:10 IPS Panel, HDMI | DisplayPort | USB-C, 1920 x 1200 at 100 Hz, 5 ms (GtG) Response Time, 1500:1 Static Contrast Ratio, 300 nits Brightness, 16.7 Million Colors, 99% sRGB Color Gamut. I saw it at B&H Photo and wanted a clean product write-up here.
+Colors cover 99% of sRGB. For connections you get HDMI, DisplayPort and USB-C, and the built-in hub supports Power Delivery.

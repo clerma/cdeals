@@ -30,8 +30,7 @@ specs:
   value: 27"
 why_deal: Newegg has it for $94.99, down from $129.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the MSI 27" Full HD 144Hz IPS with AMD Adaptive Sync 1ms
-  HDR Ready 102% sRGB. Enjoy the high-quality entertainment with a smoother 144Hz
-  high
+description: This 27-inch MSI monitor pairs a Full HD IPS panel with a 144Hz refresh
+  rate, 1ms response time, and AMD Adaptive Sync, so games and video look smooth.
 ---
-I looked at the MSI 27" Full HD 144Hz IPS with AMD Adaptive Sync 1ms HDR Ready 102% sRGB. Enjoy the high-quality entertainment with a smoother 144Hz high refresh rate. TÜV certified display ensures the protection and health of eyesight. I saw it at Newegg and wanted a clean product write-up here.
+This 27-inch MSI monitor pairs a Full HD IPS panel with a 144Hz refresh rate, 1ms response time, and AMD Adaptive Sync, so games and video look smooth. It's TÜV certified, and MSI's EyesErgo anti-flicker tech plus Eye-Q Check reminders help cut eye strain during long sessions. I also like the practical touches: HDMI and VGA inputs, removable cable management, and a VESA-mountable design with an accessory slot.

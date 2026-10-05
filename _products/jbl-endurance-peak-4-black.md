@@ -16,7 +16,7 @@ highlights:
 source: target-deals
 why_deal: Target has it for $89.99, down from $129.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the JBL Endurance Peak 4 - Black. Choose from Same Day Delivery,
-  Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at
+description: The JBL Endurance Peak 4 is part of JBL's Endurance line, and I like
+  this one in black. If you've been looking for new JBL audio gear, it's on sale at
 ---
-I looked at the JBL Endurance Peak 4 - Black. Choose from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at Target and wanted a clean product write-up here.
+The JBL Endurance Peak 4 is part of JBL's Endurance line, and I like this one in black. If you've been looking for new JBL audio gear, it's on sale at Target right now.

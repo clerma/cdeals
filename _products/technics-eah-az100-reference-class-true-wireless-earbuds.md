@@ -29,7 +29,7 @@ specs:
   value: Touch
 why_deal: B&H Photo has it for $234.99, down from $299.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Technics EAH-AZ100 Reference-Class True Wireless Earbuds
-  (Black). Reference-Quality Hi-Fi Earbuds, Magnetic Fluid Driver for Low
+description: The Technics EAH-AZ100 are reference-class true wireless earbuds that
+  use a magnetic fluid driver to keep distortion low. They have adaptive noise
 ---
-I looked at the Technics EAH-AZ100 Reference-Class True Wireless Earbuds (Black). Reference-Quality Hi-Fi Earbuds, Magnetic Fluid Driver for Low Distortion, Adaptive Noise Canceling, Voice Focus AI Cancels Noise for Calls, Dolby Atmos-Optimized Spatial Audio, Dolby Head Tracking. I saw it at B&H Photo and wanted a clean product write-up here.
+The Technics EAH-AZ100 are reference-class true wireless earbuds that use a magnetic fluid driver to keep distortion low. They have adaptive noise canceling, and Voice Focus AI cuts background noise on calls. You also get Dolby Atmos-optimized spatial audio with head tracking, multipoint connections for up to three devices, up to 28 hours of playback with the case, and Qi wireless charging.

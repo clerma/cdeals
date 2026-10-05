@@ -16,10 +16,10 @@ highlights:
 source: bh-deals
 why_deal: B&H Photo has it for $999, down from $1596.82. Prices change fast, so check
   the price before you buy.
-description: I looked at the Dell Pro Slim Desktop Computer. 3.4 GHz Intel Core Ultra
-  5 235 14-Core, 16GB 5600 MT/s DDR5 RAM, 512GB M.2 NVMe SSD, Integrated Intel
+description: The Dell Pro Slim is a slim desktop that comes with Windows 11 Pro and
+  a USB keyboard and mouse included. Inside is a 14-core Intel Core Ultra 5 235
 specs:
 - label: Processor
   value: Intel Core Ultra 5
 ---
-I looked at the Dell Pro Slim Desktop Computer. 3.4 GHz Intel Core Ultra 5 235 14-Core, 16GB 5600 MT/s DDR5 RAM, 512GB M.2 NVMe SSD, Integrated Intel Graphics, Gigabit Ethernet Port, USB 3.2 Gen 1 | USB 2.0, DisplayPort 1.4a | HDMI 2.1, Includes USB Keyboard & Mouse. I saw it at B&H Photo and wanted a clean product write-up here.
+The Dell Pro Slim is a slim desktop that comes with Windows 11 Pro and a USB keyboard and mouse included. Inside is a 14-core Intel Core Ultra 5 235 processor with 16GB of DDR5 memory and a 512GB NVMe SSD. I like that it has both HDMI 2.1 and DisplayPort 1.4a for connecting a display, along with Gigabit Ethernet for a wired network connection.

@@ -17,8 +17,8 @@ highlights:
 source: bh-used
 why_deal: B&H Photo has it for $1128.95, down from $1546.95. Prices change fast, so
   check the price before you buy.
-description: I looked at the Nikon Z6 II Mirrorless Camera. Shooting, ISO 100-51200,
-  273-Point Phase-Detect AF System, 3.6m-Dot OLED Electronic Viewfinder, 3.2"
+description: The Nikon Z6 II is a full-frame mirrorless camera built around a 24.5MP
+  BSI CMOS sensor and dual EXPEED 6 processors. It also has 5-axis in-body vibration
 specs:
 - label: Lens Mount
   value: Nikon Z
@@ -33,4 +33,4 @@ specs:
 - label: Max Recording Modes
   value: H.264/MOV/MP4 4:2:0 8-BitUp to UHD 4K at 23.98/25/29.97 fps
 ---
-I looked at the Nikon Z6 II Mirrorless Camera. Shooting, ISO 100-51200, 273-Point Phase-Detect AF System, 3.6m-Dot OLED Electronic Viewfinder, 3.2" 2.1m-Dot Tilting Touchscreen LCD, 5-Axis In-Body Vibration Reduction, Dual Memory Card Slots. I saw it at B&H Photo and wanted a clean product write-up here.
+The Nikon Z6 II is a full-frame mirrorless camera built around a 24.5MP BSI CMOS sensor and dual EXPEED 6 processors. It also has 5-axis in-body vibration reduction, a tilting touchscreen and dual memory card slots.

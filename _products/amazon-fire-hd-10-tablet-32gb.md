@@ -22,7 +22,6 @@ specs:
   value: 10"
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Amazon Fire HD 10 Tablet, 32GB:
-  storage 32GB, display 10". I posted the Amazon listing so you can confirm the live'
+description: The Amazon Fire HD 10 is a 10-inch tablet from Amazon with 32GB of storage.
 ---
-I pulled these listing details for the Amazon Fire HD 10 Tablet, 32GB: storage 32GB, display 10". I posted the Amazon listing so you can confirm the live price.
+The Amazon Fire HD 10 is a 10-inch tablet from Amazon with 32GB of storage.

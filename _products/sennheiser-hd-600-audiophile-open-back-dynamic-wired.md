@@ -19,8 +19,7 @@ specs:
   value: Open-Back
 why_deal: Woot has it for $229.99, down from $499.95. Prices change fast, so check
   the price before you buy.
-description: 'I pulled these listing details for the Sennheiser HD 600 Audiophile
-  Open-Back Dynamic Wired Headphones: style Open-Back. I saw it at Woot and wanted
-  a'
+description: The Sennheiser HD 600 is an open-back, wired headphone made for audiophiles
+  who want serious home listening. This is a new pair with dynamic drivers, a
 ---
-I pulled these listing details for the Sennheiser HD 600 Audiophile Open-Back Dynamic Wired Headphones: style Open-Back. I saw it at Woot and wanted a clean product write-up here.
+The Sennheiser HD 600 is an open-back, wired headphone made for audiophiles who want serious home listening. This is a new pair with dynamic drivers, a good fit if you prefer listening at a desk or in a quiet room over taking your headphones on the go.

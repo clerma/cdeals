@@ -18,8 +18,8 @@ specs:
   value: A19
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I looked at the Linkind Matter A19 E26 Smart Color-Changing LED Light
-  Bulbs (4-Pack). Linkind leads in smart lights with RGBTW and Matter tech, offering
+description: This 4-pack of Linkind A19 smart bulbs fits standard E26 sockets and
+  supports Matter. They're color-changing RGBTW bulbs, so you get full color plus
 source: techbargains
 ---
-I looked at the Linkind Matter A19 E26 Smart Color-Changing LED Light Bulbs (4-Pack). Linkind leads in smart lights with RGBTW and Matter tech, offering outdoor solar lights, smart bulbs, permanent lights, TV backlights & more. Linkind leads in smart lights with RGBTW and Matter tech, offering outdoor solar lights, smart bulbs, permanent lights, TV backlights & more. I posted the Amazon listing so you can confirm the live price.
+This 4-pack of Linkind A19 smart bulbs fits standard E26 sockets and supports Matter. They're color-changing RGBTW bulbs, so you get full color plus tunable white, which makes them an easy way to add smart lighting to a few rooms at once.

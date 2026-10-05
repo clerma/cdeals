@@ -15,7 +15,7 @@ highlights:
 source: techbargains
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I filed the iRobot Roomba Plus 105X Combo LiDAR Mapping Robot Vacuum
-  & Mop as a deal worth checking. I posted the Amazon listing so you can confirm the
+description: The iRobot Roomba Plus 105X Combo is a robot vacuum and mop that uses
+  LiDAR mapping.
 ---
-I filed the iRobot Roomba Plus 105X Combo LiDAR Mapping Robot Vacuum & Mop as a deal worth checking. I posted the Amazon listing so you can confirm the live price.
+The iRobot Roomba Plus 105X Combo is a robot vacuum and mop that uses LiDAR mapping.

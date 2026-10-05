@@ -26,7 +26,7 @@ specs:
   value: 1080p
 why_deal: Walmart has it for $649.99. Prices change fast, so check the price before
   you buy.
-description: 'I pulled these listing details for the HP Essential Intel Core Ultra
-  5 225U 14" 1080p Laptop (8GB RAM, 256GB SSD): processor Intel Core Ultra 5, memory'
+description: The HP Essential laptop has an Intel Core Ultra 5 225U processor, a 14-inch
+  1080p display, 8GB of RAM and a 256GB SSD.
 ---
-I pulled these listing details for the HP Essential Intel Core Ultra 5 225U 14" 1080p Laptop (8GB RAM, 256GB SSD): processor Intel Core Ultra 5, memory 8GB, storage 256GB SSD, display 14". I saw it at Walmart and wanted a clean product write-up here.
+The HP Essential laptop has an Intel Core Ultra 5 225U processor, a 14-inch 1080p display, 8GB of RAM and a 256GB SSD.

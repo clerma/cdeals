@@ -29,7 +29,7 @@ specs:
   value: 5760 x 1440 dpi
 why_deal: B&H Photo has it for $1145, down from $1349. Prices change fast, so check
   the price before you buy.
-description: 'I looked at the Epson SureColor P900 17" Photo Printer. Max Print Resolution:
-  5760 x 1440 dpi, Max Borderless Print Size: 17 x 22", 8.5 x 11" Print Speed:'
+description: The Epson SureColor P900 is a 17-inch photo printer for anyone who wants
+  to make large prints at home. It prints borderless up to 17 x 22 inches at a
 ---
-I looked at the Epson SureColor P900 17" Photo Printer. Max Print Resolution: 5760 x 1440 dpi, Max Borderless Print Size: 17 x 22", 8.5 x 11" Print Speed: 1 min 29 sec, 10 Channel Print Head, 4.3" Color Touchscreen, USB 3.0. I saw it at B&H Photo and wanted a clean product write-up here.
+The Epson SureColor P900 is a 17-inch photo printer for anyone who wants to make large prints at home. It prints borderless up to 17 x 22 inches at a maximum resolution of 5760 x 1440 dpi using a 10-channel print head, and a letter-size print takes about a minute and a half. A 4.3-inch color touchscreen handles setup, and it connects over USB 3.0, Ethernet or Wi-Fi.

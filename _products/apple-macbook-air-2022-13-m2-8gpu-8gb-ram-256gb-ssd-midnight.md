@@ -30,7 +30,7 @@ specs:
   value: portable
 why_deal: MacHeist has it for $649.99, down from $999. Prices change fast, so check
   the price before you buy.
-description: I looked at the Apple Macbook Air (2022) 13" M2 8GPU 8GB RAM 256GB SSD
-  Midnight. Get the Apple MacBook Air M2 with 8GB RAM, 256GB SSD, 13.6-inch Liquid
+description: The 2022 MacBook Air pairs Apple's M2 chip and 8-core GPU with 8GB of
+  RAM and a 256GB SSD in a thin, portable body. I like the 13.6-inch Liquid Retina
 ---
-I looked at the Apple Macbook Air (2022) 13" M2 8GPU 8GB RAM 256GB SSD Midnight. Get the Apple MacBook Air M2 with 8GB RAM, 256GB SSD, 13.6-inch Liquid Retina display, Wi-Fi 6, and a portable Midnight design. I saw it at MacHeist and wanted a clean product write-up here.
+The 2022 MacBook Air pairs Apple's M2 chip and 8-core GPU with 8GB of RAM and a 256GB SSD in a thin, portable body. I like the 13.6-inch Liquid Retina display, and Wi-Fi 6 keeps your connection fast. It comes in the dark Midnight finish, so it's a good pick if you want a light Apple laptop you can carry anywhere.

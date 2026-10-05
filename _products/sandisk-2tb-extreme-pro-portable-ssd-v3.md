@@ -29,7 +29,7 @@ specs:
   value: 'Maximum: 3800 MB/sSustained: 3100 MB/s'
 why_deal: B&H Photo has it for $549.99, down from $698.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the SANDISK 2TB Extreme PRO Portable SSD V3. Review SANDISK
-  Extreme PRO V3. I saw it at B&H Photo and wanted a clean product write-up here.
+description: The SanDisk Extreme PRO Portable SSD V3 packs 2TB of storage into a bus-powered,
+  plug-and-play drive. It also has AES 256-bit encryption and a carabiner
 ---
-I looked at the SANDISK 2TB Extreme PRO Portable SSD V3. Review SANDISK Extreme PRO V3. I saw it at B&H Photo and wanted a clean product write-up here.
+The SanDisk Extreme PRO Portable SSD V3 packs 2TB of storage into a bus-powered, plug-and-play drive. It also has AES 256-bit encryption and a carabiner loop, so you can clip it to a bag.

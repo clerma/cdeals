@@ -31,7 +31,7 @@ specs:
   value: 1920x1200
 why_deal: B&H Photo has it for $1146.95, down from $1399. Prices change fast, so check
   the price before you buy.
-description: I looked at the MSI 16" VenturePro 16 Multi-Touch Laptop. 2.5 GHz Intel
-  Core 7 240H, 32GB DDR5 RAM | 1TB SSD, 16" 1920 x 1200 IPS Touchscreen, NVIDIA
+description: The MSI VenturePro 16 is a 16-inch laptop with a 1920 x 1200 IPS touchscreen.
+  It runs on an Intel Core 7 240H with 32GB of DDR5 RAM and a 1TB SSD, and it
 ---
-I looked at the MSI 16" VenturePro 16 Multi-Touch Laptop. 2.5 GHz Intel Core 7 240H, 32GB DDR5 RAM | 1TB SSD, 16" 1920 x 1200 IPS Touchscreen, NVIDIA GeForce RTX 5050 Laptop GPU, 2 x USB-A | 1 x USB-C | 1 x HDMI 2.1. I saw it at B&H Photo and wanted a clean product write-up here.
+The MSI VenturePro 16 is a 16-inch laptop with a 1920 x 1200 IPS touchscreen. It runs on an Intel Core 7 240H with 32GB of DDR5 RAM and a 1TB SSD, and it has an NVIDIA GeForce RTX 5050 Laptop GPU for graphics. I also like that it has a full keyboard with a numpad and a white backlight. For connections you get HDMI 2.1, Wi-Fi 6E and a Gigabit Ethernet port, and it comes with Windows 11 Home.

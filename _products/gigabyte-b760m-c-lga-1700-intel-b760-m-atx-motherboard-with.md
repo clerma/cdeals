@@ -31,7 +31,8 @@ specs:
   value: 4x288pin (DDR5)
 why_deal: Newegg has it for $83.99, down from $139.99. Prices change fast, so check
   the price before you buy.
-description: 'I looked at the GIGABYTE B760M C LGA 1700 Intel B760 M-ATX Motherboard
-  with DDR5, M.2. Intel LGA 1700 Socket: Supports 13th and 12th Gen Intel Core Series'
+description: 'Connectivity is a strong point: you get a PCIe 5.0 expansion slot, NVMe
+  PCIe 4.0 M.2 storage, USB 3.2 Gen 2 Type-C, 1GbE LAN and built-in Realtek Wi-Fi
+  AC.'
 ---
-I looked at the GIGABYTE B760M C LGA 1700 Intel B760 M-ATX Motherboard with DDR5, M.2. Intel LGA 1700 Socket: Supports 13th and 12th Gen Intel Core Series Processors DDR5 Compatible: Dual Channel DDR5, 4 DIMMs Sturdy Power Design: 6+1+1 Hybrid Digital VRM Design Thermal Design: Enlarged MOSFET Heatsink Next Gen Connectivity: PCIe 5.0 exansion slot, NVMe PCIe 4.0 x2 M.2, USB 3.2 Gen 2 Type-C Networking: 1GbE LAN, Realtek Wi-Fi AC Fine Tuning Features: RGB FUSION 2.0, Supports Addressable LED & RGB LED Strips, Smart Fan 6, Q-Flash Plus Update BIOS without installing, CPU, Memory, and GPU. I saw it at Newegg and wanted a clean product write-up here.
+Connectivity is a strong point: you get a PCIe 5.0 expansion slot, NVMe PCIe 4.0 M.2 storage, USB 3.2 Gen 2 Type-C, 1GbE LAN and built-in Realtek Wi-Fi AC.

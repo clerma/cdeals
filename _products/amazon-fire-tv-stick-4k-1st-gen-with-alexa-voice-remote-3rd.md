@@ -30,8 +30,7 @@ specs:
     conne
 why_deal: Woot has it for $16.99. Prices change fast, so check the price before you
   buy.
-description: 'I pulled these listing details for the Amazon Fire TV Stick 4K (1st
-  Gen) with Alexa Voice Remote (3rd Gen): size 99 mm x 30 mm x 14 mm (only housing)
-  |'
+description: This is Amazon's Fire TV Stick 4K (1st Gen), a compact streaming stick
+  that brings 4K streaming to your TV. It comes with the 3rd Gen Alexa Voice Remote,
 ---
-I pulled these listing details for the Amazon Fire TV Stick 4K (1st Gen) with Alexa Voice Remote (3rd Gen): size 99 mm x 30 mm x 14 mm (only housing) | 108 mm x 30 mm x 14 mm (including the con, weight 53.6 g, processor Quad-core 1.7 GHz, gpu IMG GE8300. I saw it at Woot and wanted a clean product write-up here.
+This is Amazon's Fire TV Stick 4K (1st Gen), a compact streaming stick that brings 4K streaming to your TV. It comes with the 3rd Gen Alexa Voice Remote, so you can find what you want to watch by voice.

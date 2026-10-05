@@ -31,7 +31,7 @@ specs:
   value: 97% DCI-P3100% sRGB
 why_deal: B&H Photo has it for $238.95, down from $299. Prices change fast, so check
   the price before you buy.
-description: I looked at the ASUS ProArt PA278CGRV 27" 1440p HDR 144 Hz Monitor. 27"
-  16:9 IPS Panel, HDMI | DisplayPort | USB-C (96W), QHD (1440p) 2560 x 1440 at 144
+description: The ASUS ProArt PA278CGRV is a 27-inch 1440p IPS monitor built for creators
+  who need accurate color, and it's quick enough for gaming too, with a 144 Hz
 ---
-I looked at the ASUS ProArt PA278CGRV 27" 1440p HDR 144 Hz Monitor. 27" 16:9 IPS Panel, HDMI | DisplayPort | USB-C (96W), QHD (1440p) 2560 x 1440 at 144 Hz, 5 ms (GtG) Response Time, 3000:1 Static Contrast Ratio, 400 nits Peak Brightness, 1.07 Billion Colors with HDR10. I saw it at B&H Photo and wanted a clean product write-up here.
+The ASUS ProArt PA278CGRV is a 27-inch 1440p IPS monitor built for creators who need accurate color, and it's quick enough for gaming too, with a 144 Hz refresh rate. It covers 97% of DCI-P3 and 100% of sRGB, shows 1.07 billion colors, supports HDR10 and hits 400 nits at its brightest. Its USB-C port delivers 96W of power, so one cable can charge your laptop. A built-in USB hub and KVM let you run two computers from one keyboard and mouse.

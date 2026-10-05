@@ -18,7 +18,7 @@ specs:
   value: 10000Pa
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the ILIFE A30 Pro 10000Pa LiDAR Robot
-  Vacuum & Mop with Self-Emptying: suction 10000Pa. I posted the Amazon listing so'
+description: The ILIFE A30 Pro is a robot vacuum and mop with 10000Pa suction, LiDAR
+  navigation and a self-emptying feature.
 ---
-I pulled these listing details for the ILIFE A30 Pro 10000Pa LiDAR Robot Vacuum & Mop with Self-Emptying: suction 10000Pa. I posted the Amazon listing so you can confirm the live price.
+The ILIFE A30 Pro is a robot vacuum and mop with 10000Pa suction, LiDAR navigation and a self-emptying feature.

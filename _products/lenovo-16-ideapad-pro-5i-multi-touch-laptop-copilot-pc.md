@@ -31,7 +31,7 @@ specs:
   value: 2880 x 1800
 why_deal: B&H Photo has it for $2158.95, down from $2699. Prices change fast, so check
   the price before you buy.
-description: I looked at the Lenovo 16" IdeaPad Pro 5i Multi-Touch Laptop Copilot+
-  PC. 2.1 GHz Intel Core Ultra 9 386H 16-Core, 32GB LPDDR5x RAM | 1TB M.2 PCIe 4.0
+description: The Lenovo IdeaPad Pro 5i is a 16-inch Copilot+ PC for anyone who wants
+  creator-level power and some gaming in one laptop. It runs an Intel Core Ultra 9
 ---
-I looked at the Lenovo 16" IdeaPad Pro 5i Multi-Touch Laptop Copilot+ PC. 2.1 GHz Intel Core Ultra 9 386H 16-Core, 32GB LPDDR5x RAM | 1TB M.2 PCIe 4.0 SSD, 16" 2880 x 1800 OLED 120 Hz Touchscreen, NVIDIA GeForce RTX 5050 (8GB GDDR7), Wi-Fi 7 (802.11be) | Bluetooth 5.4, SD Card Slot. I saw it at B&H Photo and wanted a clean product write-up here.
+The Lenovo IdeaPad Pro 5i is a 16-inch Copilot+ PC for anyone who wants creator-level power and some gaming in one laptop. It runs an Intel Core Ultra 9 386H with 32GB of RAM and a 1TB SSD, and an NVIDIA GeForce RTX 5050 with 8GB of GDDR7 handles graphics. I really like the 2880 x 1800 OLED touchscreen with its smooth 120Hz refresh rate. It also has Wi-Fi 7, Thunderbolt 4, HDMI 2.1, an SD card slot and a Full HD IR webcam with a privacy shutter.

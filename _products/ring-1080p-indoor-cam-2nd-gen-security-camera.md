@@ -21,7 +21,7 @@ specs:
   value: 2nd gen
 why_deal: Target has it for $24.99, down from $49.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Ring 1080p Indoor Cam (2nd Gen) Security Camera. Choose
-  from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35
+description: The Ring 1080p Indoor Cam (2nd Gen) is a compact security camera from
+  Ring for keeping an eye on things inside your home. It's the second generation of
 ---
-I looked at the Ring 1080p Indoor Cam (2nd Gen) Security Camera. Choose from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at Target and wanted a clean product write-up here.
+The Ring 1080p Indoor Cam (2nd Gen) is a compact security camera from Ring for keeping an eye on things inside your home. It's the second generation of the Indoor Cam, and it records in 1080p HD.

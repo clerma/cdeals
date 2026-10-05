@@ -29,7 +29,7 @@ specs:
   value: 1.5 Million Hours
 why_deal: B&H Photo has it for $179.99, down from $249.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Crucial 1TB BX500 SATA III 2.5" Internal SSD. 1TB Storage
-  Capacity, 2.5" / 7mm Form Factor, SATA III 6 Gb/s Interface, Up to 540 MB/s
+description: The Crucial BX500 is a 1TB internal SSD in the standard 2.5-inch, 7mm
+  size, and it connects over SATA III at 6 Gb/s. It's built on Micron 3D NAND and
 ---
-I looked at the Crucial 1TB BX500 SATA III 2.5" Internal SSD. 1TB Storage Capacity, 2.5" / 7mm Form Factor, SATA III 6 Gb/s Interface, Up to 540 MB/s Sequential Read Speed, Up to 500 MB/s Sequential Write Speed, 1.5 Million Hours MTTF. I saw it at B&H Photo and wanted a clean product write-up here.
+The Crucial BX500 is a 1TB internal SSD in the standard 2.5-inch, 7mm size, and it connects over SATA III at 6 Gb/s. It's built on Micron 3D NAND and reaches sequential speeds of up to 540 MB/s for reads and 500 MB/s for writes. I like that it's a simple way to get a full terabyte of solid-state storage, and it carries a 1.5 million hour MTTF rating.

@@ -18,9 +18,8 @@ highlights:
 source: bh-used
 why_deal: B&H Photo has it for $2958.50, down from $3998. Prices change fast, so check
   the price before you buy.
-description: I looked at the Sony a7S III Mirrorless Camera. 12MP Full-Frame Exmor
-  R BSI CMOS Sensor, UHD 4K 120p Video, 10-Bit 4:2:2 Internal, 16-Bit Raw Output,
-  HLG
+description: The Sony a7S III is a full-frame mirrorless camera built around a 12MP
+  Exmor R BSI CMOS sensor, with a strong focus on video.
 specs:
 - label: Lens Mount
   value: Sony E
@@ -35,4 +34,4 @@ specs:
 - label: Video I/O
   value: 1x HDMI Output
 ---
-I looked at the Sony a7S III Mirrorless Camera. 12MP Full-Frame Exmor R BSI CMOS Sensor, UHD 4K 120p Video, 10-Bit 4:2:2 Internal, 16-Bit Raw Output, HLG & S-Cinetone, 759-Point Fast Hybrid AF, 9.44m-Dot QXGA OLED EVF, 3.0" 1.44m-Dot Vari-Angle Touchscreen. I saw it at B&H Photo and wanted a clean product write-up here.
+The Sony a7S III is a full-frame mirrorless camera built around a 12MP Exmor R BSI CMOS sensor, with a strong focus on video.

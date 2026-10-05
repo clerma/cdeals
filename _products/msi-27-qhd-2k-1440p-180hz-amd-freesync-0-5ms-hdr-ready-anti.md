@@ -30,7 +30,7 @@ specs:
   value: 'Yes'
 why_deal: Newegg has it for $137.99, down from $189.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the MSI 27" QHD 2K 1440P 180Hz AMD FreeSync 0.5ms HDR Ready
-  Anti-Flicker. Rapid VA Panel - Provides 0.5ms (GtG, Min.) response time, optimizes
+description: The MSI 27" monitor is a QHD (1440p) gaming display with a Rapid VA panel
+  that can refresh at up to 180Hz and has a 0.5ms (GtG, Min.) response time, so
 ---
-I looked at the MSI 27" QHD 2K 1440P 180Hz AMD FreeSync 0.5ms HDR Ready Anti-Flicker. Rapid VA Panel - Provides 0.5ms (GtG, Min.) response time, optimizes screen colors and brightness. WQHD High Resolution - Games will look even better, displaying more details. I saw it at Newegg and wanted a clean product write-up here.
+The MSI 27" monitor is a QHD (1440p) gaming display with a Rapid VA panel that can refresh at up to 180Hz and has a 0.5ms (GtG, Min.) response time, so motion looks smooth and responsive in fast games. Adaptive-Sync helps get rid of screen tearing and stutter. I also like the Night Vision feature, which brings out detail in dark scenes. For long sessions, there's a Less Blue Light mode that cuts some of the blue-violet light the screen gives off.

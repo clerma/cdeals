@@ -29,7 +29,6 @@ specs:
   value: 'No'
 why_deal: B&H Photo has it for $14.99, down from $24.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Sony MDR-ZX110 On-Ear Headphones (Black). 30mm Dynamic
-  Drivers, 12 Hz to 22 kHz Frequency Response, Earcups Swivel and Fold For
+description: They also come with a 3.9-foot cable.
 ---
-I looked at the Sony MDR-ZX110 On-Ear Headphones (Black). 30mm Dynamic Drivers, 12 Hz to 22 kHz Frequency Response, Earcups Swivel and Fold For Portability. I saw it at B&H Photo and wanted a clean product write-up here.
+They also come with a 3.9-foot cable.

@@ -31,7 +31,7 @@ specs:
   value: Anti-Glare
 why_deal: B&H Photo has it for $89.95, down from $109. Prices change fast, so check
   the price before you buy.
-description: I looked at the ASUS ZenScreen MB169CK 15.6" Portable Monitor. 15.6"
-  16:9 IPS Panel, USB-C | Mini-HDMI | 3.5mm, Full HD 1920 x 1080 at 60 Hz, 5 ms (GtG)
+description: The ASUS ZenScreen MB169CK is a 15.6-inch portable monitor with a Full
+  HD 1920 x 1080 IPS panel running at 60 Hz.
 ---
-I looked at the ASUS ZenScreen MB169CK 15.6" Portable Monitor. 15.6" 16:9 IPS Panel, USB-C | Mini-HDMI | 3.5mm, Full HD 1920 x 1080 at 60 Hz, 5 ms (GtG) Response Time, 800:1 Static Contrast Ratio, 250 nits Brightness, 262,000 Colors, 178/178° Viewing Angles. I saw it at B&H Photo and wanted a clean product write-up here.
+The ASUS ZenScreen MB169CK is a 15.6-inch portable monitor with a Full HD 1920 x 1080 IPS panel running at 60 Hz.

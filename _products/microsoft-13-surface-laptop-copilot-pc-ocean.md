@@ -31,7 +31,8 @@ specs:
   value: 1920 x 1280
 why_deal: B&H Photo has it for $949.95, down from $1249.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Microsoft 13" Surface Laptop Copilot+ PC (Ocean). Snapdragon
-  X Plus 8-Core, 16GB LPDDR5x | 512GB UFS Storage, 13" 1920 x 1280 PixelSense
+description: I've been eyeing Microsoft's 13" Surface Laptop in the Ocean finish.
+  It's a Copilot+ PC running Windows 11 Home on an 8-core Snapdragon X Plus chip,
+  so
 ---
-I looked at the Microsoft 13" Surface Laptop Copilot+ PC (Ocean). Snapdragon X Plus 8-Core, 16GB LPDDR5x | 512GB UFS Storage, 13" 1920 x 1280 PixelSense Touchscreen, Integrated Qualcomm Adreno Graphics, Wi-Fi 7 (802.11be) | Bluetooth 5.4, USB-C 3.2 Gen 2 | USB-A 3.2 Gen 1. I saw it at B&H Photo and wanted a clean product write-up here.
+I've been eyeing Microsoft's 13" Surface Laptop in the Ocean finish. It's a Copilot+ PC running Windows 11 Home on an 8-core Snapdragon X Plus chip, so it's a good fit if you want a compact everyday laptop with Microsoft's AI features built in. The 1920 x 1280 PixelSense display is a touchscreen, and it pairs Wi-Fi 7 with 512GB of storage. You also get a 1080p camera and a fingerprint reader, plus both USB-C and USB-A ports and a headphone jack.

@@ -16,8 +16,8 @@ highlights:
 source: bh-deals-categories
 why_deal: B&H Photo has it for $34.99, down from $59.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Roku Streaming Stick. Review Roku Streaming Stick Plus.
-  I saw it at B&H Photo and wanted a clean product write-up here.
+description: The Roku Streaming Stick is a simple way to add 4K streaming at 60 frames
+  per second to your TV, and it upscales 720p and 1080p content to 4K. It's a good
 specs:
 - label: Max Video Output
   value: via HDMIUp to UHD 4K at 60.00 fps
@@ -32,4 +32,4 @@ specs:
 - label: Wireless
   value: Wi-Fi 5 (802.11ac)
 ---
-I looked at the Roku Streaming Stick. Review Roku Streaming Stick Plus. I saw it at B&H Photo and wanted a clean product write-up here.
+The Roku Streaming Stick is a simple way to add 4K streaming at 60 frames per second to your TV, and it upscales 720p and 1080p content to 4K. It's a good fit if you want popular and live TV services, music apps, and more than 500 free TV channels in one place, and you can search and control it with your voice. The slim design doesn't block your other HDMI ports, it supports dual-band Wi-Fi 5, and it's small enough to take with you when you travel.

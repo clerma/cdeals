@@ -30,7 +30,8 @@ specs:
   value: 1920 x 1200
 why_deal: B&H Photo has it for $2269.95, down from $3245.60. Prices change fast, so
   check the price before you buy.
-description: I looked at the Dell 14" Pro 14 Premium Laptop. Intel Core Ultra 7 268V
-  vPro 8-Core, 32GB LPDDR5x | 512GB M.2 SSD, 14" 1920 x 1200 60 Hz IPS Display,
+description: The Dell Pro 14 Premium is a 14-inch Windows 11 Pro laptop that runs
+  on an 8-core Intel Core Ultra 7 268V vPro processor with 32GB of LPDDR5x memory
+  and a
 ---
-I looked at the Dell 14" Pro 14 Premium Laptop. Intel Core Ultra 7 268V vPro 8-Core, 32GB LPDDR5x | 512GB M.2 SSD, 14" 1920 x 1200 60 Hz IPS Display, Integrated Intel Arc Graphics, Built-In Intel AI Boost NPU (48 TOPS), Wi-Fi 7 (802.11be) | Bluetooth 5.4. I saw it at B&H Photo and wanted a clean product write-up here.
+The Dell Pro 14 Premium is a 14-inch Windows 11 Pro laptop that runs on an 8-core Intel Core Ultra 7 268V vPro processor with 32GB of LPDDR5x memory and a 512GB SSD. I like that it includes a built-in Intel AI Boost NPU rated at 48 TOPS, plus Wi-Fi 7 and Bluetooth 5.4. The 14-inch 1920 x 1200 IPS display pairs with an 8MP IR webcam for video calls. For ports, you get Thunderbolt 4, HDMI 2.1 and USB-A, so you can connect a monitor or older accessories without carrying a dongle.

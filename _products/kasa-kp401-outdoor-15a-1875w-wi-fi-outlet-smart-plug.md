@@ -21,7 +21,6 @@ specs:
   value: 1875W
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Kasa KP401 Outdoor 15A/1875W
-  Wi-Fi Outlet Smart Plug: connectivity Wi-Fi, power 1875W. I posted the Amazon listing'
+description: The Kasa KP401 is an outdoor Wi-Fi smart plug rated for 15A/1875W.
 ---
-I pulled these listing details for the Kasa KP401 Outdoor 15A/1875W Wi-Fi Outlet Smart Plug: connectivity Wi-Fi, power 1875W. I posted the Amazon listing so you can confirm the live price.
+The Kasa KP401 is an outdoor Wi-Fi smart plug rated for 15A/1875W.

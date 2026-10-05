@@ -22,7 +22,7 @@ specs:
   value: Portable
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Niimbot B1 2" 203DPI Portable
-  Bluetooth Thermal Label Maker Machine: display 2", connectivity Bluetooth, form'
+description: The Niimbot B1 is a portable Bluetooth thermal label maker that prints
+  2-inch labels at 203 DPI.
 ---
-I pulled these listing details for the Niimbot B1 2" 203DPI Portable Bluetooth Thermal Label Maker Machine: display 2", connectivity Bluetooth, form Portable. I posted the Amazon listing so you can confirm the live price.
+The Niimbot B1 is a portable Bluetooth thermal label maker that prints 2-inch labels at 203 DPI.

@@ -16,8 +16,8 @@ highlights:
 - About 1000 lumens
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I looked at the Govee RGBIC LED Corner Floor Lamp (Black). Govee leads
-  with next-gen RGBIC technology, offering smart LED strip lights, outdoor lights,
+description: I've been looking at Govee's RGBIC LED Corner Floor Lamp, a black floor
+  lamp built to sit in a corner of the room. It's from Govee, a brand known for its
 source: 9to5toys
 ---
-I looked at the Govee RGBIC LED Corner Floor Lamp (Black). Govee leads with next-gen RGBIC technology, offering smart LED strip lights, outdoor lights, floor lamps, TV backlights, gaming lights, smart bulbs, and more. Govee leads with next-gen RGBIC technology, offering smart LED strip lights, outdoor lights, floor lamps, TV backlights, gaming lights, smart bulbs, and more. I posted the Amazon listing so you can confirm the live price.
+I've been looking at Govee's RGBIC LED Corner Floor Lamp, a black floor lamp built to sit in a corner of the room. It's from Govee, a brand known for its RGBIC lighting, which also makes LED strip lights, TV backlights, and gaming lights.

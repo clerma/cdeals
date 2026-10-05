@@ -190,7 +190,7 @@ Every affiliate deal gets a short first-person summary, a `why_deal` line, and o
 bundle exec ruby scripts/enrich_deal_copy.rb
 ```
 
-Fetched store/manufacturer text is cached under `/workspace/cdeals-cache/` (override with `CDEALS_CACHE`). Amazon.com is never fetched; Amazon deals use a manufacturer page when one is known. `publish_deals.rb` reuses the cache and fails soft if a fetch fails.
+Fetched store/manufacturer text is cached under `/workspace/cdeals-cache/` Plain HTTP backs off and retries on HTTP 429; ZenRows is never used to bypass rate limits (only for configured JS-heavy sources like Target when plain content is unusable). (override with `CDEALS_CACHE`). Amazon.com is never fetched; Amazon deals use a manufacturer page when one is known. `publish_deals.rb` reuses the cache and fails soft if a fetch fails.
 
 
 The product detail page shows Description / Key specs / Why it's a deal tabs under the gallery and buy box. Listing cards stay short.

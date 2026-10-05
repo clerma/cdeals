@@ -29,7 +29,7 @@ specs:
   value: Antenna / HDMI
 why_deal: B&H Photo has it for $1697.99, down from $2497.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Samsung S90H 65" 4K HDR Smart OLED TV. UHD 4K 3840 x
-  2160 OLED Panel, OLED HDR+ with Glare Free Screen Surface, Smart TV Powered by Tizen,
+description: It runs on Tizen with Bixby, Alexa, AirPlay and Google support, and connects
+  over Wi-Fi 6E and Bluetooth 5.3.
 ---
-I looked at the Samsung S90H 65" 4K HDR Smart OLED TV. UHD 4K 3840 x 2160 OLED Panel, OLED HDR+ with Glare Free Screen Surface, Smart TV Powered by Tizen, 165 Hz Maximum Refresh Rate, ALLM, VRR, G-Sync, FreeSync Premium Pro, 4 x HDMI, 1 x with eARC | 3 x USB-A. I saw it at B&H Photo and wanted a clean product write-up here.
+It runs on Tizen with Bixby, Alexa, AirPlay and Google support, and connects over Wi-Fi 6E and Bluetooth 5.3.

@@ -23,7 +23,6 @@ specs:
   value: Wireless
 why_deal: Newegg has it for $69.29, down from $93.99. Prices change fast, so check
   the price before you buy.
-description: 'I looked at the Dell KM7120W Wireless Keyboard and Mouse Combo. Type:
-  Bundle-Keyboard Mouse Model:580-AISY. I saw it at Newegg and wanted a clean product'
+description: The Dell KM7120W is a wireless keyboard and mouse combo.
 ---
-I looked at the Dell KM7120W Wireless Keyboard and Mouse Combo. Type: Bundle-Keyboard Mouse Model:580-AISY. I saw it at Newegg and wanted a clean product write-up here.
+The Dell KM7120W is a wireless keyboard and mouse combo.

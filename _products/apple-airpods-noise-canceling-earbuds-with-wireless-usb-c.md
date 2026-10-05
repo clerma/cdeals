@@ -29,7 +29,8 @@ specs:
   value: '1'
 why_deal: B&H Photo has it for $149, down from $179. Prices change fast, so check
   the price before you buy.
-description: I looked at the Apple AirPods Noise-Canceling Earbuds with Wireless USB-C
-  Charging Case. For iPhone, Apple Watch, iPad, and Mac, Active Noise Canceling
+description: These are Apple's 4th-generation AirPods with active noise canceling
+  and a wireless USB-C charging case, and they work with iPhone, Apple Watch, iPad,
+  and
 ---
-I looked at the Apple AirPods Noise-Canceling Earbuds with Wireless USB-C Charging Case. For iPhone, Apple Watch, iPad, and Mac, Active Noise Canceling with 3 Modes, Spatial Audio with Dynamic Head Tracking, H2 Chip for Intelligent Functions, IP54 Dust, Sweat. I saw it at B&H Photo and wanted a clean product write-up here.
+These are Apple's 4th-generation AirPods with active noise canceling and a wireless USB-C charging case, and they work with iPhone, Apple Watch, iPad, and Mac. Apple's H2 chip runs the noise canceling, which has three modes, plus Spatial Audio with dynamic head tracking for a more immersive sound. Voice Isolation keeps your calls clear, and you control audio and calls with a force sensor on the earbuds. They're IP54 rated against dust, sweat, and water, and you get up to 30 hours of playback with the case, so I think they'd suit workouts and long days on the go.

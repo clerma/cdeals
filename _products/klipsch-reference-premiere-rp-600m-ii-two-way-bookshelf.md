@@ -16,8 +16,9 @@ highlights:
 source: bh-deals-categories
 why_deal: B&H Photo has it for $449.99, down from $699.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Klipsch Reference Premiere RP-600M II Two-Way Bookshelf
-  Speaker. Two-Way Speaker Design, 1 x 1" Titanium LTS Vented Tweeter, 1 x 6.5"
+description: Klipsch's RP-600M II is a two-way bookshelf speaker sold as a pair in
+  Ebony. Each one pairs a 1" titanium tweeter with a 90 x 90° Tractrix horn and a
+  6.5"
 specs:
 - label: Speaker Configuration
   value: Front, Side:2-Way
@@ -32,4 +33,4 @@ specs:
 - label: Enclosure Type
   value: Bass-Reflex
 ---
-I looked at the Klipsch Reference Premiere RP-600M II Two-Way Bookshelf Speaker. Two-Way Speaker Design, 1 x 1" Titanium LTS Vented Tweeter, 1 x 6.5" Cerametallic Cone Woofer, Up to 100W Continuous Power Handling, Bi-Wiring & Bi-Amping Capability. I saw it at B&H Photo and wanted a clean product write-up here.
+Klipsch's RP-600M II is a two-way bookshelf speaker sold as a pair in Ebony. Each one pairs a 1" titanium tweeter with a 90 x 90° Tractrix horn and a 6.5" Cerametallic cone woofer, and the Tractrix ports are there for clean, deep bass. They're built from durable MDF, handle up to 100W of continuous power, and support bi-wiring and bi-amping, so you have room to upgrade your amp setup later.

@@ -31,7 +31,6 @@ specs:
   value: 1.07 Billion Colors
 why_deal: B&H Photo has it for $339.95, down from $449.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Dell Pro 27" Plus P2725QE 4K UHD USB-C Hub IPS Monitor.
-  27" 16:9 IPS Panel, HDMI | DisplayPort | USB-C, 3840 x 2160 at 100 Hz, 5 ms (GtG)
+description: It covers 99% of sRGB, so colors stay accurate.
 ---
-I looked at the Dell Pro 27" Plus P2725QE 4K UHD USB-C Hub IPS Monitor. 27" 16:9 IPS Panel, HDMI | DisplayPort | USB-C, 3840 x 2160 at 100 Hz, 5 ms (GtG) Response Time, 1500:1 Static Contrast Ratio, 350 nits of Brightness, 1.07 Billion Colors, 99% sRGB Color Gamut. I saw it at B&H Photo and wanted a clean product write-up here.
+It covers 99% of sRGB, so colors stay accurate.

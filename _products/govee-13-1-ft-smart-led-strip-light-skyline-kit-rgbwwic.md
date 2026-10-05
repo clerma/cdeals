@@ -15,8 +15,8 @@ highlights:
 - RGBWWIC strip with Skyline Kit
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I looked at the Govee Smart LED Strip Light with Skyline Kit, RGBWWIC
-  (13.1'). Govee leads with next-gen RGBIC technology, offering smart LED strip
+description: This is Govee's Smart LED Strip Light with Skyline Kit, a 13.1-foot strip
+  that uses the brand's RGBWWIC lighting. If you're already building out a Govee
 source: slickdeals
 ---
-I looked at the Govee Smart LED Strip Light with Skyline Kit, RGBWWIC (13.1'). Govee leads with next-gen RGBIC technology, offering smart LED strip lights, outdoor lights, floor lamps, TV backlights, gaming lights, smart bulbs, and more. Govee leads with next-gen RGBIC technology, offering smart LED strip lights, outdoor lights, floor lamps, TV backlights, gaming lights, smart bulbs, and more. I posted the Amazon listing so you can confirm the live price.
+This is Govee's Smart LED Strip Light with Skyline Kit, a 13.1-foot strip that uses the brand's RGBWWIC lighting. If you're already building out a Govee smart home setup, this kit could fit right in with their other strip lights, TV backlights, and smart bulbs.

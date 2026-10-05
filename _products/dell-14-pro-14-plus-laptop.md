@@ -31,7 +31,8 @@ specs:
   value: 1920 x 1200
 why_deal: B&H Photo has it for $749.95, down from $1366.57. Prices change fast, so
   check the price before you buy.
-description: I looked at the Dell 14" Pro 14 Plus Laptop. 3.5 GHz AMD Ryzen 5 PRO
-  220 6-Core, 16GB LPDDR5 | 256GB M.2 SSD, 14" 1920 x 1200 60 Hz IPS Display,
+description: The Dell Pro 14 Plus is a 14-inch Windows 11 Pro laptop powered by a
+  6-core AMD Ryzen 5 PRO 220 with 16GB of LPDDR5 memory and a 256GB SSD. I like that
+  it
 ---
-I looked at the Dell 14" Pro 14 Plus Laptop. 3.5 GHz AMD Ryzen 5 PRO 220 6-Core, 16GB LPDDR5 | 256GB M.2 SSD, 14" 1920 x 1200 60 Hz IPS Display, Integrated AMD Radeon 740M Graphics, Built-In AMD Ryzen AI NPU (16 TOPS), Wi-Fi 7 (802.11be) | Bluetooth 5.4, Thunderbolt 4 | HDMI | USB-A. I saw it at B&H Photo and wanted a clean product write-up here.
+The Dell Pro 14 Plus is a 14-inch Windows 11 Pro laptop powered by a 6-core AMD Ryzen 5 PRO 220 with 16GB of LPDDR5 memory and a 256GB SSD. I like that it includes a built-in AMD Ryzen AI NPU rated at 16 TOPS, plus Wi-Fi 7 and Bluetooth 5.4. The 1920 x 1200 IPS display is a little taller than standard 1080p. For ports, you get Thunderbolt 4, HDMI and USB-A.

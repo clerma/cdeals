@@ -29,7 +29,7 @@ specs:
   value: ALS RGB Accelerometer
 why_deal: B&H Photo has it for $249.99, down from $349.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Amazon Echo Show 15 Smart Kitchen TV with Alexa (2nd
-  Gen). Full HD 1080p Resolution 15.6" Display, Stream TV via Popular Apps with Fire
+description: The 13MP wide-angle camera auto-frames you during video chats, and Wi-Fi
+  6E support keeps streaming fast. For privacy, there's a mic/camera off button and
 ---
-I looked at the Amazon Echo Show 15 Smart Kitchen TV with Alexa (2nd Gen). Full HD 1080p Resolution 15.6" Display, Stream TV via Popular Apps with Fire TV, Built-In Voice Control with Alexa, Use Widgets for Family Organization, Control Smart Home Devices. I saw it at B&H Photo and wanted a clean product write-up here.
+The 13MP wide-angle camera auto-frames you during video chats, and Wi-Fi 6E support keeps streaming fast. For privacy, there's a mic/camera off button and a physical shutter.

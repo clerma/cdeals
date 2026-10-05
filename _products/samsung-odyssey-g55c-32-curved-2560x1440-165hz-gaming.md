@@ -26,7 +26,7 @@ specs:
   value: Curved
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Samsung Odyssey G55C 32" Curved
-  2560x1440 165Hz Gaming Monitor: display 32", refresh rate 165 Hz, resolution'
+description: The Samsung Odyssey G55C is a 32-inch curved gaming monitor with a 2560x1440
+  resolution and a 165Hz refresh rate.
 ---
-I pulled these listing details for the Samsung Odyssey G55C 32" Curved 2560x1440 165Hz Gaming Monitor: display 32", refresh rate 165 Hz, resolution 2560x1440, form Curved. I posted the Amazon listing so you can confirm the live price.
+The Samsung Odyssey G55C is a 32-inch curved gaming monitor with a 2560x1440 resolution and a 165Hz refresh rate.

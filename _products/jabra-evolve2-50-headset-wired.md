@@ -19,7 +19,7 @@ specs:
   value: Wired
 why_deal: Woot has it for $114.10, down from $163. Prices change fast, so check the
   price before you buy.
-description: 'I looked at the Jabra Evolve2 50 Headset Wired. Sign up for our Daily
-  Digest emails! Shipping Note: Shipping to Alaska, Hawaii, PO Boxes, and APO'
+description: The Jabra Evolve2 50 is a wired headset from Jabra. Since it plugs in,
+  it's a simple choice if you want a headset that doesn't need wireless pairing.
 ---
-I looked at the Jabra Evolve2 50 Headset Wired. Sign up for our Daily Digest emails! Shipping Note: Shipping to Alaska, Hawaii, PO Boxes, and APO addresses is not available for this item Warranty: 90 Day Woot Limited Warranty. I saw it at Woot and wanted a clean product write-up here.
+The Jabra Evolve2 50 is a wired headset from Jabra. Since it plugs in, it's a simple choice if you want a headset that doesn't need wireless pairing.

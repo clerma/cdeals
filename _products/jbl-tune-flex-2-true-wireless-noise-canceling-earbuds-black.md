@@ -29,7 +29,8 @@ specs:
   value: 'Yes'
 why_deal: B&H Photo has it for $59.95, down from $109.95. Prices change fast, so check
   the price before you buy.
-description: I looked at the JBL Tune Flex 2 True Wireless Noise-Canceling Earbuds
-  (Black). For Travel and Everyday Listening, 12mm Dynamic Drivers with JBL Pure Bass,
+description: I've been looking at the JBL Tune Flex 2 earbuds as an everyday pair
+  for travel and daily listening. They use 12mm drivers tuned with JBL Pure Bass,
+  and
 ---
-I looked at the JBL Tune Flex 2 True Wireless Noise-Canceling Earbuds (Black). For Travel and Everyday Listening, 12mm Dynamic Drivers with JBL Pure Bass, JBL Spatial Sound, Adaptive Noise Canceling, Ambient Aware and TalkThru Functions, 6 Mics for Crystal-Clear Calls. I saw it at B&H Photo and wanted a clean product write-up here.
+I've been looking at the JBL Tune Flex 2 earbuds as an everyday pair for travel and daily listening. They use 12mm drivers tuned with JBL Pure Bass, and they add Spatial Sound and adaptive noise canceling.

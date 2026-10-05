@@ -25,8 +25,7 @@ specs:
   value: 512GB
 why_deal: Walmart has it for $699, down from $849. Prices change fast, so check the
   price before you buy.
-description: 'I pulled these listing details for the HP OmniDesk Slim Desktop, Core
-  i5-14400 (16GB/512GB): processor Core i5-14400, memory 16GB, storage 512GB. I saw
-  it'
+description: The HP OmniDesk Slim Desktop has an Intel Core i5-14400 processor, 16GB
+  of memory and a 512GB drive.
 ---
-I pulled these listing details for the HP OmniDesk Slim Desktop, Core i5-14400 (16GB/512GB): processor Core i5-14400, memory 16GB, storage 512GB. I saw it at Walmart and wanted a clean product write-up here.
+The HP OmniDesk Slim Desktop has an Intel Core i5-14400 processor, 16GB of memory and a 512GB drive.

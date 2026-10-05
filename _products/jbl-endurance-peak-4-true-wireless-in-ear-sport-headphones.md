@@ -29,7 +29,7 @@ specs:
   value: Not Specified by Manufacturer
 why_deal: B&H Photo has it for $89.95, down from $129.95. Prices change fast, so check
   the price before you buy.
-description: I looked at the JBL Endurance Peak 4 True Wireless In-Ear Sport Headphones
-  (Black). 10mm Dynamic Drivers, IP68-Rated Dustproof and Waterproof, Up to 12
+description: The JBL Endurance Peak 4 is a pair of true wireless sport earbuds with
+  Powerhook and Twist-Lock ear hooks, so they're a good fit if you want earbuds that
 ---
-I looked at the JBL Endurance Peak 4 True Wireless In-Ear Sport Headphones (Black). 10mm Dynamic Drivers, IP68-Rated Dustproof and Waterproof, Up to 12 Hours of Playback with ANC Off, Charging Case with 36 Extra Hours, Powerhook and Twist-Lock Ear Hooks, 6 Beamforming Microphones. I saw it at B&H Photo and wanted a clean product write-up here.
+The JBL Endurance Peak 4 is a pair of true wireless sport earbuds with Powerhook and Twist-Lock ear hooks, so they're a good fit if you want earbuds that stay put during workouts. They're rated IP68 for dust and water, and 10mm dynamic drivers handle the sound. You get up to 12 hours of playback with noise cancellation off, plus 36 more hours from the charging case, and a 10-minute quick charge adds 4 hours. For calls, there are 6 beamforming microphones, and VoiceAware lets you hear your own voice while you talk.

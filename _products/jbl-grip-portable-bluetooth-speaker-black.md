@@ -29,7 +29,7 @@ specs:
   value: ">80 dB"
 why_deal: B&H Photo has it for $69.95, down from $99.95. Prices change fast, so check
   the price before you buy.
-description: I looked at the JBL Grip Portable Bluetooth Speaker (Black). 16W of Audio
-  Output, 1.7 x 3.1" Full Range Speaker, JBL Pro Sound with AI Sound Boost,
+description: It puts out 16W through JBL Pro Sound with AI Sound Boost. It's also
+  waterproof, dustproof and drop-proof. Battery life runs up to 12 hours, and Playtime
 ---
-I looked at the JBL Grip Portable Bluetooth Speaker (Black). 16W of Audio Output, 1.7 x 3.1" Full Range Speaker, JBL Pro Sound with AI Sound Boost, Waterproof, Dustproof & Drop-Proof, Up to 12 Hours of Playback, 2 Extra Hours with Playtime Boost, Built-In Ambient Light. I saw it at B&H Photo and wanted a clean product write-up here.
+It puts out 16W through JBL Pro Sound with AI Sound Boost. It's also waterproof, dustproof and drop-proof. Battery life runs up to 12 hours, and Playtime Boost adds 2 more.

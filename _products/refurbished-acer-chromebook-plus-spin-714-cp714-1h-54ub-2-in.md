@@ -20,7 +20,7 @@ specs:
   value: 2"
 why_deal: Target has it for $393.49, down from $699. Prices change fast, so check
   the price before you buy.
-description: I looked at the Refurbished Acer Chromebook Plus Spin 714 CP714-1H-54UB
-  2 in 1 Chromebook. Choose from Same Day Delivery, Drive Up or Order Pickup. Free
+description: The Acer Chromebook Plus Spin 714 (CP714-1H-54UB) is a 2-in-1 Chromebook
+  from Acer's Chromebook Plus line. This one is a manufacturer-refurbished unit,
 ---
-I looked at the Refurbished Acer Chromebook Plus Spin 714 CP714-1H-54UB 2 in 1 Chromebook. Choose from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at Target and wanted a clean product write-up here.
+The Acer Chromebook Plus Spin 714 (CP714-1H-54UB) is a 2-in-1 Chromebook from Acer's Chromebook Plus line. This one is a manufacturer-refurbished unit, which could suit you if you want a convertible ChromeOS laptop without paying for a brand-new one.

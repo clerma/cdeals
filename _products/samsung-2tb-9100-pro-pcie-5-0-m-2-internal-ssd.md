@@ -29,7 +29,7 @@ specs:
   value: 'Yes'
 why_deal: B&H Photo has it for $399.99, down from $679.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Samsung 2TB 9100 PRO PCIe 5.0 M.2 Internal SSD. 2TB Storage
-  Capacity, M.2 2280 Form Factor, PCIe 5.0 x4 / NVMe 2.0 Interface, Sequential
+description: Samsung's 9100 PRO is a 2TB M.2 2280 SSD that runs on a PCIe 5.0 x4 /
+  NVMe 2.0 interface. I like it for anyone who wants PCIe 5.0 speeds, with sequential
 ---
-I looked at the Samsung 2TB 9100 PRO PCIe 5.0 M.2 Internal SSD. 2TB Storage Capacity, M.2 2280 Form Factor, PCIe 5.0 x4 / NVMe 2.0 Interface, Sequential Reads up to 14,700 MB/s, Sequential Writes up to 13,400 MB/s, 2GB LPDDR4x Cache Memory, Endurance (TBW): 1200TB. I saw it at B&H Photo and wanted a clean product write-up here.
+Samsung's 9100 PRO is a 2TB M.2 2280 SSD that runs on a PCIe 5.0 x4 / NVMe 2.0 interface. I like it for anyone who wants PCIe 5.0 speeds, with sequential reads up to 14,700 MB/s and writes up to 13,400 MB/s. It uses Samsung's own controller and V-NAND TLC flash, plus 2GB of LPDDR4x cache. It's rated for 1,200TB of writes and supports AES 256-bit encryption.

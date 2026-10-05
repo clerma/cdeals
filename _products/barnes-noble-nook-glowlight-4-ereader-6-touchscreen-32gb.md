@@ -21,7 +21,8 @@ specs:
   value: 6"
 why_deal: Target has it for $129.99, down from $169.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Barnes & Noble NOOK Glowlight 4 eReader | 6" Touchscreen
-  | 32GB | BNRV1100. Choose from Same Day Delivery, Drive Up or Order Pickup. Free
+description: The Barnes & Noble NOOK GlowLight 4 is a compact eReader with a 6-inch
+  touchscreen. It has 32GB of storage, so there's plenty of room for a big library
+  if
 ---
-I looked at the Barnes & Noble NOOK Glowlight 4 eReader | 6" Touchscreen | 32GB | BNRV1100. Choose from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at Target and wanted a clean product write-up here.
+The Barnes & Noble NOOK GlowLight 4 is a compact eReader with a 6-inch touchscreen. It has 32GB of storage, so there's plenty of room for a big library if you'd rather read on a dedicated device than on your phone or tablet.

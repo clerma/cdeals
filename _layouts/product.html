@@ -87,7 +87,24 @@ layout: default
     <div class="tab-content" style="max-width: 48rem">
       <div class="tab-pane fade show active" id="product-description" role="tabpanel">
         <h2 class="h5 mb-3">About this {% if is_deal %}deal{% else %}item{% endif %}</h2>
-        <div class="page-lede fs-sm mb-0">{{ content }}</div>
+        {%- comment -%}
+          Product body is plain prose. Pipe characters in store copy used to become
+          Markdown tables (skinny columns). Strip tags and re-wrap as paragraphs.
+        {%- endcomment -%}
+        <div class="page-lede fs-sm mb-0" style="max-width: 40rem">
+          {%- assign desc_plain = content | strip_html | strip -%}
+          {%- assign desc_paras = desc_plain | split: "
+
+" -%}
+          {%- if desc_paras.size > 1 -%}
+            {%- for para in desc_paras -%}
+              {%- assign para_s = para | strip -%}
+              {%- if para_s != "" -%}<p class="mb-2">{{ para_s | escape }}</p>{%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            <p class="mb-0">{{ desc_plain | escape }}</p>
+          {%- endif -%}
+        </div>
       </div>
       {% if p.specs and p.specs.size > 0 %}
       <div class="tab-pane fade" id="product-specs" role="tabpanel">

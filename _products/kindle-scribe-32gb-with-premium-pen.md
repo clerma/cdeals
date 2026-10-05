@@ -20,7 +20,7 @@ specs:
   value: 32GB
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Kindle Scribe 32GB with Premium
-  Pen: storage 32GB. I posted the Amazon listing so you can confirm the live price.'
+description: The Amazon Kindle Scribe is a 32GB tablet that comes with the Premium
+  Pen.
 ---
-I pulled these listing details for the Kindle Scribe 32GB with Premium Pen: storage 32GB. I posted the Amazon listing so you can confirm the live price.
+The Amazon Kindle Scribe is a 32GB tablet that comes with the Premium Pen.

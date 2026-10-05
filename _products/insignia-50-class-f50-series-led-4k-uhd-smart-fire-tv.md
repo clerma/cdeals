@@ -20,8 +20,7 @@ specs:
   value: 4K
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Insignia 50" Class F50 Series
-  LED 4K UHD Smart Fire TV: display 50", panel 4K. I posted the Amazon listing so
-  you'
+description: The Insignia 50" Class F50 Series is a 4K UHD LED smart TV with Fire
+  TV built in.
 ---
-I pulled these listing details for the Insignia 50" Class F50 Series LED 4K UHD Smart Fire TV: display 50", panel 4K. I posted the Amazon listing so you can confirm the live price.
+The Insignia 50" Class F50 Series is a 4K UHD LED smart TV with Fire TV built in.

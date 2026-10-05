@@ -15,8 +15,8 @@ highlights:
 - 32-foot indoor smart LED light strip
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I looked at the GE Cync Dynamic Effects Indoor Smart LED Light Strip
-  (32'). Discover the benefits of a smart home ecosystem with our range of CYNC smart
+description: The GE Cync Dynamic Effects Indoor Smart LED Light Strip gives you 32
+  feet of smart lighting to run around a room. It's part of the Cync smart home
 source: slickdeals
 ---
-I looked at the GE Cync Dynamic Effects Indoor Smart LED Light Strip (32'). Discover the benefits of a smart home ecosystem with our range of CYNC smart home products. Control your lights and other devices from anywhere with one.. I posted the Amazon listing so you can confirm the live price.
+The GE Cync Dynamic Effects Indoor Smart LED Light Strip gives you 32 feet of smart lighting to run around a room. It's part of the Cync smart home lineup, so if you already use other Cync products, you can control this strip and your other devices from anywhere in one place.

@@ -19,7 +19,8 @@ specs:
   value: Wired
 why_deal: Woot has it for $169.95, down from $329.95. Prices change fast, so check
   the price before you buy.
-description: 'I pulled these listing details for the Sennheiser HD 505 Wired Open-Back
-  Audiophile Headphones: style Wired. I saw it at Woot and wanted a clean product'
+description: The Sennheiser HD 505 is a pair of wired, open-back headphones built
+  for audiophile listening. These are new units, so they're a good fit if you want
+  a
 ---
-I pulled these listing details for the Sennheiser HD 505 Wired Open-Back Audiophile Headphones: style Wired. I saw it at Woot and wanted a clean product write-up here.
+The Sennheiser HD 505 is a pair of wired, open-back headphones built for audiophile listening. These are new units, so they're a good fit if you want a dedicated set of Sennheiser headphones for focused listening at home.

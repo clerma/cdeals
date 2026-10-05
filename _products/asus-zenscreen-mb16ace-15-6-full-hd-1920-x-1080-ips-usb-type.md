@@ -30,7 +30,7 @@ specs:
   value: IPS
 why_deal: Newegg has it for $152.99, down from $179.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the ASUS ZenScreen MB16ACE 15.6" Full HD 1920 x 1080 IPS
-  USB Type-C Portable. Features a hybrid-signal solution that supports power and video
+description: The ASUS ZenScreen MB16ACE is a 15.6-inch Full HD IPS portable monitor
+  in an ultraslim design, made for anyone who wants a second screen on the go. It
 ---
-I looked at the ASUS ZenScreen MB16ACE 15.6" Full HD 1920 x 1080 IPS USB Type-C Portable. Features a hybrid-signal solution that supports power and video transmission, and enables compatibility with any laptop with a USB Type-C or Type A port Can automatically sense its orientation and switch the monitor between landscape and portrait modes 15.6-inch Full HD portable anti-glare IPS display with an ultraslim and thin design helps you get things done more efficiently when you’re on the go Foldable smart case can be turned into a stand to prop the monitor up in either portrait or landscape mode ASUS Eye Care monitors feature TÜV Rheinland-certified Flicker-free and Low Blue Light technologies to ensure a comfortable viewing experience Free 3-month Adobe Creative Cloud Subscription: Receive complimentary access with the purchase of this product (offer valid from 9/15/2021 to 8/31/2024). I saw it at Newegg and wanted a clean product write-up here.
+The ASUS ZenScreen MB16ACE is a 15.6-inch Full HD IPS portable monitor in an ultraslim design, made for anyone who wants a second screen on the go. It works with laptops that have either a USB Type-C or Type-A port, and its hybrid-signal setup carries both power and video. The foldable smart case turns into a stand for portrait or landscape use, and the screen senses its orientation and rotates automatically. For long sessions, the anti-glare panel has TÜV Rheinland-certified flicker-free and low blue light technology.

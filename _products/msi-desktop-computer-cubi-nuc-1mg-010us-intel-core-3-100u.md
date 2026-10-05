@@ -29,7 +29,8 @@ specs:
   value: 'No'
 why_deal: Newegg has it for $679, down from $879. Prices change fast, so check the
   price before you buy.
-description: I looked at the MSI Desktop Computer Cubi NUC 1MG-010US Intel Core 3
-  100U 8GB DDR5 500GB. Intel Core 3 100U 8GB DDR5 500GB PCIe SSD Windows 11 Pro 64-bit
+description: The MSI Cubi NUC 1MG-010US is a mini PC that runs on an Intel Core 3
+  100U processor with 8GB of DDR5 memory and a 500GB PCIe SSD. It comes with Windows
+  11
 ---
-I looked at the MSI Desktop Computer Cubi NUC 1MG-010US Intel Core 3 100U 8GB DDR5 500GB. Intel Core 3 100U 8GB DDR5 500GB PCIe SSD Windows 11 Pro 64-bit No Screen Intel Graphics Components brands may vary. I saw it at Newegg and wanted a clean product write-up here.
+The MSI Cubi NUC 1MG-010US is a mini PC that runs on an Intel Core 3 100U processor with 8GB of DDR5 memory and a 500GB PCIe SSD. It comes with Windows 11 Pro and uses Intel graphics, and since it doesn't include a screen, you'll need to plug in your own monitor.

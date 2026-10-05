@@ -29,7 +29,7 @@ specs:
   value: Antenna / HDMI
 why_deal: B&H Photo has it for $397.99, down from $497.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Samsung Q8F 32" 4K HDR Smart QLED TV. UHD 4K 3840 x 2160
-  QLED Panel, HDR, HDR10+ & HLG, Smart TV Powered by One UI Tizen, 60 Hz Native
+description: If you want a compact 4K TV, Samsung's Q8F is a 32-inch QLED with HDR10+
+  and HLG support. It runs Samsung's One UI Tizen smart platform and works with
 ---
-I looked at the Samsung Q8F 32" 4K HDR Smart QLED TV. UHD 4K 3840 x 2160 QLED Panel, HDR, HDR10+ & HLG, Smart TV Powered by One UI Tizen, 60 Hz Native Refresh Rate, Motion Xcelerator & ALLM, 3 x HDMI & 2 x USB-A, Wi-Fi, Bluetooth & LAN Connectivity, Alexa. I saw it at B&H Photo and wanted a clean product write-up here.
+If you want a compact 4K TV, Samsung's Q8F is a 32-inch QLED with HDR10+ and HLG support. It runs Samsung's One UI Tizen smart platform and works with Alexa, Bixby, and SmartThings. The native refresh rate is 60Hz, and Motion Xcelerator and ALLM help with motion and gaming. You get three HDMI ports, two USB-A ports, Wi-Fi, Bluetooth, and a 20-watt two-channel speaker system.

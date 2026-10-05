@@ -29,7 +29,7 @@ specs:
   value: 7.8 W (Active)5.4 W (Standby)
 why_deal: B&H Photo has it for $239.99, down from $319.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Samsung 1TB 990 PRO PCIe 4.0 x4 M.2 Internal SSD. 1TB
-  Storage Capacity, M.2 2280 Form Factor, PCIe 4.0 x4 / NVMe 2.0 Interface, Sequential
+description: The Samsung 990 PRO packs 1TB of storage into a standard M.2 2280 stick
+  and runs over PCIe 4.0 x4 with NVMe 2.0, so it's a clean upgrade for a desktop or
 ---
-I looked at the Samsung 1TB 990 PRO PCIe 4.0 x4 M.2 Internal SSD. 1TB Storage Capacity, M.2 2280 Form Factor, PCIe 4.0 x4 / NVMe 2.0 Interface, Sequential Reads up to 7450 MB/s, Sequential Writes up to 6900 MB/s, Up to 600TB TBW (Total Bytes Written), Samsung V-NAND Flash Technology. I saw it at B&H Photo and wanted a clean product write-up here.
+The Samsung 990 PRO packs 1TB of storage into a standard M.2 2280 stick and runs over PCIe 4.0 x4 with NVMe 2.0, so it's a clean upgrade for a desktop or laptop that has a free slot. Sequential reads go up to 7,450 MB/s and writes up to 6,900 MB/s, which makes big file transfers and load times feel quick. It's built on Samsung V-NAND, carries an endurance rating of up to 600TB written, and has AES 256-bit encryption to help keep your data secure.
