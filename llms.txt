@@ -22,7 +22,10 @@ layout: null
 - [Home]({{ '/' | absolute_url }}): newest items for sale and featured deals
 - [For sale]({{ '/shop/' | absolute_url }}): used tech sold directly, with condition notes
 - [Deals]({{ '/deals/' | absolute_url }}): affiliate deals at other stores
-- [About]({{ '/about/' | absolute_url }}): who runs the site, how buying works, affiliate disclosure
+- [About]({{ '/about/' | absolute_url }}): who runs the site and how buying works
+- [Returns & shipping]({{ '/returns/' | absolute_url }}): shipping times, returns, and refunds
+- [Affiliate disclosure]({{ '/disclosure/' | absolute_url }}): how affiliate links on the Deals page work
+- [Terms]({{ '/terms/' | absolute_url }}) and [Privacy]({{ '/privacy/' | absolute_url }})
 
 ## For sale now
 {% for p in for_sale %}
