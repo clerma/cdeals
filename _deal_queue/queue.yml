@@ -396,3 +396,408 @@
     at Amazon
   notes: 'Store link not found (source is set to resolve: none). Paste the store link
     into affiliate_url before approving.'
+- id: d-70ca63e
+  status: new
+  title: 'eBay Countdown to Holiday Computer Deals: Up to 70% off + extra 20% off'
+  store: eBay
+  price: 332.36
+  category: Computers
+  brand: eBay
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791204950-s-l1600.webp?h=600&w=600
+  highlights:
+  - Free shipping
+  - May need a coupon or promo code at checkout
+  summary: 'The eBay Countdown to Holiday Computer Deals: Up to 70% off + extra 20%
+    off is a computer.'
+  expires: 2026-10-12
+  found: 2026-10-05
+  source: dealnews
+  source_link: https://www.dealnews.com/eBay-Countdown-to-Holiday-Computer-Deals-Up-to-70-off-extra-20-off-free-shipping/22246356.html?iref=rss
+  source_title: 'eBay Countdown to Holiday Computer Deals: Up to 70% off + extra 20%
+    off + free shipping'
+  notes: Store link not found (redirected to a bot dead-end (www.dealnews.com)). Paste
+    the store link into affiliate_url before approving.
+- id: d-8c851d6
+  status: new
+  title: lululemon Men's Smooth Spacer Jogger
+  store: lululemon
+  price: 69.0
+  category: Accessories
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791204605-lm5b18s_1179_2.webp?h=600&w=600
+  highlights:
+  - Free shipping
+  summary: The lululemon Men's Smooth Spacer Jogger is a accessorie.
+  expires: 2026-10-12
+  found: 2026-10-05
+  source: dealnews
+  source_link: https://www.dealnews.com/lululemon-Mens-Smooth-Spacer-Jogger-for-69-free-shipping/22246354.html?iref=rss
+  source_title: lululemon Men's Smooth Spacer Jogger for $69 + free shipping
+  notes: Store link not found (redirected to a bot dead-end (www.dealnews.com)). Paste
+    the store link into affiliate_url before approving.
+- id: d-6aa05bb
+  status: new
+  title: 'eBay Countdown to Holiday Phone Deals: Up to 70% off + extra 20% off'
+  store: eBay
+  price: 209.99
+  category: Phones
+  brand: eBay
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791204436-product-trimmed.jpg?h=600&w=600
+  highlights:
+  - Free shipping
+  - May need a coupon or promo code at checkout
+  summary: 'The eBay Countdown to Holiday Phone Deals: Up to 70% off + extra 20% off
+    is a phone.'
+  expires: 2026-10-11
+  found: 2026-10-05
+  source: dealnews
+  source_link: https://www.dealnews.com/eBay-Countdown-to-Holiday-Phone-Deals-Up-to-70-off-extra-20-off-free-shipping/22246352.html?iref=rss
+  source_title: 'eBay Countdown to Holiday Phone Deals: Up to 70% off + extra 20%
+    off + free shipping'
+  notes: Store link not found (redirected to a bot dead-end (www.dealnews.com)). Paste
+    the store link into affiliate_url before approving.
+- id: d-2c42a8d
+  status: new
+  title: Aovopro 10" 500W Electric Scooter
+  store: AliExpress
+  price: 127.0
+  category: Accessories
+  brand: Aovopro
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791204248-s841676a2e41341379d98ee2c8b2faa56r.avif?h=600&w=600
+  highlights:
+  - Free shipping
+  - May need a coupon or promo code at checkout
+  summary: The Aovopro 10" 500W Electric Scooter is a accessorie with 10" display,
+    500W power.
+  expires: 2026-10-07
+  found: 2026-10-05
+  source: dealnews
+  source_link: https://www.dealnews.com/Aovopro-10-500-W-Electric-Scooter-for-127-free-shipping/22246334.html?iref=rss
+  source_title: Aovopro 10" 500W Electric Scooter for $127 + free shipping
+  notes: 'Store link not found (skipped: dealnews store links kept failing this run).
+    Paste the store link into affiliate_url before approving.'
+- id: d-066c017
+  status: new
+  title: Apple MacBook Air M5 Techtober Deals
+  store: Best Buy
+  price: 1099.0
+  compare_at: 1299.0
+  discount_pct: 15
+  category: Laptops
+  brand: Apple
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791204134-776b4db3-e2f4-4412-b45c-99cbef911bd6.webp?h=600&w=600
+  highlights:
+  - "$200 under its usual price"
+  - Free shipping
+  summary: The Apple MacBook Air M5 Techtober Deals is a laptop with M5 chip.
+  expires: 2026-10-12
+  found: 2026-10-05
+  source: dealnews
+  source_link: https://www.dealnews.com/Apple-Mac-Book-Air-M5-Techtober-Deals-at-Best-Buy-for-From-1-099-free-shipping/22246332.html?iref=rss
+  source_title: Apple MacBook Air M5 Techtober Deals at Best Buy for From $1,099 +
+    free shipping
+  notes: 'Store link not found (skipped: dealnews store links kept failing this run).
+    Paste the store link into affiliate_url before approving.'
+- id: d-02d59e3
+  status: new
+  title: Flashforge AD5X Multi-Color 3D Printer w/ One-Click Auto Leveling
+  store: AliExpress
+  price: 218.0
+  category: Accessories
+  brand: Flashforge
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791203770-s21baccddf78d469e977ffd50663e4a67h.avif?h=600&w=600
+  highlights:
+  - Free shipping
+  - May need a coupon or promo code at checkout
+  summary: The Flashforge AD5X Multi-Color 3D Printer w/ One-Click Auto Leveling is
+    a accessorie.
+  expires: 2026-10-07
+  found: 2026-10-05
+  source: dealnews
+  source_link: https://www.dealnews.com/Flashforge-AD5-X-Multi-Color-3-D-Printer-w-One-Click-Auto-Leveling-for-218-free-shipping/22246330.html?iref=rss
+  source_title: Flashforge AD5X Multi-Color 3D Printer w/ One-Click Auto Leveling
+    for $218 + free shipping
+  notes: 'Store link not found (skipped: dealnews store links kept failing this run).
+    Paste the store link into affiliate_url before approving.'
+- id: d-0d3105b
+  status: new
+  title: Fanttik L2 Pro Cordless Electric Screwdriver Set
+  store: Amazon
+  price: 45.0
+  category: Accessories
+  brand: Fanttik
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791203549-71oraykuf5l.jpg?h=600&w=600
+  highlights:
+  - Free shipping
+  summary: The Fanttik L2 Pro Cordless Electric Screwdriver Set is a accessorie.
+  expires: 2026-10-12
+  found: 2026-10-05
+  source: dealnews
+  source_link: https://www.dealnews.com/Fanttik-L2-Pro-Cordless-Electric-Screwdriver-Set-for-45-free-shipping/22246329.html?iref=rss
+  source_title: Fanttik L2 Pro Cordless Electric Screwdriver Set for $45 + free shipping
+  notes: 'Store link not found (skipped: dealnews store links kept failing this run).
+    Paste the store link into affiliate_url before approving.'
+- id: d-77d03c9
+  status: new
+  title: Joyfy 5-Foot Giant Halloween Spider
+  store: Walmart
+  price: 11.69
+  compare_at: 24.0
+  discount_pct: 51
+  category: Accessories
+  brand: Joyfy
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791193603-joyfy-5-ft-giant-spider-halloween-decorations-scary-spider-halloween-outdoor-party-decorations-props.avif?h=600&w=600
+  highlights:
+  - "$12 under its usual price"
+  - Free shipping
+  summary: The Joyfy 5-Foot Giant Halloween Spider is a accessorie.
+  expires: 2026-10-12
+  found: 2026-10-05
+  source: dealnews
+  source_link: https://www.dealnews.com/Joyfy-5-Foot-Giant-Halloween-Spider-for-12-free-shipping-w-35/22246098.html?iref=rss
+  source_title: Joyfy 5-Foot Giant Halloween Spider for $12 + free shipping w/ $35
+  notes: 'Store link not found (skipped: dealnews store links kept failing this run).
+    Paste the store link into affiliate_url before approving.'
+- id: d-bf28f50
+  status: new
+  title: Soundcore P30i by Anker Noise Cancelling Earbuds
+  store: Amazon
+  price: 23.0
+  category: Audio
+  brand: Soundcore
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/232259.webp
+  highlights:
+  - Free shipping
+  summary: The Soundcore P30i by Anker Noise Cancelling Earbuds is a audio with Noise
+    Cancelling style.
+  expires: 2026-10-12
+  found: 2026-10-05
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/soundcore-p30i-by-anker-noise-cancelling-earbuds-1084868/#rss
+  source_title: Soundcore P30i by Anker Noise Cancelling Earbuds  $23 at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+- id: d-0f28f63
+  status: new
+  title: 10-Piece Gotham Steel Tri Ply Stainless Steel Cookware Set
+  store: Amazon
+  price: 64.0
+  category: Accessories
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/292120.webp
+  highlights:
+  - Free shipping
+  summary: The 10-Piece Gotham Steel Tri Ply Stainless Steel Cookware Set is a accessorie.
+  expires: 2026-10-12
+  found: 2026-10-05
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/10-piece-gotham-steel-tri-ply-stainless-steel-cookware-set-1084883/#rss
+  source_title: 10-Piece Gotham Steel Tri Ply Stainless Steel Cookware Set  $64 at
+    Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+- id: d-ff1d7b8
+  status: new
+  title: 5-Piece Cuisinart AcaciaFusion Silicone Kitchen Tool Se
+  store: Amazon
+  price: 17.0
+  category: Accessories
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/292118.webp
+  highlights:
+  - Free shipping
+  - Prime members only
+  summary: The 5-Piece Cuisinart AcaciaFusion Silicone Kitchen Tool Se is a accessorie.
+  expires: 2026-10-12
+  found: 2026-10-05
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/5-piece-cuisinart-acaciafusion-silicone-kitchen-tool-se-1084882/#rss
+  source_title: 5-Piece Cuisinart AcaciaFusion Silicone Kitchen Tool Se  $17 at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+- id: d-94ae468
+  status: new
+  title: SPORTSROYALS PT2 Multi-Grip A-Frame Power Tower
+  store: Amazon
+  price: 158.0
+  category: Accessories
+  brand: SPORTSROYALS
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/292117.webp
+  highlights:
+  - Free shipping
+  - May need a coupon or promo code at checkout
+  summary: The SPORTSROYALS PT2 Multi-Grip A-Frame Power Tower is a accessorie.
+  expires: 2026-10-12
+  found: 2026-10-05
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/sportsroyals-pt2-multi-grip-a-frame-power-tower-1084881/#rss
+  source_title: SPORTSROYALS PT2 Multi-Grip A-Frame Power Tower  $158 at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+- id: d-2b61733
+  status: new
+  title: JBL Live 680NC Wireless on-Ear Noise Cancelling Headphones
+  store: Amazon
+  price: 80.0
+  category: Audio
+  brand: JBL
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/292116.webp
+  highlights:
+  - Free shipping
+  summary: The JBL Live 680NC Wireless on-Ear Noise Cancelling Headphones is a audio
+    with Wireless style.
+  expires: 2026-10-12
+  found: 2026-10-05
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/jbl-live-680nc-wireless-on-ear-noise-cancelling-headphones-1084880/#rss
+  source_title: JBL Live 680NC Wireless on-Ear Noise Cancelling Headphones  $80 at
+    Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+- id: d-229ba65
+  status: new
+  title: 3.4oz Versace Eros for Men Parfum Spray
+  store: Amazon
+  price: 69.0
+  category: Accessories
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/292114.webp
+  highlights:
+  - Free shipping
+  summary: The 3.4oz Versace Eros for Men Parfum Spray is a accessorie.
+  expires: 2026-10-12
+  found: 2026-10-05
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/3-4oz-versace-eros-for-men-parfum-spray-1084879/#rss
+  source_title: 3.4oz Versace Eros for Men Parfum Spray  $69 at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+- id: d-cc07532
+  status: new
+  title: Traveler's Choice Ultimax II 28" Medium Trunk Spinner Luggage
+  store: Amazon
+  price: 108.0
+  category: Accessories
+  brand: Travelers
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/292113.webp
+  highlights:
+  - Free shipping
+  summary: The Traveler's Choice Ultimax II 28" Medium Trunk Spinner Luggage is a
+    accessorie with 28" display.
+  expires: 2026-10-12
+  found: 2026-10-05
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/traveler-s-choice-ultimax-ii-28-medium-trunk-spinner-luggage-1084878/#rss
+  source_title: Traveler's Choice Ultimax II 28" Medium Trunk Spinner Luggage   $108
+    at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+- id: d-59b6bbe
+  status: new
+  title: Bose QuietComfort Wireless Noise Cancelling Bluetooth Headphones
+  store: Amazon
+  price: 151.0
+  category: Audio
+  brand: Bose
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/251509.webp
+  highlights:
+  - Free shipping
+  summary: The Bose QuietComfort Wireless Noise Cancelling Bluetooth Headphones is
+    a audio with Wireless style, Bluetooth connectivity.
+  expires: 2026-10-12
+  found: 2026-10-05
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/bose-quietcomfort-wireless-noise-cancelling-bluetooth-headphones-1084876/#rss
+  source_title: Bose QuietComfort Wireless Noise Cancelling Bluetooth Headphones  $151
+    at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+- id: d-3e08046
+  status: new
+  title: 75" Vizio Quantum Pro 4K QLED 120Hz Quantum Color Smart TV
+  store: Walmart
+  price: 398.0
+  category: TV & Home Theater
+  affiliate_url: ''
+  image: https://static.slickdealscdn.com/attachment/8/6/6/3/0/300x300/21809841.thumb
+  highlights: []
+  summary: The 75" Vizio Quantum Pro 4K QLED 120Hz Quantum Color Smart TV is a tv
+    & home theater with 75" display, 4K panel, 120 Hz refresh rate.
+  expires: 2026-10-08
+  found: 2026-10-05
+  source: slickdeals-rss
+  source_link: https://slickdeals.net/f/20098569-75-vizio-quantum-pro-4k-qled-120hz-smart-tv-vqp75c-84-398-00-free-shipping-w-walmart-or-on-35
+  source_title: 75" Vizio Quantum Pro 4K QLED 120Hz Quantum Color Smart TV $398 +
+    Free S&H
+  notes: 'Store link not found (Slickdeals lead: store link not in the feed (walmart.com)).
+    Paste the store link into affiliate_url before approving.'
+- id: d-7f8dc76
+  status: new
+  title: 4-Pack
+  store: Costco
+  price: 25.0
+  category: Gaming
+  brand: Costco
+  affiliate_url: ''
+  image: https://static.slickdealscdn.com/attachment/2/3/8/5/4/6/4/0/300x300/21807060.thumb
+  highlights: []
+  summary: The 4-Pack is a gaming.
+  expires: 2026-10-08
+  found: 2026-10-05
+  source: slickdeals-rss
+  source_link: https://slickdeals.net/f/20099667-costco-members-20-off-playstation-egift-cards-digital-delivery-79-99
+  source_title: 'Costco Members: 4-Pack $25 Sony PlayStation eGift Card (Email Delivery)
+    $80 & More'
+  notes: 'Store link not found (Slickdeals lead: store link not in the feed (costco.com)).
+    Paste the store link into affiliate_url before approving.'
+- id: d-4779aad
+  status: new
+  title: Apple Watch Ultra 4 49mm GPS + Cellular 5G Smartwatch (M/L)
+  store: Costco
+  price: 700.0
+  category: Wearables
+  brand: Costco
+  affiliate_url: ''
+  image: https://static.slickdealscdn.com/attachment/8/6/6/3/0/300x300/21809193.thumb
+  highlights: []
+  summary: The Apple Watch Ultra 4 49mm GPS + Cellular 5G Smartwatch (M/L) is a wearable
+    with GPS + Cellular connectivity.
+  expires: 2026-10-08
+  found: 2026-10-05
+  source: slickdeals-rss
+  source_link: https://slickdeals.net/f/20099820-costco-members-apple-watch-ultra-4-gps-cellular-49mm-black-titanium-case-with-5g-and-satellite-communications-size-m-l-various-699-99
+  source_title: 'Costco Members:  Apple Watch Ultra 4 49mm GPS + Cellular 5G Smartwatch
+    (M/L) $700 + $5 S&H'
+  notes: 'Store link not found (Slickdeals lead: store link not in the feed (costco.com)).
+    Paste the store link into affiliate_url before approving.'
+- id: d-b3741a7
+  status: new
+  title: Legacy of Kain Soul Reaver 1&2 Remastered (Nintendo Switch)
+  store: Best Buy
+  price: 15.0
+  category: Gaming
+  brand: Legacy
+  affiliate_url: ''
+  image: https://static.slickdealscdn.com/attachment/1/3/2/7/8/1/1/300x300/21809178.thumb
+  highlights:
+  - Free shipping
+  summary: The Legacy of Kain Soul Reaver 1&2 Remastered (Nintendo Switch) is a gaming.
+  expires: 2026-10-08
+  found: 2026-10-05
+  source: slickdeals-rss
+  source_link: https://slickdeals.net/f/20099325-legacy-of-kain-soul-reaver-1-2-remastered-nintendo-switch-14-99-best-buy-amazon
+  source_title: Legacy of Kain Soul Reaver 1&2 Remastered (Nintendo Switch) $15
+  notes: 'Store link not found (Slickdeals lead: store link not in the feed (bestbuy.com)).
+    Paste the store link into affiliate_url before approving.'
