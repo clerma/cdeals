@@ -83,7 +83,7 @@
 }
 
 /* Home brands strip — even full-width columns (count via --brand-n).
-   Brand SVGs use tight viewBoxes so letterforms fill the tile. */
+   Brand SVGs use tight viewBoxes; mid size ~46px desktop / ~36px mobile. */
 .brand-logo-strip {
   display: grid;
   gap: 0.75rem;
@@ -94,15 +94,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 5rem;
-  padding: 1rem 0.85rem !important;
-  font-size: 1.2rem;
+  min-height: 4.25rem;
+  padding: 0.85rem 0.75rem !important;
+  font-size: 1.0625rem;
   font-weight: 600;
 }
 .brand-logo-strip > .btn img {
   width: auto;
   max-width: 100%;
-  height: 2.75rem;
+  height: 2.25rem; /* ~36px mobile */
   object-fit: contain;
   margin: 0 auto;
   display: block;
@@ -113,21 +113,21 @@
     gap: 1rem;
   }
   .brand-logo-strip > .btn {
-    min-height: 6.25rem;
-    padding: 1.15rem 1rem !important;
-    font-size: 1.3rem;
+    min-height: 5rem;
+    padding: 0.95rem 0.85rem !important;
+    font-size: 1.125rem;
   }
   .brand-logo-strip > .btn img {
-    height: 3.35rem;
+    height: 2.625rem; /* ~42px */
   }
 }
 @media (min-width: 992px) {
   .brand-logo-strip > .btn {
-    min-height: 7rem;
-    padding: 1.35rem 1.15rem !important;
-    font-size: 1.375rem;
+    min-height: 5.5rem;
+    padding: 1.05rem 1rem !important;
+    font-size: 1.1875rem;
   }
   .brand-logo-strip > .btn img {
-    height: 3.75rem;
+    height: 2.875rem; /* ~46px desktop */
   }
 }
