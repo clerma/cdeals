@@ -49,7 +49,7 @@ categories:
   Wearables: [smartwatch, smart watch, apple watch, galaxy watch, pixel watch, fitness tracker, fitbit, garmin, oura, smart ring, whoop]
   Gaming: [nintendo switch, switch 2, playstation, ps5, ps4, xbox, steam deck, rog ally, legion go, gaming controller, dualsense, controller, meta quest, vr headset, gaming headset, gaming mouse, gaming keyboard]
   TV & Home Theater: [tv, oled tv, qled, 4k tv, smart tv, projector, soundbar, sound bar, home theater, roku, fire tv, chromecast, apple tv, streaming stick, streaming device, av receiver]
-  Smart Home: [echo dot, echo show, echo pop, echo spot, echo hub, alexa, google nest, nest hub, smart plug, smart display, video doorbell, doorbell, security camera, ring, blink, arlo, wyze, eufy, smart lock, smart bulb, smart thermostat, robot vacuum, mesh wifi, wifi 7 router, router, eero]
+  Smart Home: [echo dot, echo show, echo pop, echo spot, echo hub, alexa, google nest, nest hub, smart plug, smart display, video doorbell, doorbell, security camera, ring, blink, arlo, wyze, eufy, smart lock, smart bulb, smart thermostat, robot vacuum, mesh wifi, wifi 7 router, router, eero, hue, philips hue, govee, nanoleaf, kasa, tapo, wiz, lifx, sengled, lutron, caseta, smart light, light strip, led strip, dimmer switch]
   Audio: [headphones, headphone, earbuds, airpods, earphones, headset, beats, speaker, speakers, bluetooth speaker, turntable, dac, amplifier, microphone, sonos, jbl]
   Cameras: [camera, mirrorless, dslr, gopro, action cam, insta360, dji osmo, webcam, dashcam, dash cam, drone, camera lens]
   Phones: [iphone, galaxy s2, galaxy s3, galaxy z, galaxy a, pixel 9, pixel 10, pixel 11, smartphone, unlocked phone, motorola edge, moto g, oneplus]
@@ -62,7 +62,7 @@ categories:
 feed_categories:
   Wearables: [smartwatches, wearables, wearable tech, fitness trackers]
   Gaming: [gaming, pc gaming, video games, vr headsets, consoles]
-  Smart Home: [smart home, smart home devices, home security, robot vacuums, routers, networking]
+  Smart Home: [smart home, smart home devices, home security, robot vacuums, routers, networking, lighting, smart lighting]
   TV & Home Theater: [tvs, hdtvs, 4k tvs, tv & home theater, tvs & projectors, projectors, sound bar, home theater, video streaming, streaming]
   Audio: [headphones, wireless earbuds, speakers & audio, speakers, audio components, audio]
   Cameras: [cameras, camcorders, cameras & camcorders, dash cams, drones]
@@ -214,7 +214,7 @@ feeds:
     link_selector: 'a[href*="amazon.com/dp/"], a[href*="amazon.com/gp/product/"]'
     max_items: 40
     max_candidates: 15
-    include_keywords: [echo, kindle, fire tv, fire hd, fire, ring, blink, eero, paperwhite]
+    include_keywords: [echo, kindle, fire tv, fire hd, fire, ring, blink, eero, paperwhite, hue, govee, nanoleaf, kasa, tapo, wiz, lifx, smart bulb, smart light, light strip, floor lamp, dimmer]
   - id: dealnews
     name: DealNews
     url: https://www.dealnews.com/?rss=1
@@ -265,7 +265,7 @@ sites:
       - https://www.techbargains.com/categories/gaming
       - https://www.techbargains.com/categories/pc-gaming
       - https://www.techbargains.com/categories/vr-headsets
-      - https://www.techbargains.com/categories/smart-home-devices
+      - https://www.techbargains.com/categories/smart-home-devices  # includes smart bulbs, strips, plugs, Hue/Govee/Kasa/etc.
       - https://www.techbargains.com/categories/home-security
       - https://www.techbargains.com/categories/networking
       - https://www.techbargains.com/categories/robot-vacuum
@@ -533,7 +533,7 @@ sites:
     max_candidates: 60
     expires_days: 5
     # Prefer Amazon-device titles; still mapped to categories by the global rules.
-    include_keywords: [echo, kindle, fire tv, fire hd, fire tablet, fire stick, fire cube, paperwhite, ring, blink, eero, scribe, fire max]
+    include_keywords: [echo, kindle, fire tv, fire hd, fire tablet, fire stick, fire cube, paperwhite, ring, blink, eero, scribe, fire max, hue, govee, nanoleaf, kasa, tapo, wiz, lifx, sengled, lutron, caseta, smart bulb, smart light, light strip, led strip, dimmer]
     urls:
       - https://www.techbargains.com/stores/amazon
       - https://www.techbargains.com/sales/prime-day-deals
