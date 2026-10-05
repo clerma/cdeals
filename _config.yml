@@ -6,6 +6,13 @@ tagline: Used tech I'm selling + the best deals I find
 description: >-
   Hand-checked used tech for sale direct from me, plus tech deals I've found
   around the web.
+# Used instead of the two above while none of my own items is for sale
+# (_plugins/selling_mode.rb). The selling wording comes back automatically
+# when at least one sale item is published.
+tagline_no_sale: The best tech deals I find
+description_no_sale: >-
+  Hand-checked tech deals from Amazon, B&H, Target, Newegg, Woot, and more,
+  picked by a real person.
 author: Carlos Lerma
 url: "https://cdeals.co"
 baseurl: ""

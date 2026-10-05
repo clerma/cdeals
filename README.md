@@ -62,6 +62,10 @@ Edit the top of `_config.yml`: `title`, `tagline`, `url`, `contact_email`, `affi
 
 These pages are a starting point, not legal advice.
 
+## Selling mode (automatic)
+
+While none of your own items is for sale (no `_products/` item with `type: sale` and `status: available`), the site reads as a deals site: the footer tagline and site/meta description switch to `tagline_no_sale` / `description_no_sale` in `_config.yml`, the home page uses its `title_no_sale` / `description_no_sale`, and the "Returns & shipping" and "All items for sale" links, the shop hero slides, the selling part of About and the "I also sell my own used items" part of the disclosure are hidden. The shop and returns pages still exist but are left out of `sitemap.xml`. Publish one sale item and all of it comes back on the next build. The switch is `_plugins/selling_mode.rb`; templates use `{% if site.selling %}`. The Terms, Privacy and Returns pages keep their selling sections.
+
 ## Hosting
 
 The output is a static site, so it can be hosted for free on CloudCannon, Netlify, Cloudflare Pages, or GitHub Pages (via a GitHub Action, because this site uses Jekyll 4). Expired deals are hidden at build time, so schedule a daily rebuild if you use `expires`.

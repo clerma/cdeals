@@ -28,9 +28,11 @@ Affiliate links on this site are marked as sponsored in the page code. Whether a
 
 Deal prices, coupons, and stock are set by the store and can change or end at any time, sometimes within minutes. The price you see here was right when I posted it. Always check the final price, shipping, and seller on the store's site before you buy. Questions about an order from another store go to that store.
 
+{% if site.selling %}
 ## I also sell my own used items
 
 Items on the [For sale]({{ '/shop/' | relative_url }}) page are my own used gear, sold directly by me. Those aren't affiliate links: when you buy one, you're buying from me, and the [Terms]({{ '/terms/' | relative_url }}) and [Returns & Shipping]({{ '/returns/' | relative_url }}) pages apply.
+{% endif %}
 
 ## Questions
 

@@ -1,6 +1,9 @@
 ---
 title: Used tech for sale + deals I've found
 description: Hand-checked used tech for sale direct from me, plus tech deals I've found around the web.
+# Used while none of my own items is for sale (see _plugins/selling_mode.rb).
+title_no_sale: The best tech deals I've found
+description_no_sale: Hand-checked tech deals from Amazon, B&H, Target, Newegg, Woot, and more, picked by a real person.
 permalink: /
 swiper: true   # loads the carousel script (only the home page uses carousels)
 
@@ -25,6 +28,7 @@ hero:
     image: /assets/images/theme/hero-vr.png
     link: /about/
     button: How it works
+    selling: true   # only shown while I have my own items for sale
 
 # Shown while nothing of mine is for sale ([stores] = the stores of the live deals).
 deal_features:
@@ -102,7 +106,7 @@ brands: [apple, samsung, sony, canon, motorola]
           <div class="col-lg-6 col-xl-5 offset-xl-1 d-flex align-items-center mt-lg-n3">
             <div class="swiper px-4 px-sm-5 pe-lg-0 ps-xl-0 me-lg-n5" data-swiper='{"spaceBetween": 64, "loop": true, "speed": 400, "controlSlider": "#sliderImages", "autoplay": {"delay": 5500, "disableOnInteraction": false}, "scrollbar": {"el": ".swiper-scrollbar"}}'>
               <div class="swiper-wrapper">
-                {% for s in home.hero %}{% if for_sale.size == 0 and s.link == '/shop/' %}{% continue %}{% endif %}
+                {% for s in home.hero %}{% if for_sale.size == 0 %}{% if s.link == '/shop/' or s.selling %}{% continue %}{% endif %}{% endif %}
                 <div class="swiper-slide text-center text-lg-start pt-5 py-lg-5">
                   <p class="text-body">{{ s.kicker }}</p>
                   <h2 class="display-4 pb-2 pb-xl-4">{{ s.title }}</h2>
@@ -118,7 +122,7 @@ brands: [apple, samsung, sony, canon, motorola]
           <div class="col-9 col-sm-7 col-md-6 col-lg-6 col-xl-5">
             <div class="swiper user-select-none" id="sliderImages" data-swiper='{"allowTouchMove": false, "loop": true, "effect": "fade", "fadeEffect": {"crossFade": true}}'>
               <div class="swiper-wrapper">
-                {% for s in home.hero %}{% if for_sale.size == 0 and s.link == '/shop/' %}{% continue %}{% endif %}
+                {% for s in home.hero %}{% if for_sale.size == 0 %}{% if s.link == '/shop/' or s.selling %}{% continue %}{% endif %}{% endif %}
                 <div class="swiper-slide d-flex justify-content-end">
                   <div class="ratio rtl-flip" style="max-width: 495px; --cz-aspect-ratio: calc(537 / 495 * 100%)">
                     <img src="{{ s.image | relative_url }}" alt="{{ s.title | escape }}">
