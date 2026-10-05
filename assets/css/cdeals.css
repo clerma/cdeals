@@ -67,7 +67,7 @@
 .navbar-brand .cdeals-logo-header {
   height: 40px;
   width: auto;
-  max-width: 160px;
+  max-width: 200px;
   display: block;
 }
 .navbar-brand .cdeals-logo-mark {
@@ -76,8 +76,8 @@
   display: block;
 }
 .footer-brand-logo {
-  height: 40px;
+  height: 44px;
   width: auto;
-  max-width: 180px;
+  max-width: 220px;
   display: block;
 }
