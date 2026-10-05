@@ -1,0 +1,46 @@
+---
+permalink: /llms.txt
+sitemap: false
+layout: null
+---
+{%- assign for_sale = site.products | where: "type", "sale" | where: "status", "available" | sort: "date" | reverse -%}
+{%- assign today = site.time | date: "%Y-%m-%d" -%}
+{%- assign deals = site.products | where: "type", "affiliate" | sort: "date" | reverse -%}
+# {{ site.title }}
+
+> {{ site.description | strip_html | strip_newlines | strip }}
+
+{{ site.title }} is run by {{ site.author }}. It has two parts: used tech that {{ site.author }} sells directly (checkout through AnyCart and Stripe), and affiliate deals at other stores. {{ site.affiliate_disclosure | strip }}
+
+- Website: {{ site.url }}/
+{%- if site.data.company.email and site.data.company.email != "" %}
+- Email: {{ site.data.company.email }}
+{%- endif %}
+
+## Pages
+
+- [Home]({{ '/' | absolute_url }}): newest items for sale and featured deals
+- [For sale]({{ '/shop/' | absolute_url }}): used tech sold directly, with condition notes
+- [Deals]({{ '/deals/' | absolute_url }}): affiliate deals at other stores
+- [About]({{ '/about/' | absolute_url }}): who runs the site, how buying works, affiliate disclosure
+
+## For sale now
+{% for p in for_sale %}
+- [{{ p.title }}]({{ p.url | absolute_url }}): {% include money.html amount=p.price %}, {{ p.condition | default: "used" | downcase }} condition{% if p.brand %}, {{ p.brand }}{% endif %}, {{ p.category }}
+{%- endfor %}
+{% if for_sale.size == 0 %}
+Nothing listed right now.
+{% endif %}
+## Current deals (affiliate)
+{% for p in deals %}
+{%- if p.expires %}{% assign exp = p.expires | date: "%Y-%m-%d" %}{% if exp < today %}{% continue %}{% endif %}{% endif %}
+- [{{ p.title }}]({{ p.url | absolute_url }}): {% include money.html amount=p.price %} at {{ p.store }}{% if p.compare_at %} (usually {% include money.html amount=p.compare_at %}){% endif %}
+{%- endfor %}
+{%- if site.data.faqs and site.data.faqs.size > 0 %}
+
+## FAQ
+{% for f in site.data.faqs %}
+**{{ f.q | strip }}**
+{{ f.a_plain | default: f.a | strip_html | strip }}
+{% endfor %}
+{%- endif %}

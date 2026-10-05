@@ -1,0 +1,11 @@
+# Shown on the About page and emitted as FAQPage schema, both only when this
+# list has entries. Twin-field pattern: `a` renders on the page (HTML allowed),
+# `a_plain` goes into JSON-LD for search and AI answer engines (plain text).
+# KEEP THEM IN SYNC.
+#
+# - q: Do you ship outside the US?
+#   a: >-
+#     Right now I only ship within the <strong>United States</strong>.
+#   a_plain: >-
+#     Right now I only ship within the United States.
+[]

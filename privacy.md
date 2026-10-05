@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Privacy Policy
+breadcrumb_title: Privacy
+description: "What information cDeals collects when you browse, buy, or click a deal link, how it's used, which outside services handle it, and the choices you have about it."
 permalink: /privacy/
 updated: 2026-10-04
 ---

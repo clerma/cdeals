@@ -1,6 +1,6 @@
 ---
-title: Used tech for sale + deals I've found
-description: Hand-checked used tech for sale direct from me, plus tech deals I've found around the web.
+title: "Used Tech for Sale & Hand-Picked Tech Deals"
+description: "Shop hand-checked used tech sold directly by me, from phones to laptops, plus the best tech deals I find at Amazon, Best Buy, Woot, and many other stores."
 permalink: /
 swiper: true   # loads the carousel script (only the home page uses carousels)
 
@@ -65,6 +65,9 @@ brands: [apple, samsung, sony, canon, motorola]
   {% assign deal_count = deal_count | plus: 1 %}
   {% if d.compare_at %}{% assign off = d.price | times: 100.0 | divided_by: d.compare_at | minus: 100 | round | abs %}{% if off > best_off %}{% assign best_off = off %}{% endif %}{% endif %}
 {% endfor %}
+
+<h1 class="visually-hidden">{{ site.title }}: {{ site.tagline }}</h1>
+<p class="page-lede visually-hidden">{{ page.description }}</p>
 
 <!-- Hero slider -->
 <section class="container pt-4">

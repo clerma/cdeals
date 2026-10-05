@@ -7,7 +7,10 @@ description: >-
   Hand-checked used tech for sale direct from me, plus tech deals I've found
   around the web.
 author: Carlos Lerma
-url: "" # e.g. https://cdeals.com
+url: "" # REQUIRED before launch: production domain, e.g. https://www.example.com — every canonical URL and schema @id is built from it
+lang: en_US
+currency: USD   # prices in _products are in this currency (used in Product schema)
+logo: ""        # path to your logo, e.g. /assets/images/logo.png — used for Organization schema and as the default share image
 baseurl: ""
 contact_email: you@example.com # shown on item pages for questions
 
@@ -40,6 +43,14 @@ affiliate_disclosure: >-
   Some links on this site are affiliate links. If you buy through them I may
   earn a small commission at no extra cost to you.
 
+# SEO: search console verification codes (emitted only when filled in)
+google_site_verification: ""
+bing_site_verification: ""
+
+# Social profiles (Instagram, YouTube, X, etc.). Feeds schema sameAs. Leave empty until real.
+social:
+  links: []
+
 # ---------------------------------------------------------------------------
 # Build
 # ---------------------------------------------------------------------------
@@ -63,7 +74,6 @@ defaults:
 
 plugins:
   - jekyll-sitemap
-  - jekyll-seo-tag
 
 exclude:
   - README.md

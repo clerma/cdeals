@@ -1,8 +1,12 @@
 ---
 layout: page
-title: About
+title: "About cDeals: Who Runs It & How Buying Works"
+breadcrumb_title: About
 heading: About cDeals
 permalink: /about/
+description: "Meet the person behind cDeals and learn how buying used tech directly from me works, from condition checks and photos to secure checkout and shipping."
+show_faq: true
+show_testimonials: true
 ---
 I'm {{ site.author }}. I buy a lot of tech, and when I upgrade I sell the old gear here instead of dealing with
 marketplace fees and lowball offers. I also post the best deals I come across.

@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Affiliate Disclosure
+breadcrumb_title: Disclosure
+description: "How cDeals earns money: some deal links are affiliate links, so I may earn a small commission when you buy, at no extra cost to you and with no effect on prices."
 permalink: /disclosure/
 updated: 2026-10-04
 ---

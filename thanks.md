@@ -9,4 +9,5 @@ text: You'll get a receipt by email. I'll ship your item within 2 business days 
 buttons:
   - label: Back to home
     url: /
+noindex: true
 ---

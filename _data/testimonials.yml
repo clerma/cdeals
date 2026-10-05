@@ -1,0 +1,10 @@
+# Real buyer reviews only. The review schema and the visible "What buyers say"
+# section on the About page both light up with the first entry.
+# Optional fields are simply left off.
+#
+# - name: Jordan P.
+#   review: >-
+#     iPad arrived exactly as described and shipped the next day.
+#   rating: 5            # only if the buyer actually rated
+#   date: 2026-10-01     # only if you know it
+[]

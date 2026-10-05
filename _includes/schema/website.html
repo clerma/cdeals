@@ -1,0 +1,18 @@
+{% comment %} WebSite + sitelinks search box (the site really has /shop/?q= search). {% endcomment %}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "@id":"{{ website_id }}",
+  "url":"{{ site.url }}/",
+  "name":{{ site.title | jsonify }},
+  "description":{{ site.description | strip_html | strip_newlines | strip | jsonify }},
+  "publisher":{"@id":"{{ business_id }}"},
+  "inLanguage":"en-US",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":{"@type":"EntryPoint","urlTemplate":"{{ '/shop/' | absolute_url }}?q={search_term_string}"},
+    "query-input":"required name=search_term_string"
+  }
+}
+</script>

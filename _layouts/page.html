@@ -2,13 +2,46 @@
 layout: default
 ---
 {% comment %}
-  Simple text page. Front matter: title, heading (optional, defaults to title), width (optional, px),
-  updated (optional date, shown as "Last updated").
-  The page's Markdown body is the content.
+  Simple text page. Front matter: title, heading (optional, defaults to title),
+  width (optional, px), updated (optional date, shown as "Last updated"),
+  show_faq, show_testimonials. The Markdown body is the content.
+  The FAQ and reviews sections use the SAME gates as their schema, so adding the
+  first entry to _data/faqs.yml or _data/testimonials.yml lights up both at once.
 {% endcomment %}
-{% include page-header.html title=page.title %}
+{% assign crumb = page.breadcrumb_title | default: page.title %}
+{% include page-header.html title=crumb %}
 <section class="container pb-5 mb-2 mb-md-3 mb-lg-4" style="max-width: {{ page.width | default: 800 }}px">
   <h1 class="h3 {% if page.updated %}mb-2{% else %}mb-4{% endif %}">{{ page.heading | default: page.title }}</h1>
   {% if page.updated %}<p class="fs-sm text-body-secondary mb-4">Last updated {{ page.updated | date: "%B %-d, %Y" }}</p>{% endif %}
   <div class="page-content fs-base">{{ content }}</div>
+
+  {% assign client_reviews = site.data.testimonials | where_exp: "t", "t.review" %}
+  {% if page.show_testimonials and client_reviews.size > 0 %}
+  <h2 class="h5 pt-4 mb-3">What buyers say</h2>
+  <div class="d-flex flex-column gap-3">
+    {% for t in client_reviews %}
+    <figure class="border rounded-4 p-4 mb-0">
+      {% if t.rating %}<div class="d-flex gap-1 fs-sm mb-2" aria-label="{{ t.rating }} out of 5 stars">{% for i in (1..5) %}<i class="{% if i <= t.rating %}ci-star-filled text-warning{% else %}ci-star text-body-tertiary{% endif %}"></i>{% endfor %}</div>{% endif %}
+      <blockquote class="mb-2">{{ t.review }}</blockquote>
+      <figcaption class="fs-sm text-body-secondary">{{ t.name }}{% if t.date %} · {{ t.date | date: "%b %Y" }}{% endif %}</figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if page.show_faq and site.data.faqs and site.data.faqs.size > 0 %}
+  <h2 class="h5 pt-4 mb-3" id="faq">Questions</h2>
+  <div class="accordion" id="faqAccordion">
+    {% for f in site.data.faqs %}
+    <div class="accordion-item">
+      <h3 class="accordion-header" id="faq-h-{{ forloop.index }}">
+        <button type="button" class="accordion-button{% unless forloop.first %} collapsed{% endunless %}" data-bs-toggle="collapse" data-bs-target="#faq-{{ forloop.index }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="faq-{{ forloop.index }}">{{ f.q }}</button>
+      </h3>
+      <div class="accordion-collapse collapse{% if forloop.first %} show{% endif %}" id="faq-{{ forloop.index }}" aria-labelledby="faq-h-{{ forloop.index }}" data-bs-parent="#faqAccordion">
+        <div class="accordion-body fs-sm">{{ f.a }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
 </section>

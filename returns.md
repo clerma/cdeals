@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Returns & Shipping
+breadcrumb_title: Returns & shipping
+description: "How shipping works for used tech bought from cDeals, when orders go out, and how returns, refunds, and items that arrive damaged or not as described are handled."
 permalink: /returns/
 updated: 2026-10-04
 # Money terms are placeholders until you decide them. Replace every

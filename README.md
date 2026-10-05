@@ -66,6 +66,31 @@ These pages are a starting point, not legal advice.
 
 The output is a static site, so it can be hosted for free on CloudCannon, Netlify, Cloudflare Pages, or GitHub Pages (via a GitHub Action, because this site uses Jekyll 4). Expired deals are hidden at build time, so schedule a daily rebuild if you use `expires`.
 
+## SEO, AI answers (AIO/GEO)
+
+One include, `_includes/seo.html`, outputs every page's title, description, canonical URL, Open Graph/Twitter tags and structured data (JSON-LD). There's no SEO plugin.
+
+| Schema | Where | Source |
+|---|---|---|
+| WebSite (+ site search box) | every page | `_config.yml` |
+| OnlineStore (the business) | every page | `_config.yml` + `_data/company.yml` |
+| WebPage + BreadcrumbList | every page | page front matter |
+| Product + Offer | each item in `_products` | item front matter (price, condition, sold/in stock, brand, store) |
+| CollectionPage + ItemList | For sale, Deals | `show_collection` / `collection_type` front matter |
+| FAQPage | About | `_data/faqs.yml` (only when it has entries) |
+| Reviews / rating | OnlineStore | `_data/testimonials.yml`, `rating_value` / `review_count` (only when real) |
+
+Optional data stays out of the markup until it's real. Add the first FAQ or review and both the About page section and the schema appear together.
+
+**Per-page front matter:** `title` (60 characters max), `description` (150–160), `image`, `breadcrumb_title`, `noindex: true`, `canonical_url`. Items get their description and image from their own fields automatically.
+
+**For AI crawlers:** `/llms.txt` lists the pages, everything for sale and the current deals in plain Markdown, rebuilt with the site. `/robots.txt` and `/sitemap.xml` are generated too.
+
+**Check before publishing:**
+```
+bundle exec jekyll build && python3 scripts/check-seo.py _site
+```
+
 ## Home page and theme
 
 Every page's content lives in its own front matter (or Markdown body):

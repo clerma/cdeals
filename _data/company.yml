@@ -1,0 +1,21 @@
+# Store facts: the single source of truth for the Organization (OnlineStore)
+# schema. Fill only what you actually know; empty values are OMITTED from
+# structured data entirely, never emitted as placeholders.
+#
+# Name, slogan, description, URL, logo, and founder come from _config.yml
+# (title, tagline, description, url, logo, author) so they live in one place.
+
+# Public contact email for schema. Leave empty until it's a real address.
+email: ""
+
+# Where you ship from / to. ISO country code, e.g. US. Leave empty if unsure.
+country: ""
+
+# Optional: leave empty to OMIT from structured data.
+payment_accepted: []      # e.g. [Credit Card, Apple Pay, Google Pay]
+
+# Required to emit AggregateRating: copy the real numbers from wherever your
+# reviews live (e.g. eBay feedback, Google). Never defaulted, never derived
+# from the testimonial count.
+rating_value: ""
+review_count: ""

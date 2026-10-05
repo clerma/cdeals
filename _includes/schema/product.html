@@ -1,0 +1,44 @@
+{% comment %}
+  Product + Offer for every _products item.
+  - type "sale": I'm the seller (the OnlineStore @id). Availability follows status,
+    itemCondition is UsedCondition (these are used items).
+  - type "affiliate": the offer's seller is the outside store; the offer stays on
+    this page's URL, and priceValidUntil appears only when `expires` is set.
+  Optional fields (brand, sku, highlights) are omitted when empty.
+{% endcomment %}
+{%- assign p = page -%}
+{%- capture product_desc -%}{{ p.content | strip_html | strip_newlines | strip }}{% if p.highlights %} {{ p.highlights | join: ". " }}.{% endif %}{%- endcapture -%}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Product",
+  "@id":"{{ canonical_url }}#product",
+  "name":{{ p.title | jsonify }},
+  "url":"{{ canonical_url }}",
+  "description":{{ product_desc | strip | jsonify }}
+  {%- if p.images and p.images.size > 0 %},
+  "image":[{% for img in p.images %}"{{ img | absolute_url }}"{% unless forloop.last %},{% endunless %}{% endfor %}]{% endif %}
+  {%- if p.category %},
+  "category":{{ p.category | jsonify }}{% endif %}
+  {%- if p.brand and p.brand != "" %},
+  "brand":{"@type":"Brand","name":{{ p.brand | jsonify }}}{% endif %}
+  {%- if p.type != "affiliate" and p.anycart_id and p.anycart_id != "" %},
+  "sku":{{ p.anycart_id | jsonify }}{% endif %},
+  "offers":{
+    "@type":"Offer",
+    "url":"{{ canonical_url }}",
+    "price":"{{ p.price }}",
+    "priceCurrency":"{{ site.currency | default: 'USD' }}"
+    {%- if p.type == "affiliate" %},
+    "availability":"https://schema.org/InStock",
+    "seller":{"@type":"Organization","name":{{ p.store | jsonify }}}
+      {%- if p.expires %},
+    "priceValidUntil":"{{ p.expires | date: '%Y-%m-%d' }}"{% endif %}
+    {%- else %},
+    "itemCondition":"https://schema.org/UsedCondition",
+    "availability":"https://schema.org/{% if p.status == 'sold' %}SoldOut{% else %}InStock{% endif %}",
+    "seller":{"@id":"{{ business_id }}"}
+    {%- endif %}
+  }
+}
+</script>
