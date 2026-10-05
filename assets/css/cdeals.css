@@ -81,3 +81,23 @@
   max-width: 220px;
   display: block;
 }
+
+/* Home brands strip — even full-width columns (count via --brand-n) */
+.brand-logo-strip {
+  display: grid;
+  gap: 0.75rem 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+.brand-logo-strip > .btn img {
+  max-height: 28px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+}
+@media (min-width: 576px) {
+  .brand-logo-strip {
+    grid-template-columns: repeat(var(--brand-n, 5), minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
