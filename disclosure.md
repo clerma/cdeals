@@ -38,4 +38,4 @@ Items on the [For sale]({{ '/shop/' | relative_url }}) page are my own used gear
 
 ## Questions
 
-Email me at [{{ site.contact_email }}](mailto:{{ site.contact_email }}).
+Use the [contact form]({{ '/contact/' | relative_url }}).

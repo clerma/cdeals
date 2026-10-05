@@ -6,7 +6,7 @@ description: "What information cDeals collects when you browse, buy, or click a 
 permalink: /privacy/
 updated: 2026-10-04
 ---
-This policy explains what information is collected when you use {{ site.title }}, who collects it, and what you can do about it. The site is run by {{ site.legal_name }}. Contact: [{{ site.contact_email }}](mailto:{{ site.contact_email }}).
+This policy explains what information is collected when you use {{ site.title }}, who collects it, and what you can do about it. The site is run by {{ site.legal_name }}. Contact: use the [contact form]({{ '/contact/' | relative_url }}).
 
 ## The short version
 
@@ -32,7 +32,7 @@ This policy explains what information is collected when you use {{ site.title }}
 - **California (CCPA/CPRA):** you can ask what personal information I hold about you, ask me to delete it, and ask me to correct it. I don't sell or share personal information for cross-context behavioral advertising.
 - **EU/UK (GDPR):** I use order information to fulfill a contract with you (your purchase) and to meet legal obligations like tax records. You can ask for access, correction, deletion, or a copy of your data, and object to processing. You can also complain to your local data protection authority.
 
-To make any of these requests, email [{{ site.contact_email }}](mailto:{{ site.contact_email }}). I'll respond within the time the law requires.
+To make any of these requests, use the [contact form]({{ '/contact/' | relative_url }}). I'll respond within the time the law requires.
 
 ## Children
 
