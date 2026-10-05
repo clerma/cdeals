@@ -14,5 +14,15 @@ images:
 highlights:
 - "$800 under its usual price"
 source: bh-deals-categories
+specs:
+- label: Display
+  value: 65"
+- label: Panel
+  value: 4K
+why_deal: B&H Photo has it for $1697.99, down from $2497.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Samsung S90H 65" 4K HDR Smart OLED TV. From the listing:
+  display 65", panel 4K. I posted it after checking the price at B&H Photo. Worth
+  a look for movies, sports, and everyday watching.'
 ---
-B&H Photo has it for $1697.99, down from $2497.99. Prices change fast, so check the price before you buy.
+This is the Samsung S90H 65" 4K HDR Smart OLED TV. From the listing: display 65", panel 4K. I posted it after checking the price at B&H Photo. Worth a look for movies, sports, and everyday watching.

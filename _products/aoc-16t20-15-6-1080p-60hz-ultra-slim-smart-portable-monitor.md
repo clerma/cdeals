@@ -15,5 +15,20 @@ highlights:
 - Free shipping
 - Prime members only
 source: techbargains-pages
+specs:
+- label: Display
+  value: 15.6"
+- label: Panel
+  value: 1080p
+- label: Refresh rate
+  value: 60 Hz
+- label: Form
+  value: Portable
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: 'This is the AOC 16T20 15.6" 1080p 60Hz Ultra Slim Smart Portable Monitor.
+  From the listing: display 15.6", panel 1080p, refresh rate 60 Hz, form Portable.
+  I posted it because Amazon had a strong price when I checked. Prices move, so confirm
+  the current price at Amazon before you buy.'
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is the AOC 16T20 15.6" 1080p 60Hz Ultra Slim Smart Portable Monitor. From the listing: display 15.6", panel 1080p, refresh rate 60 Hz, form Portable. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

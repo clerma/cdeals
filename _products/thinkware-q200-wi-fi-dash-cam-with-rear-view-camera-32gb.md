@@ -14,5 +14,15 @@ images:
 highlights:
 - "$50 under its usual price"
 source: bh-deals
+specs:
+- label: Storage
+  value: 32GB microSD
+- label: Connectivity
+  value: Wi-Fi
+why_deal: B&H Photo has it for $159.99, down from $209.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Thinkware Q200 Wi-Fi Dash Cam with Rear-View Camera & 32GB
+  microSD Card. From the listing: storage 32GB microSD, connectivity Wi-Fi. I posted
+  it after checking the price at B&H Photo. Worth a look for photos and video.'
 ---
-B&H Photo has it for $159.99, down from $209.99. Prices change fast, so check the price before you buy.
+This is the Thinkware Q200 Wi-Fi Dash Cam with Rear-View Camera & 32GB microSD Card. From the listing: storage 32GB microSD, connectivity Wi-Fi. I posted it after checking the price at B&H Photo. Worth a look for photos and video.

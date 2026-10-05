@@ -14,5 +14,13 @@ images:
 highlights:
 - "$10 under its usual price"
 source: bh-deals
+specs:
+- label: Style
+  value: On-Ear
+why_deal: B&H Photo has it for $14.99, down from $24.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Sony MDR-ZX110 On-Ear Headphones (Black). From the listing:
+  style On-Ear. I posted it after checking the price at B&H Photo. Worth a look if
+  you want better sound without a big setup.'
 ---
-B&H Photo has it for $14.99, down from $24.99. Prices change fast, so check the price before you buy.
+This is the Sony MDR-ZX110 On-Ear Headphones (Black). From the listing: style On-Ear. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.

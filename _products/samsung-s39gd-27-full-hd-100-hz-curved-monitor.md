@@ -16,5 +16,20 @@ highlights:
   new price
 - "$32 under its usual price"
 source: bh-used
+specs:
+- label: Display
+  value: 27"
+- label: Panel
+  value: Full HD
+- label: Refresh rate
+  value: 100 Hz
+- label: Form
+  value: Curved
+why_deal: B&H Photo has it for $77.95, down from $109.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Samsung S39GD 27" Full HD 100 Hz Curved Monitor. From the
+  listing: display 27", panel Full HD, refresh rate 100 Hz, form Curved. I posted
+  it after checking the price at B&H Photo. Worth a look if you''re building or updating
+  a desktop setup.'
 ---
-B&H Photo has it for $77.95, down from $109.99. Prices change fast, so check the price before you buy.
+This is the Samsung S39GD 27" Full HD 100 Hz Curved Monitor. From the listing: display 27", panel Full HD, refresh rate 100 Hz, form Curved. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.

@@ -14,5 +14,13 @@ images:
 highlights:
 - "$70 under its usual price"
 source: bh-deals
+specs:
+- label: Storage
+  value: 1TB
+why_deal: B&H Photo has it for $179.99, down from $249.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Crucial 1TB BX500 SATA III 2.5" Internal SSD. From the listing:
+  storage 1TB. I posted it after checking the price at B&H Photo. Worth a look as
+  a useful add-on for your gear.'
 ---
-B&H Photo has it for $179.99, down from $249.99. Prices change fast, so check the price before you buy.
+This is the Crucial 1TB BX500 SATA III 2.5" Internal SSD. From the listing: storage 1TB. I posted it after checking the price at B&H Photo. Worth a look as a useful add-on for your gear.

@@ -16,5 +16,15 @@ highlights:
   new price
 - "$32 under its usual price"
 source: bh-used
+specs:
+- label: Display
+  value: 23.8"
+- label: Panel
+  value: Full HD
+why_deal: B&H Photo has it for $87.50, down from $119. Prices change fast, so check
+  the price before you buy.
+description: 'This is the HP Series 3 Pro 324ph 23.8" Full HD Monitor. From the listing:
+  display 23.8", panel Full HD. I posted it after checking the price at B&H Photo.
+  Worth a look if you''re building or updating a desktop setup.'
 ---
-B&H Photo has it for $87.50, down from $119. Prices change fast, so check the price before you buy.
+This is the HP Series 3 Pro 324ph 23.8" Full HD Monitor. From the listing: display 23.8", panel Full HD. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.

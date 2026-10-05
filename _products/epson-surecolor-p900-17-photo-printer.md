@@ -14,5 +14,13 @@ images:
 highlights:
 - "$204 under its usual price"
 source: bh-deals
+specs:
+- label: Display
+  value: 17"
+why_deal: B&H Photo has it for $1145, down from $1349. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Epson SureColor P900 17" Photo Printer. From the listing:
+  display 17". I posted it after checking the price at B&H Photo. Worth a look as
+  a useful add-on for your gear.'
 ---
-B&H Photo has it for $1145, down from $1349. Prices change fast, so check the price before you buy.
+This is the Epson SureColor P900 17" Photo Printer. From the listing: display 17". I posted it after checking the price at B&H Photo. Worth a look as a useful add-on for your gear.

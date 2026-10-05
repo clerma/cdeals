@@ -14,5 +14,19 @@ images:
 highlights:
 - "$25 under its usual price"
 source: bh-deals-categories
+why_deal: B&H Photo has it for $34.99, down from $59.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Roku Streaming Stick. From the listing: display 45", panel
+  1080p, style Wireless, connectivity Wi-Fi. I posted it after checking the price
+  at B&H Photo. Worth a look for movies, sports, and everyday watching.'
+specs:
+- label: Display
+  value: 45"
+- label: Panel
+  value: 1080p
+- label: Style
+  value: Wireless
+- label: Connectivity
+  value: Wi-Fi
 ---
-B&H Photo has it for $34.99, down from $59.99. Prices change fast, so check the price before you buy.
+This is the Roku Streaming Stick. From the listing: display 45", panel 1080p, style Wireless, connectivity Wi-Fi. I posted it after checking the price at B&H Photo. Worth a look for movies, sports, and everyday watching.

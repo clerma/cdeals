@@ -13,5 +13,14 @@ images:
 highlights:
 - Free shipping
 source: techbargains-pages
+specs:
+- label: Connectivity
+  value: GPS + Cellular
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: 'This is the Apple Watch Ultra 4 GPS + Cellular 49mm Natural Titanium
+  Case Smartwatch. From the listing: connectivity GPS + Cellular. I posted it because
+  Amazon had a strong price when I checked. Prices move, so confirm the current price
+  at Amazon before you buy.'
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is the Apple Watch Ultra 4 GPS + Cellular 49mm Natural Titanium Case Smartwatch. From the listing: connectivity GPS + Cellular. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

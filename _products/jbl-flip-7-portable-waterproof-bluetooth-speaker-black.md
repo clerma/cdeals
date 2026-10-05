@@ -14,5 +14,15 @@ images:
 highlights:
 - "$30 under its usual price"
 source: bh-deals-categories
+specs:
+- label: Connectivity
+  value: Bluetooth
+- label: Form
+  value: Portable
+why_deal: B&H Photo has it for $119.95, down from $149.95. Prices change fast, so
+  check the price before you buy.
+description: 'This is the JBL Flip 7 Portable Waterproof Bluetooth Speaker (Black).
+  From the listing: connectivity Bluetooth, form Portable. I posted it after checking
+  the price at B&H Photo. Worth a look if you want better sound without a big setup.'
 ---
-B&H Photo has it for $119.95, down from $149.95. Prices change fast, so check the price before you buy.
+This is the JBL Flip 7 Portable Waterproof Bluetooth Speaker (Black). From the listing: connectivity Bluetooth, form Portable. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.

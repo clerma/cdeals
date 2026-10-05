@@ -15,5 +15,18 @@ highlights:
 - 'Open-box or refurbished: check the condition at Newegg'
 - "$52 under its usual price"
 source: newegg-outlet
+specs:
+- label: Display
+  value: 27"
+- label: Panel
+  value: QHD
+- label: Refresh rate
+  value: 180 Hz
+why_deal: Newegg has it for $137.99, down from $189.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the MSI 27" QHD 2K 1440P 180Hz AMD FreeSync 0.5ms HDR Ready
+  Anti-Flicker. From the listing: display 27", panel QHD, refresh rate 180 Hz. I posted
+  it after checking the price at Newegg. Worth a look if you''re building or updating
+  a desktop setup.'
 ---
-Newegg has it for $137.99, down from $189.99. Prices change fast, so check the price before you buy.
+This is the MSI 27" QHD 2K 1440P 180Hz AMD FreeSync 0.5ms HDR Ready Anti-Flicker. From the listing: display 27", panel QHD, refresh rate 180 Hz. I posted it after checking the price at Newegg. Worth a look if you're building or updating a desktop setup.

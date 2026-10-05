@@ -14,5 +14,12 @@ images:
 highlights:
 - "$500 under its usual price"
 source: bh-deals
+specs:
+- label: Type
+  value: Mirrorless
+why_deal: B&H Photo has it for $1998, down from $2498. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Sony a7 IV Mirrorless Camera. From the listing: type Mirrorless.
+  I posted it after checking the price at B&H Photo. Worth a look for photos and video.'
 ---
-B&H Photo has it for $1998, down from $2498. Prices change fast, so check the price before you buy.
+This is the Sony a7 IV Mirrorless Camera. From the listing: type Mirrorless. I posted it after checking the price at B&H Photo. Worth a look for photos and video.

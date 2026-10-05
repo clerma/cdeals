@@ -13,5 +13,13 @@ images:
 highlights:
 - 'Refurbished or open-box: check the condition notes at Woot'
 source: woot
+specs:
+- label: Panel
+  value: QLED
+why_deal: Woot has it for $2679.99. Prices change fast, so check the price before
+  you buy.
+description: 'This is the Samsung Neo QLED 4K QN80F Smart TV (2025) (Factory Reconditioned).
+  From the listing: panel QLED. I posted it after checking the price at Woot. Worth
+  a look for movies, sports, and everyday watching.'
 ---
-Woot has it for $2679.99. Prices change fast, so check the price before you buy.
+This is the Samsung Neo QLED 4K QN80F Smart TV (2025) (Factory Reconditioned). From the listing: panel QLED. I posted it after checking the price at Woot. Worth a look for movies, sports, and everyday watching.

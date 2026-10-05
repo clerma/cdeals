@@ -14,5 +14,10 @@ images:
 highlights:
 - "$24 under its usual price"
 source: target-deals
+why_deal: Target has it for $15.99, down from $39.99. Prices change fast, so check
+  the price before you buy.
+description: This is the Blink Mini 2K+ Compact Plug-In Security Camera, 2K Video
+  Resolution, Color. It's filed under Smart Home on this site. I posted it after checking
+  the price at Target. Worth a look if you're adding to a smart home.
 ---
-Target has it for $15.99, down from $39.99. Prices change fast, so check the price before you buy.
+This is the Blink Mini 2K+ Compact Plug-In Security Camera, 2K Video Resolution, Color. It's filed under Smart Home on this site. I posted it after checking the price at Target. Worth a look if you're adding to a smart home.

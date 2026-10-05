@@ -13,6 +13,7 @@ require "optparse"
 require "fileutils"
 require_relative "lib/deal_tools"
 require_relative "lib/polite_http"
+require_relative "lib/deal_copy"
 
 opts = { dry_run: false, images: nil }
 OptionParser.new do |o|
@@ -82,6 +83,16 @@ queue.each do |e|
     n = 1
     slug = "#{base}-#{n += 1}" while File.exist?(File.join(DealTools::PRODUCTS_DIR, "#{slug}.md"))
     affiliate = DealTools.affiliate_url(e["affiliate_url"]) # re-clean in case it was pasted by hand
+    amazon = DealCopy.amazon?(e["store"], affiliate)
+    specs = DealCopy.specs_from_text(e["title"], extra: e["source_title"].to_s, category: e["category"])
+    summary = e["summary"].to_s.strip
+    # Replace the old one-liner with grounded copy when the queue still has the
+    # price-only template (or nothing). Keep a human-edited summary as-is.
+    if summary.empty? || summary =~ /\A(?:Amazon has a good price|The store|\S+ has it for \$)/
+      summary = DealCopy.summary(title: e["title"], category: e["category"], brand: e["brand"],
+                                 store: e["store"], specs: specs, amazon: amazon)
+    end
+    why = DealCopy.why_deal(price: e["price"], compare_at: e["compare_at"], store: e["store"], amazon: amazon)
     fm = {
       "title" => e["title"].to_s.strip,
       "type" => "affiliate",
@@ -97,9 +108,12 @@ queue.each do |e|
       "date" => Date.today,
       "images" => [download_image.call(e["image"], slug)].compact.reject(&:empty?),
       "highlights" => (h = Array(e["highlights"]).reject { |x| x.to_s.strip.empty? }).empty? ? ["Sold by #{e['store']}"] : h,
+      "specs" => specs.empty? ? nil : specs,
+      "why_deal" => why,
+      "description" => DealCopy.meta_description(summary, amazon: amazon),
       "source" => e["source"] # internal: which feed/site found it (not shown on the site)
     }.reject { |_, v| v.nil? || v == "" }
-    body = "#{fm.to_yaml}---\n#{e['summary'].to_s.strip}\n"
+    body = "#{fm.to_yaml}---\n#{summary}\n"
     path = File.join(DealTools::PRODUCTS_DIR, "#{slug}.md")
     File.write(path, body) unless opts[:dry_run]
     published << path.sub("#{DealTools::ROOT}/", "")

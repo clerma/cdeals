@@ -15,5 +15,13 @@ highlights:
 - 7" display, 32GB
 - Bundle includes a cover and charging dock
 source: techbargains
+specs:
+- label: Storage
+  value: 32GB
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: 'This is an Amazon tablet: Kindle Paperwhite Signature Edition 32GB Bundle.
+  From the listing: storage 32GB. I posted it because Amazon had a strong price when
+  I checked. Prices move, so confirm the current price at Amazon before you buy.'
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is an Amazon tablet: Kindle Paperwhite Signature Edition 32GB Bundle. From the listing: storage 32GB. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

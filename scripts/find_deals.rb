@@ -20,6 +20,7 @@ require_relative "lib/deal_tools"
 require_relative "lib/polite_http"
 require_relative "lib/fetcher"
 require_relative "lib/direct_sources"
+require_relative "lib/deal_copy"
 
 
 
@@ -483,15 +484,12 @@ build_candidate = lambda do |item, source|
   expires = item[:expires] && item[:expires] > today && item[:expires] <= today + 30 ? item[:expires] : today + (source["expires_days"] || defaults["expires_days"] || 7).to_i
 
   money_s = ->(v) { v == v.round ? "$#{v.round}" : format("$%.2f", v) }
-  amazon = store =~ /amazon/i || store_url.to_s =~ /amazon\.|amzn\./i
-  summary =
-    if amazon
-      # Amazon Associates: no static prices in the text (the site hides Amazon prices too).
-      "Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy."
-    else
-      "#{store.empty? ? 'The store' : store} has it for #{money_s.call(price)}" \
-        "#{compare ? ", down from #{money_s.call(compare)}" : ''}. Prices change fast, so check the price before you buy."
-    end
+  amazon = DealCopy.amazon?(store, store_url)
+  specs_preview = DealCopy.specs_from_text(short, extra: title, category: category)
+  # Full product summary (what it is / who it's for). The price "why it's a deal"
+  # line is rebuilt at publish time into why_deal / the deal tab.
+  summary = DealCopy.summary(title: short, category: category, brand: brand, store: store,
+                             specs: specs_preview, amazon: amazon)
 
   dedupe_key = key || item[:link]
   entry = {

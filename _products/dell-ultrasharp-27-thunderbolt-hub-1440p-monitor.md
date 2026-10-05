@@ -16,5 +16,18 @@ highlights:
   price
 - "$210 under its usual price"
 source: bh-used
+specs:
+- label: Display
+  value: 27"
+- label: Panel
+  value: 1440p
+- label: Connectivity
+  value: Thunderbolt
+why_deal: B&H Photo has it for $439.95, down from $649.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Dell UltraSharp 27" Thunderbolt Hub 1440p Monitor. From
+  the listing: display 27", panel 1440p, connectivity Thunderbolt. I posted it after
+  checking the price at B&H Photo. Worth a look if you''re building or updating a
+  desktop setup.'
 ---
-B&H Photo has it for $439.95, down from $649.99. Prices change fast, so check the price before you buy.
+This is the Dell UltraSharp 27" Thunderbolt Hub 1440p Monitor. From the listing: display 27", panel 1440p, connectivity Thunderbolt. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.

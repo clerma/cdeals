@@ -14,5 +14,13 @@ images:
 highlights:
 - "$140 under its usual price"
 source: bh-deals-categories
+specs:
+- label: Style
+  value: Over-Ear
+why_deal: B&H Photo has it for $159.99, down from $299.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Philips Fidelio X2HR Over-Ear Open-Back Headphones. From
+  the listing: style Over-Ear. I posted it after checking the price at B&H Photo.
+  Worth a look if you want better sound without a big setup.'
 ---
-B&H Photo has it for $159.99, down from $299.99. Prices change fast, so check the price before you buy.
+This is the Philips Fidelio X2HR Over-Ear Open-Back Headphones. From the listing: style Over-Ear. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.

@@ -15,5 +15,20 @@ highlights:
 - Apple M5 chip
 - 16GB memory, 512GB SSD
 source: techbargains
+specs:
+- label: Chip
+  value: M5
+- label: Memory
+  value: 16GB
+- label: Storage
+  value: 512GB
+- label: Display
+  value: 13"
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: 'This is the Apple MacBook Air 13" M5 (16GB/512GB). From the listing:
+  chip M5, memory 16GB, storage 512GB, display 13". I posted it because Amazon had
+  a strong price when I checked. Prices move, so confirm the current price at Amazon
+  before you buy.'
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is the Apple MacBook Air 13" M5 (16GB/512GB). From the listing: chip M5, memory 16GB, storage 512GB, display 13". I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

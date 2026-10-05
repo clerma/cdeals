@@ -15,5 +15,15 @@ highlights:
 - 10.1" 1080p display
 - 4GB RAM, 32GB storage
 source: techbargains
+specs:
+- label: Storage
+  value: 32GB
+- label: Display
+  value: 10"
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: 'This is the Amazon Fire HD 10 Tablet, 32GB. From the listing: storage
+  32GB, display 10". I posted it because Amazon had a strong price when I checked.
+  Prices move, so confirm the current price at Amazon before you buy.'
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is the Amazon Fire HD 10 Tablet, 32GB. From the listing: storage 32GB, display 10". I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

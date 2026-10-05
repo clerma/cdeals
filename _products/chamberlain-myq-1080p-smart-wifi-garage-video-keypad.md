@@ -14,5 +14,16 @@ images:
 highlights:
 - Free shipping
 source: techbargains
+specs:
+- label: Panel
+  value: 1080p
+- label: Connectivity
+  value: WiFi
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: 'This is the Chamberlain myQ 1080p Smart WiFi Garage Video Keypad. From
+  the listing: panel 1080p, connectivity WiFi. I posted it because Amazon had a strong
+  price when I checked. Prices move, so confirm the current price at Amazon before
+  you buy.'
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is the Chamberlain myQ 1080p Smart WiFi Garage Video Keypad. From the listing: panel 1080p, connectivity WiFi. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

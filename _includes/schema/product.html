@@ -1,13 +1,13 @@
 {% comment %}
-  Product + Offer for every _products item.
-  - type "sale": I'm the seller (the OnlineStore @id). Availability follows status,
-    itemCondition is UsedCondition (these are used items).
-  - type "affiliate": the offer's seller is the outside store; the offer stays on
-    this page's URL, and priceValidUntil appears only when `expires` is set.
-  Optional fields (brand, sku, highlights) are omitted when empty.
+  Product for every _products item. Offer (with price) only when prices are
+  shown: Amazon deals while amazon_show_prices is false get Product + description
+  but no Offer (Associates rules; an Offer without a price isn't valid either).
 {% endcomment %}
 {%- assign p = page -%}
-{%- capture product_desc -%}{{ p.content | strip_html | strip_newlines | strip }}{% if p.highlights %} {{ p.highlights | join: ". " }}.{% endif %}{%- endcapture -%}
+{%- capture product_desc -%}{{ p.description | default: p.content | strip_html | strip_newlines | strip }}{%- endcapture -%}
+{%- if hide_price -%}
+  {%- assign product_desc = product_desc | replace: '$', '' -%}
+{%- endif -%}
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -23,7 +23,8 @@
   {%- if p.brand and p.brand != "" %},
   "brand":{"@type":"Brand","name":{{ p.brand | jsonify }}}{% endif %}
   {%- if p.type != "affiliate" and p.anycart_id and p.anycart_id != "" %},
-  "sku":{{ p.anycart_id | jsonify }}{% endif %},
+  "sku":{{ p.anycart_id | jsonify }}{% endif %}
+  {%- unless hide_price %},
   "offers":{
     "@type":"Offer",
     "url":"{{ canonical_url }}",
@@ -40,5 +41,6 @@
     "seller":{"@id":"{{ business_id }}"}
     {%- endif %}
   }
+  {%- endunless %}
 }
 </script>

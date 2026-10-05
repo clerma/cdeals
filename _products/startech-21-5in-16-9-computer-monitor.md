@@ -14,5 +14,13 @@ images:
 highlights:
 - "$63 under its usual price"
 source: woot
+specs:
+- label: Display
+  value: 21.5"
+why_deal: Woot has it for $37.02, down from $100.04. Prices change fast, so check
+  the price before you buy.
+description: 'This is the StarTech 21.5in 16:9 Computer Monitor. From the listing:
+  display 21.5". I posted it after checking the price at Woot. Worth a look if you''re
+  building or updating a desktop setup.'
 ---
-Woot has it for $37.02, down from $100.04. Prices change fast, so check the price before you buy.
+This is the StarTech 21.5in 16:9 Computer Monitor. From the listing: display 21.5". I posted it after checking the price at Woot. Worth a look if you're building or updating a desktop setup.

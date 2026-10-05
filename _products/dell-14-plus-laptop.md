@@ -15,5 +15,10 @@ highlights:
 - "$270 under its usual price"
 - Free shipping
 source: techbargains-pages
+why_deal: Dell has it for $1109.99, down from $1379.99. Prices change fast, so check
+  the price before you buy.
+description: This is the Dell 14 Plus Laptop. It's filed under Laptops on this site.
+  I posted it after checking the price at Dell. Worth a look if you need a portable
+  computer for work or school.
 ---
-Dell has it for $1109.99, down from $1379.99. Prices change fast, so check the price before you buy.
+This is the Dell 14 Plus Laptop. It's filed under Laptops on this site. I posted it after checking the price at Dell. Worth a look if you need a portable computer for work or school.

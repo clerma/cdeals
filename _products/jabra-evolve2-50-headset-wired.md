@@ -14,5 +14,13 @@ images:
 highlights:
 - "$49 under its usual price"
 source: woot
+specs:
+- label: Style
+  value: Wired
+why_deal: Woot has it for $114.10, down from $163. Prices change fast, so check the
+  price before you buy.
+description: 'This is the Jabra Evolve2 50 Headset Wired. From the listing: style
+  Wired. I posted it after checking the price at Woot. Worth a look if you want better
+  sound without a big setup.'
 ---
-Woot has it for $114.10, down from $163. Prices change fast, so check the price before you buy.
+This is the Jabra Evolve2 50 Headset Wired. From the listing: style Wired. I posted it after checking the price at Woot. Worth a look if you want better sound without a big setup.

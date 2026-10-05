@@ -16,5 +16,17 @@ highlights:
   new price
 - "$110 under its usual price"
 source: bh-used
+specs:
+- label: Display
+  value: 27"
+- label: Panel
+  value: 4K
+- label: Connectivity
+  value: USB-C
+why_deal: B&H Photo has it for $339.95, down from $449.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Dell Pro 27" Plus P2725QE 4K UHD USB-C Hub IPS Monitor.
+  From the listing: display 27", panel 4K, connectivity USB-C. I posted it after checking
+  the price at B&H Photo. Worth a look if you''re building or updating a desktop setup.'
 ---
-B&H Photo has it for $339.95, down from $449.99. Prices change fast, so check the price before you buy.
+This is the Dell Pro 27" Plus P2725QE 4K UHD USB-C Hub IPS Monitor. From the listing: display 27", panel 4K, connectivity USB-C. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.

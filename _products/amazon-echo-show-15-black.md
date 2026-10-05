@@ -14,5 +14,10 @@ images:
 highlights:
 - "$100 under its usual price"
 source: target-deals
+why_deal: Target has it for $249.99, down from $349.99. Prices change fast, so check
+  the price before you buy.
+description: This is the Amazon Echo Show 15 - Black. It's filed under Smart Home
+  on this site. I posted it after checking the price at Target. Worth a look if you're
+  adding to a smart home.
 ---
-Target has it for $249.99, down from $349.99. Prices change fast, so check the price before you buy.
+This is the Amazon Echo Show 15 - Black. It's filed under Smart Home on this site. I posted it after checking the price at Target. Worth a look if you're adding to a smart home.

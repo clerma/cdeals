@@ -15,5 +15,13 @@ highlights:
 - 6" glare-free display with front light
 - 16GB of storage
 source: techbargains
+specs:
+- label: Storage
+  value: 16GB
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: 'This is the Amazon Kindle 16GB (11th Gen). From the listing: storage
+  16GB. I posted it because Amazon had a strong price when I checked. Prices move,
+  so confirm the current price at Amazon before you buy.'
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is the Amazon Kindle 16GB (11th Gen). From the listing: storage 16GB. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

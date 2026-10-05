@@ -15,5 +15,13 @@ highlights:
 - Active noise cancellation
 - Works with iPhone and Android
 source: techbargains
+specs:
+- label: Style
+  value: Noise Cancelling
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: 'This is the Beats Studio Buds+ Noise Cancelling Earbuds. From the listing:
+  style Noise Cancelling. I posted it because Amazon had a strong price when I checked.
+  Prices move, so confirm the current price at Amazon before you buy.'
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is the Beats Studio Buds+ Noise Cancelling Earbuds. From the listing: style Noise Cancelling. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

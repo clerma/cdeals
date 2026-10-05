@@ -14,5 +14,20 @@ images:
 highlights:
 - "$350 under its usual price"
 source: bh-deals
+specs:
+- label: Display
+  value: 49"
+- label: Panel
+  value: 1440p
+- label: Refresh rate
+  value: 144 Hz
+- label: Form
+  value: Curved
+why_deal: B&H Photo has it for $649.99, down from $999.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Samsung Odyssey G9 G91F 49" Dual 1440p HDR 144 Hz Curved
+  Ultrawide Gaming. From the listing: display 49", panel 1440p, refresh rate 144 Hz,
+  form Curved. I posted it after checking the price at B&H Photo. Worth a look if
+  you''re building or updating a desktop setup.'
 ---
-B&H Photo has it for $649.99, down from $999.99. Prices change fast, so check the price before you buy.
+This is the Samsung Odyssey G9 G91F 49" Dual 1440p HDR 144 Hz Curved Ultrawide Gaming. From the listing: display 49", panel 1440p, refresh rate 144 Hz, form Curved. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.

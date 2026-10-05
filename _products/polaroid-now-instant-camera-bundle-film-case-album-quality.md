@@ -14,5 +14,10 @@ images:
 highlights:
 - "$35 under its usual price"
 source: target-deals
+why_deal: Target has it for $164.99, down from $199.99. Prices change fast, so check
+  the price before you buy.
+description: This is the Polaroid Now Instant Camera Bundle - Film, Case, Album &
+  Quality Photo. It's filed under Cameras on this site. I posted it after checking
+  the price at Target. Worth a look for photos and video.
 ---
-Target has it for $164.99, down from $199.99. Prices change fast, so check the price before you buy.
+This is the Polaroid Now Instant Camera Bundle - Film, Case, Album & Quality Photo. It's filed under Cameras on this site. I posted it after checking the price at Target. Worth a look for photos and video.

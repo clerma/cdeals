@@ -14,5 +14,16 @@ images:
 highlights:
 - "$80 under its usual price"
 source: target-deals
+specs:
+- label: Style
+  value: True Wireless
+- label: Connectivity
+  value: Bluetooth
+why_deal: Target has it for $89.99, down from $169.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Beats Studio Buds + True Wireless Bluetooth Noise Cancelling
+  Earbuds. From the listing: style True Wireless, connectivity Bluetooth. I posted
+  it after checking the price at Target. Worth a look if you want better sound without
+  a big setup.'
 ---
-Target has it for $89.99, down from $169.99. Prices change fast, so check the price before you buy.
+This is the Beats Studio Buds + True Wireless Bluetooth Noise Cancelling Earbuds. From the listing: style True Wireless, connectivity Bluetooth. I posted it after checking the price at Target. Worth a look if you want better sound without a big setup.

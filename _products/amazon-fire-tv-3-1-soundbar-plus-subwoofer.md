@@ -13,5 +13,10 @@ images:
 highlights:
 - Sold by Woot
 source: woot
+why_deal: Woot has it for $149.95. Prices change fast, so check the price before you
+  buy.
+description: This is the Amazon Fire TV 3.1 Soundbar Plus & Subwoofer. It's filed
+  under TV & Home Theater on this site. I posted it after checking the price at Woot.
+  Worth a look for movies, sports, and everyday watching.
 ---
-Woot has it for $149.95. Prices change fast, so check the price before you buy.
+This is the Amazon Fire TV 3.1 Soundbar Plus & Subwoofer. It's filed under TV & Home Theater on this site. I posted it after checking the price at Woot. Worth a look for movies, sports, and everyday watching.

@@ -14,5 +14,10 @@ images:
 highlights:
 - "$21 under its usual price"
 source: woot
+why_deal: Woot has it for $13.99, down from $34.70. Prices change fast, so check the
+  price before you buy.
+description: This is the QcK Large Gaming Mousepad White. It's filed under Accessories
+  on this site. I posted it after checking the price at Woot. Worth a look as a useful
+  add-on for your gear.
 ---
-Woot has it for $13.99, down from $34.70. Prices change fast, so check the price before you buy.
+This is the QcK Large Gaming Mousepad White. It's filed under Accessories on this site. I posted it after checking the price at Woot. Worth a look as a useful add-on for your gear.

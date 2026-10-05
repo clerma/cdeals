@@ -16,5 +16,12 @@ highlights:
   price
 - "$1023 under its usual price"
 source: bh-used
+specs:
+- label: Type
+  value: Mirrorless
+why_deal: B&H Photo has it for $2474.95, down from $3498. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Sony a7R V Mirrorless Camera. From the listing: type Mirrorless.
+  I posted it after checking the price at B&H Photo. Worth a look for photos and video.'
 ---
-B&H Photo has it for $2474.95, down from $3498. Prices change fast, so check the price before you buy.
+This is the Sony a7R V Mirrorless Camera. From the listing: type Mirrorless. I posted it after checking the price at B&H Photo. Worth a look for photos and video.

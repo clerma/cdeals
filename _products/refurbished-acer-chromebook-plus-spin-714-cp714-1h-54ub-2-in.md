@@ -15,5 +15,13 @@ highlights:
 - "$306 under its usual price"
 - 'Refurbished or open-box: check the condition notes at Target'
 source: target-deals
+specs:
+- label: Display
+  value: 2"
+why_deal: Target has it for $393.49, down from $699. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Refurbished Acer Chromebook Plus Spin 714 CP714-1H-54UB
+  2 in 1 Chromebook. From the listing: display 2". I posted it after checking the
+  price at Target. Worth a look if you need a portable computer for work or school.'
 ---
-Target has it for $393.49, down from $699. Prices change fast, so check the price before you buy.
+This is the Refurbished Acer Chromebook Plus Spin 714 CP714-1H-54UB 2 in 1 Chromebook. From the listing: display 2". I posted it after checking the price at Target. Worth a look if you need a portable computer for work or school.

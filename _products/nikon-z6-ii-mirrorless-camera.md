@@ -15,5 +15,12 @@ highlights:
 - Used at B&H, condition 8 (Well used); the original price shown is B&H's new price
 - "$418 under its usual price"
 source: bh-used
+specs:
+- label: Type
+  value: Mirrorless
+why_deal: B&H Photo has it for $1128.95, down from $1546.95. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Nikon Z6 II Mirrorless Camera. From the listing: type Mirrorless.
+  I posted it after checking the price at B&H Photo. Worth a look for photos and video.'
 ---
-B&H Photo has it for $1128.95, down from $1546.95. Prices change fast, so check the price before you buy.
+This is the Nikon Z6 II Mirrorless Camera. From the listing: type Mirrorless. I posted it after checking the price at B&H Photo. Worth a look for photos and video.

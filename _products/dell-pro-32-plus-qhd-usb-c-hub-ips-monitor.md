@@ -16,5 +16,17 @@ highlights:
   new price
 - "$192 under its usual price"
 source: bh-used
+specs:
+- label: Display
+  value: 32"
+- label: Panel
+  value: QHD
+- label: Connectivity
+  value: USB-C
+why_deal: B&H Photo has it for $407.95, down from $599.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Dell Pro 32" Plus QHD USB-C Hub IPS Monitor. From the listing:
+  display 32", panel QHD, connectivity USB-C. I posted it after checking the price
+  at B&H Photo. Worth a look if you''re building or updating a desktop setup.'
 ---
-B&H Photo has it for $407.95, down from $599.99. Prices change fast, so check the price before you buy.
+This is the Dell Pro 32" Plus QHD USB-C Hub IPS Monitor. From the listing: display 32", panel QHD, connectivity USB-C. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.

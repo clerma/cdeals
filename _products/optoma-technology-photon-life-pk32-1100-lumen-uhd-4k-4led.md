@@ -14,5 +14,13 @@ images:
 highlights:
 - "$600 under its usual price"
 source: bh-deals
+specs:
+- label: Panel
+  value: UHD
+why_deal: B&H Photo has it for $699, down from $1299. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Optoma Technology Photon Life PK32 1100-Lumen UHD 4K 4LED
+  DLP Home. From the listing: panel UHD. I posted it after checking the price at B&H
+  Photo. Worth a look for movies, sports, and everyday watching.'
 ---
-B&H Photo has it for $699, down from $1299. Prices change fast, so check the price before you buy.
+This is the Optoma Technology Photon Life PK32 1100-Lumen UHD 4K 4LED DLP Home. From the listing: panel UHD. I posted it after checking the price at B&H Photo. Worth a look for movies, sports, and everyday watching.

@@ -10,7 +10,7 @@ layout: default
   {% include page-header.html title=p.title parent="For sale" parent_url="/shop/" %}
 {% endif %}
 
-<section class="container pb-5 mb-1 mb-sm-2 mb-md-3 mb-lg-4 mb-xl-5">
+<section class="container pb-4 pb-md-5 mb-2 mb-sm-3 mb-lg-4">
   <div class="row">
 
     <!-- Gallery -->
@@ -32,7 +32,7 @@ layout: default
       {% endif %}
     </div>
 
-    <!-- Details -->
+    <!-- Buy box -->
     <div class="col-md-6 col-xl-5 offset-xl-1">
       <div class="ps-md-4 ps-xl-0">
         <div class="fs-sm text-body-secondary mb-2">{% if p.brand %}{{ p.brand }} · {% endif %}{{ p.category }}</div>
@@ -64,15 +64,57 @@ layout: default
           </ul>
         {% endif %}
 
-        {% if p.highlights %}
+        {% if p.highlights and p.highlights.size > 0 %}
         <h2 class="h6 mb-3">Highlights</h2>
-        <ul class="list-unstyled d-flex flex-column gap-2 fs-sm mb-4">
+        <ul class="list-unstyled d-flex flex-column gap-2 fs-sm mb-0">
           {% for h in p.highlights %}<li class="d-flex align-items-start"><i class="ci-check-circle text-success fs-base mt-1 me-2"></i>{{ h }}</li>{% endfor %}
         </ul>
         {% endif %}
-
-        <div class="page-lede fs-sm">{{ content }}</div>
       </div>
     </div>
   </div>
 </section>
+
+{% if is_deal or content != blank or p.specs or p.why_deal %}
+<!-- Description / specs (Cartzilla-style product detail section under the buy box) -->
+<section class="container pb-5 mb-2 mb-md-3 mb-lg-4">
+  <div class="border-top pt-5">
+    <ul class="nav nav-underline flex-nowrap overflow-auto mb-4" role="tablist">
+      <li class="nav-item"><a class="nav-link active text-nowrap" href="#product-description" data-bs-toggle="tab" role="tab" aria-selected="true">Description</a></li>
+      {% if p.specs and p.specs.size > 0 %}<li class="nav-item"><a class="nav-link text-nowrap" href="#product-specs" data-bs-toggle="tab" role="tab" aria-selected="false">Key specs</a></li>{% endif %}
+      {% if p.why_deal or is_deal %}<li class="nav-item"><a class="nav-link text-nowrap" href="#product-deal" data-bs-toggle="tab" role="tab" aria-selected="false">Why it's a deal</a></li>{% endif %}
+    </ul>
+    <div class="tab-content" style="max-width: 48rem">
+      <div class="tab-pane fade show active" id="product-description" role="tabpanel">
+        <h2 class="h5 mb-3">About this {% if is_deal %}deal{% else %}item{% endif %}</h2>
+        <div class="page-lede fs-sm mb-0">{{ content }}</div>
+      </div>
+      {% if p.specs and p.specs.size > 0 %}
+      <div class="tab-pane fade" id="product-specs" role="tabpanel">
+        <h2 class="h5 mb-3">Key specs</h2>
+        <p class="fs-xs text-body-secondary mb-3">Pulled from the product title and the store listing. Blank when the listing doesn't say.</p>
+        <div class="row row-cols-1 row-cols-sm-2 g-3">
+          {% for s in p.specs %}
+          <div class="col">
+            <div class="d-flex align-items-start border rounded-4 p-3 h-100">
+              <i class="ci-check-circle text-primary fs-lg mt-1 me-2"></i>
+              <div>
+                <div class="fs-xs text-body-secondary">{{ s.label }}</div>
+                <div class="fs-sm fw-medium">{{ s.value }}</div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+      {% if p.why_deal or is_deal %}
+      <div class="tab-pane fade" id="product-deal" role="tabpanel">
+        <h2 class="h5 mb-3">Why it's a deal</h2>
+        <p class="page-lede fs-sm mb-0">{{ p.why_deal | default: content }}</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}

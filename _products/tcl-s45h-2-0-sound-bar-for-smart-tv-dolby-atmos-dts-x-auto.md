@@ -15,5 +15,18 @@ highlights:
 - 'Open-box or refurbished: check the condition at Newegg'
 - "$64 under its usual price"
 source: newegg-outlet
+why_deal: Newegg has it for $65.99, down from $129.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the TCL S45H 2.0 Sound Bar for Smart TV | Dolby Atmos DTS:X
+  Auto Room. From the listing: display 81.0", style Wireless, connectivity Bluetooth.
+  I posted it after checking the price at Newegg. Worth a look for movies, sports,
+  and everyday watching.'
+specs:
+- label: Display
+  value: 81.0"
+- label: Style
+  value: Wireless
+- label: Connectivity
+  value: Bluetooth
 ---
-Newegg has it for $65.99, down from $129.99. Prices change fast, so check the price before you buy.
+This is the TCL S45H 2.0 Sound Bar for Smart TV | Dolby Atmos DTS:X Auto Room. From the listing: display 81.0", style Wireless, connectivity Bluetooth. I posted it after checking the price at Newegg. Worth a look for movies, sports, and everyday watching.

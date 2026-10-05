@@ -15,5 +15,16 @@ highlights:
 - Free shipping
 - Prime members only
 source: techbargains-pages
+specs:
+- label: Connectivity
+  value: USB-C
+- label: Power
+  value: 45W
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: 'This is the Belkin 45W Compact Durable USB-C Charger Block. From the
+  listing: connectivity USB-C, power 45W. I posted it because Amazon had a strong
+  price when I checked. Prices move, so confirm the current price at Amazon before
+  you buy.'
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is the Belkin 45W Compact Durable USB-C Charger Block. From the listing: connectivity USB-C, power 45W. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

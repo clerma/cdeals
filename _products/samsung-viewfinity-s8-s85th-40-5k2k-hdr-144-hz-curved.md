@@ -14,5 +14,18 @@ images:
 highlights:
 - "$400 under its usual price"
 source: bh-deals
+specs:
+- label: Display
+  value: 40"
+- label: Refresh rate
+  value: 144 Hz
+- label: Form
+  value: Curved
+why_deal: B&H Photo has it for $999.99, down from $1399.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Samsung ViewFinity S8 S85TH 40" 5K2K HDR 144 Hz Curved Ultrawide
+  Monitor. From the listing: display 40", refresh rate 144 Hz, form Curved. I posted
+  it after checking the price at B&H Photo. Worth a look if you''re building or updating
+  a desktop setup.'
 ---
-B&H Photo has it for $999.99, down from $1399.99. Prices change fast, so check the price before you buy.
+This is the Samsung ViewFinity S8 S85TH 40" 5K2K HDR 144 Hz Curved Ultrawide Monitor. From the listing: display 40", refresh rate 144 Hz, form Curved. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.

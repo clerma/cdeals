@@ -14,5 +14,13 @@ images:
 highlights:
 - "$14 under its usual price"
 source: bh-deals
+specs:
+- label: Style
+  value: Wireless
+why_deal: B&H Photo has it for $45, down from $59. Prices change fast, so check the
+  price before you buy.
+description: 'This is the DJI Mic Mini Compact Wireless Microphone System for Camera
+  & Smartphone. From the listing: style Wireless. I posted it after checking the price
+  at B&H Photo. Worth a look if you want better sound without a big setup.'
 ---
-B&H Photo has it for $45, down from $59. Prices change fast, so check the price before you buy.
+This is the DJI Mic Mini Compact Wireless Microphone System for Camera & Smartphone. From the listing: style Wireless. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.

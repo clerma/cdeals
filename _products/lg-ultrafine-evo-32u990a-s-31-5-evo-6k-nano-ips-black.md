@@ -16,5 +16,15 @@ highlights:
   price
 - "$260 under its usual price"
 source: bh-used
+specs:
+- label: Display
+  value: 31.5"
+- label: Panel
+  value: 6K
+why_deal: B&H Photo has it for $1039.95, down from $1299.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the LG UltraFine evo 32U990A-S 31.5" evo 6K Nano IPS Black Monitor.
+  From the listing: display 31.5", panel 6K. I posted it after checking the price
+  at B&H Photo. Worth a look if you''re building or updating a desktop setup.'
 ---
-B&H Photo has it for $1039.95, down from $1299.99. Prices change fast, so check the price before you buy.
+This is the LG UltraFine evo 32U990A-S 31.5" evo 6K Nano IPS Black Monitor. From the listing: display 31.5", panel 6K. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.

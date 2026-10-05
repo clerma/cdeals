@@ -15,5 +15,15 @@ highlights:
 - Unlock one game with purchase of Motherboard, limited to 1 per purchase
 - "$157 under its usual price"
 source: newegg-outlet
+specs:
+- label: Socket
+  value: LGA 1851
+- label: Form
+  value: ATX
+why_deal: Newegg has it for $342.99, down from $499.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the ASRock Z890 Taichi OCF LGA 1851 Intel Z890 SATA 6Gb/s ATX
+  Motherboard. From the listing: socket LGA 1851, form ATX. I posted it after checking
+  the price at Newegg. Worth a look if you''re building or updating a desktop setup.'
 ---
-Newegg has it for $342.99, down from $499.99. Prices change fast, so check the price before you buy.
+This is the ASRock Z890 Taichi OCF LGA 1851 Intel Z890 SATA 6Gb/s ATX Motherboard. From the listing: socket LGA 1851, form ATX. I posted it after checking the price at Newegg. Worth a look if you're building or updating a desktop setup.

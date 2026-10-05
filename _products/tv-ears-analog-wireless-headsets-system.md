@@ -14,5 +14,13 @@ images:
 highlights:
 - "$30 under its usual price"
 source: woot
+specs:
+- label: Style
+  value: Wireless
+why_deal: Woot has it for $49.99, down from $79.95. Prices change fast, so check the
+  price before you buy.
+description: 'This is the TV EARS Analog Wireless Headsets System. From the listing:
+  style Wireless. I posted it after checking the price at Woot. Worth a look for movies,
+  sports, and everyday watching.'
 ---
-Woot has it for $49.99, down from $79.95. Prices change fast, so check the price before you buy.
+This is the TV EARS Analog Wireless Headsets System. From the listing: style Wireless. I posted it after checking the price at Woot. Worth a look for movies, sports, and everyday watching.
