@@ -5,7 +5,9 @@
   <div class="container position-relative z-1 pt-sm-2 pt-md-3 pt-lg-4" data-bs-theme="dark">
     <div class="row py-5">
       <div class="col-md-4 pb-4 mb-sm-2">
-        <h4 class="mb-3"><a class="text-dark-emphasis text-decoration-none" href="{{ '/' | relative_url }}">{{ site.title }}</a></h4>
+        <a class="d-inline-block mb-3" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}">
+          <img src="{{ '/assets/images/brand/logo-horizontal-on-dark.svg' | relative_url }}" class="footer-brand-logo" width="160" height="42" alt="{{ site.title }}">
+        </a>
         <p class="text-body fs-sm mb-3">{{ site.tagline }}</p>
         <a class="btn btn-secondary" href="{{ '/contact/' | relative_url }}"><i class="ci-mail fs-base me-2"></i>Email me</a>
       </div>
