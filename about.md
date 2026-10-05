@@ -1,8 +1,15 @@
 ---
 layout: page
-title: About
+title: "About cDeals: Who Runs It & How Buying Works"
+breadcrumb_title: About
 heading: About cDeals
 permalink: /about/
+description: "Meet the person behind cDeals and learn how buying used tech directly from me works, from condition checks and photos to secure checkout and shipping."
+# Used while none of my own items is for sale (see _plugins/selling_mode.rb).
+title_no_sale: "About cDeals: Who Picks the Deals & How It Works"
+description_no_sale: "Meet the person behind cDeals, how each tech deal is found and checked by hand before it's posted, and how affiliate links help keep the site free to use."
+show_faq: true
+show_testimonials: true
 ---
 {% comment %} The selling parts only show while at least one of my own items is for sale (site.selling). {% endcomment %}
 {% if site.selling %}

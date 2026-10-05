@@ -1,0 +1,35 @@
+{% comment %}
+  Hub pages: front matter `show_collection: products` plus optional
+  `collection_type: sale|affiliate` to match what the page actually lists.
+  Mirrors the visible grid: sold items and expired deals are left out.
+{% endcomment %}
+{%- assign coll_docs = site[page.show_collection] -%}
+{%- if page.collection_type -%}{%- assign coll_docs = coll_docs | where: "type", page.collection_type -%}{%- endif -%}
+{%- assign coll_docs = coll_docs | where_exp: "d", "d.status != 'sold'" | sort: "date" | reverse -%}
+{%- assign today = site.time | date: "%Y-%m-%d" -%}
+{%- if coll_docs and coll_docs.size > 0 -%}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CollectionPage",
+  "@id":"{{ canonical_url }}#collection",
+  "url":"{{ canonical_url }}",
+  "name":{{ page.title | default: site.title | jsonify }},
+  "description":{{ seo_description | jsonify }},
+  "isPartOf":{"@id":"{{ website_id }}"},
+  "about":{"@id":"{{ business_id }}"},
+  "mainEntity":{
+    "@type":"ItemList",
+    "itemListElement":[
+      {%- assign pos = 0 -%}
+      {%- for doc in coll_docs -%}
+        {%- if doc.expires -%}{%- assign exp = doc.expires | date: "%Y-%m-%d" -%}{%- if exp < today -%}{%- continue -%}{%- endif -%}{%- endif -%}
+        {%- assign pos = pos | plus: 1 -%}
+        {%- if pos > 1 %},{% endif %}
+      {"@type":"ListItem","position":{{ pos }},"name":{{ doc.title | jsonify }},"url":"{{ doc.url | absolute_url }}"}
+      {%- endfor %}
+    ]
+  }
+}
+</script>
+{%- endif -%}

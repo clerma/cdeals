@@ -8,7 +8,8 @@
 #     from _config.yml (footer, meta descriptions, social cards).
 #   - any page with title_no_sale / description_no_sale in its front matter
 #     uses those instead (home page title, etc.).
-#   - pages with selling_only: true (shop, returns) are left out of sitemap.xml.
+#   - pages with selling_only: true (shop, returns) are left out of sitemap.xml
+#     and get <meta name="robots" content="noindex">.
 # Templates check {% if site.selling %} for everything else.
 module SellingMode
   class Generator < Jekyll::Generator
@@ -31,7 +32,9 @@ module SellingMode
           alt = page.data["#{key}_no_sale"]
           page.data[key] = alt if alt
         end
-        page.data["sitemap"] = false if page.data["selling_only"]
+        next unless page.data["selling_only"]
+        page.data["sitemap"] = false
+        page.data["noindex"] = true
       end
     end
   end

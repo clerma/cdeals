@@ -1,0 +1,21 @@
+{% comment %} speakable points answer engines at the page's h1 and lede text. {% endcomment %}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "@id":"{{ canonical_url }}#webpage",
+  "url":"{{ canonical_url }}",
+  "name":{{ page.title | default: site.title | jsonify }},
+  "description":{{ seo_description | jsonify }},
+  "isPartOf":{"@id":"{{ website_id }}"},
+  "about":{"@id":"{{ business_id }}"},
+  "inLanguage":"en-US"
+  {%- if page_image %},
+  "primaryImageOfPage":"{{ page_image }}"{% endif %}
+  {%- if page.url != '/' %},
+  "breadcrumb":{"@id":"{{ canonical_url }}#breadcrumb"}{% endif %}
+  {%- if is_product and hide_price == false %},
+  "mainEntity":{"@id":"{{ canonical_url }}#product"}{% endif %},
+  "speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".page-lede"]}
+}
+</script>

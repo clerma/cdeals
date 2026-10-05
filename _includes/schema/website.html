@@ -1,0 +1,19 @@
+{% comment %} WebSite + sitelinks search box. Same target as the header search: /shop/?q= while I have items for sale, /deals/?q= otherwise. {% endcomment %}
+{%- if site.selling -%}{%- assign search_path = '/shop/' -%}{%- else -%}{%- assign search_path = '/deals/' -%}{%- endif -%}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "@id":"{{ website_id }}",
+  "url":"{{ site.url }}/",
+  "name":{{ site.title | jsonify }},
+  "description":{{ site.description | strip_html | strip_newlines | strip | jsonify }},
+  "publisher":{"@id":"{{ business_id }}"},
+  "inLanguage":"en-US",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":{"@type":"EntryPoint","urlTemplate":"{{ search_path | absolute_url }}?q={search_term_string}"},
+    "query-input":"required name=search_term_string"
+  }
+}
+</script>

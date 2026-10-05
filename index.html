@@ -1,9 +1,9 @@
 ---
-title: Used tech for sale + deals I've found
-description: Hand-checked used tech for sale direct from me, plus tech deals I've found around the web.
+title: "Used Tech for Sale & Hand-Picked Tech Deals"
+description: "Shop hand-checked used tech sold directly by me, from phones to laptops, plus the best tech deals I find at Amazon, B&H, Target, Newegg, and many other stores."
 # Used while none of my own items is for sale (see _plugins/selling_mode.rb).
-title_no_sale: The best tech deals I've found
-description_no_sale: Hand-checked tech deals from Amazon, B&H, Target, Newegg, Woot, and more, picked by a real person.
+title_no_sale: "Hand-Picked Tech Deals from Amazon, B&H, Target & More"
+description_no_sale: "Hand-checked tech deals from Amazon, B&H, Target, Newegg, Woot, and more, picked by a real person. Prices change fast, so check before you buy."
 permalink: /
 swiper: true   # loads the carousel script (only the home page uses carousels)
 
@@ -95,6 +95,9 @@ brands: [apple, samsung, sony, canon, motorola]
 {% assign store_groups = live_deals | group_by: "store" | sort: "size" | reverse %}
 {% capture store_list %}{% for g in store_groups limit: 4 %}{% if forloop.last and forloop.index > 1 %}{% if store_groups.size > 4 %}, {% else %} and {% endif %}{% elsif forloop.index > 1 %}, {% endif %}{{ g.name }}{% endfor %}{% if store_groups.size > 4 %}, and more{% endif %}{% endcapture %}
 {% capture store_short %}{% for g in store_groups limit: 3 %}{% if forloop.index > 1 %}, {% endif %}{{ g.name }}{% endfor %}{% if store_groups.size > 3 %}, and more{% endif %}{% endcapture %}
+
+<h1 class="visually-hidden">{{ site.title }}: {{ site.tagline }}</h1>
+<p class="page-lede visually-hidden">{{ page.description }}</p>
 
 <!-- Hero slider -->
 <section class="container pt-4">
