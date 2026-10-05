@@ -1,7 +1,7 @@
 {%- comment -%}
-  Prints the whole-number discount (e.g. 28) when the item has both prices and
-  compare_at (original/list price) is higher than price. Prints nothing otherwise,
-  and nothing for Amazon deals while Amazon prices are hidden.
+  Prints the whole-number discount (e.g. 28) when both price and compare_at
+  exist and compare_at is higher — never invents MSRP. Nothing for Amazon while
+  amazon_show_prices is false.
   Usage: {% capture off %}{% include discount.html product=p %}{% endcapture %}
 {%- endcomment -%}
 {%- assign _p = include.product -%}

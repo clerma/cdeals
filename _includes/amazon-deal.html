@@ -1,0 +1,9 @@
+{%- comment -%}
+  Prints "1" when this product is an Amazon affiliate deal (store or URL).
+  Usage: {% capture amz %}{% include amazon-deal.html product=p %}{% endcapture %}
+{%- endcomment -%}
+{%- assign _ad = include.product -%}
+{%- if _ad.type == "affiliate" -%}
+  {%- assign _astore = _ad.store | downcase -%}
+  {%- if _astore contains "amazon" or _ad.affiliate_url contains "amazon.com" or _ad.affiliate_url contains "amzn." -%}1{%- endif -%}
+{%- endif -%}

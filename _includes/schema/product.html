@@ -1,7 +1,8 @@
 {% comment %}
   Product for every _products item. Offer (with price) only when prices are
-  shown: Amazon deals while amazon_show_prices is false get Product + description
-  but no Offer (Associates rules; an Offer without a price isn't valid either).
+  shown (hide_price false). Amazon deals while amazon_show_prices is false get
+  Product + description but no Offer. When prices are shown, Offer uses the
+  stored front-matter price only.
 {% endcomment %}
 {%- assign p = page -%}
 {%- capture product_desc -%}{{ p.description | default: p.content | strip_html | strip_newlines | strip }}{%- endcapture -%}

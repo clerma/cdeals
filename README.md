@@ -84,7 +84,7 @@ One include, `_includes/seo.html`, outputs every page's title, description, cano
 | FAQPage | About | `_data/faqs.yml` (only when it has entries) |
 | Reviews / rating | OnlineStore | `_data/testimonials.yml`, `rating_value` / `review_count` (only when real) |
 
-**Amazon prices:** while `amazon_show_prices` is `false`, Amazon deals get no price anywhere in SEO output: the meta/OG description says "See the current price at Amazon", there's no `product:price` tag and no Product/Offer schema (an Offer without a price isn't valid), and `/llms.txt` lists them without a price.
+**Amazon prices:** with `amazon_show_prices: true` (current), Amazon deals show the stored front-matter price and Product/Offer schema. Strikethrough/-NN% only when `compare_at` > `price` from the source. CTA: "See the savings on Amazon". With `false`, numbers are hidden (badge + CTA only; no Offer schema).
 
 **Selling mode:** while nothing of mine is for sale, the business schema is a plain Organization (no payment methods or buyer reviews), the site search box points at `/deals/?q=`, `/llms.txt` leaves out the shop, returns and "For sale now" parts, and `/shop/` and `/returns/` are `noindex` and out of `sitemap.xml`. All of it switches back when a sale item is published.
 
@@ -112,7 +112,7 @@ Every page's content lives in its own front matter (or Markdown body):
 | `_products/*.md` | Each item: front matter fields + description in the body |
 | `_data/navigation.yml` | Main menu links |
 - `_data/categories.yml` is the fixed list of deal categories (slug, name, icon). Each has a page at `/deals/<slug>/` (stubs in `_deal_categories/`); menus, the footer and the /deals/ pills only show categories with at least one live deal.
-- `amazon_show_prices` in `_config.yml` (default `false`): Amazon deals show "Best deal seen on Amazon" + "See price at Amazon" instead of static prices (Associates rules). The numbers stay in front matter.
+- `amazon_show_prices` in `_config.yml` (currently `true`): show stored Amazon prices; savings UI only with both `price` and `compare_at`. CTA "See the savings on Amazon". Set `false` to hide numbers.
 - Theme files live in `assets/css`, `assets/js`, `assets/fonts`, and `assets/images/theme`. The carousel script (Swiper) only loads on pages with `swiper: true` in their front matter, which right now is just the home page.
 - The `_products/` samples and `assets/uploads/sample-*.png` are placeholders. Delete them once you've added real items.
 - Light/dark mode is built in (the sun icon in the header).

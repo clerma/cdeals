@@ -2,8 +2,9 @@
   Embed a product card from _products in a blog post.
   Usage: {% include deal-card.html slug="kindle-paperwhite-signature-edition-32gb-bundle" %}
 
-  Amazon deals keep the site rules: "Best deal seen on Amazon" badge + "See price
-  at Amazon" (never a static price while amazon_show_prices is false).
+  Amazon deals: "Best deal seen on Amazon" badge; prices from front matter when
+  amazon_show_prices is true (savings UI only with both price + compare_at).
+  CTA: "See the savings on Amazon".
 {% endcomment %}
 {% assign deal = nil %}
 {% for p in site.products %}
