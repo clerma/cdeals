@@ -2,6 +2,7 @@
 layout: page
 title: Returns & Shipping
 permalink: /returns/
+selling_only: true   # hidden from the footer and sitemap while nothing is for sale
 updated: 2026-10-04
 # Money terms are placeholders until you decide them. Replace every
 # [BRACKETED] value below (or in the CloudCannon form), then delete this note.
