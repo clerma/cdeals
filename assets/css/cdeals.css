@@ -70,10 +70,24 @@
   max-width: 200px;
   display: block;
 }
-.navbar-brand .cdeals-logo-mark {
-  height: 36px;
-  width: auto;
-  display: block;
+/* Below lg the full horizontal logo sits between the toggler and the
+   search/cart icons: shorter, and capped to the space left in its column. */
+@media (max-width: 991.98px) {
+  header .navbar-brand {
+    min-width: 0;
+    overflow: visible;
+  }
+  .navbar-brand .cdeals-logo-header {
+    height: 32px;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+}
+@media (max-width: 575.98px) {
+  .navbar-brand .cdeals-logo-header {
+    height: 30px;
+  }
 }
 .footer-brand-logo {
   height: 44px;
