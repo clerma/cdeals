@@ -16,4 +16,4 @@ highlights:
 - Good bedside clock and camera
 source: techbargains
 ---
-Amazon has it for $49.99. Prices change fast, so check the price before you buy.
+Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.

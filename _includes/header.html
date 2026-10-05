@@ -1,5 +1,5 @@
 {% assign sale_items = site.products | where: "type", "sale" | where: "status", "available" %}
-{% assign categories = sale_items | map: "category" | uniq | sort %}
+{% capture live_cats %}{% include live-categories.html %}{% endcapture %}{% assign live_cats = live_cats | split: "|" %}
 {% comment %} With nothing for sale, search looks through the deals and the shop links are hidden. {% endcomment %}
 {% if sale_items.size > 0 %}
   {% assign search_url = '/shop/' %}{% assign search_label = 'Search my items' %}
@@ -116,19 +116,19 @@
                       </a>
                     </li>
                     {% endif %}
-                    {% for c in categories %}
-                    <li class="px-lg-2">
-                      <a class="dropdown-item fw-medium" href="{{ '/shop/' | relative_url }}?category={{ c | slugify }}">
-                        <i class="{{ site.data.categories[c] | default: 'ci-box' }} fs-xl opacity-60 pe-1 me-2"></i>
-                        <span class="text-truncate">{{ c }}</span>
+                    {% assign first_cat = true %}{% for c in site.data.categories %}{% unless live_cats contains c.slug %}{% continue %}{% endunless %}
+                    <li class="px-lg-2{% if first_cat and sale_items.size == 0 %} pt-2{% endif %}">{% assign first_cat = false %}
+                      <a class="dropdown-item fw-medium" href="{{ '/deals/' | append: c.slug | append: '/' | relative_url }}">
+                        <i class="{{ c.icon | default: 'ci-box' }} fs-xl opacity-60 pe-1 me-2"></i>
+                        <span class="text-truncate">{{ c.name }}</span>
                         <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
                       </a>
                     </li>
                     {% endfor %}
-                    <li class="pb-2 px-lg-2{% if sale_items.size == 0 %} pt-2{% endif %}">
+                    <li class="pb-2 px-lg-2{% if sale_items.size == 0 and live_cats.size == 0 %} pt-2{% endif %}">
                       <a class="dropdown-item fw-medium" href="{{ '/deals/' | relative_url }}">
                         <i class="ci-percent fs-xl opacity-60 pe-1 me-2"></i>
-                        <span class="text-truncate">Deals I found</span>
+                        <span class="text-truncate">All deals</span>
                         <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
                       </a>
                     </li>
@@ -146,12 +146,6 @@
                   <a class="nav-link{% if page.url == item.url %} active{% endif %}"{% if page.url == item.url %} aria-current="page"{% endif %} href="{{ item.url | relative_url }}">{{ item.title }}</a>
                 </li>
                 {% endfor %}
-              </ul>
-              <hr class="d-lg-none my-3">
-              <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="mailto:{{ site.contact_email }}"><i class="ci-mail fs-base opacity-60 me-2"></i>{{ site.contact_email }}</a>
-                </li>
               </ul>
             </div>
           </div>

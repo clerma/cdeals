@@ -15,4 +15,4 @@ highlights:
 - 13" display, 8GB memory, 256GB SSD
 source: techbargains
 ---
-Amazon has it for $689.99. Prices change fast, so check the price before you buy.
+Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.

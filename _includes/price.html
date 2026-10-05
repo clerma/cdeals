@@ -2,11 +2,24 @@
   Cartzilla 3 price: sale price prominent, original (compare_at) struck through
   and muted, plus a small -NN% badge. The original price and badge only show when
   compare_at is set and higher than price.
+  Amazon deals (while amazon_show_prices is false) show no numbers: a "See price
+  at Amazon" link on cards, a "Best deal seen on Amazon" badge on the deal page.
   Usage: {% include price.html product=p size="card" %}   (size: card | list | page)
 {%- endcomment -%}
 {%- assign _pp = include.product -%}
 {%- capture _pct -%}{% include discount.html product=_pp %}{%- endcapture -%}
+{%- capture _amz_hide -%}{% include amazon-hidden.html product=_pp %}{%- endcapture -%}
+{%- if _amz_hide != "" -%}
+{%- comment -%} Amazon deal, prices hidden: badge (page) or a "See price" link instead of numbers. {%- endcomment -%}
 {%- if include.size == "page" -%}
+<div class="d-flex flex-wrap align-items-center gap-2">
+  <span class="badge text-bg-warning fs-sm"><i class="ci-star-filled me-1"></i>Best deal seen on Amazon</span>
+  <span class="fs-sm text-body-secondary">Price shown at Amazon</span>
+</div>
+{%- else -%}
+<a class="btn btn-sm btn-outline-dark w-100 animate-slide-end" href="{{ _pp.affiliate_url }}" target="_blank" rel="sponsored nofollow noopener">See price at Amazon<i class="ci-external-link fs-sm ms-1 animate-target"></i></a>
+{%- endif -%}
+{%- elsif include.size == "page" -%}
 <div class="d-flex flex-wrap align-items-center gap-2 gap-sm-3">
   <div class="h3 mb-0">{% include money.html amount=_pp.price %}</div>
   {%- if _pct != "" %}

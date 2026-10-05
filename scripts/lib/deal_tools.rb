@@ -46,7 +46,12 @@ module DealTools
   end
 
   def categories_yml
-    @categories_yml ||= load_yaml(File.join(ROOT, "_data", "categories.yml"), {})
+    @categories_yml ||= load_yaml(File.join(ROOT, "_data", "categories.yml"), [])
+  end
+
+  # Category names from _data/categories.yml (a list of {slug, name, icon}).
+  def category_names
+    Array(categories_yml).map { |c| c.is_a?(Hash) ? c["name"] : c.to_s }.compact
   end
 
   def load_queue = load_yaml(QUEUE_FILE, [])

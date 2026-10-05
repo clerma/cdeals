@@ -1,17 +1,37 @@
-# Icon shown next to each category in the Categories menu. Any category used in
-# _products that isn't listed here still works and gets the "box" icon.
-# Icon names: https://cartzilla.createx.studio/docs/icons.html (prefix "ci-")
-Phones: ci-smartphone
-Tablets: ci-tablet
-Laptops: ci-computer
-Computers: ci-computer
-Monitors: ci-monitor
-Audio: ci-headphones
-Headphones: ci-headphones
-Speakers: ci-speaker
-Smart Home: ci-speaker
-Wearables: ci-watch
-Cameras: ci-camera
-Gaming: ci-game
-Power Banks: ci-powerbank
-Storage: ci-hard-drive
+# Fixed list of deal categories, in menu order. A deal's `category` must be one
+# of these names. Each one has a page at /deals/<slug>/ (stub files in
+# _deal_categories/). Menus and filter pills only show categories that have at
+# least one live deal. Icons: https://cartzilla.createx.studio/docs/icons.html
+- slug: computers
+  name: Computers
+  icon: ci-computer
+- slug: laptops
+  name: Laptops
+  icon: ci-monitor
+- slug: tablets
+  name: Tablets
+  icon: ci-tablet
+- slug: phones
+  name: Phones
+  icon: ci-smartphone
+- slug: cameras
+  name: Cameras
+  icon: ci-camera
+- slug: audio
+  name: Audio
+  icon: ci-headphones
+- slug: tv-home-theater
+  name: TV & Home Theater
+  icon: ci-tv
+- slug: smart-home
+  name: Smart Home
+  icon: ci-home
+- slug: wearables
+  name: Wearables
+  icon: ci-watch
+- slug: gaming
+  name: Gaming
+  icon: ci-game
+- slug: accessories
+  name: Accessories
+  icon: ci-battery-charging

@@ -1,0 +1,8 @@
+{%- comment -%} Links to the category pages (only categories with live deals). include.current = active slug. {%- endcomment -%}
+{%- capture _live -%}{% include live-categories.html %}{%- endcapture -%}{%- assign _live = _live | split: "|" -%}
+<div class="d-flex flex-wrap gap-2 pt-4">
+  <a class="btn btn-sm btn-outline-secondary rounded-pill" href="{{ '/deals/' | relative_url }}">All deals</a>
+  {%- for c in site.data.categories -%}{%- unless _live contains c.slug -%}{%- continue -%}{%- endunless %}
+  <a class="btn btn-sm btn-outline-secondary rounded-pill{% if include.current == c.slug %} active{% endif %}" href="{{ '/deals/' | append: c.slug | append: '/' | relative_url }}"{% if include.current == c.slug %} aria-current="page"{% endif %}>{{ c.name }}</a>
+  {%- endfor %}
+</div>

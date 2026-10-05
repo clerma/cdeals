@@ -1,4 +1,5 @@
-{% assign footer_cats = site.products | where: "type", "sale" | where: "status", "available" | map: "category" | uniq | sort %}
+{% assign footer_sale = site.products | where: "type", "sale" | where: "status", "available" %}
+{% capture footer_cats %}{% include live-categories.html %}{% endcapture %}{% assign footer_cats = footer_cats | split: "|" %}
 <footer class="footer position-relative bg-dark">
   <span class="position-absolute top-0 start-0 w-100 h-100 bg-body d-none d-block-dark"></span>
   <div class="container position-relative z-1 pt-sm-2 pt-md-3 pt-lg-4" data-bs-theme="dark">
@@ -13,7 +14,7 @@
           <div class="col">
             <h6 class="mb-3">Shop</h6>
             <ul class="nav flex-column gap-2">
-              {% if footer_cats.size > 0 %}<li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/shop/' | relative_url }}"><span class="animate-target">All items for sale</span></a></li>{% endif %}
+              {% if footer_sale.size > 0 %}<li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/shop/' | relative_url }}"><span class="animate-target">All items for sale</span></a></li>{% endif %}
               <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/deals/' | relative_url }}"><span class="animate-target">Deals I found</span></a></li>
             </ul>
           </div>
@@ -21,8 +22,8 @@
           <div class="col">
             <h6 class="mb-3">Categories</h6>
             <ul class="nav flex-column gap-2">
-              {% for c in footer_cats limit: 6 %}
-              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/shop/' | relative_url }}?category={{ c | slugify }}"><span class="animate-target">{{ c }}</span></a></li>
+              {% for c in site.data.categories %}{% unless footer_cats contains c.slug %}{% continue %}{% endunless %}
+              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/deals/' | append: c.slug | append: '/' | relative_url }}"><span class="animate-target">{{ c.name }}</span></a></li>
               {% endfor %}
             </ul>
           </div>
@@ -49,14 +50,8 @@
 
     <p class="text-body fs-xs mb-4">{{ site.affiliate_disclosure }} <a class="text-body" href="{{ '/disclosure/' | relative_url }}">Learn more</a></p>
 
-    <div class="d-md-flex align-items-center border-top py-4">
-      <div class="d-flex gap-2 gap-sm-3 justify-content-center ms-md-auto mb-4 mb-md-0 order-md-2">
-        {% assign pay_icons = "visa,mastercard,apple-pay,google-pay" | split: "," %}
-        {% for pay in pay_icons %}
-        <div><img src="{{ '/assets/images/theme/pay-' | append: pay | append: '.svg' | relative_url }}" alt="{{ pay | replace: '-', ' ' | capitalize }}"></div>
-        {% endfor %}
-      </div>
-      <p class="text-body fs-xs text-center text-md-start mb-0 me-4 order-md-1">&copy; {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
+    <div class="border-top py-4">
+      <p class="text-body fs-xs text-center text-md-start mb-0">&copy; {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
     </div>
   </div>
 </footer>

@@ -1,7 +1,7 @@
 ---
 title: Apple AirPods Pro 3
 type: affiliate
-category: Headphones
+category: Audio
 brand: Apple
 price: 179
 compare_at: 249
@@ -16,4 +16,4 @@ highlights:
 - Wireless charging case
 source: techbargains
 ---
-Amazon has it for $179. Prices change fast, so check the price before you buy.
+Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.

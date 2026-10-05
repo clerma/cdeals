@@ -1,7 +1,7 @@
 ---
 title: Apple AirPods Max 2
 type: affiliate
-category: Headphones
+category: Audio
 brand: Apple
 price: 509.99
 compare_at: 549
@@ -15,4 +15,4 @@ highlights:
 - Over-ear with active noise cancellation
 source: techbargains
 ---
-Amazon has it for $509.99. Prices change fast, so check the price before you buy.
+Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
