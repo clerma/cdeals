@@ -164,10 +164,18 @@ module SourceCache
   # Best non-Amazon URL to fetch for a product (store page, or manufacturer for Amazon deals).
   def enrichment_url(fm)
     store_url = fm["affiliate_url"].to_s
-    return store_url unless amazon_url?(store_url) || fm["store"].to_s =~ /amazon/i
-
     brand = fm["brand"].to_s.downcase
     title = fm["title"].to_s.downcase
+
+    # Lighting brand pages beat blocked retailers (Walmart) when we know the brand.
+    return "https://www.philips-hue.com/en-us" if brand =~ /philips|hue/ || title =~ /philips hue/
+    return "https://us.govee.com/" if brand =~ /govee/ || title =~ /\bgovee\b/
+    return "https://www.gelighting.com/smart-home" if brand =~ /\bge\b|cync/ || title =~ /\bcync\b|ge cync/
+    return "https://www.lifx.com/" if brand =~ /lifx/ || title =~ /\blifx\b/
+    return "https://www.linkind.com/" if brand =~ /linkind/ || title =~ /\blinkind\b/
+    return "https://www.orein.com/" if brand =~ /orein/ || title =~ /\borein\b/
+
+    return store_url unless amazon_url?(store_url) || fm["store"].to_s =~ /amazon/i
     # Amazon-owned brands: official non-amazon.com sites
     return "https://ring.com/" if title =~ /\bring\b/ || brand == "ring"
     return "https://blinkforhome.com/" if title =~ /\bblink\b/ || brand == "blink"

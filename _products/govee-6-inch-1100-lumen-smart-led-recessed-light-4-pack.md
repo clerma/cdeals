@@ -18,8 +18,8 @@ specs:
   value: 6"
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Govee 6" 1100-Lumen Smart LED
-  Recessed Light (4-Pack): display 6". I posted the Amazon listing so you can confirm'
+description: I looked at the Govee 6" 1100-Lumen Smart LED Recessed Light (4-Pack).
+  Govee leads with next-gen RGBIC technology, offering smart LED strip lights,
 source: techbargains
 ---
-I pulled these listing details for the Govee 6" 1100-Lumen Smart LED Recessed Light (4-Pack): display 6". I posted the Amazon listing so you can confirm the live price.
+I looked at the Govee 6" 1100-Lumen Smart LED Recessed Light (4-Pack). Govee leads with next-gen RGBIC technology, offering smart LED strip lights, outdoor lights, floor lamps, TV backlights, gaming lights, smart bulbs, and more. Govee leads with next-gen RGBIC technology, offering smart LED strip lights, outdoor lights, floor lamps, TV backlights, gaming lights, smart bulbs, and more. I posted the Amazon listing so you can confirm the live price.

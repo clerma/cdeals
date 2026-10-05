@@ -16,8 +16,8 @@ highlights:
 - Multicolor
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I filed the Philips Hue Indoor Smart LED Gradient Light Strip Extension
-  (3') as a deal worth checking. I posted the Amazon listing so you can confirm the
+description: I looked at the Philips Hue Indoor Smart LED Gradient Light Strip Extension
+  (3'). Explore Philips Hue smart lighting. The best smart LED lights for daily
 source: slickdeals
 ---
-I filed the Philips Hue Indoor Smart LED Gradient Light Strip Extension (3') as a deal worth checking. I posted the Amazon listing so you can confirm the live price.
+I looked at the Philips Hue Indoor Smart LED Gradient Light Strip Extension (3'). Explore Philips Hue smart lighting. The best smart LED lights for daily routines and special moments. I posted the Amazon listing so you can confirm the live price.

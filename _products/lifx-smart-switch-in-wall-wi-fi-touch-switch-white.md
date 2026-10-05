@@ -18,8 +18,8 @@ specs:
   value: Wi-Fi
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the LIFX Smart Switch, In-Wall Wi-Fi
-  Smart Touch Switch (White): connectivity Wi-Fi. I posted the Amazon listing so you'
+description: I looked at the LIFX Smart Switch, In-Wall Wi-Fi Smart Touch Switch (White).
+  Billions of colors, no hub required, and works with Alexa, Google and Apple
 source: slickdeals
 ---
-I pulled these listing details for the LIFX Smart Switch, In-Wall Wi-Fi Smart Touch Switch (White): connectivity Wi-Fi. I posted the Amazon listing so you can confirm the live price.
+I looked at the LIFX Smart Switch, In-Wall Wi-Fi Smart Touch Switch (White). Billions of colors, no hub required, and works with Alexa, Google and Apple Home. Billions of colors, no hub required, and works with Alexa, Google and Apple Home. I posted the Amazon listing so you can confirm the live price.
