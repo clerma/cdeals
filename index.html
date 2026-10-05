@@ -307,18 +307,15 @@ brands: [apple, samsung, sony, canon]
 
 <!-- Brands (search the shop, or the deals while nothing is for sale) -->
 {% if for_sale.size > 0 %}{% assign brand_url = '/shop/' %}{% assign brand_all = 'All items' %}{% else %}{% assign brand_url = '/deals/' %}{% assign brand_all = 'All deals' %}{% endif %}
+{% assign brand_n = home.brands.size | plus: 1 %}
 <section class="container pt-4 pt-md-5 pb-5 mt-sm-2 mb-2 mb-sm-3 mb-md-4 mb-lg-5">
-  <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 g-md-4 g-lg-3 g-xl-4">
+  <div class="brand-logo-strip" style="--brand-n: {{ brand_n }}">
     {% for b in home.brands %}
-    <div class="col">
-      <a class="btn btn-outline-secondary w-100 rounded-4 p-3" href="{{ brand_url | relative_url }}?q={{ b }}" aria-label="{{ b | capitalize }}">
+      <a class="btn btn-outline-secondary w-100 h-100 rounded-4 p-3" href="{{ brand_url | relative_url }}?q={{ b }}" aria-label="{{ b | capitalize }}">
         <img src="{{ '/assets/images/theme/brand-' | append: b | append: '-light.svg' | relative_url }}" class="d-none-dark" alt="{{ b | capitalize }}">
         <img src="{{ '/assets/images/theme/brand-' | append: b | append: '-dark.svg' | relative_url }}" class="d-none d-block-dark" alt="{{ b | capitalize }}">
       </a>
-    </div>
     {% endfor %}
-    <div class="col">
       <a class="btn btn-outline-secondary w-100 h-100 rounded-4 p-3" href="{{ brand_url | relative_url }}">{{ brand_all }} <i class="ci-chevron-right fs-base ms-1"></i></a>
-    </div>
   </div>
 </section>
