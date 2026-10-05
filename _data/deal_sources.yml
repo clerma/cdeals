@@ -122,6 +122,26 @@ defaults:
 # ---------------------------------------------------------------------------
 # Fetching
 # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# How sources are fetched (per source: fetch: plain | rss | sitemap | api | zenrows)
+#   plain    - normal polite request (honest User-Agent, robots.txt, delay)
+#   rss      - an official feed
+#   sitemap  - the site's sitemap.xml lists the pages (e.g. Woot)
+#   api      - an official API; needs the env vars listed under env: and is
+#              skipped (not an error) until they are set
+#   zenrows  - ZenRows API, for pages whose content is built by JavaScript
+# fallback: zenrows lets a plain source retry through ZenRows when blocked.
+# It is OFF everywhere: a block (captcha / bot wall) means the site doesn't
+# want scripts, and Carlos hasn't approved getting around that.
+# official_for: [host] marks a source as the official one for that store.
+# ZenRows is NEVER used for a host that has an official source in this file,
+# even when its key isn't set yet or the source is still disabled (planned).
+# ---------------------------------------------------------------------------
+zenrows:
+  monthly_credit_cap: 4500     # ZenRows free tier is 5,000/month; env ZENROWS_MONTHLY_CAP overrides
+  usage_file: scripts/state/zenrows_usage.json   # counts only (credits/requests per month), never the key
+  # Key: env ZENROWS_API_KEY (GitHub secret of the same name). Missing -> zenrows sources are skipped.
+
 http:
   user_agent: "cDealsFinder/1.0 (+https://github.com/clerma/cdeals)"
   open_timeout: 8
@@ -147,6 +167,7 @@ feeds:
   - id: techbargains
     name: TechBargains
     url: https://www.techbargains.com/rss.xml
+    fetch: rss
     resolve: direct
     max_items: 600
     max_candidates: 80   # links go straight to the store, so allow more from here
@@ -169,12 +190,8 @@ feeds:
       - https://www.techbargains.com/stores/amazon
       - https://www.techbargains.com/stores/walmart
       - https://www.techbargains.com/stores/dell
-  - id: slickdeals
-    name: Slickdeals Frontpage
-    url: https://slickdeals.net/newsearch.php?mode=frontpage&searcharea=deals&searchin=first&rss=1
-    resolve: content_link
-    link_selector: 'a[data-cta="outclick"]'
-    max_items: 25
+  # Slickdeals moved to sites: (id slickdeals-rss) as leads; its /click store
+  # links are disallowed by robots.txt, so the old content_link resolve never worked.
   - id: dealnews
     name: DealNews
     url: https://www.dealnews.com/?rss=1
@@ -198,6 +215,7 @@ sites:
   # listed for days, so allow older posts than the RSS.
   - id: techbargains-pages
     name: TechBargains category pages
+    fetch: plain
     parser: techbargains_pages
     max_age_hours: 120
     max_items: 600
@@ -255,6 +273,7 @@ sites:
   - id: woot
     name: Woot
     store: Woot
+    fetch: sitemap
     parser: woot
     max_offers: 160
     max_per_sitemap: 45
@@ -264,6 +283,251 @@ sites:
     sitemaps:
       - https://computers.woot.com/sitemap.xml      # = woot.com/category/computers
       - https://electronics.woot.com/sitemap.xml    # = woot.com/category/electronics (TVs, audio, cameras, phones, gaming)
+
+  # ------------------------------------------------------------------------
+  # Stores read directly (tested Oct 2026: robots.txt allows these pages and
+  # they are server-rendered, so no scraping service is involved).
+  # require_title_category: skip items whose title matches no category word
+  # (instead of filing them under the Accessories fallback).
+  # ------------------------------------------------------------------------
+  - id: bh-deals
+    name: B&H deals
+    store: B&H Photo
+    fetch: plain
+    fallback: none
+    parser: bh
+    require_title_category: true
+    require_discount: true     # the store page must show its own original price
+    require_image: true
+    max_items: 120
+    max_candidates: 20
+    urls:
+      - https://www.bhphotovideo.com/deals-promotions-coupons
+  # The Used Department landing page has no product list; these are its
+  # used sub-category listings (B&H condition grade is added as a highlight).
+  - id: bh-used
+    name: B&H used gear
+    store: B&H Photo
+    fetch: plain
+    fallback: none
+    parser: bh
+    require_title_category: true
+    require_discount: true     # the store page must show its own original price
+    require_image: true
+    min_discount_pct: 15
+    max_items: 200
+    max_candidates: 15
+    urls:
+      - https://www.bhphotovideo.com/c/buy/used-mirrorless-cameras/ci/21264/N/4040479538
+      - https://www.bhphotovideo.com/c/buy/Notebooks-Netbooks-Tablet-PCs/ci/13995/N/3607616147
+      - https://www.bhphotovideo.com/c/buy/used-tablets/ci/23078/N/3607616146
+      - https://www.bhphotovideo.com/c/buy/used-computer-monitors-accessories/ci/28343/N/3756184941
+  - id: newegg-outlet
+    name: Newegg Outlet / clearance
+    store: Newegg
+    fetch: plain
+    fallback: none    # Newegg sometimes answers with /areyouahuman: that's a wall, so no ZenRows
+    parser: newegg
+    require_title_category: true
+    require_discount: true     # the store page must show its own original price
+    require_image: true
+    max_items: 80
+    max_candidates: 15
+    urls:
+      - https://www.newegg.com/ClearanceStore/EventSaleStore/ID-697
+  - id: newegg-rss
+    name: Newegg daily deals RSS (official)
+    store: Newegg
+    fetch: rss
+    parser: newegg_rss
+    official_for: [newegg.com]   # official feed exists -> never ZenRows for newegg.com
+    require_title_category: true
+    require_discount: true     # the store page must show its own original price
+    require_image: true
+    url: https://www.newegg.com/Product/RSS.aspx?Submit=RSSDailyDeals&Depa=0
+  # MacHeist is a StackCommerce store: mostly software/courses (filtered out by
+  # the keyword rules); only hardware-looking sale pages are opened.
+  - id: macheist
+    name: MacHeist electronics
+    store: MacHeist
+    fetch: plain
+    fallback: none
+    parser: macheist
+    require_title_category: true
+    require_discount: true     # the store page must show its own original price
+    require_image: true
+    max_offers: 20
+    max_candidates: 10
+    # Skip very old refurbs (Intel MacBooks 2017-2020, iPad 5th-9th gen, 6th-8th gen Intel PCs, Windows 10).
+    title_exclude: '\b(201[0-9]|2020 [0-9.]+ ?i[357]|ipad [5-9]\b|ipad (5|6|7|8|9)th|[5-9]th gen|i[357] [4-8][0-9]{3}|windows 10|mpxv2|mwtj2|i3)\b'
+    urls:
+      - https://www.macheist.com/collections/electronics-gadgets
+  # Slickdeals official RSS as LEADS: resolved only when the feed names the
+  # product (Amazon ASIN). Others are queued without a store link.
+  - id: slickdeals-rss
+    name: Slickdeals frontpage RSS (leads)
+    fetch: rss
+    parser: slickdeals_rss
+    require_title_category: true   # the frontpage is mostly groceries/toys
+    max_items: 40
+    max_candidates: 10
+    # robots.txt disallows /newsearch.php?*rss=* (the old feed URL), so the
+    # frontpage feed at /rss/frontpage is used instead (allowed).
+    url: https://slickdeals.net/rss/frontpage
+
+  # ------------------------------------------------------------------------
+  # Target: deal listings are built by JavaScript (plain fetch returns no
+  # products), and there's no public Target API, so these go through ZenRows
+  # js_render: 5 credits a page, ~600 credits/month at 4 pages a day.
+  # The cheapest tier that works is remembered in the usage file.
+  # (target.com/c/electronics-deals itself is a hub of promo tiles with no
+  # products; these are its deal sub-pages.) Once a Target Impact catalog is
+  # set up below (add target.com to its official_for), ZenRows stops being used
+  # for target.com automatically.
+  # ------------------------------------------------------------------------
+  - id: target-deals
+    name: Target electronics deals
+    store: Target
+    fetch: zenrows
+    parser: target
+    max_discount_pct: 70   # marketplace listings with made-up "reg" prices (85% off no-name headphones)
+    require_title_category: true
+    require_discount: true     # the store page must show its own original price
+    require_image: true
+    max_items: 120
+    max_candidates: 15
+    zenrows:
+      allow_premium: false
+      wait_for: 'a[href^="/p/"]'
+      js_instructions: [{scroll_y: 3000}, {wait: 1500}, {scroll_y: 3000}, {wait: 1500}]
+    urls:
+      - https://www.target.com/c/headphone-deals/-/N-nk6ja
+      - https://www.target.com/c/laptop-deals/-/N-tlcnq
+      - https://www.target.com/c/computers-tablets-deals/-/N-sg5cj
+      - https://www.target.com/c/camera-deals/-/N-x4qm9
+
+  # ------------------------------------------------------------------------
+  # Official APIs / partner feeds. Each is skipped until its env vars are set
+  # (GitHub secrets of the same names). official_for makes it the official
+  # source for that store, so ZenRows is never used there.
+  # ------------------------------------------------------------------------
+  - id: bestbuy-api
+    name: Best Buy Products API (official)
+    store: Best Buy
+    fetch: api
+    parser: bestbuy_api
+    env: [BESTBUY_API_KEY]
+    official_for: [bestbuy.com]
+    require_title_category: false
+    max_items: 200
+    max_candidates: 20
+    max_pages: 2
+    page_size: 100
+    # Best Buy category ids (developer.bestbuy.com categories API); check/extend once the key works.
+    category_ids:
+      - abcat0502000        # Laptops
+      - abcat0501000        # Desktops
+      - abcat0101000        # TVs
+      - abcat0204000        # Headphones
+      - pcmcat209000050006  # iPad & tablets
+      - abcat0401000        # Digital cameras
+  # Planned official sources: adapters not written yet (need partner approval
+  # and keys). To add one: write the adapter in scripts/lib/direct_sources.rb,
+  # add it to PARSERS, set the env vars, then set enabled: true.
+  - id: walmart-affiliate-api
+    name: Walmart Affiliate API (planned)
+    enabled: false
+    fetch: api
+    parser: walmart_affiliate
+    env: [WALMART_CONSUMER_ID, WALMART_PRIVATE_KEY]
+    official_for: [walmart.com]
+  - id: impact-catalogs
+    name: Impact product catalogs - OWC, Target, Best Buy, Adorama (planned)
+    enabled: false
+    fetch: api
+    parser: impact_catalog
+    env: [IMPACT_ACCOUNT_SID, IMPACT_AUTH_TOKEN]
+    # Add target.com here once a Target Partners (Impact) catalog is set up:
+    # that switches Target from ZenRows to the official feed automatically.
+    official_for: [macsales.com, adorama.com]
+  - id: woot-api
+    name: Woot developer API (planned; the sitemap reader above works without it)
+    enabled: false
+    fetch: api
+    parser: woot_api
+    env: [WOOT_API_KEY]
+    official_for: [woot.com]
+  - id: amazon-paapi
+    name: Amazon Product Advertising API (planned; Amazon pages are never scraped)
+    enabled: false
+    fetch: api
+    parser: amazon_paapi
+    env: [PAAPI_ACCESS_KEY, PAAPI_SECRET_KEY, PAAPI_PARTNER_TAG]
+    official_for: [amazon.com]
+  # Amazon pages to read through PA-API later. NEVER scraped (Associates rules):
+  # these stay disabled until PA-API access, which Amazon grants after the
+  # Associates account has 3 qualifying sales. Then: build the amazon_paapi
+  # adapter (BrowseNodeId / deal filters), set the PAAPI_* env vars, enable.
+  - id: amazon-node-12653393011
+    name: Amazon browse node 12653393011 (PA-API placeholder)
+    enabled: false
+    note: Enable via PA-API once Carlos has 3 qualifying Amazon sales. Never scrape amazon.com.
+    store: Amazon
+    fetch: api
+    parser: amazon_paapi
+    env: [PAAPI_ACCESS_KEY, PAAPI_SECRET_KEY, PAAPI_PARTNER_TAG]
+    official_for: [amazon.com]
+    browse_node: "12653393011"
+    page_url: https://www.amazon.com/b?node=12653393011   # for reference only; not fetched
+  - id: amazon-electronics-deals
+    name: Amazon Electronics deals, node 172282 + deal_type 23566065011 (PA-API placeholder)
+    enabled: false
+    note: Enable via PA-API once Carlos has 3 qualifying Amazon sales. Never scrape amazon.com.
+    store: Amazon
+    fetch: api
+    parser: amazon_paapi
+    env: [PAAPI_ACCESS_KEY, PAAPI_SECRET_KEY, PAAPI_PARTNER_TAG]
+    official_for: [amazon.com]
+    browse_node: "172282"
+    deal_type: "23566065011"
+    page_url: https://www.amazon.com/s?rh=n%3A172282%2Cp_n_deal_type%3A23566065011   # for reference only; not fetched
+
+  # ------------------------------------------------------------------------
+  # Bot-walled stores: a plain request gets a captcha / bot wall (tested Oct
+  # 2026). Getting past that with ZenRows premium is NOT approved, so these
+  # stay off. Prefer the store's affiliate feed (Impact catalogs above).
+  # ------------------------------------------------------------------------
+  - id: adorama
+    name: Adorama specials
+    enabled: false
+    note: DataDome captcha on plain fetch; ZenRows bypass not approved. Use Impact/Howl feed.
+    store: Adorama
+    fetch: plain
+    fallback: none
+    urls: [https://www.adorama.com/specials/l/]
+  - id: owc
+    name: OWC specials
+    enabled: false
+    note: 403 from the edge firewall (even robots.txt); ZenRows bypass not approved. Use the OWC affiliate data feed.
+    store: OWC
+    fetch: plain
+    fallback: none
+    urls: [https://eshop.macsales.com/shop/specials]
+  - id: walmart
+    name: Walmart top tech deals
+    enabled: false
+    note: redirected to walmart.com/blocked; ZenRows bypass not approved. Use the Walmart Affiliate API.
+    store: Walmart
+    fetch: plain
+    fallback: none
+    urls: [https://www.walmart.com/shop/deals/top-100-tech-deals]
+  - id: bradsdeals
+    name: Brad's Deals electronics
+    enabled: false
+    note: JavaScript "Client Challenge" wall (even robots.txt); ZenRows bypass not approved.
+    fetch: plain
+    fallback: none
+    urls: [https://www.bradsdeals.com/categories/electronics]
 
 #  - id: woot-electronics
 #    name: Woot Electronics

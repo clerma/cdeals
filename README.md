@@ -99,13 +99,15 @@ Put your Amazon Associates ID in `amazon_tag` in `_config.yml`. Every Amazon lin
 
 ### Sources and filters: `_data/deal_sources.yml`
 
-- `feeds:` lists RSS feeds (TechBargains, Slickdeals, DealNews, Ben's Bargains). `resolve:` tells the finder how to find the real store link for each feed.
+- `feeds:` lists RSS feeds (TechBargains, DealNews, Ben's Bargains). `resolve:` tells the finder how to find the real store link for each feed.
 - `sites:` lists store pages to watch (commented examples are in the file). It reads products from the page's JSON-LD by default, or uses the CSS selectors you give it.
 - `filters:` sets max age, min discount %, price range, and include/exclude keywords.
 - `categories:` maps title keywords to the categories in `_data/categories.yml`; `feed_categories:` maps the source's own category; `skip_feed_categories:` drops non-tech ones; anything else falls back to `fallback_category` (Accessories).
 - `sites:` includes TechBargains category/store pages (`parser: techbargains_pages`) and Woot (`parser: woot`: event pages + computers/electronics sitemaps, each offer page read for price, list price, end date and stock).
 - `defaults:` sets `expires_days`, how many candidates to add per run and per source, how long unreviewed candidates stay in the queue, and whether approved images are downloaded or hotlinked.
 - `http:` sets the User-Agent, timeouts, and a delay between requests to the same host. robots.txt is respected, including Crawl-delay. Like any feed reader, the finder doesn't check robots.txt for the feed URLs themselves.
+- `fetch:` on each source says how it's read: `plain` (polite request), `rss` (official feed), `sitemap`, `api` (official API, skipped until its env vars in `env:` are set) or `zenrows`. Direct store sources (`scripts/lib/direct_sources.rb`): B&H deals and used gear, Newegg Outlet plus Newegg's RSS, MacHeist hardware, the Slickdeals frontpage RSS as leads (only Amazon items resolve, from the ASIN in the feed), Target deals through ZenRows, and the Best Buy Products API (`BESTBUY_API_KEY`). Walmart, Impact catalogs (OWC/Adorama, later Target), the Woot API and Amazon PA-API are listed as disabled placeholders with the env vars they'll need. Adorama, OWC, Walmart and Brad's Deals are disabled: they put up a captcha/bot wall.
+- **ZenRows** (`zenrows:`): used only for sources with `fetch: zenrows` (Target, whose listings are built by JavaScript), and never for a store that has an official source in the file (`official_for:`). It tries the cheapest option first (plain, then JS rendering at 5 credits; premium proxies only if a source sets `allow_premium: true`), remembers what worked, and stops at a monthly cap (`monthly_credit_cap`, default 4500). Credit counts (no key) are kept in `scripts/state/zenrows_usage.json`. The key comes from the `ZENROWS_API_KEY` environment variable / GitHub secret; without it those sources are skipped.
 
 ### Run it
 
@@ -131,7 +133,8 @@ The workflow is in `scripts/find-deals.workflow.yml`. Move it to `.github/workfl
 
 ### Known limits
 
-- **Slickdeals:** robots.txt disallows the `/click` store links, so the finder leaves them alone. Slickdeals candidates come with the store name and price but a blank link.
+- **Slickdeals:** robots.txt disallows the `/click` store links and the old `newsearch.php?...rss=1` feed, so the finder reads `slickdeals.net/rss/frontpage` and never requests `/click`. Amazon items resolve from the ASIN in the feed; others are queued with a blank link.
+- **Newegg RSS:** the official daily-deals feed returned no items in Oct 2026; the Outlet page is read instead.
 - **DealNews:** store links redirect scripts to a "dead-end" page, so they stay blank.
 - **Ben's Bargains:** store links are behind a POST click tracker that robots.txt disallows, so they stay blank.
 - **TechBargains:** links go straight to the store, so these always resolve.

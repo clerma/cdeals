@@ -16,6 +16,8 @@ require "cgi"
 require "nokogiri"
 require_relative "lib/deal_tools"
 require_relative "lib/polite_http"
+require_relative "lib/fetcher"
+require_relative "lib/direct_sources"
 
 
 
@@ -30,7 +32,8 @@ end.parse!
 cfg = DealTools.config
 filters = cfg["filters"] || {}
 defaults = cfg["defaults"] || {}
-http = PoliteHTTP.new(cfg["http"] || {})
+fetcher = Fetcher.new(cfg, root: DealTools::ROOT)
+http = fetcher.http
 max_redirects = (cfg.dig("http", "max_redirects") || 8).to_i
 skip_store_hosts = Array(cfg["skip_store_fetch_hosts"]).map(&:downcase)
 limit = opts[:limit] || (defaults["max_candidates_per_run"] || 25).to_i
@@ -353,18 +356,23 @@ build_candidate = lambda do |item, source|
   next skip.call(item, "non-tech source category (#{feed_cat})") if skip_feed_cat_re&.match?(feed_cat)
   category = category_rules.find { |_, re| re.match?(title) }&.first
   category ||= feed_category_rules.find { |_, re| re.match?(feed_cat) }&.first unless feed_cat.empty?
+  next skip.call(item, "no category keyword in title") if category.nil? && source["require_title_category"]
   category ||= fallback_category
   next skip.call(item, "no matching category") if category.nil? && filters.fetch("require_category", true)
 
   price = item[:price] || DealTools.first_price(title) || DealTools.first_price(item[:text])
   next skip.call(item, "price outside min/max") if price && ((filters["min_price"] && price < filters["min_price"]) || (filters["max_price"] && price > filters["max_price"]))
-  compare = DealTools.compare_from_text(blob, price)
+  compare = item[:compare_at] && price && item[:compare_at] > price ? item[:compare_at] : DealTools.compare_from_text(blob, price)
 
   # Resolve the real store link (circuit breaker after 3 blocked in a row).
   store_url = nil
   reason = nil
   if source_blocked[source["id"]] >= 3
     reason = "skipped: #{source['id']} store links kept failing this run"
+  elsif item.key?(:store_url)
+    # Direct sources already know the product page (or why they don't).
+    store_url = item[:store_url]
+    reason = item[:unresolved_reason] || "no store link"
   else
     store_url, reason = resolve_store_url(item, source, http, max_redirects)
     source_blocked[source["id"]] = store_url ? 0 : source_blocked[source["id"]] + (reason =~ /none|robots/ ? 0 : 1)
@@ -414,18 +422,27 @@ build_candidate = lambda do |item, source|
   compare = data[:compare_at] if data[:compare_at] && price && data[:compare_at] > price
   compare = nil if compare && price && compare <= price
   discount = compare && price ? ((1 - price / compare) * 100).round : nil
-  if discount && filters["min_discount_pct"] && discount < filters["min_discount_pct"].to_i
-    next skip.call(item, "discount below #{filters['min_discount_pct']}%")
+  min_disc = source["min_discount_pct"] || filters["min_discount_pct"]
+  if discount && min_disc && discount < min_disc.to_i
+    next skip.call(item, "discount below #{min_disc}%")
   end
-  next skip.call(item, "unknown discount") if discount.nil? && filters["allow_unknown_discount"] == false
+  next skip.call(item, "unknown discount") if discount.nil? && (filters["allow_unknown_discount"] == false || source["require_discount"])
   next skip.call(item, "no price found") unless price
+  if discount && source["max_discount_pct"] && discount > source["max_discount_pct"].to_i
+    next skip.call(item, "discount above #{source['max_discount_pct']}% (inflated list price?)")
+  end
 
   name = data[:name].to_s.strip.empty? ? title : data[:name]
   short = DealTools.short_title(name, store: store)
   short = DealTools.short_title(title, store: store) if short.length < 8
-  highlights = []
+  # Same product from the same store under another URL (colour/variant pages).
+  title_key = "title:#{store.downcase}|#{short.downcase.gsub(/[^a-z0-9]+/, ' ').strip}"
+  next skip.call(item, "same product already found (variant)") if seen[title_key]
+  image_url = abs_img.call(data[:image].to_s) || item[:image]
+  next skip.call(item, "no product image") if source["require_image"] && image_url.to_s.empty?
+  highlights = Array(item[:highlights]).reject { |h| h.to_s.strip.empty? }
   highlights << "$#{(compare - price).round} under its usual price" if compare && !(store =~ /amazon/i || store_url.to_s =~ /amazon\.|amzn\./i)
-  highlights << "Refurbished or open-box: check the condition notes at #{store.empty? ? 'the store' : store}" if title =~ /refurb|reconditioned|renewed|like-new|like new|open[- ]box|scratch/i
+  highlights << "Refurbished or open-box: check the condition notes at #{store.empty? ? 'the store' : store}" if title =~ /refurb|reconditioned|renewed|like-new|like new|open[- ]box|scratch/i && highlights.none? { |h| h =~ /used|refurb|open-box/i }
   highlights << "Free shipping" if blob =~ /free ship/i
   highlights << "May need a coupon or promo code at checkout" if blob =~ /\bcoupon\b|\bclip\b|promo code|\bcode\b/i
   highlights << "Prime members only" if blob =~ /prime (members|exclusive|only)/i
@@ -448,11 +465,12 @@ build_candidate = lambda do |item, source|
     "price" => price, "compare_at" => compare, "discount_pct" => discount, "category" => category,
     "brand" => [data[:brand], item[:brand]].map { |b| b.to_s.strip }.find { |b| !b.empty? } || brand_guess(name),
     "affiliate_url" => store_url ? DealTools.affiliate_url(store_url) : "", "store_url" => store_url,
-    "image" => abs_img.call(data[:image].to_s) || item[:image], "highlights" => highlights.first(3),
-    "summary" => summary, "expires" => expires, "found" => today, "source" => source["id"],
-    "source_link" => item[:link], "source_title" => title[0, 140], "notes" => notes.empty? ? nil : notes.join(" ")
+    "image" => image_url, "highlights" => highlights.first(3),
+    "summary" => summary, "expires" => expires, "found" => today.dup, "source" => source["id"],
+    "source_link" => item[:page] || item[:link], "source_title" => title[0, 140], "notes" => notes.empty? ? nil : notes.join(" ")
   }.compact
   seen[dedupe_key] = "already queued"
+  seen[title_key] = "already queued"
   seen[item[:link]] = "already queued"
   log.call("  + #{entry['id']} #{short} — #{money_s.call(price)} at #{store}#{store_url ? '' : ' (unresolved)'}")
   entry
@@ -461,11 +479,24 @@ end
 # ------------------------------------------------------------ run it ---
 sources = Array(cfg["feeds"]).map { |f| f.merge("kind" => "feed") } + Array(cfg["sites"]).map { |s| s.merge("kind" => "site") }
 sources.select! { |s| s["id"] == opts[:source] } if opts[:source]
+disabled = sources.select { |s| s["enabled"] == false }
 sources.reject! { |s| s["enabled"] == false }
+disabled.each { |s| puts "-- #{s['name'] || s['id']}: disabled#{s['note'] ? " (#{s['note']})" : ''}" } if opts[:verbose]
 
 sources.each do |source|
   break if added.size >= limit
-  puts "== #{source['name'] || source['id']} (#{source['url'] || "#{Array(source['urls']).size} pages"})"
+  puts "== #{source['name'] || source['id']} (#{source['url'] || "#{Array(source['urls']).size} pages"}#{source['fetch'] ? ", fetch: #{source['fetch']}" : ''})"
+  # Official APIs: skipped quietly until their key is in the environment.
+  missing_env = Array(source["env"]).select { |k| ENV[k].to_s.strip.empty? }
+  unless missing_env.empty?
+    puts "   skipped: #{missing_env.join(', ')} not set"
+    stats[:sources_skipped] += 1
+    next
+  end
+  if DirectSources::PLANNED.include?(source["parser"].to_s)
+    puts "   skipped: the #{source['parser']} adapter isn't built yet"
+    next
+  end
   # Feeds are published for feed readers, so (like any feed reader) the feed URL
   # itself isn't checked against robots.txt. Everything else is.
   res = source["kind"] == "feed" ? http.follow(source["url"], max: max_redirects, robots: false).last : http.follow(source["url"], max: max_redirects).last unless source["parser"]
@@ -475,7 +506,13 @@ sources.each do |source|
     next
   end
   items =
-    if source["parser"] == "techbargains_pages"
+    if (meth = DirectSources::PARSERS[source["parser"].to_s])
+      if meth == :macheist_items
+        DirectSources.macheist_items(fetcher, source, category_re: Regexp.union(category_rules.map(&:last)), exclude_re: exclude_re)
+      else
+        DirectSources.public_send(meth, fetcher, source)
+      end
+    elsif source["parser"] == "techbargains_pages"
       techbargains_page_items(http, source, max_redirects)
     elsif source["parser"] == "woot"
       woot_items(http, source, max_redirects, cfg["categories"] || {})
@@ -530,6 +567,8 @@ end
 
 queue.concat(added)
 DealTools.save_queue(queue) unless opts[:dry_run]
+# Credits are spent even on a dry run, so the usage counts are always saved.
+fetcher.save_usage!
 
 puts
 puts "Items fetched: #{stats[:items_fetched]}  (checked after filters: #{stats[:items_seen]})"
@@ -537,6 +576,8 @@ puts "New candidates: #{added.size}  (store link resolved: #{added.count { |e| e
 puts "Store pages read: #{stats[:store_fetch_ok]}, failed/blocked: #{stats[:store_fetch_failed]}"
 puts "Dropped stale queue entries: #{dropped_stale}" if dropped_stale.positive?
 puts "HTTP requests: #{http.stats[:requests]}, blocked by robots.txt: #{http.stats[:robots_blocked]}, errors: #{http.stats[:errors]}"
+puts "ZenRows: #{fetcher.usage_stats[:requests]} requests, #{fetcher.usage_stats[:credits]} credits this run; " \
+     "#{fetcher.credits_this_month}/#{fetcher.cap} credits this month#{fetcher.zenrows_key? ? '' : ' (ZENROWS_API_KEY not set)'}"
 puts "Skipped:" unless skips.empty?
 skips.sort_by { |_, n| -n }.each { |r, n| puts "  #{n.to_s.rjust(4)}  #{r}" }
 puts "Unresolved store links:" unless unresolved_reasons.empty?

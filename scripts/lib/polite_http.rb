@@ -2,6 +2,7 @@
 
 require "net/http"
 require "uri"
+require "fileutils"
 
 # Small HTTP client for the deal finder: one User-Agent, timeouts, a minimum
 # delay per host (or the site's robots.txt Crawl-delay), robots.txt checks,
@@ -24,6 +25,8 @@ class PoliteHTTP
     @last = {}
     @robots = {}
     @stats = Hash.new(0)
+    @robots_cache_dir = opts.fetch("robots_cache_dir", File.expand_path("../../tmp/robots-cache", __dir__))
+    @robots_cache_hours = (opts["robots_cache_hours"] || 24).to_f
   end
 
   def allowed?(url)
@@ -90,7 +93,7 @@ class PoliteHTTP
     key = "#{u.scheme}://#{u.host}"
     @robots[key] ||= begin
       rules = { allow: [], disallow: [], delay: nil }
-      txt = raw_get("#{key}/robots.txt")
+      txt = cached_robots(key) { raw_get("#{key}/robots.txt") }
       applies = false
       seen_rule = false
       txt.to_s.each_line do |line|
@@ -109,6 +112,23 @@ class PoliteHTTP
       end
       rules
     end
+  end
+
+  # robots.txt is cached in memory for the run and on disk (tmp/robots-cache,
+  # git-ignored) for robots_cache_hours (default 24) so repeated runs don't
+  # re-request it. An empty answer (error) is never cached on disk.
+  def cached_robots(key)
+    return yield if @robots_cache_dir.nil?
+    file = File.join(@robots_cache_dir, key.sub(%r{\Ahttps?://}, "").gsub(/[^a-z0-9.\-]/i, "_") + ".txt")
+    return File.read(file) if File.exist?(file) && Time.now - File.mtime(file) < @robots_cache_hours * 3600
+    txt = yield
+    unless txt.to_s.empty?
+      FileUtils.mkdir_p(@robots_cache_dir)
+      File.write(file, txt)
+    end
+    txt
+  rescue SystemCallError
+    yield
   end
 
   def raw_get(url)
