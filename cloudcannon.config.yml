@@ -72,6 +72,23 @@ _inputs:
   highlights:
     type: array
 
+  # SEO front matter (any page)
+  description:
+    type: textarea
+    comment: Search result snippet. Aim for 150-160 characters, written for people.
+  breadcrumb_title:
+    type: text
+    comment: Short label for breadcrumbs. Defaults to the title.
+  noindex:
+    type: switch
+    comment: Hide this page from search engines (thank-you and utility pages).
+  canonical_url:
+    type: url
+    comment: Only if this page's content lives at another URL.
+  lede:
+    type: textarea
+    comment: Short subtitle shown under the page heading.
+
   # Page front matter
   hero:
     type: array

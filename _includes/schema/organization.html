@@ -1,0 +1,48 @@
+{% comment %}
+  The hub entity. cDeals is an online store with no physical location, so this is
+  an OnlineStore (an Organization subtype), not a LocalBusiness: no address,
+  geo, hours, or service area are emitted. While nothing of mine is for sale
+  (site.selling false, _plugins/selling_mode.rb) it's a plain Organization. Every optional block gates on its
+  data existing; the leading comma lives INSIDE each if so the JSON stays valid.
+{% endcomment %}
+{%- assign company = site.data.company -%}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"{% if site.selling %}OnlineStore{% else %}Organization{% endif %}",
+  "@id":"{{ business_id }}",
+  "name":{{ site.title | jsonify }},
+  "slogan":{{ site.tagline | jsonify }},
+  "description":{{ site.description | strip_html | strip_newlines | strip | jsonify }},
+  "url":"{{ site.url }}/"
+  {%- if site.logo and site.logo != "" %},
+  "logo":"{{ site.logo | absolute_url }}",
+  "image":"{{ site.logo | absolute_url }}"{% endif %}
+  {%- if site.author and site.author != "" %},
+  "founder":{"@type":"Person","name":{{ site.author | jsonify }}}{% endif %}
+  {%- if company.email and company.email != "" %},
+  "email":{{ company.email | jsonify }}{% endif %}
+  {%- if company.country and company.country != "" %},
+  "areaServed":{"@type":"Country","name":{{ company.country | jsonify }}}{% endif %}
+  {%- if site.social.links and site.social.links.size > 0 %},
+  "sameAs":[{% for link in site.social.links %}{{ link | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endif %}
+  {%- if site.selling and company.payment_accepted and company.payment_accepted.size > 0 %},
+  "paymentAccepted":{{ company.payment_accepted | join: ", " | jsonify }}{% endif %}
+  {%- assign client_reviews = site.data.testimonials | where_exp: "t", "t.review" -%}
+  {%- if site.selling and client_reviews.size > 0 %},
+  "review":[
+    {% for t in client_reviews %}
+    {"@type":"Review",
+     "reviewBody":{{ t.review | strip_newlines | strip | jsonify }},
+     "author":{"@type":"Person","name":{{ t.name | jsonify }}}
+     {%- if t.rating %},
+     "reviewRating":{"@type":"Rating","ratingValue":{{ t.rating }},"bestRating":5,"worstRating":1}{% endif %}
+     {%- if t.date %},
+     "datePublished":"{{ t.date | date: '%Y-%m-%d' }}"{% endif %}}
+    {%- unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]{% endif %}
+  {%- if company.rating_value and company.rating_value != "" and company.review_count and company.review_count != "" %},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":{{ company.rating_value }},"reviewCount":{{ company.review_count }},"bestRating":5,"worstRating":1}{% endif %}
+}
+</script>

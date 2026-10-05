@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Terms and Conditions
+breadcrumb_title: Terms
+description: "The terms that apply when you use cDeals or buy used tech from me, including how listings, pricing, checkout, and links to other stores' deals work on this site."
 permalink: /terms/
 updated: 2026-10-04
 ---

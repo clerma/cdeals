@@ -1,6 +1,6 @@
 ---
-title: For sale
-description: Used tech I'm selling directly. Checked, reset, and shipped by me.
+title: "Used Tech for Sale: Phones, Tablets & Laptops"
+lede: Used tech I'm selling directly. Checked, reset, and shipped by me.
 permalink: /shop/
 selling_only: true   # left out of sitemap.xml while nothing is for sale
 heading: For sale by me
@@ -8,14 +8,18 @@ empty_heading: Nothing for sale right now
 empty_text: Check back soon. New gear gets listed here when I upgrade. In the meantime, see the deals I found.
 sold_heading: Recently sold
 sold_limit: 8
+breadcrumb_title: For sale
+description: "Browse used phones, tablets, laptops, and other tech I've personally reset, checked, and photographed, with honest condition notes and secure checkout."
+show_collection: products
+collection_type: sale
 ---
 {% assign items = site.products | where: "type", "sale" | sort: "date" | reverse %}
 {% assign available = items | where: "status", "available" %}
 {% assign sold = items | where: "status", "sold" %}
-{% include page-header.html title=page.title %}
+{% include page-header.html title=page.breadcrumb_title %}
 <section class="container pb-5 mb-2 mb-md-3 mb-lg-4">
   <h1 class="h3 mb-1">{{ page.heading }}</h1>
-  <p class="text-body-secondary mb-0">{{ page.description }}</p>
+  <p class="page-lede text-body-secondary mb-0">{{ page.lede }}</p>
   {% if available.size > 0 %}
     {% include product-grid.html items=available filters=true %}
   {% else %}
