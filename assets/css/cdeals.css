@@ -131,3 +131,15 @@
     height: 2.875rem; /* ~46px desktop */
   }
 }
+
+/* Affiliate / deal disclaimers — small print */
+.cdeals-smallprint {
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--cz-secondary-color);
+}
+.cdeals-smallprint a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
