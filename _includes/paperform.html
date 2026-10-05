@@ -1,0 +1,5 @@
+{% comment %}
+  Paperform embed. Usage: {% include paperform.html id="cdeals-contact" %}
+  Loads the Paperform script once per page (via page.paperform + scripts.html).
+{% endcomment %}
+<div data-paperform-id="{{ include.id }}"></div>

@@ -33,4 +33,4 @@ Items on the [Deals]({{ '/deals/' | relative_url }}) page are sold by other stor
 
 ## Contact
 
-[{{ site.contact_email }}](mailto:{{ site.contact_email }})
+Use the [contact form]({{ '/contact/' | relative_url }}) — that's the best way to reach me.

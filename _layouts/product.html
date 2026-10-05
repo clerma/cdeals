@@ -60,7 +60,7 @@ layout: default
             <li class="d-flex align-items-center"><i class="ci-delivery fs-xl text-dark-emphasis me-2"></i>{{ p.shipping | default: "Ships in 2 business days with tracking" }}</li>
             <li class="d-flex align-items-center"><i class="ci-credit-card fs-xl text-dark-emphasis me-2"></i>Secure checkout through Stripe</li>
             <li class="d-flex align-items-center"><i class="ci-rotate-ccw fs-xl text-dark-emphasis me-2"></i><a href="{{ '/returns/' | relative_url }}">Returns &amp; shipping</a></li>
-            <li class="d-flex align-items-center"><i class="ci-mail fs-xl text-dark-emphasis me-2"></i><span>Questions? <a href="mailto:{{ site.contact_email }}?subject={{ p.title | url_encode }}">Email me about this item</a></span></li>
+            <li class="d-flex align-items-center"><i class="ci-mail fs-xl text-dark-emphasis me-2"></i><span>Questions? <a href="{{ '/contact/' | relative_url }}">Email me about this item</a></span></li>
           </ul>
         {% endif %}
 

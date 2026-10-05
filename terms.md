@@ -37,4 +37,4 @@ These terms are governed by the laws of the State of {{ site.governing_law_state
 
 ## Contact
 
-Questions about these terms or an order: [{{ site.contact_email }}](mailto:{{ site.contact_email }}).
+Questions about these terms or an order: email [{{ site.contact_email }}](mailto:{{ site.contact_email }}) (legal contact). For everyday questions, use the [contact form]({{ '/contact/' | relative_url }}).

@@ -19,7 +19,7 @@ lang: en_US
 currency: USD   # prices in _products are in this currency (used in Product schema)
 logo: ""        # path to your logo, e.g. /assets/images/logo.png — used for Organization schema and as the default share image
 baseurl: ""
-contact_email: you@example.com # shown on item pages for questions
+contact_email: hello@cdeals.co # legal contact in Terms only — UI Email me / Contact use the /contact/ form
 
 # Used by the Terms, Privacy, and Returns pages. Replace the [BRACKETED]
 # placeholders before launch.

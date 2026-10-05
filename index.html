@@ -74,7 +74,7 @@ deals_banner:
   # count are generated from the live deals.
   image: /assets/images/theme/deals-camera.png
 
-brands: [apple, samsung, sony, canon, motorola]
+brands: [apple, samsung, sony, canon]
 ---
 {% assign home = page %}
 {% assign for_sale = site.products | where: "type", "sale" | where: "status", "available" | sort: "date" | reverse %}
