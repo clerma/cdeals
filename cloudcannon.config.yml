@@ -2,6 +2,19 @@
 # https://cloudcannon.com/documentation/articles/setting-global-configuration/?ssg=Jekyll
 
 collections_config:
+  posts:
+    path: _posts
+    output: true
+    name: Blog posts
+    icon: edit_note
+    url: /blog/[date|year]/[date|month]/[date|day]/[slug]/
+    _enabled_editors:
+      - content
+      - data
+    schemas:
+      default:
+        path: .cloudcannon/schemas/blog-post.md
+        name: Blog post
   products:
     path: _products
     output: true
@@ -115,6 +128,26 @@ _inputs:
     type: date
     label: Last updated
     comment: Shown under the heading on policy pages. Change it whenever you edit the policy.
+
+  # Blog post fields
+  categories:
+    type: array
+    comment: Blog categories shown on the post and index (e.g. Buying guides).
+  categories[*]:
+    type: text
+  tags:
+    type: array
+  tags[*]:
+    type: text
+  published:
+    type: switch
+    comment: Turn off to keep a draft out of the live site build.
+  author:
+    type: text
+    comment: Defaults to Carlos Lerma.
+  date:
+    type: datetime
+    comment: Publish date. Also sets the post URL under /blog/YYYY/MM/DD/.
 
 _structures:
   hero_slide:

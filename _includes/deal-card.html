@@ -1,0 +1,18 @@
+{% comment %}
+  Embed a product card from _products in a blog post.
+  Usage: {% include deal-card.html slug="kindle-paperwhite-signature-edition-32gb-bundle" %}
+
+  Amazon deals keep the site rules: "Best deal seen on Amazon" badge + "See price
+  at Amazon" (never a static price while amazon_show_prices is false).
+{% endcomment %}
+{% assign deal = nil %}
+{% for p in site.products %}
+  {% if p.slug == include.slug %}{% assign deal = p %}{% break %}{% endif %}
+{% endfor %}
+{% if deal %}
+<div class="my-4" style="max-width: 22rem">
+  {% include product-card.html product=deal %}
+</div>
+{% else %}
+<p class="fs-sm text-danger">Deal not found: <code>{{ include.slug }}</code></p>
+{% endif %}

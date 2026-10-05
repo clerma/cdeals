@@ -32,6 +32,8 @@ layout: null
 - [Home]({{ '/' | absolute_url }}): featured deals
 {%- endif %}
 - [Deals]({{ '/deals/' | absolute_url }}): affiliate deals at other stores
+- [Blog]({{ '/blog/' | absolute_url }}): tech deal guides and buying tips{% for post in site.posts %}
+  - [{{ post.title }}]({{ post.url | absolute_url }}){% endfor %}
 {%- for c in site.data.categories %}{% assign cat_live = 0 %}{% for d in deals %}{% if d.category == c.name %}{% if d.expires %}{% assign exp = d.expires | date: "%Y-%m-%d" %}{% if exp < today %}{% continue %}{% endif %}{% endif %}{% assign cat_live = cat_live | plus: 1 %}{% endif %}{% endfor %}{% if cat_live > 0 %}
   - [{{ c.name }} deals]({{ '/deals/' | append: c.slug | append: '/' | absolute_url }})
 {%- endif %}{% endfor %}

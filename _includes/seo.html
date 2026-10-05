@@ -20,6 +20,8 @@
 
 {%- assign is_product = false -%}
 {%- if page.collection == "products" -%}{%- assign is_product = true -%}{%- endif -%}
+{%- assign is_post = false -%}
+{%- if page.collection == "posts" or page.layout == "post" -%}{%- assign is_post = true -%}{%- endif -%}
 {%- comment -%} Amazon deals while amazon_show_prices is false: no price anywhere in meta or schema. {%- endcomment -%}
 {%- assign hide_price = false -%}
 {%- if is_product -%}{%- capture _amz -%}{% include amazon-hidden.html product=page %}{%- endcapture -%}{%- if _amz != "" -%}{%- assign hide_price = true -%}{%- endif -%}{%- endif -%}
@@ -53,7 +55,7 @@
 {%- assign page_image = page.image | default: page.images[0] | default: site.logo -%}
 {%- if page_image and page_image != "" -%}{%- assign page_image = page_image | absolute_url -%}{%- else -%}{%- assign page_image = nil -%}{%- endif -%}
 
-{%- if is_product -%}{%- assign og_type = "product" -%}{%- else -%}{%- assign og_type = "website" -%}{%- endif -%}
+{%- if is_product -%}{%- assign og_type = "product" -%}{%- elsif is_post -%}{%- assign og_type = "article" -%}{%- else -%}{%- assign og_type = "website" -%}{%- endif -%}
 
 {%- assign business_id = site.url | append: '/#business' -%}
 {%- assign website_id  = site.url | append: '/#website' -%}
@@ -93,6 +95,7 @@
 
 <!-- Per-page schema -->
 {% if is_product %}{% include schema/product.html %}{% endif %}
+{% if is_post %}{% include schema/blog-posting.html %}{% endif %}
 {% if page.url == "/faq/" or page.show_faq %}{% include schema/faq-page.html %}{% endif %}
 {% if page.show_collection %}{% include schema/collection-page.html %}{% endif %}
 
