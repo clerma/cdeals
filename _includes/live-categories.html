@@ -1,0 +1,16 @@
+{%- comment -%}
+  Prints the slugs (from _data/categories.yml) that have at least one live
+  (not expired) affiliate deal, separated by "|". Usage:
+  {% capture live %}{% include live-categories.html %}{% endcapture %}{% assign live = live | split: "|" %}
+{%- endcomment -%}
+{%- assign _today = site.time | date: "%Y-%m-%d" -%}
+{%- assign _all = site.products | where: "type", "affiliate" -%}
+{%- for _c in site.data.categories -%}
+  {%- assign _n = 0 -%}
+  {%- assign _cd = _all | where: "category", _c.name -%}
+  {%- for _d in _cd -%}
+    {%- if _d.expires -%}{%- assign _e = _d.expires | date: "%Y-%m-%d" -%}{%- if _e < _today -%}{%- continue -%}{%- endif -%}{%- endif -%}
+    {%- assign _n = _n | plus: 1 -%}
+  {%- endfor -%}
+  {%- if _n > 0 -%}{{ _c.slug }}|{%- endif -%}
+{%- endfor -%}

@@ -26,6 +26,23 @@ hero:
     link: /about/
     button: How it works
 
+# Shown while nothing of mine is for sale ([stores] = the stores of the live deals).
+deal_features:
+  - icon: ci-check-shield
+    title: Handpicked daily
+    text: Every deal is checked by a real person
+  - icon: ci-shopping-bag
+    title: Real prices, real stores
+    text: "Links go straight to [stores]"
+  - icon: ci-refresh-cw
+    title: Updated often
+    text: Expired deals drop off automatically
+  - icon: ci-gift
+    title: Free to use
+    text: I may earn a small commission, at no cost to you
+    link: /disclosure/
+
+# Shown instead while I have my own items for sale.
 features:
   - icon: ci-delivery
     title: Ships in 2 business days
@@ -48,8 +65,9 @@ banner:
   image: /assets/images/theme/banner-laptop.png
 
 deals_banner:
-  title: Deals I found this week
-  text: Handpicked from Amazon, Best Buy, and more
+  title: Fresh deals I found
+  # The store list ("Handpicked from Amazon, Best Buy, and more") and the deal
+  # count are generated from the live deals.
   image: /assets/images/theme/deals-camera.png
 
 brands: [apple, samsung, sony, canon, motorola]
@@ -58,13 +76,21 @@ brands: [apple, samsung, sony, canon, motorola]
 {% assign for_sale = site.products | where: "type", "sale" | where: "status", "available" | sort: "date" | reverse %}
 {% assign today = site.time | date: "%Y-%m-%d" %}
 {% assign all_deals = site.products | where: "type", "affiliate" | sort: "date" | reverse %}
-{% comment %} Live deals only, and the biggest discount for the banner. {% endcomment %}
-{% assign deal_count = 0 %}{% assign best_off = 0 %}
+{% comment %}
+  Live deals only. best_off = biggest discount among deals whose prices are shown
+  (discount.html skips Amazon deals while amazon_show_prices is false).
+  Stores are listed by number of live deals.
+{% endcomment %}
+{% assign deal_count = 0 %}{% assign best_off = 0 %}{% assign live_deals = "" | split: "" %}
 {% for d in all_deals %}
   {% if d.expires %}{% assign exp = d.expires | date: "%Y-%m-%d" %}{% if exp < today %}{% continue %}{% endif %}{% endif %}
-  {% assign deal_count = deal_count | plus: 1 %}
+  {% assign deal_count = deal_count | plus: 1 %}{% assign live_deals = live_deals | push: d %}
   {% capture off %}{% include discount.html product=d %}{% endcapture %}{% if off != "" %}{% assign off = off | plus: 0 %}{% if off > best_off %}{% assign best_off = off %}{% endif %}{% endif %}
 {% endfor %}
+
+{% assign store_groups = live_deals | group_by: "store" | sort: "size" | reverse %}
+{% capture store_list %}{% for g in store_groups limit: 4 %}{% if forloop.last and forloop.index > 1 %}{% if store_groups.size > 4 %}, {% else %} and {% endif %}{% elsif forloop.index > 1 %}, {% endif %}{{ g.name }}{% endfor %}{% if store_groups.size > 4 %}, and more{% endif %}{% endcapture %}
+{% capture store_short %}{% for g in store_groups limit: 3 %}{% if forloop.index > 1 %}, {% endif %}{{ g.name }}{% endfor %}{% if store_groups.size > 3 %}, and more{% endif %}{% endcapture %}
 
 <!-- Hero slider -->
 <section class="container pt-4">
@@ -118,15 +144,16 @@ brands: [apple, samsung, sony, canon, motorola]
 <!-- Features -->
 <section class="container pt-5 mt-1 mt-sm-3 mt-lg-4">
   <div class="row row-cols-2 row-cols-md-4 g-4">
-    {% for f in home.features %}
+    {% if for_sale.size > 0 %}{% assign feats = home.features %}{% else %}{% assign feats = home.deal_features %}{% endif %}
+    {% for f in feats %}
     <div class="col">
       <div class="d-flex flex-column flex-xxl-row align-items-center">
         <div class="d-flex text-dark-emphasis bg-body-tertiary rounded-circle p-4 mb-3 mb-xxl-0">
           <i class="{{ f.icon }} fs-2 m-xxl-1"></i>
         </div>
         <div class="text-center text-xxl-start ps-xxl-3">
-          <h3 class="h6 mb-1">{{ f.title }}</h3>
-          <p class="fs-sm mb-0">{{ f.text }}</p>
+          <h3 class="h6 mb-1">{% if f.link %}<a class="text-reset text-decoration-none" href="{{ f.link | relative_url }}">{{ f.title }}</a>{% else %}{{ f.title }}{% endif %}</h3>
+          <p class="fs-sm mb-0">{% assign stores_txt = store_list | strip | default: "the stores" %}{{ f.text | replace: "[stores]", stores_txt }}{% if f.link %} <a class="text-body-secondary" href="{{ f.link | relative_url }}">Learn more</a>{% endif %}</p>
         </div>
       </div>
     </div>
@@ -205,7 +232,10 @@ brands: [apple, samsung, sony, canon, motorola]
           </span>
         </div>
         {% else %}
-        <div class="position-relative z-1 display-1 text-dark-emphasis mb-0"><i class="ci-percent"></i></div>
+        <div class="position-relative z-1 text-center text-dark-emphasis px-3">
+          <i class="ci-percent d-block display-5 mb-2"></i>
+          <div class="h3 text-uppercase fw-bold mb-0">Fresh tech deals</div>
+        </div>
         {% endif %}
       </div>
     </div>
@@ -220,8 +250,8 @@ brands: [apple, samsung, sony, canon, motorola]
           <div class="col-md-6 mb-3 mb-md-0">
             <div class="text-center text-md-start py-md-5 px-4 ps-md-5 pe-md-0 me-md-n5">
               <h3 class="text-uppercase fw-bold ps-xxl-3 pb-2 mb-1">{{ home.deals_banner.title }}</h3>
-              <p class="text-body-emphasis ps-xxl-3 mb-3">{{ home.deals_banner.text }}</p>
-              <a class="btn btn-dark ms-xxl-3" href="{{ '/deals/' | relative_url }}">See all {{ deal_count }} deals <i class="ci-arrow-up-right fs-base ms-1 me-n1"></i></a>
+              <p class="text-body-emphasis ps-xxl-3 mb-3">Handpicked from {{ store_short | strip }}</p>
+              <a class="btn btn-dark ms-xxl-3" href="{{ '/deals/' | relative_url }}">See all {{ deal_count }} {% if deal_count == 1 %}deal{% else %}deals{% endif %} <i class="ci-arrow-up-right fs-base ms-1 me-n1"></i></a>
             </div>
           </div>
           <div class="col-md-6 d-flex justify-content-center justify-content-md-end pb-5 pb-md-0">

@@ -78,7 +78,8 @@ Every page's content lives in its own front matter (or Markdown body):
 | `thanks.md`, `404.md` front matter | Message, icon, and buttons (`layout: message`) |
 | `_products/*.md` | Each item: front matter fields + description in the body |
 | `_data/navigation.yml` | Main menu links |
-- `_data/categories.yml` maps each category to an icon for the Categories menu.
+- `_data/categories.yml` is the fixed list of deal categories (slug, name, icon). Each has a page at `/deals/<slug>/` (stubs in `_deal_categories/`); menus, the footer and the /deals/ pills only show categories with at least one live deal.
+- `amazon_show_prices` in `_config.yml` (default `false`): Amazon deals show "Best deal seen on Amazon" + "See price at Amazon" instead of static prices (Associates rules). The numbers stay in front matter.
 - Theme files live in `assets/css`, `assets/js`, `assets/fonts`, and `assets/images/theme`. The carousel script (Swiper) only loads on pages with `swiper: true` in their front matter, which right now is just the home page.
 - The `_products/` samples and `assets/uploads/sample-*.png` are placeholders. Delete them once you've added real items.
 - Light/dark mode is built in (the sun icon in the header).
@@ -101,7 +102,8 @@ Put your Amazon Associates ID in `amazon_tag` in `_config.yml`. Every Amazon lin
 - `feeds:` lists RSS feeds (TechBargains, Slickdeals, DealNews, Ben's Bargains). `resolve:` tells the finder how to find the real store link for each feed.
 - `sites:` lists store pages to watch (commented examples are in the file). It reads products from the page's JSON-LD by default, or uses the CSS selectors you give it.
 - `filters:` sets max age, min discount %, price range, and include/exclude keywords.
-- `categories:` maps keywords to the categories in `_data/categories.yml`. Items that don't match a category are skipped.
+- `categories:` maps title keywords to the categories in `_data/categories.yml`; `feed_categories:` maps the source's own category; `skip_feed_categories:` drops non-tech ones; anything else falls back to `fallback_category` (Accessories).
+- `sites:` includes TechBargains category/store pages (`parser: techbargains_pages`) and Woot (`parser: woot`: event pages + computers/electronics sitemaps, each offer page read for price, list price, end date and stock).
 - `defaults:` sets `expires_days`, how many candidates to add per run and per source, how long unreviewed candidates stay in the queue, and whether approved images are downloaded or hotlinked.
 - `http:` sets the User-Agent, timeouts, and a delay between requests to the same host. robots.txt is respected, including Crawl-delay. Like any feed reader, the finder doesn't check robots.txt for the feed URLs themselves.
 

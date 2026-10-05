@@ -1,7 +1,7 @@
 ---
 title: Beats Studio Buds+ Noise Cancelling Earbuds
 type: affiliate
-category: Headphones
+category: Audio
 brand: Beats
 price: 89.95
 compare_at: 169.95

@@ -1,7 +1,7 @@
 ---
 title: Apple AirPods 5 with Noise Cancellation
 type: affiliate
-category: Headphones
+category: Audio
 brand: Apple
 price: 129
 store: Amazon

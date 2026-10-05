@@ -54,6 +54,9 @@ collections:
   products:
     output: true
     permalink: /item/:name/
+  deal_categories:          # one stub per category in _data/categories.yml
+    output: true
+    permalink: /deals/:name/
 
 defaults:
   - scope:
@@ -65,6 +68,12 @@ defaults:
       type: products
     values:
       layout: product
+  - scope:
+      path: ""
+      type: deal_categories
+    values:
+      layout: category
+      sitemap: true
 
 plugins:
   - jekyll-sitemap

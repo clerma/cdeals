@@ -1,7 +1,7 @@
 ---
 title: Apple AirPods Pro 3
 type: affiliate
-category: Headphones
+category: Audio
 brand: Apple
 price: 179
 compare_at: 249

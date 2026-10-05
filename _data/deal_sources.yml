@@ -38,30 +38,83 @@ filters:
     - extender
     - skin
     - replacement
-  require_category: true     # skip items that don't map to a category below
+  require_category: true     # skip items that don't map to a category (only matters without fallback_category)
 
-# Category = a key from _data/categories.yml. Matched against the title with
-# whole-word, case-insensitive matching; the FIRST matching category wins, so
-# keep specific ones above general ones.
+# Category = a name from _data/categories.yml (the fixed list: Computers,
+# Laptops, Tablets, Phones, Cameras, Audio, TV & Home Theater, Smart Home,
+# Wearables, Gaming, Accessories). Matched against the title with whole-word,
+# case-insensitive matching; the FIRST matching category wins, so keep specific
+# ones above general ones.
 categories:
-  Power Banks: [power bank, portable charger, battery pack]
-  Headphones: [headphones, headphone, earbuds, airpods, earphones, headset]
-  Speakers: [speaker, soundbar, sound bar]
-  Wearables: [smartwatch, smart watch, apple watch, galaxy watch, fitness tracker, fitbit, garmin]
-  Tablets: [ipad, tablet, galaxy tab, kindle, fire hd]
-  Computers: [desktop, desktop pc, tower pc, mac mini, imac, mini pc, gaming pc, mac studio, all-in-one pc]
-  Laptops: [laptop, macbook, chromebook, notebook pc, ultrabook]
-  Phones: [iphone, galaxy s2, pixel 9, pixel 10, pixel 11, smartphone, unlocked phone]
-  Monitors: [monitor, gaming display, portable display]
-  Cameras: [camera, mirrorless, dslr, gopro, webcam, dashcam, dash cam]
-  Gaming: [nintendo switch, playstation, ps5, xbox, steam deck, gaming controller, dualsense, xbox controller, switch pro controller]
-  Storage: [ssd, hard drive, microsd, sd card, flash drive, nas, external drive]
-  Smart Home: [echo dot, smart plug, smart display, video doorbell, security camera, mesh wifi, router]
-  Audio: [turntable, dac, amplifier, receiver, microphone]
+  Wearables: [smartwatch, smart watch, apple watch, galaxy watch, pixel watch, fitness tracker, fitbit, garmin, oura, smart ring, whoop]
+  Gaming: [nintendo switch, switch 2, playstation, ps5, ps4, xbox, steam deck, rog ally, legion go, gaming controller, dualsense, controller, meta quest, vr headset, gaming headset, gaming mouse, gaming keyboard]
+  TV & Home Theater: [tv, oled tv, qled, 4k tv, smart tv, projector, soundbar, sound bar, home theater, roku, fire tv, chromecast, apple tv, streaming stick, streaming device, av receiver]
+  Smart Home: [echo dot, echo show, echo pop, echo spot, echo hub, alexa, google nest, nest hub, smart plug, smart display, video doorbell, doorbell, security camera, ring, blink, arlo, wyze, eufy, smart lock, smart bulb, smart thermostat, robot vacuum, mesh wifi, wifi 7 router, router, eero]
+  Audio: [headphones, headphone, earbuds, airpods, earphones, headset, beats, speaker, speakers, bluetooth speaker, turntable, dac, amplifier, microphone, sonos, jbl]
+  Cameras: [camera, mirrorless, dslr, gopro, action cam, insta360, dji osmo, webcam, dashcam, dash cam, drone, camera lens]
+  Phones: [iphone, galaxy s2, galaxy s3, galaxy z, galaxy a, pixel 9, pixel 10, pixel 11, smartphone, unlocked phone, motorola edge, moto g, oneplus]
+  Tablets: [ipad, tablet, galaxy tab, kindle, fire hd, fire max, e-reader, ereader, kobo, remarkable, boox]
+  Laptops: [laptop, macbook, chromebook, notebook pc, ultrabook, 2-in-1]
+  Computers: [desktop, desktop pc, tower pc, mac mini, imac, mini pc, gaming pc, mac studio, all-in-one pc, monitor, gaming display, portable display, graphics card, rtx 50, cpu, processor, motherboard]
+  Accessories: [power bank, portable charger, battery pack, charger, charging station, ssd, hard drive, microsd, sd card, flash drive, nas, external drive, keyboard, mouse, trackpad, usb-c hub, docking station, dock, printer, magsafe, airtag, tracker]
+
+# The source's own category (TechBargains, etc.) when the title didn't match.
+feed_categories:
+  Wearables: [smartwatches, wearables, wearable tech, fitness trackers]
+  Gaming: [gaming, pc gaming, video games, vr headsets, consoles]
+  Smart Home: [smart home, smart home devices, home security, robot vacuums, routers, networking]
+  TV & Home Theater: [tvs, hdtvs, 4k tvs, tv & home theater, tvs & projectors, projectors, sound bar, home theater, video streaming, streaming]
+  Audio: [headphones, wireless earbuds, speakers & audio, speakers, audio components, audio]
+  Cameras: [cameras, camcorders, cameras & camcorders, dash cams, drones]
+  Phones: [smartphones, cell phones, phones]
+  Tablets: [tablets, ereaders, e-readers]
+  Laptops: [laptops, notebooks]
+  Computers: [desktop computers, desktops, computers, monitors, pc components, components]
+  Accessories: [computer accessories, mobile accessories, usb & wireless chargers, power banks, keyboard, mouse, peripherals, storage, ssd, printers, electronics, home office, apple lightning cables]
+
+# Source categories that are never tech deals: skipped outright.
+skip_feed_categories:
+  - Home & Garden
+  - Tools
+  - Clothing & Shoes
+  - Health & Beauty
+  - Appliances & Kitchen
+  - Food & Restaurants
+  - Automotive & Car Tech
+  - Sporting Goods
+  - Toys & Collectibles
+  - Travel, Cheap Flights, Hotels
+  - Pets
+  - Lego
+  - Home Gym & Exercise Equipment
+  - Furniture
+  - Massage Guns & Massagers
+  - Emergency Preparedness
+  - Lifestyle & Home
+  - Fans & Air Conditioners
+  - Disinfectants, Cleansers & Sanitizers
+  - Magazines & Subscriptions
+  - Bed & Bath
+  - Office & Gaming Chairs
+  - Gift Cards
+  - Air Purifiers
+  - Shavers & Razors
+  - Vacuum Cleaners
+  - Software
+  - Entertainment
+  - Finance
+  - Tax Preparation
+  - Tires
+  - Mattresses, Beds & Frames
+  - VPN
+  - Web Hosting
+
+# Anything that passes the filters but matches no category above lands here.
+fallback_category: Accessories
 
 defaults:
   expires_days: 7            # used when the feed doesn't give an end date
-  max_candidates_per_run: 40
+  max_candidates_per_run: 200
   max_candidates_per_source: 8   # so one busy feed can't fill the whole run
   queue_max_days: 10         # pending candidates older than this are dropped
   images: download           # on publish: "download" into assets/uploads/deals/ or "hotlink"
@@ -95,8 +148,8 @@ feeds:
     name: TechBargains
     url: https://www.techbargains.com/rss.xml
     resolve: direct
-    max_items: 250
-    max_candidates: 25   # links go straight to the store, so allow more from here
+    max_items: 600
+    max_candidates: 80   # links go straight to the store, so allow more from here
     # The RSS only has titles. These TechBargains pages carry each deal's write-up
     # ("This is normally $249", "$99.99 list price"), which is where the original
     # (compare_at) price comes from. Read once per run; robots.txt is respected.
@@ -139,7 +192,79 @@ feeds:
 # JSON-LD (schema.org Product / Offer / ItemList) by default. If a store
 # doesn't publish JSON-LD, give CSS selectors instead. Respects robots.txt.
 # ---------------------------------------------------------------------------
-sites: []
+sites:
+  # TechBargains category and store pages: each deal tile has the write-up and
+  # the store URL embedded in its link, so no tracker is requested. Deals stay
+  # listed for days, so allow older posts than the RSS.
+  - id: techbargains-pages
+    name: TechBargains category pages
+    parser: techbargains_pages
+    max_age_hours: 120
+    max_items: 600
+    max_candidates: 120
+    urls:
+      - https://www.techbargains.com/
+      - https://www.techbargains.com/categories/laptops
+      - https://www.techbargains.com/categories/desktops
+      - https://www.techbargains.com/categories/computers
+      - https://www.techbargains.com/categories/monitors
+      - https://www.techbargains.com/categories/tablets
+      - https://www.techbargains.com/categories/smartphones
+      - https://www.techbargains.com/categories/cameras-camcorders
+      - https://www.techbargains.com/categories/dash-cams
+      - https://www.techbargains.com/categories/drones
+      - https://www.techbargains.com/categories/headphones
+      - https://www.techbargains.com/categories/wireless-earbuds
+      - https://www.techbargains.com/categories/audio-components
+      - https://www.techbargains.com/categories/sound-bar
+      - https://www.techbargains.com/categories/tv-home-theater
+      - https://www.techbargains.com/categories/projectors
+      - https://www.techbargains.com/categories/video-streaming
+      - https://www.techbargains.com/categories/gaming
+      - https://www.techbargains.com/categories/pc-gaming
+      - https://www.techbargains.com/categories/vr-headsets
+      - https://www.techbargains.com/categories/smart-home-devices
+      - https://www.techbargains.com/categories/home-security
+      - https://www.techbargains.com/categories/networking
+      - https://www.techbargains.com/categories/robot-vacuum
+      - https://www.techbargains.com/categories/wearable-tech
+      - https://www.techbargains.com/categories/computer-accessories
+      - https://www.techbargains.com/categories/keyboards-mice
+      - https://www.techbargains.com/categories/storage
+      - https://www.techbargains.com/categories/ssd-solid-state-drives
+      - https://www.techbargains.com/categories/power-bank
+      - https://www.techbargains.com/categories/mobile-accessories
+      - https://www.techbargains.com/categories/printers-scanners
+      - https://www.techbargains.com/categories/refurbished
+      - https://www.techbargains.com/deals/amazon-kindle-deals
+      - https://www.techbargains.com/types/apple-deals
+      - https://www.techbargains.com/stores/amazon
+      - https://www.techbargains.com/stores/walmart
+      - https://www.techbargains.com/stores/dell
+      - https://www.techbargains.com/stores/newegg
+      - https://www.techbargains.com/stores/lenovo
+      - https://www.techbargains.com/stores/hp
+      - https://www.techbargains.com/stores/samsung
+
+  # Woot (Amazon-owned deal store; not covered by the Amazon tag). Event pages
+  # are server-rendered; woot.com/category/computers etc. are built by
+  # JavaScript, so their offers are read from the matching subdomain sitemaps.
+  # Every offer page is read for the real price, Woot's list price, the end
+  # date (used as `expires`) and stock. ?ref= is stripped. robots.txt allows
+  # /plus/, /offers/ and the sitemaps.
+  - id: woot
+    name: Woot
+    store: Woot
+    parser: woot
+    max_offers: 160
+    max_per_sitemap: 45
+    max_candidates: 80
+    listing_urls:
+      - https://electronics.woot.com/plus/home-entertainment-kickoff
+    sitemaps:
+      - https://computers.woot.com/sitemap.xml      # = woot.com/category/computers
+      - https://electronics.woot.com/sitemap.xml    # = woot.com/category/electronics (TVs, audio, cameras, phones, gaming)
+
 #  - id: woot-electronics
 #    name: Woot Electronics
 #    store: Woot

@@ -5,11 +5,20 @@
 {% endcomment %}
 {% assign today = site.time | date: "%Y-%m-%d" %}
 {% if include.filters %}
-  {% assign cats = include.items | map: "category" | uniq | sort %}
+  {% comment %} Pills follow _data/categories.yml order; only categories with a live item in this list. {% endcomment %}
+  {% assign item_cats = "" | split: "" %}
+  {% for p in include.items %}
+    {% if p.expires %}{% assign exp = p.expires | date: "%Y-%m-%d" %}{% if exp < today %}{% continue %}{% endif %}{% endif %}
+    {% assign item_cats = item_cats | push: p.category %}
+  {% endfor %}
+  {% assign item_cats = item_cats | uniq %}
+  {% assign cats = "" | split: "" %}
+  {% for c in site.data.categories %}{% if item_cats contains c.name %}{% assign cats = cats | push: c %}{% endif %}{% endfor %}
+  {% for n in item_cats %}{% assign known = site.data.categories | where: "name", n | first %}{% unless known %}{% assign cats = cats | push: n %}{% endunless %}{% endfor %}
   <div class="d-flex flex-wrap align-items-center gap-2 pt-4">
     {% if cats.size > 1 %}
       <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill active" data-filter="*">All</button>
-      {% for c in cats %}<button type="button" class="btn btn-sm btn-outline-secondary rounded-pill" data-filter="{{ c | slugify }}">{{ c }}</button>{% endfor %}
+      {% for c in cats %}{% assign cname = c.name | default: c %}<button type="button" class="btn btn-sm btn-outline-secondary rounded-pill" data-filter="{{ cname | slugify }}">{{ cname }}</button>{% endfor %}
     {% endif %}
     <span class="fs-sm text-body-secondary ms-auto" data-filter-query hidden>Results for "<span></span>" · <a href="?">Clear</a></span>
   </div>

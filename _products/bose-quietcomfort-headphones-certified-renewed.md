@@ -1,7 +1,7 @@
 ---
 title: Bose QuietComfort Headphones (Certified Renewed)
 type: affiliate
-category: Headphones
+category: Audio
 brand: Bose
 price: 149
 compare_at: 189

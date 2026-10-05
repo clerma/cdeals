@@ -1,7 +1,7 @@
 ---
 title: Apple AirPods Max 2
 type: affiliate
-category: Headphones
+category: Audio
 brand: Apple
 price: 509.99
 compare_at: 549
