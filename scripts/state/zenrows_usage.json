@@ -1,0 +1,14 @@
+{
+  "months": {
+    "2026-10": {
+      "credits": 40,
+      "requests": 8,
+      "by_source": {
+        "target-deals": 40
+      }
+    }
+  },
+  "tiers": {
+    "target-deals": "js"
+  }
+}

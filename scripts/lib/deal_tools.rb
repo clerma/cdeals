@@ -166,7 +166,7 @@ module DealTools
     "adorama.com" => "Adorama", "officedepot.com" => "Office Depot", "staples.com" => "Staples",
     "microcenter.com" => "Micro Center", "antonline.com" => "Antonline", "stacksocial.com" => "StackSocial",
     "lowes.com" => "Lowe's", "kohls.com" => "Kohl's", "gamestop.com" => "GameStop", "sonos.com" => "Sonos",
-    "backmarket.com" => "Back Market", "googlestore.com" => "Google Store", "store.google.com" => "Google Store"
+    "backmarket.com" => "Back Market", "macheist.com" => "MacHeist", "googlestore.com" => "Google Store", "store.google.com" => "Google Store"
   }.freeze
 
   def store_name(url)

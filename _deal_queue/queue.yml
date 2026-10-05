@@ -18,7 +18,7 @@
   summary: The store has it for $1100. Prices change fast, so check the price before
     you buy.
   expires: 2026-10-11
-  found: &1 2026-10-04
+  found: 2026-10-04
   source: slickdeals
   source_link: https://slickdeals.net/f/20093892-kotin-m70b-gaming-pc-ryzen-5-9600x-radeon-rx-9060-xt-16gb-16gb-ddr5-1tb-ssd-1100?utm_source=rss&utm_content=fp&utm_medium=RSS2
   source_title: 'KOTIN M70B Gaming PC: Ryzen 5 9600X, RX 9060 XT, 16GB DDR5, 1TB SSD
@@ -39,7 +39,7 @@
   summary: Amazon has it for $47.50. Prices change fast, so check the price before
     you buy.
   expires: 2026-10-11
-  found: *1
+  found: 2026-10-04
   source: slickdeals
   source_link: https://slickdeals.net/f/20082051-prime-members-15-6-aoc-16t20-fhd-60hz-ips-portable-monitor-47-50-free-s-h?utm_source=rss&utm_content=fp&utm_medium=RSS2
   source_title: 'Prime Members: 15.6" AOC 16T20 FHD 60Hz IPS Portable Monitor $47.50
@@ -59,7 +59,7 @@
   summary: Amazon has it for $250. Prices change fast, so check the price before you
     buy.
   expires: 2026-10-11
-  found: *1
+  found: 2026-10-04
   source: slickdeals
   source_link: https://slickdeals.net/f/20095572-249-99-klipsch-promedia-lumina-2-1-computer-gaming-system-with-subwoofer-and-rgb-lighting-effects-built-in-at-amazon?utm_source=rss&utm_content=fp&utm_medium=RSS2
   source_title: Klipsch ProMedia Lumina 2.1 PC Speaker System w/ RGB Lighting Effects
@@ -83,7 +83,7 @@
   summary: Best Buy has it for $229, down from $349. Prices change fast, so check
     the price before you buy.
   expires: 2026-10-11
-  found: *1
+  found: 2026-10-04
   source: dealnews
   source_link: https://www.dealnews.com/products/Bose/Bose-Sound-Link-Max-SE-Portable-Bluetooth-Speaker/535138.html?iref=rss
   source_title: Bose SoundLink Max SE Portable Bluetooth Speaker for $229 + free shipping
@@ -103,7 +103,7 @@
   summary: AliExpress has it for $284.01. Prices change fast, so check the price before
     you buy.
   expires: 2026-10-06
-  found: *1
+  found: 2026-10-04
   source: dealnews
   source_link: https://www.dealnews.com/Open-Box-DJI-Osmo-360-8-K-Camera-w-Standard-Combo-for-284-free-shipping/22235139.html?iref=rss
   source_title: Open-Box DJI Osmo 360 8K Camera w/ Standard Combo for $284 + free
@@ -125,7 +125,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: &2 2026-10-04
+  found: 2026-10-04
   source: slickdeals
   source_link: https://slickdeals.net/f/20097156-prime-members-12-pk-gigalumi-outdoor-waterproof-solar-lights-16-50-free-s-h?utm_source=rss&utm_content=fp&utm_medium=RSS2
   source_title: 'Prime Members: 12-Pk GIGALUMI Outdoor Waterproof Solar Lights $16.50
@@ -144,7 +144,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: slickdeals
   source_link: https://slickdeals.net/f/20095668-26-94-529-pc-lego-disney-moana-s-adventure-canoe-building-toy-set-at-amazon?utm_source=rss&utm_content=fp&utm_medium=RSS2
   source_title: 529-Pc LEGO Disney Moana's Adventure Canoe Building Toy Set $26.95
@@ -162,7 +162,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: slickdeals
   source_link: https://slickdeals.net/f/20094480-1299-15-inch-apple-macbook-air-laptop-with-m5-chip-16gb-ram-512gb-ssd-at-amazon?utm_source=rss&utm_content=fp&utm_medium=RSS2
   source_title: '15.3" Apple MacBook Air (2026): M5 10-Core Chip, 16GB Memory, 512GB
@@ -182,7 +182,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: slickdeals
   source_link: https://slickdeals.net/f/20095368-new-sns-ac-11-04-2-pack-6-oz-olay-face-moisturizer-complete-with-sunscreen-spf-15-at-amazon?utm_source=rss&utm_content=fp&utm_medium=RSS2
   source_title: 2-Pk 6-Oz Olay Complete Face Moisturizer Lotion w/ SPF 15 $11.05 w/
@@ -203,7 +203,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: slickdeals
   source_link: https://slickdeals.net/f/20097543-prime-6-piece-28-oz-corelle-vitrelle-soup-cereal-bowls-set-winter-frost-white-21-65-free-shipping-w-prime-or-on-orders-over-35?utm_source=rss&utm_content=fp&utm_medium=RSS2
   source_title: 'Prime Members: 6-Ct 28-Oz Corelle Vitrelle Soup/Cereal Bowls (White)
@@ -224,7 +224,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: slickdeals
   source_link: https://slickdeals.net/f/20096772-office-chair-mat-for-hardwood-floors-gaming-mat-multiple-colors-and-sizes-9-99-amazon-com?utm_source=rss&utm_content=fp&utm_medium=RSS2
   source_title: 'Prime Members: Sycoodeal Office Chair Mat for Hardwood Floor $10
@@ -245,7 +245,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: slickdeals
   source_link: https://slickdeals.net/f/20095275-prime-59-99-9-pk-rubbermaid-brilliance-glass-food-storage-containers-assorted-at-amazon?utm_source=rss&utm_content=fp&utm_medium=RSS2
   source_title: 'Prime Members: 9-Pc Rubbermaid Brilliance Glass Food Storage Containers
@@ -266,7 +266,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: slickdeals
   source_link: https://slickdeals.net/f/20090973-fanttik-s1-pro-220-rpm-electric-screwdriver-w-16-piece-s2-bit-set-magnetic-case-34-99-free-shipping-w-prime-or-on-35?utm_source=rss&utm_content=fp&utm_medium=RSS2
   source_title: Fanttik S1 Pro Cordless Electric Screwdriver w/ 16 Bits $35 + Free
@@ -287,7 +287,7 @@
   summary: Walmart has it for $118. Prices change fast, so check the price before
     you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: dealnews
   source_link: https://www.dealnews.com/Better-Homes-Gardens-Lillian-Fluted-Bar-Cabinet-for-118-free-shipping/22243081.html?iref=rss
   source_title: Better Homes & Gardens Lillian Fluted Bar Cabinet for $118 + free
@@ -308,7 +308,7 @@
   summary: Walmart has it for $24. Prices change fast, so check the price before you
     buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: dealnews
   source_link: https://www.dealnews.com/products/LEGO/LEGO-Speed-Champions-Ken-Blocks-65-Ford-Mustang-Hoonicorn-V1/540172.html?iref=rss
   source_title: LEGO Speed Champions Ken Block's '65 Ford Mustang Hoonicorn V1 for
@@ -330,7 +330,7 @@
   summary: Steep & Cheap has it for $200. Prices change fast, so check the price before
     you buy.
   expires: 2026-10-06
-  found: *2
+  found: 2026-10-04
   source: dealnews
   source_link: https://www.dealnews.com/Steep-Cheap-Sale-Up-to-80-off-extra-20-off-shipping-varies/22243062.html?iref=rss
   source_title: 'Steep & Cheap Sale: Up to 80% off + extra 20% off + shipping varies'
@@ -350,7 +350,7 @@
   summary: Men's Wearhouse has it for $15. Prices change fast, so check the price
     before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: dealnews
   source_link: https://www.dealnews.com/Awearness-Kenneth-Cole-Mens-Modern-Fit-Performance-Vest-for-15-free-shipping/22243040.html?iref=rss
   source_title: Awearness Kenneth Cole Men's Modern Fit Performance Vest for $15 +
@@ -371,7 +371,7 @@
   summary: Men's Wearhouse has it for $40. Prices change fast, so check the price
     before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: dealnews
   source_link: https://www.dealnews.com/Calvin-Klein-Mens-Slim-Fit-Tic-Sport-Coat-for-40-free-shipping/22243022.html?iref=rss
   source_title: Calvin Klein Men's Slim Fit Tic Sport Coat for $40 + free shipping
@@ -392,7 +392,7 @@
   summary: VEVOR has it for $45. Prices change fast, so check the price before you
     buy.
   expires: 2026-10-15
-  found: *2
+  found: 2026-10-04
   source: dealnews
   source_link: https://www.dealnews.com/products/Vevor/Vevor-44-Mechanic-Garage-Creeper/540153.html?iref=rss
   source_title: Vevor 44" Mechanic Garage Creeper for $45 + free shipping
@@ -411,7 +411,7 @@
   summary: Lowe's has it for $16. Prices change fast, so check the price before you
     buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: dealnews
   source_link: https://www.dealnews.com/products/Kobalt/Kobalt-11-Metal-Moulding-Pry-Bar/538200.html?iref=rss
   source_title: Kobalt 11" Metal Moulding Pry Bar for $16 + pickup
@@ -431,7 +431,7 @@
   summary: Home Depot has it for $60. Prices change fast, so check the price before
     you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: dealnews
   source_link: https://www.dealnews.com/products/Ryobi/Ryobi-USB-Compact-Flashlight-Portable-Inflator-Kit/540137.html?iref=rss
   source_title: Ryobi USB Compact Flashlight & Portable Inflator Kit for $60 + free
@@ -452,7 +452,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: bensbargains
   source_link: https://bensbargains.com/bargain/8-piece-workpro-72-tooth-flex-head-ratcheting-combination-wrench-set-1084756/#rss
   source_title: 8-Piece WORKPRO 72-Tooth Flex-Head Ratcheting Combination Wrench Set  $30
@@ -474,7 +474,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: bensbargains
   source_link: https://bensbargains.com/bargain/pureswirlz-4000pa-vacuum-steamer-with-270ml-tank-1084755/#rss
   source_title: PureSwirlz 4000Pa Vacuum Steamer with 270ml Tank  $30 at Amazon
@@ -494,7 +494,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: bensbargains
   source_link: https://bensbargains.com/bargain/159-piece-gofunly-electric-train-set-w-3d-flexible-race-track-1084754/#rss
   source_title: 159-Piece Gofunly Electric Train Set w/ 3D Flexible Race Track  $30
@@ -516,7 +516,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: bensbargains
   source_link: https://bensbargains.com/bargain/jogfit-smart-scale-with-full-body-composition-analysis-1084753/#rss
   source_title: Jogfit Smart Scale with Full Body Composition Analysis  $46 at Amazon
@@ -536,7 +536,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: bensbargains
   source_link: https://bensbargains.com/bargain/vevor-pilates-reformer-wooden-pilates-machine-1084749/#rss
   source_title: VEVOR Pilates Reformer Wooden Pilates Machine  $1620 at Amazon
@@ -557,7 +557,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: bensbargains
   source_link: https://bensbargains.com/bargain/hiicam-4k-mini-body-camera-with-1-5-screen-1084747/#rss
   source_title: Hiicam 4K Mini Body Camera with 1.5" Screen  $50 at Amazon
@@ -577,7 +577,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: bensbargains
   source_link: https://bensbargains.com/bargain/tommy-hilfiger-men-s-essential-flag-visor-1084746/#rss
   source_title: Tommy Hilfiger Men's Essential Flag Visor  $12 at Amazon
@@ -598,7 +598,7 @@
   summary: Amazon has a good price on this right now. Prices change fast, so check
     the current price at Amazon before you buy.
   expires: 2026-10-11
-  found: *2
+  found: 2026-10-04
   source: bensbargains
   source_link: https://bensbargains.com/bargain/tilswall-dreamer400-cordless-paint-sprayer-fits-dewalt-20v-battery-1084745/#rss
   source_title: Tilswall Dreamer400 Cordless Paint Sprayer (Fits Dewalt 20V Battery)  $20

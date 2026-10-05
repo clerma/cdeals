@@ -58,6 +58,16 @@ jobs:
         run: bundle exec ruby scripts/publish_deals.rb
 
       - name: Find new candidates
+        env:
+          # ZenRows is only used for sources set to `fetch: zenrows` (Target) and
+          # never for stores with an official source. Missing key = those sources
+          # are skipped. Credits used are counted in scripts/state/zenrows_usage.json.
+          ZENROWS_API_KEY: ${{ secrets.ZENROWS_API_KEY }}
+          # Official APIs: each source is skipped until its secret exists.
+          BESTBUY_API_KEY: ${{ secrets.BESTBUY_API_KEY }}
+          # Later: WALMART_CONSUMER_ID, WALMART_PRIVATE_KEY, IMPACT_ACCOUNT_SID,
+          # IMPACT_AUTH_TOKEN, WOOT_API_KEY, PAAPI_ACCESS_KEY, PAAPI_SECRET_KEY,
+          # PAAPI_PARTNER_TAG (add here and as repo secrets when available).
         run: bundle exec ruby scripts/find_deals.rb | tee find-deals.log
 
       - name: Commit and open/update the review PR
@@ -65,7 +75,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           { echo '```'; cat find-deals.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
-          git add _deal_queue _products assets/uploads/deals 2>/dev/null || git add _deal_queue _products
+          git add _deal_queue _products assets/uploads/deals scripts/state 2>/dev/null || git add _deal_queue _products
           if git diff --cached --quiet; then
             echo "No changes."
           else
