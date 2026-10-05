@@ -186,19 +186,27 @@ module DealTools
     m && money(m[1])
   end
 
-  # Original price from phrases like "list $199", "reg. $99", "$40 savings", "50% off".
+  # Original (list) price from the deal text, using real figures only:
+  #   "reg $99", "list $199", "was $79", "This is normally $249", "Originally $999.99",
+  #   "the $99.99 list price", "the regular $149.99 price",
+  #   "$200 off list price" / "Save $39 off the $549 regular price" (price + that amount).
+  # Never estimates: "about $70 off" and "NN% off" alone are ignored.
+  # Returns nil unless the original is higher than the price.
+  PRICE_RE = /\$\s?([\d,]+(?:\.\d{1,2})?)/.freeze
   def compare_from_text(text, price)
-    t = text.to_s
-    if (m = t.match(/\b(?:list|reg(?:ular)?|was|orig(?:inal|\.)?|retail|msrp|normally|typically)\.?\s*(?:price\s*)?(?:of\s*)?:?\s*\$\s?([\d,]+(?:\.\d{2})?)/i))
-      v = money(m[1])
-      return v if price && v > price
+    t = text.to_s.gsub(/\s+/, " ")
+    return nil unless price
+    ok = ->(v) { v && v > price ? v : nil }
+    # "$99.99 list price", "$549.00 regular price", "regular $149.99 price"
+    if (m = t.match(/#{PRICE_RE.source}\s*(?:list|regular|retail|original)\s*price/i) ||
+            t.match(/\b(?:list|regular|retail|original)\s*(?:price\s*)?(?:of\s*|is\s*)?:?\s*#{PRICE_RE.source}/i) ||
+            t.match(/\b(?:normally|originally|regularly|usually|typically|reg\.?|was|orig\.?|msrp)\s*(?:price\s*)?(?:of\s*|is\s*|at\s*)?:?\s*#{PRICE_RE.source}/i))
+      v = ok.call(money(m[1]))
+      return v if v
     end
-    if price && (m = t.match(/\$\s?([\d,]+(?:\.\d{2})?)\s*(?:savings|off\b)/i) || t.match(/\bsave\s*\$\s?([\d,]+(?:\.\d{2})?)/i))
-      return (price + money(m[1])).round(2)
-    end
-    if price && (m = t.match(/\b(\d{1,2})%\s*off\b/i))
-      pct = m[1].to_i
-      return (price / (1 - pct / 100.0)).round(0).to_f if pct.between?(5, 90)
+    # "$200 off list price", "Save $39 off the $549 regular price" handled above; plain "$N off (the) list/regular price"
+    if (m = t.match(/(?<!about )(?<!around )(?<!roughly )#{PRICE_RE.source}\s*off\s*(?:the\s*|its\s*)?(?:list|regular|retail|original)\s*price/i))
+      return ok.call((price + money(m[1])).round(2))
     end
     nil
   end

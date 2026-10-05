@@ -4,8 +4,7 @@
 <link rel="icon" type="image/png" href="{{ '/assets/images/icon-32x32.png' | relative_url }}" sizes="32x32">
 <link rel="apple-touch-icon" href="{{ '/assets/images/icon-180x180.png' | relative_url }}">
 
-<!-- Light/dark mode (runs before CSS to avoid a flash) -->
-<script src="{{ '/assets/js/theme-switcher.js' | relative_url }}"></script>
+<!-- Light mode only: <html data-bs-theme="light"> is fixed in _layouts/default.html (no theme switcher). -->
 
 <link rel="preload" href="{{ '/assets/fonts/inter-variable-latin_8100aab2.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ '/assets/fonts/cartzilla-icons_1c2f5f0e.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
@@ -22,7 +21,9 @@
 
 {% include auto-affiliate.html %}
 
-{% if site.anycart_api_key != "" %}
-<!-- AnyCart: cart drawer + checkout. data-hide-button because the header has its own cart button. -->
+{% assign anycart_items = site.products | where: "type", "sale" | where: "status", "available" %}
+{% if site.anycart_api_key != "" and anycart_items.size > 0 %}
+<!-- AnyCart: cart drawer + checkout, only while one of my own items is for sale.
+     data-hide-button because the header has its own cart button. -->
 <script src="https://cdn.anycart.dev/v1/anycart.js" data-api-key="{{ site.anycart_api_key }}" data-hide-button defer></script>
 {% endif %}

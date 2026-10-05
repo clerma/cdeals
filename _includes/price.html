@@ -1,0 +1,24 @@
+{%- comment -%}
+  Cartzilla 3 price: sale price prominent, original (compare_at) struck through
+  and muted, plus a small -NN% badge. The original price and badge only show when
+  compare_at is set and higher than price.
+  Usage: {% include price.html product=p size="card" %}   (size: card | list | page)
+{%- endcomment -%}
+{%- assign _pp = include.product -%}
+{%- capture _pct -%}{% include discount.html product=_pp %}{%- endcapture -%}
+{%- if include.size == "page" -%}
+<div class="d-flex flex-wrap align-items-center gap-2 gap-sm-3">
+  <div class="h3 mb-0">{% include money.html amount=_pp.price %}</div>
+  {%- if _pct != "" %}
+  <del class="fs-lg text-body-tertiary" aria-label="Original price">{% include money.html amount=_pp.compare_at %}</del>
+  <span class="badge text-bg-danger">-{{ _pct }}%</span>
+  {%- endif %}
+</div>
+{%- else -%}
+<div class="d-flex flex-wrap align-items-baseline column-gap-2 row-gap-1 min-w-0">
+  <div class="h5 lh-1 mb-0">{% include money.html amount=_pp.price %}</div>
+  {%- if _pct != "" %}
+  <del class="fs-sm text-body-tertiary lh-1" aria-label="Original price">{% include money.html amount=_pp.compare_at %}</del>
+  {%- endif %}
+</div>
+{%- endif -%}

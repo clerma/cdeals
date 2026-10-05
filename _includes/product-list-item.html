@@ -10,6 +10,6 @@
         <span class="animate-target">{{ p.title }}</span>
       </a>
     </h4>
-    <div class="h5 mb-0">{% include money.html amount=p.price %}{% if p.compare_at %} <del class="text-body-tertiary fs-sm fw-normal">{% include money.html amount=p.compare_at %}</del>{% endif %}</div>
+    {% include price.html product=p size="list" %}
   </div>
 </div>

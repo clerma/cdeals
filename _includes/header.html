@@ -51,37 +51,21 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <!-- Light / dark / auto -->
-          <div class="dropdown">
-            <button type="button" class="theme-switcher btn btn-icon btn-lg btn-outline-secondary fs-lg border-0 rounded-circle animate-scale" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme (light)">
-              <span class="theme-icon-active d-flex animate-target"><i class="ci-sun"></i></span>
-            </button>
-            <ul class="dropdown-menu" style="--cz-dropdown-min-width: 9rem">
-              {% assign modes = "light|ci-sun|Light,dark|ci-moon|Dark,auto|ci-auto|Auto" | split: "," %}
-              {% for m in modes %}{% assign mp = m | split: "|" %}
-              <li>
-                <button type="button" class="dropdown-item{% if forloop.first %} active{% endif %}" data-bs-theme-value="{{ mp[0] }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}">
-                  <span class="theme-icon d-flex fs-base me-2"><i class="{{ mp[1] }}"></i></span>
-                  <span class="theme-label">{{ mp[2] }}</span>
-                  <i class="item-active-indicator ci-check ms-auto"></i>
-                </button>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-
           <!-- Search toggle (mobile) -->
           <button type="button" class="btn btn-icon btn-lg fs-xl btn-outline-secondary border-0 rounded-circle animate-shake d-lg-none" data-bs-toggle="collapse" data-bs-target="#searchBar" aria-expanded="false" aria-controls="searchBar" aria-label="Toggle search bar">
             <i class="ci-search animate-target"></i>
           </button>
 
-          <!-- Cart: opens the AnyCart drawer; the badge shows AnyCart's live item count -->
+          {% if sale_items.size > 0 %}
+          <!-- Cart: opens the AnyCart drawer; the badge shows AnyCart's live item count.
+               Only shown while at least one of my own items is for sale. -->
           <button type="button" class="btn btn-icon btn-lg btn-secondary position-relative rounded-circle ms-2" data-anycart-open aria-label="Shopping cart">
             <span class="position-absolute top-0 start-100 mt-n1 ms-n3 badge text-bg-success border border-3 border-dark rounded-pill" style="--cz-badge-padding-y: .25em; --cz-badge-padding-x: .42em" data-anycart-count>0</span>
             <span class="position-absolute top-0 start-0 d-flex align-items-center justify-content-center w-100 h-100 rounded-circle animate-slide-end fs-lg">
               <i class="ci-shopping-cart animate-target ms-n1"></i>
             </span>
           </button>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -107,7 +91,7 @@
         <div class="container px-0 px-lg-3">
           <div class="row">
 
-            <!-- Categories menu (shown open on the home page) -->
+            <!-- Categories menu (hover dropdown on desktop) -->
             <div class="col-lg-3">
               <div class="navbar-nav">
                 <div class="dropdown w-100">
@@ -122,7 +106,7 @@
                     <i class="ci-grid fs-lg"></i>
                     <span class="ms-2 me-auto">Categories</span>
                   </button>
-                  <ul class="dropdown-menu{% if page.url == '/' %} dropdown-menu-static{% endif %} w-100 rounded-top-0 rounded-bottom-4 py-1 p-lg-1" style="--cz-dropdown-spacer: 0; --cz-dropdown-item-padding-y: .625rem; --cz-dropdown-item-spacer: 0">
+                  <ul class="dropdown-menu w-100 rounded-top-0 rounded-bottom-4 py-1 p-lg-1" style="--cz-dropdown-spacer: 0; --cz-dropdown-item-padding-y: .625rem; --cz-dropdown-item-spacer: 0">
                     {% if sale_items.size > 0 %}
                     <li class="pt-2 px-lg-2">
                       <a class="dropdown-item fw-medium" href="{{ '/shop/' | relative_url }}">

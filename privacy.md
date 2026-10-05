@@ -22,7 +22,7 @@ This policy explains what information is collected when you use {{ site.title }}
 
 **Hosting.** The site is hosted by {{ site.hosting_provider }}. Like any web host, it may keep standard server logs (IP address, browser type, pages requested) for security and to keep the site running.
 
-**Stored on your device.** The site saves your light/dark mode choice in your browser's local storage (the key `theme`). The AnyCart cart may store your cart contents in your browser so they're still there when you come back. You can clear either in your browser settings.
+**Stored on your device.** When I have items for sale, the AnyCart cart may store your cart contents in your browser so they're still there when you come back. You can clear it in your browser settings.
 
 ## Your choices and rights
 

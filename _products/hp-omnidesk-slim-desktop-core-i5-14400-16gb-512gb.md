@@ -4,6 +4,7 @@ type: affiliate
 category: Computers
 brand: HP
 price: 699
+compare_at: 849
 store: Walmart
 affiliate_url: https://www.walmart.com/ip/HP-OmniDesk-Slim-Desktop-PC-Intel-Core-i5-16GB-RAM-512GB-SSD-Windows-11-Home-Meteor-Silver/14077821192
 expires: 2026-10-11

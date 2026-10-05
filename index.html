@@ -63,22 +63,21 @@ brands: [apple, samsung, sony, canon, motorola]
 {% for d in all_deals %}
   {% if d.expires %}{% assign exp = d.expires | date: "%Y-%m-%d" %}{% if exp < today %}{% continue %}{% endif %}{% endif %}
   {% assign deal_count = deal_count | plus: 1 %}
-  {% if d.compare_at %}{% assign off = d.price | times: 100.0 | divided_by: d.compare_at | minus: 100 | round | abs %}{% if off > best_off %}{% assign best_off = off %}{% endif %}{% endif %}
+  {% capture off %}{% include discount.html product=d %}{% endcapture %}{% if off != "" %}{% assign off = off | plus: 0 %}{% if off > best_off %}{% assign best_off = off %}{% endif %}{% endif %}
 {% endfor %}
 
 <!-- Hero slider -->
 <section class="container pt-4">
   <div class="row">
-    <div class="col-lg-9 offset-lg-3">
+    <div class="col-12">
       <div class="position-relative">
-        <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none-dark rtl-flip" style="background: linear-gradient(90deg, #accbee 0%, #e7f0fd 100%)"></span>
-        <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none d-block-dark rtl-flip" style="background: linear-gradient(90deg, #1b273a 0%, #1f2632 100%)"></span>
-        <div class="row justify-content-center position-relative z-2">
-          <div class="col-xl-5 col-xxl-4 offset-xxl-1 d-flex align-items-center mt-xl-n3">
-            <div class="swiper px-5 pe-xl-0 ps-xxl-0 me-xl-n5" data-swiper='{"spaceBetween": 64, "loop": true, "speed": 400, "controlSlider": "#sliderImages", "autoplay": {"delay": 5500, "disableOnInteraction": false}, "scrollbar": {"el": ".swiper-scrollbar"}}'>
+        <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 rtl-flip" style="background: linear-gradient(90deg, #accbee 0%, #e7f0fd 100%)"></span>
+        <div class="row justify-content-center align-items-center position-relative z-2">
+          <div class="col-lg-6 col-xl-5 offset-xl-1 d-flex align-items-center mt-lg-n3">
+            <div class="swiper px-4 px-sm-5 pe-lg-0 ps-xl-0 me-lg-n5" data-swiper='{"spaceBetween": 64, "loop": true, "speed": 400, "controlSlider": "#sliderImages", "autoplay": {"delay": 5500, "disableOnInteraction": false}, "scrollbar": {"el": ".swiper-scrollbar"}}'>
               <div class="swiper-wrapper">
                 {% for s in home.hero %}{% if for_sale.size == 0 and s.link == '/shop/' %}{% continue %}{% endif %}
-                <div class="swiper-slide text-center text-xl-start pt-5 py-xl-5">
+                <div class="swiper-slide text-center text-lg-start pt-5 py-lg-5">
                   <p class="text-body">{{ s.kicker }}</p>
                   <h2 class="display-4 pb-2 pb-xl-4">{{ s.title }}</h2>
                   <a class="btn btn-lg btn-primary" href="{{ s.link | relative_url }}">
@@ -90,7 +89,7 @@ brands: [apple, samsung, sony, canon, motorola]
               </div>
             </div>
           </div>
-          <div class="col-9 col-sm-7 col-md-6 col-lg-5 col-xl-7">
+          <div class="col-9 col-sm-7 col-md-6 col-lg-6 col-xl-5">
             <div class="swiper user-select-none" id="sliderImages" data-swiper='{"allowTouchMove": false, "loop": true, "effect": "fade", "fadeEffect": {"crossFade": true}}'>
               <div class="swiper-wrapper">
                 {% for s in home.hero %}{% if for_sale.size == 0 and s.link == '/shop/' %}{% continue %}{% endif %}
@@ -105,8 +104,8 @@ brands: [apple, samsung, sony, canon, motorola]
           </div>
         </div>
         <div class="row justify-content-center" data-bs-theme="dark">
-          <div class="col-xxl-10">
-            <div class="position-relative mx-5 mx-xxl-0">
+          <div class="col-12 col-xl-10">
+            <div class="position-relative mx-4 mx-sm-5 mx-xl-0">
               <div class="swiper-scrollbar mb-4"></div>
             </div>
           </div>

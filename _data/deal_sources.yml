@@ -97,6 +97,25 @@ feeds:
     resolve: direct
     max_items: 250
     max_candidates: 25   # links go straight to the store, so allow more from here
+    # The RSS only has titles. These TechBargains pages carry each deal's write-up
+    # ("This is normally $249", "$99.99 list price"), which is where the original
+    # (compare_at) price comes from. Read once per run; robots.txt is respected.
+    price_pages:
+      - https://www.techbargains.com/
+      - https://www.techbargains.com/categories/laptops
+      - https://www.techbargains.com/categories/desktops
+      - https://www.techbargains.com/categories/computers
+      - https://www.techbargains.com/categories/tablets
+      - https://www.techbargains.com/categories/headphones
+      - https://www.techbargains.com/categories/wireless-earbuds
+      - https://www.techbargains.com/categories/wearable-tech
+      - https://www.techbargains.com/categories/smart-home-devices
+      - https://www.techbargains.com/categories/monitors
+      - https://www.techbargains.com/categories/smartphones
+      - https://www.techbargains.com/deals/amazon-kindle-deals
+      - https://www.techbargains.com/stores/amazon
+      - https://www.techbargains.com/stores/walmart
+      - https://www.techbargains.com/stores/dell
   - id: slickdeals
     name: Slickdeals Frontpage
     url: https://slickdeals.net/newsearch.php?mode=frontpage&searcharea=deals&searchin=first&rss=1

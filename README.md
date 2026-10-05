@@ -20,7 +20,7 @@ Create one file per item in `_products/` (or use the CloudCannon "Products" form
 |---|---|---|
 | `title`, `category`, `price`, `images`, `highlights` | ✓ | ✓ |
 | `brand` (search + brand logos on the home page) | optional | optional |
-| `compare_at` (original price, shown crossed out) | optional | optional |
+| `compare_at` (original/list price: shown crossed out with a -NN% badge, only when higher than `price`; leave it out if you don't have a real figure) | optional | optional |
 | `status` (`available` / `sold`) | ✓ | – |
 | `condition`, `shipping` | ✓ | – |
 | `anycart_id` (product ID in AnyCart) | ✓ | – |

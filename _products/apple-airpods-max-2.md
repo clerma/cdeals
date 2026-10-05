@@ -4,6 +4,7 @@ type: affiliate
 category: Headphones
 brand: Apple
 price: 509.99
+compare_at: 549
 store: Amazon
 affiliate_url: https://www.amazon.com/dp/B0GSS72GZJ?tag=cdeals014-20
 expires: 2026-10-11
