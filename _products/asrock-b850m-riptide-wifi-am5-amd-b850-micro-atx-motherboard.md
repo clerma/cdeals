@@ -15,5 +15,18 @@ highlights:
 - 'Open-box or refurbished: check the condition at Newegg'
 - "$90 under its usual price"
 source: newegg-outlet
+specs:
+- label: Chipset
+  value: AMD B850
+- label: Connectivity
+  value: WiFi
+- label: Form
+  value: Micro ATX
+why_deal: Newegg has it for $99.99, down from $189.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the ASRock B850M Riptide WiFi AM5 AMD B850 Micro ATX Motherboard.
+  From the listing: chipset AMD B850, connectivity WiFi, form Micro ATX. I posted
+  it after checking the price at Newegg. Worth a look if you''re building or updating
+  a desktop setup.'
 ---
-Newegg has it for $99.99, down from $189.99. Prices change fast, so check the price before you buy.
+This is the ASRock B850M Riptide WiFi AM5 AMD B850 Micro ATX Motherboard. From the listing: chipset AMD B850, connectivity WiFi, form Micro ATX. I posted it after checking the price at Newegg. Worth a look if you're building or updating a desktop setup.

@@ -15,5 +15,18 @@ highlights:
 - "$130 under its usual price"
 - 'Refurbished or open-box: check the condition notes at Target'
 source: target-deals
+specs:
+- label: Processor
+  value: Core Ultra 5
+- label: Storage
+  value: 1TB SSD
+- label: Display
+  value: 16"
+why_deal: Target has it for $519.99, down from $649.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Refurbished Acer Aspire 16 AI 16" Laptop, Core Ultra 5 226V,
+  16GB, 1TB SSD. From the listing: processor Core Ultra 5, storage 1TB SSD, display
+  16". I posted it after checking the price at Target. Worth a look if you need a
+  portable computer for work or school.'
 ---
-Target has it for $519.99, down from $649.99. Prices change fast, so check the price before you buy.
+This is the Refurbished Acer Aspire 16 AI 16" Laptop, Core Ultra 5 226V, 16GB, 1TB SSD. From the listing: processor Core Ultra 5, storage 1TB SSD, display 16". I posted it after checking the price at Target. Worth a look if you need a portable computer for work or school.

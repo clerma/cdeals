@@ -16,5 +16,15 @@ highlights:
   price
 - "$80 under its usual price"
 source: bh-used
+specs:
+- label: Display
+  value: 31.5"
+- label: Panel
+  value: 4K
+why_deal: B&H Photo has it for $249.95, down from $329.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the LG 32BN50U-B 31.5" 16:9 FreeSync 4K HDR VA Monitor (TAA
+  Compliant). From the listing: display 31.5", panel 4K. I posted it after checking
+  the price at B&H Photo. Worth a look if you''re building or updating a desktop setup.'
 ---
-B&H Photo has it for $249.95, down from $329.99. Prices change fast, so check the price before you buy.
+This is the LG 32BN50U-B 31.5" 16:9 FreeSync 4K HDR VA Monitor (TAA Compliant). From the listing: display 31.5", panel 4K. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.

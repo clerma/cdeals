@@ -16,5 +16,13 @@ highlights:
   new price
 - "$617 under its usual price"
 source: bh-used
+specs:
+- label: Display
+  value: 14"
+why_deal: B&H Photo has it for $749.95, down from $1366.57. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Dell 14" Pro 14 Plus Laptop. From the listing: display 14".
+  I posted it after checking the price at B&H Photo. Worth a look if you need a portable
+  computer for work or school.'
 ---
-B&H Photo has it for $749.95, down from $1366.57. Prices change fast, so check the price before you buy.
+This is the Dell 14" Pro 14 Plus Laptop. From the listing: display 14". I posted it after checking the price at B&H Photo. Worth a look if you need a portable computer for work or school.

@@ -15,5 +15,15 @@ highlights:
 - 'Open-box or refurbished: check the condition at Newegg'
 - "$56 under its usual price"
 source: newegg-outlet
+specs:
+- label: Chipset
+  value: Intel B760
+- label: Form
+  value: ATX
+why_deal: Newegg has it for $83.99, down from $139.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the GIGABYTE B760M C LGA 1700 Intel B760 M-ATX Motherboard with
+  DDR5, M.2. From the listing: chipset Intel B760, form ATX. I posted it after checking
+  the price at Newegg. Worth a look if you''re building or updating a desktop setup.'
 ---
-Newegg has it for $83.99, down from $139.99. Prices change fast, so check the price before you buy.
+This is the GIGABYTE B760M C LGA 1700 Intel B760 M-ATX Motherboard with DDR5, M.2. From the listing: chipset Intel B760, form ATX. I posted it after checking the price at Newegg. Worth a look if you're building or updating a desktop setup.

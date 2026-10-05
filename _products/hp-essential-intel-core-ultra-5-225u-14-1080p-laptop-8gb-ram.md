@@ -13,5 +13,22 @@ images:
 highlights:
 - Free shipping
 source: techbargains-pages
+specs:
+- label: Processor
+  value: Intel Core Ultra 5
+- label: Memory
+  value: 8GB
+- label: Storage
+  value: 256GB SSD
+- label: Display
+  value: 14"
+- label: Panel
+  value: 1080p
+why_deal: Walmart has it for $649.99. Prices change fast, so check the price before
+  you buy.
+description: 'This is the HP Essential Intel Core Ultra 5 225U 14" 1080p Laptop (8GB
+  RAM, 256GB SSD). From the listing: processor Intel Core Ultra 5, memory 8GB, storage
+  256GB SSD, display 14". I posted it after checking the price at Walmart. Worth a
+  look if you need a portable computer for work or school.'
 ---
-Walmart has it for $649.99. Prices change fast, so check the price before you buy.
+This is the HP Essential Intel Core Ultra 5 225U 14" 1080p Laptop (8GB RAM, 256GB SSD). From the listing: processor Intel Core Ultra 5, memory 8GB, storage 256GB SSD, display 14". I posted it after checking the price at Walmart. Worth a look if you need a portable computer for work or school.

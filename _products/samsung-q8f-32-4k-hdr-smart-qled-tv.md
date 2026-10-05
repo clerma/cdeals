@@ -14,5 +14,15 @@ images:
 highlights:
 - "$100 under its usual price"
 source: bh-deals-categories
+specs:
+- label: Display
+  value: 32"
+- label: Panel
+  value: 4K
+why_deal: B&H Photo has it for $397.99, down from $497.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Samsung Q8F 32" 4K HDR Smart QLED TV. From the listing:
+  display 32", panel 4K. I posted it after checking the price at B&H Photo. Worth
+  a look for movies, sports, and everyday watching.'
 ---
-B&H Photo has it for $397.99, down from $497.99. Prices change fast, so check the price before you buy.
+This is the Samsung Q8F 32" 4K HDR Smart QLED TV. From the listing: display 32", panel 4K. I posted it after checking the price at B&H Photo. Worth a look for movies, sports, and everyday watching.

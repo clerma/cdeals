@@ -14,5 +14,15 @@ images:
 highlights:
 - "$120 under its usual price"
 source: bh-deals
+specs:
+- label: Storage
+  value: 1TB
+- label: Form
+  value: Portable
+why_deal: B&H Photo has it for $269.99, down from $389.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the SANDISK 1TB Extreme Portable SSD V3. From the listing: storage
+  1TB, form Portable. I posted it after checking the price at B&H Photo. Worth a look
+  as a useful add-on for your gear.'
 ---
-B&H Photo has it for $269.99, down from $389.99. Prices change fast, so check the price before you buy.
+This is the SANDISK 1TB Extreme Portable SSD V3. From the listing: storage 1TB, form Portable. I posted it after checking the price at B&H Photo. Worth a look as a useful add-on for your gear.

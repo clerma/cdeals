@@ -14,5 +14,16 @@ images:
 highlights:
 - "$30 under its usual price"
 source: bh-deals-categories
+specs:
+- label: Style
+  value: Noise-Canceling
+- label: Connectivity
+  value: USB-C
+why_deal: B&H Photo has it for $149, down from $179. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Apple AirPods Noise-Canceling Earbuds with Wireless USB-C
+  Charging Case. From the listing: style Noise-Canceling, connectivity USB-C. I posted
+  it after checking the price at B&H Photo. Worth a look if you want better sound
+  without a big setup.'
 ---
-B&H Photo has it for $149, down from $179. Prices change fast, so check the price before you buy.
+This is the Apple AirPods Noise-Canceling Earbuds with Wireless USB-C Charging Case. From the listing: style Noise-Canceling, connectivity USB-C. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.

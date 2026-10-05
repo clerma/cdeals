@@ -14,5 +14,10 @@ images:
 highlights:
 - "$576 under its usual price"
 source: bh-deals
+why_deal: B&H Photo has it for $999, down from $1574.62. Prices change fast, so check
+  the price before you buy.
+description: This is the Dell Pro Micro Desktop Computer. It's filed under Computers
+  on this site. I posted it after checking the price at B&H Photo. Worth a look if
+  you're building or updating a desktop setup.
 ---
-B&H Photo has it for $999, down from $1574.62. Prices change fast, so check the price before you buy.
+This is the Dell Pro Micro Desktop Computer. It's filed under Computers on this site. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.

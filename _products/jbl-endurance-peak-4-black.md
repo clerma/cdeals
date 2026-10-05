@@ -14,5 +14,10 @@ images:
 highlights:
 - "$40 under its usual price"
 source: target-deals
+why_deal: Target has it for $89.99, down from $129.99. Prices change fast, so check
+  the price before you buy.
+description: This is the JBL Endurance Peak 4 - Black. It's filed under Audio on this
+  site. I posted it after checking the price at Target. Worth a look if you want better
+  sound without a big setup.
 ---
-Target has it for $89.99, down from $129.99. Prices change fast, so check the price before you buy.
+This is the JBL Endurance Peak 4 - Black. It's filed under Audio on this site. I posted it after checking the price at Target. Worth a look if you want better sound without a big setup.

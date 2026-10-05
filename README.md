@@ -182,3 +182,13 @@ The workflow is in `scripts/find-deals.workflow.yml`. Move it to `.github/workfl
 - `max_candidates_per_category` (default 45) keeps one category from flooding a run. Per-source `expires_days` (TechBargains/Slickdeals 3-4 days) covers sale events like Prime days.
 - Best Buy: the API takes over once `BESTBUY_API_KEY` is set (`zenrows_until_key`). A ZenRows stand-in source exists but is disabled, because ZenRows requires premium proxies for bestbuy.com (anti-bot). Best Buy deals come in through TechBargains `/stores/bestbuy` meanwhile.
 - ZenRows only spends credits after it has actually read the host's robots.txt (directly, or through ZenRows when the host refuses direct connections).
+### Deal page copy (summary + specs)
+
+Every affiliate deal gets a short first-person summary, a `why_deal` line, and optional `specs:` (label/value) pulled only from the product title and any source write-up text — never invented. `scripts/lib/deal_copy.rb` builds them; `publish_deals.rb` and `find_deals.rb` use it for new deals. Re-run for existing ones with:
+
+```
+bundle exec ruby scripts/enrich_deal_copy.rb
+```
+
+The product detail page shows Description / Key specs / Why it's a deal tabs under the gallery and buy box. Listing cards stay short.
+

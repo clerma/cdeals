@@ -15,5 +15,18 @@ highlights:
 - 'Open-box or refurbished: check the condition at Newegg'
 - "$160 under its usual price"
 source: newegg-outlet
+specs:
+- label: Display
+  value: 34"
+- label: Panel
+  value: QHD
+- label: Refresh rate
+  value: 280 Hz
+why_deal: Newegg has it for $739.99, down from $899.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the ASUS ROG Strix 34 inch UltraWide QHD 2K 1440P 280Hz G-Sync
+  Compatible. From the listing: display 34", panel QHD, refresh rate 280 Hz. I posted
+  it after checking the price at Newegg. Worth a look if you''re building or updating
+  a desktop setup.'
 ---
-Newegg has it for $739.99, down from $899.99. Prices change fast, so check the price before you buy.
+This is the ASUS ROG Strix 34 inch UltraWide QHD 2K 1440P 280Hz G-Sync Compatible. From the listing: display 34", panel QHD, refresh rate 280 Hz. I posted it after checking the price at Newegg. Worth a look if you're building or updating a desktop setup.

@@ -14,5 +14,14 @@ images:
 highlights:
 - Free shipping
 source: techbargains-pages
+specs:
+- label: Style
+  value: Wired
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: 'This is the Turtle Beach Atlas 200 Wired Multiplatform Gaming Headset
+  (PS5, PS4, PC). From the listing: style Wired. I posted it because Amazon had a
+  strong price when I checked. Prices move, so confirm the current price at Amazon
+  before you buy.'
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is the Turtle Beach Atlas 200 Wired Multiplatform Gaming Headset (PS5, PS4, PC). From the listing: style Wired. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

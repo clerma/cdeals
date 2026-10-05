@@ -13,5 +13,15 @@ images:
 highlights:
 - Sold by Woot
 source: woot
+specs:
+- label: Panel
+  value: 4K
+- label: Generation
+  value: 1th gen
+why_deal: Woot has it for $16.99. Prices change fast, so check the price before you
+  buy.
+description: 'This is the Amazon Fire TV Stick 4K (1st Gen) with Alexa Voice Remote
+  (3rd Gen). From the listing: panel 4K, generation 1th gen. I posted it after checking
+  the price at Woot. Worth a look for movies, sports, and everyday watching.'
 ---
-Woot has it for $16.99. Prices change fast, so check the price before you buy.
+This is the Amazon Fire TV Stick 4K (1st Gen) with Alexa Voice Remote (3rd Gen). From the listing: panel 4K, generation 1th gen. I posted it after checking the price at Woot. Worth a look for movies, sports, and everyday watching.

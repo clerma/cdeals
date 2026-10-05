@@ -14,5 +14,15 @@ highlights:
 - "$220 under its usual price"
 - Free shipping
 source: techbargains-pages
+specs:
+- label: Display
+  value: 43"
+- label: Panel
+  value: 4K
+why_deal: Woot has it for $279.99, down from $499.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Samsung 43" 4K UHD M70F Smart Monitor. From the listing:
+  display 43", panel 4K. I posted it after checking the price at Woot. Worth a look
+  if you''re building or updating a desktop setup.'
 ---
-Woot! has it for $279.99, down from $499.99. Prices change fast, so check the price before you buy.
+This is the Samsung 43" 4K UHD M70F Smart Monitor. From the listing: display 43", panel 4K. I posted it after checking the price at Woot. Worth a look if you're building or updating a desktop setup.

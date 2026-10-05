@@ -16,5 +16,13 @@ highlights:
   new price
 - "$498 under its usual price"
 source: bh-used
+why_deal: B&H Photo has it for $1201.95, down from $1699.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Microsoft 13.8" Surface Laptop Copilot+ PC (8th Edition,
+  Platinum). From the listing: display 13.8". I posted it after checking the price
+  at B&H Photo. Worth a look if you need a portable computer for work or school.'
+specs:
+- label: Display
+  value: 13.8"
 ---
-B&H Photo has it for $1201.95, down from $1699.99. Prices change fast, so check the price before you buy.
+This is the Microsoft 13.8" Surface Laptop Copilot+ PC (8th Edition, Platinum). From the listing: display 13.8". I posted it after checking the price at B&H Photo. Worth a look if you need a portable computer for work or school.

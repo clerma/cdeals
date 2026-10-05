@@ -14,5 +14,16 @@ images:
 highlights:
 - "$200 under its usual price"
 source: newegg-outlet
+specs:
+- label: Processor
+  value: Intel Core 3
+- label: Memory
+  value: 8GB
+why_deal: Newegg has it for $679, down from $879. Prices change fast, so check the
+  price before you buy.
+description: 'This is the MSI Desktop Computer Cubi NUC 1MG-010US Intel Core 3 100U
+  8GB DDR5 500GB. From the listing: processor Intel Core 3, memory 8GB. I posted it
+  after checking the price at Newegg. Worth a look if you''re building or updating
+  a desktop setup.'
 ---
-Newegg has it for $679, down from $879. Prices change fast, so check the price before you buy.
+This is the MSI Desktop Computer Cubi NUC 1MG-010US Intel Core 3 100U 8GB DDR5 500GB. From the listing: processor Intel Core 3, memory 8GB. I posted it after checking the price at Newegg. Worth a look if you're building or updating a desktop setup.

@@ -15,5 +15,13 @@ highlights:
 - "$169 under its usual price"
 - 'Refurbished or open-box: check the condition notes at MacHeist'
 source: macheist
+specs:
+- label: Connectivity
+  value: Wi-Fi
+why_deal: MacHeist has it for $279.99, down from $449. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Apple iPad (2022) 10th Gen Wi-Fi Only Silver (Refurbished).
+  From the listing: connectivity Wi-Fi. I posted it after checking the price at MacHeist.
+  Worth a look for reading, browsing, and light everyday use.'
 ---
-MacHeist has it for $279.99, down from $449. Prices change fast, so check the price before you buy.
+This is the Apple iPad (2022) 10th Gen Wi-Fi Only Silver (Refurbished). From the listing: connectivity Wi-Fi. I posted it after checking the price at MacHeist. Worth a look for reading, browsing, and light everyday use.

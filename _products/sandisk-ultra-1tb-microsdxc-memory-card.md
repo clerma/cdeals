@@ -13,5 +13,13 @@ images:
 highlights:
 - Free shipping
 source: techbargains-pages
+specs:
+- label: Storage
+  value: 1TB microSDXC
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: 'This is the SanDisk Ultra 1TB microSDXC Memory Card. From the listing:
+  storage 1TB microSDXC. I posted it because Amazon had a strong price when I checked.
+  Prices move, so confirm the current price at Amazon before you buy.'
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is the SanDisk Ultra 1TB microSDXC Memory Card. From the listing: storage 1TB microSDXC. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

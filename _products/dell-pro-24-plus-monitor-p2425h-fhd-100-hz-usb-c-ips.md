@@ -15,5 +15,18 @@ highlights:
 - 'Open-box or refurbished: check the condition at Newegg'
 - "$55 under its usual price"
 source: newegg-outlet
+specs:
+- label: Panel
+  value: IPS
+- label: Refresh rate
+  value: 100 Hz
+- label: Connectivity
+  value: USB-C
+why_deal: Newegg has it for $129.99, down from $184.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Dell Pro 24 Plus Monitor - P2425H, FHD, 100 Hz, USB-C, IPS.
+  From the listing: panel IPS, refresh rate 100 Hz, connectivity USB-C. I posted it
+  after checking the price at Newegg. Worth a look if you''re building or updating
+  a desktop setup.'
 ---
-Newegg has it for $129.99, down from $184.99. Prices change fast, so check the price before you buy.
+This is the Dell Pro 24 Plus Monitor - P2425H, FHD, 100 Hz, USB-C, IPS. From the listing: panel IPS, refresh rate 100 Hz, connectivity USB-C. I posted it after checking the price at Newegg. Worth a look if you're building or updating a desktop setup.

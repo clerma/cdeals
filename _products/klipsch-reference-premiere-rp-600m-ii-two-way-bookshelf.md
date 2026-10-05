@@ -14,5 +14,10 @@ images:
 highlights:
 - "$250 under its usual price"
 source: bh-deals-categories
+why_deal: B&H Photo has it for $449.99, down from $699.99. Prices change fast, so
+  check the price before you buy.
+description: This is the Klipsch Reference Premiere RP-600M II Two-Way Bookshelf Speaker.
+  It's filed under Audio on this site. I posted it after checking the price at B&H
+  Photo. Worth a look if you want better sound without a big setup.
 ---
-B&H Photo has it for $449.99, down from $699.99. Prices change fast, so check the price before you buy.
+This is the Klipsch Reference Premiere RP-600M II Two-Way Bookshelf Speaker. It's filed under Audio on this site. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.

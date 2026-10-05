@@ -16,5 +16,15 @@ highlights:
   new price
 - "$19 under its usual price"
 source: bh-used
+specs:
+- label: Display
+  value: 15.6"
+- label: Form
+  value: Portable
+why_deal: B&H Photo has it for $89.95, down from $109. Prices change fast, so check
+  the price before you buy.
+description: 'This is the ASUS ZenScreen MB169CK 15.6" Portable Monitor. From the
+  listing: display 15.6", form Portable. I posted it after checking the price at B&H
+  Photo. Worth a look if you''re building or updating a desktop setup.'
 ---
-B&H Photo has it for $89.95, down from $109. Prices change fast, so check the price before you buy.
+This is the ASUS ZenScreen MB169CK 15.6" Portable Monitor. From the listing: display 15.6", form Portable. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.

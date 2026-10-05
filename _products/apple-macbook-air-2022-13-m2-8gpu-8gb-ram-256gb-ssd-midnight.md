@@ -15,5 +15,20 @@ highlights:
 - "$349 under its usual price"
 - 'Refurbished or open-box: check the condition notes at MacHeist'
 source: macheist
+specs:
+- label: Chip
+  value: M2
+- label: Memory
+  value: 8GB
+- label: Storage
+  value: 256GB SSD
+- label: Display
+  value: 13"
+why_deal: MacHeist has it for $649.99, down from $999. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Apple Macbook Air (2022) 13" M2 8GPU 8GB RAM 256GB SSD Midnight.
+  From the listing: chip M2, memory 8GB, storage 256GB SSD, display 13". I posted
+  it after checking the price at MacHeist. Worth a look if you need a portable computer
+  for work or school.'
 ---
-MacHeist has it for $649.99, down from $999. Prices change fast, so check the price before you buy.
+This is the Apple Macbook Air (2022) 13" M2 8GPU 8GB RAM 256GB SSD Midnight. From the listing: chip M2, memory 8GB, storage 256GB SSD, display 13". I posted it after checking the price at MacHeist. Worth a look if you need a portable computer for work or school.

@@ -14,5 +14,13 @@ images:
 highlights:
 - "$80 under its usual price"
 source: bh-deals
+specs:
+- label: Storage
+  value: 1TB
+why_deal: B&H Photo has it for $239.99, down from $319.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Samsung 1TB 990 PRO PCIe 4.0 x4 M.2 Internal SSD. From the
+  listing: storage 1TB. I posted it after checking the price at B&H Photo. Worth a
+  look as a useful add-on for your gear.'
 ---
-B&H Photo has it for $239.99, down from $319.99. Prices change fast, so check the price before you buy.
+This is the Samsung 1TB 990 PRO PCIe 4.0 x4 M.2 Internal SSD. From the listing: storage 1TB. I posted it after checking the price at B&H Photo. Worth a look as a useful add-on for your gear.

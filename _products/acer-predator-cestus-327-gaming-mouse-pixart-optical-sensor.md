@@ -14,5 +14,11 @@ images:
 highlights:
 - "$15 under its usual price"
 source: newegg-outlet
+why_deal: Newegg has it for $34.99, down from $49.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is an Acer America gaming: Acer Predator Cestus 327 Gaming Mouse,
+  PixArt Optical Sensor, 8,000 DPI. It''s filed under Gaming on this site. I posted
+  it after checking the price at Newegg. Worth a look for playing at home or on the
+  go.'
 ---
-Newegg has it for $34.99, down from $49.99. Prices change fast, so check the price before you buy.
+This is an Acer America gaming: Acer Predator Cestus 327 Gaming Mouse, PixArt Optical Sensor, 8,000 DPI. It's filed under Gaming on this site. I posted it after checking the price at Newegg. Worth a look for playing at home or on the go.

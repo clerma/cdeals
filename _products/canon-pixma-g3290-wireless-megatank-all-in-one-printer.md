@@ -14,5 +14,13 @@ images:
 highlights:
 - "$70 under its usual price"
 source: bh-deals
+specs:
+- label: Style
+  value: Wireless
+why_deal: B&H Photo has it for $199, down from $269. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Canon PIXMA G3290 Wireless MegaTank All-in-One Printer.
+  From the listing: style Wireless. I posted it after checking the price at B&H Photo.
+  Worth a look as a useful add-on for your gear.'
 ---
-B&H Photo has it for $199, down from $269. Prices change fast, so check the price before you buy.
+This is the Canon PIXMA G3290 Wireless MegaTank All-in-One Printer. From the listing: style Wireless. I posted it after checking the price at B&H Photo. Worth a look as a useful add-on for your gear.

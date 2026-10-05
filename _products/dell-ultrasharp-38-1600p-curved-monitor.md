@@ -15,5 +15,15 @@ highlights:
 - Used at B&H, condition 10 (Good as new); the original price shown is B&H's new price
 - "$220 under its usual price"
 source: bh-used
+specs:
+- label: Display
+  value: 38"
+- label: Form
+  value: Curved
+why_deal: B&H Photo has it for $879.95, down from $1099.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Dell UltraSharp 38" 1600p Curved Monitor. From the listing:
+  display 38", form Curved. I posted it after checking the price at B&H Photo. Worth
+  a look if you''re building or updating a desktop setup.'
 ---
-B&H Photo has it for $879.95, down from $1099.99. Prices change fast, so check the price before you buy.
+This is the Dell UltraSharp 38" 1600p Curved Monitor. From the listing: display 38", form Curved. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.

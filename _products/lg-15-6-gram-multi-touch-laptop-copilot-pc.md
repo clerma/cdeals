@@ -16,5 +16,13 @@ highlights:
   new price
 - "$361 under its usual price"
 source: bh-used
+why_deal: B&H Photo has it for $1642.95, down from $2004.17. Prices change fast, so
+  check the price before you buy.
+description: 'This is the LG 15.6" gram Multi-Touch Laptop Copilot+ PC. From the listing:
+  display 15.6". I posted it after checking the price at B&H Photo. Worth a look if
+  you need a portable computer for work or school.'
+specs:
+- label: Display
+  value: 15.6"
 ---
-B&H Photo has it for $1642.95, down from $2004.17. Prices change fast, so check the price before you buy.
+This is the LG 15.6" gram Multi-Touch Laptop Copilot+ PC. From the listing: display 15.6". I posted it after checking the price at B&H Photo. Worth a look if you need a portable computer for work or school.

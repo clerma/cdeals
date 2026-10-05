@@ -13,5 +13,10 @@ images:
 highlights:
 - Active noise cancellation
 source: techbargains
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: This is the Apple AirPods 5 with Noise Cancellation. It's filed under
+  Audio on this site. I posted it because Amazon had a strong price when I checked.
+  Prices move, so confirm the current price at Amazon before you buy.
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is the Apple AirPods 5 with Noise Cancellation. It's filed under Audio on this site. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

@@ -16,5 +16,13 @@ highlights:
   new price
 - "$262 under its usual price"
 source: bh-used
+why_deal: B&H Photo has it for $929.95, down from $1192.44. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Dell 15.6" Pro Essential 15 Laptop. From the listing: display
+  15.6". I posted it after checking the price at B&H Photo. Worth a look if you need
+  a portable computer for work or school.'
+specs:
+- label: Display
+  value: 15.6"
 ---
-B&H Photo has it for $929.95, down from $1192.44. Prices change fast, so check the price before you buy.
+This is the Dell 15.6" Pro Essential 15 Laptop. From the listing: display 15.6". I posted it after checking the price at B&H Photo. Worth a look if you need a portable computer for work or school.

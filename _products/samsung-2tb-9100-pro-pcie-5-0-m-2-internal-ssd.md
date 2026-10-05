@@ -14,5 +14,13 @@ images:
 highlights:
 - "$280 under its usual price"
 source: bh-deals
+specs:
+- label: Storage
+  value: 2TB
+why_deal: B&H Photo has it for $399.99, down from $679.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Samsung 2TB 9100 PRO PCIe 5.0 M.2 Internal SSD. From the
+  listing: storage 2TB. I posted it after checking the price at B&H Photo. Worth a
+  look as a useful add-on for your gear.'
 ---
-B&H Photo has it for $399.99, down from $679.99. Prices change fast, so check the price before you buy.
+This is the Samsung 2TB 9100 PRO PCIe 5.0 M.2 Internal SSD. From the listing: storage 2TB. I posted it after checking the price at B&H Photo. Worth a look as a useful add-on for your gear.

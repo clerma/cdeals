@@ -26,14 +26,17 @@
 {%- assign seo_cat = nil -%}
 {%- if page.collection == "deal_categories" -%}{%- assign seo_cat = site.data.categories | where: "slug", page.slug | first -%}{%- endif -%}
 
-{%- if page.description -%}
+{%- comment -%} Unique per-page description: deal summaries in front matter / body first. Amazon: never include $. {%- endcomment -%}
+{%- if is_product and page.content and page.content != blank -%}
+  {%- assign seo_description = page.description | default: page.content | strip_html | strip_newlines | strip -%}
+{%- elsif page.description -%}
   {%- assign seo_description = page.description | strip_html | strip_newlines | strip -%}
 {%- elsif is_product -%}
   {%- capture seo_description -%}
-    {%- if page.type == "affiliate" and hide_price -%}Deal at {{ page.store }}: {{ page.title }}. See the current price at {{ page.store }}.
-    {%- elsif page.type == "affiliate" -%}Deal at {{ page.store }}: {{ page.title }} for {% include money.html amount=page.price %}{% if page.compare_at %} (usually {% include money.html amount=page.compare_at %}){% endif %}.
-    {%- else -%}{{ page.title }}, {{ page.condition | default: "used" | downcase }} condition, {% if page.status == "sold" %}sold{% else %}for sale at {% include money.html amount=page.price %}{% endif %}.
-    {%- endif %} {{ page.content | strip_html | strip_newlines | strip | truncatewords: 22 }}
+    {%- if page.type == "affiliate" and hide_price -%}{{ page.title }} deal at {{ page.store }}. See the current price at {{ page.store }} before you buy.
+    {%- elsif page.type == "affiliate" -%}{{ page.title }} at {{ page.store }}.
+    {%- else -%}{{ page.title }}, {{ page.condition | default: "used" | downcase }} condition.
+    {%- endif -%}
   {%- endcapture -%}
   {%- assign seo_description = seo_description | strip_newlines | strip -%}
 {%- elsif seo_cat -%}
@@ -43,6 +46,9 @@
 {%- else -%}
   {%- assign seo_description = site.description | strip_html | strip_newlines | strip -%}
 {%- endif -%}
+{%- if hide_price -%}{%- assign seo_description = seo_description | replace: '$', '' -%}{%- endif -%}
+{%- assign seo_description = seo_description | truncate: 160, '' -%}
+
 
 {%- assign page_image = page.image | default: page.images[0] | default: site.logo -%}
 {%- if page_image and page_image != "" -%}{%- assign page_image = page_image | absolute_url -%}{%- else -%}{%- assign page_image = nil -%}{%- endif -%}
@@ -86,7 +92,7 @@
 {% include schema/breadcrumb.html %}
 
 <!-- Per-page schema -->
-{% if is_product and hide_price == false %}{% include schema/product.html %}{% endif %}
+{% if is_product %}{% include schema/product.html %}{% endif %}
 {% if page.url == "/faq/" or page.show_faq %}{% include schema/faq-page.html %}{% endif %}
 {% if page.show_collection %}{% include schema/collection-page.html %}{% endif %}
 

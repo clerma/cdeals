@@ -14,7 +14,7 @@
   "primaryImageOfPage":"{{ page_image }}"{% endif %}
   {%- if page.url != '/' %},
   "breadcrumb":{"@id":"{{ canonical_url }}#breadcrumb"}{% endif %}
-  {%- if is_product and hide_price == false %},
+  {%- if is_product %},
   "mainEntity":{"@id":"{{ canonical_url }}#product"}{% endif %},
   "speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".page-lede"]}
 }

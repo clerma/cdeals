@@ -13,5 +13,20 @@ images:
 highlights:
 - Sold by Amazon
 source: slickdeals-rss
+specs:
+- label: Chip
+  value: M5 10-Core
+- label: Memory
+  value: 16GB
+- label: Storage
+  value: 512GB SSD
+- label: Display
+  value: 15.3"
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: 'This is the 15.3" Apple MacBook Air (2026): M5 10-Core Chip, 16GB Memory,
+  512GB SSD. From the listing: chip M5 10-Core, memory 16GB, storage 512GB SSD, display
+  15.3". I posted it because Amazon had a strong price when I checked. Prices move,
+  so confirm the current price at Amazon before you buy.'
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is the 15.3" Apple MacBook Air (2026): M5 10-Core Chip, 16GB Memory, 512GB SSD. From the listing: chip M5 10-Core, memory 16GB, storage 512GB SSD, display 15.3". I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

@@ -15,5 +15,13 @@ highlights:
 - 5.5" smart display with Alexa
 - Good bedside clock and camera
 source: techbargains
+specs:
+- label: Generation
+  value: 3th gen
+why_deal: Amazon has a good price on this right now. Prices change fast, so check
+  the current price at Amazon before you buy.
+description: 'This is the Amazon Echo Show 5 (3rd Gen). From the listing: generation
+  3th gen. I posted it because Amazon had a strong price when I checked. Prices move,
+  so confirm the current price at Amazon before you buy.'
 ---
-Amazon has a good price on this right now. Prices change fast, so check the current price at Amazon before you buy.
+This is the Amazon Echo Show 5 (3rd Gen). From the listing: generation 3th gen. I posted it because Amazon had a strong price when I checked. Prices move, so confirm the current price at Amazon before you buy.

@@ -15,5 +15,15 @@ highlights:
 - Free shipping
 - May need a coupon or promo code at checkout
 source: techbargains-pages
+specs:
+- label: Connectivity
+  value: Bluetooth
+- label: Form
+  value: Portable
+why_deal: Woot has it for $34.95, down from $64.95. Prices change fast, so check the
+  price before you buy.
+description: 'This is the JBL Clip 4 Portable Mini Bluetooth Speaker. From the listing:
+  connectivity Bluetooth, form Portable. I posted it after checking the price at Woot.
+  Worth a look if you want better sound without a big setup.'
 ---
-Woot! has it for $34.95, down from $64.95. Prices change fast, so check the price before you buy.
+This is the JBL Clip 4 Portable Mini Bluetooth Speaker. From the listing: connectivity Bluetooth, form Portable. I posted it after checking the price at Woot. Worth a look if you want better sound without a big setup.

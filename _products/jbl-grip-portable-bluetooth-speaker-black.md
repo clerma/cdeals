@@ -14,5 +14,15 @@ images:
 highlights:
 - "$30 under its usual price"
 source: bh-deals
+specs:
+- label: Connectivity
+  value: Bluetooth
+- label: Form
+  value: Portable
+why_deal: B&H Photo has it for $69.95, down from $99.95. Prices change fast, so check
+  the price before you buy.
+description: 'This is the JBL Grip Portable Bluetooth Speaker (Black). From the listing:
+  connectivity Bluetooth, form Portable. I posted it after checking the price at B&H
+  Photo. Worth a look if you want better sound without a big setup.'
 ---
-B&H Photo has it for $69.95, down from $99.95. Prices change fast, so check the price before you buy.
+This is the JBL Grip Portable Bluetooth Speaker (Black). From the listing: connectivity Bluetooth, form Portable. I posted it after checking the price at B&H Photo. Worth a look if you want better sound without a big setup.

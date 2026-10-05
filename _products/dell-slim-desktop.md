@@ -15,5 +15,10 @@ highlights:
 - "$170 under its usual price"
 - Free shipping
 source: techbargains-pages
+why_deal: Dell has it for $959.99, down from $1129.99. Prices change fast, so check
+  the price before you buy.
+description: This is the Dell Slim Desktop. It's filed under Computers on this site.
+  I posted it after checking the price at Dell. Worth a look if you're building or
+  updating a desktop setup.
 ---
-Dell has it for $959.99, down from $1129.99. Prices change fast, so check the price before you buy.
+This is the Dell Slim Desktop. It's filed under Computers on this site. I posted it after checking the price at Dell. Worth a look if you're building or updating a desktop setup.

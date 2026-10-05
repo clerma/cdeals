@@ -14,5 +14,13 @@ images:
 highlights:
 - "$40 under its usual price"
 source: target-deals
+specs:
+- label: Generation
+  value: 5th gen
+why_deal: Target has it for $39.99, down from $79.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Amazon Echo Dot (5th Gen 2022) - Smart Speaker with Alexa.
+  From the listing: generation 5th gen. I posted it after checking the price at Target.
+  Worth a look if you''re adding to a smart home.'
 ---
-Target has it for $39.99, down from $79.99. Prices change fast, so check the price before you buy.
+This is the Amazon Echo Dot (5th Gen 2022) - Smart Speaker with Alexa. From the listing: generation 5th gen. I posted it after checking the price at Target. Worth a look if you're adding to a smart home.

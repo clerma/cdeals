@@ -14,5 +14,13 @@ images:
 highlights:
 - "$15 under its usual price"
 source: bh-deals
+specs:
+- label: Style
+  value: Wired
+why_deal: B&H Photo has it for $29.95, down from $44.95. Prices change fast, so check
+  the price before you buy.
+description: 'This is the JBL Quantum 100M2 Wired Gaming Headset (Black). From the
+  listing: style Wired. I posted it after checking the price at B&H Photo. Worth a
+  look for playing at home or on the go.'
 ---
-B&H Photo has it for $29.95, down from $44.95. Prices change fast, so check the price before you buy.
+This is the JBL Quantum 100M2 Wired Gaming Headset (Black). From the listing: style Wired. I posted it after checking the price at B&H Photo. Worth a look for playing at home or on the go.

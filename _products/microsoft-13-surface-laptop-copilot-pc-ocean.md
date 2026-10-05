@@ -16,5 +16,13 @@ highlights:
   new price
 - "$300 under its usual price"
 source: bh-used
+specs:
+- label: Display
+  value: 13"
+why_deal: B&H Photo has it for $949.95, down from $1249.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Microsoft 13" Surface Laptop Copilot+ PC (Ocean). From the
+  listing: display 13". I posted it after checking the price at B&H Photo. Worth a
+  look if you need a portable computer for work or school.'
 ---
-B&H Photo has it for $949.95, down from $1249.99. Prices change fast, so check the price before you buy.
+This is the Microsoft 13" Surface Laptop Copilot+ PC (Ocean). From the listing: display 13". I posted it after checking the price at B&H Photo. Worth a look if you need a portable computer for work or school.

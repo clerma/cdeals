@@ -16,5 +16,13 @@ highlights:
   new price
 - "$540 under its usual price"
 source: bh-used
+specs:
+- label: Display
+  value: 16"
+why_deal: B&H Photo has it for $2158.95, down from $2699. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Lenovo 16" IdeaPad Pro 5i Multi-Touch Laptop Copilot+ PC.
+  From the listing: display 16". I posted it after checking the price at B&H Photo.
+  Worth a look if you need a portable computer for work or school.'
 ---
-B&H Photo has it for $2158.95, down from $2699. Prices change fast, so check the price before you buy.
+This is the Lenovo 16" IdeaPad Pro 5i Multi-Touch Laptop Copilot+ PC. From the listing: display 16". I posted it after checking the price at B&H Photo. Worth a look if you need a portable computer for work or school.

@@ -14,5 +14,13 @@ images:
 highlights:
 - "$170 under its usual price"
 source: woot
+specs:
+- label: Panel
+  value: 4K
+why_deal: Woot has it for $159.99, down from $329.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Amazon Fire TV 4-Series 4K UHD Smart TV. From the listing:
+  panel 4K. I posted it after checking the price at Woot. Worth a look for movies,
+  sports, and everyday watching.'
 ---
-Woot has it for $159.99, down from $329.99. Prices change fast, so check the price before you buy.
+This is the Amazon Fire TV 4-Series 4K UHD Smart TV. From the listing: panel 4K. I posted it after checking the price at Woot. Worth a look for movies, sports, and everyday watching.

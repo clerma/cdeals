@@ -14,5 +14,15 @@ images:
 highlights:
 - "$30 under its usual price"
 source: target-deals
+specs:
+- label: Panel
+  value: 1080p
+- label: Sensor
+  value: 16MP
+why_deal: Target has it for $119.99, down from $149.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Kodak PixPro FZ45 Friendly Zoom 16MP 1080p Full HD Digital
+  Camera (Pink). From the listing: panel 1080p, sensor 16MP. I posted it after checking
+  the price at Target. Worth a look for photos and video.'
 ---
-Target has it for $119.99, down from $149.99. Prices change fast, so check the price before you buy.
+This is the Kodak PixPro FZ45 Friendly Zoom 16MP 1080p Full HD Digital Camera (Pink). From the listing: panel 1080p, sensor 16MP. I posted it after checking the price at Target. Worth a look for photos and video.

@@ -14,5 +14,13 @@ images:
 highlights:
 - "$380 under its usual price"
 source: bh-deals-categories
+specs:
+- label: Storage
+  value: 2TB
+why_deal: B&H Photo has it for $499.99, down from $879.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Samsung 2TB 870 EVO SATA III 2.5" Internal SSD. From the
+  listing: storage 2TB. I posted it after checking the price at B&H Photo. Worth a
+  look as a useful add-on for your gear.'
 ---
-B&H Photo has it for $499.99, down from $879.99. Prices change fast, so check the price before you buy.
+This is the Samsung 2TB 870 EVO SATA III 2.5" Internal SSD. From the listing: storage 2TB. I posted it after checking the price at B&H Photo. Worth a look as a useful add-on for your gear.

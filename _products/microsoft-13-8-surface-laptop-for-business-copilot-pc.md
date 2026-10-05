@@ -16,5 +16,13 @@ highlights:
   price
 - "$376 under its usual price"
 source: bh-used
+why_deal: B&H Photo has it for $1281.95, down from $1658.44. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Microsoft 13.8" Surface Laptop for Business Copilot+ PC.
+  From the listing: display 13.8". I posted it after checking the price at B&H Photo.
+  Worth a look if you need a portable computer for work or school.'
+specs:
+- label: Display
+  value: 13.8"
 ---
-B&H Photo has it for $1281.95, down from $1658.44. Prices change fast, so check the price before you buy.
+This is the Microsoft 13.8" Surface Laptop for Business Copilot+ PC. From the listing: display 13.8". I posted it after checking the price at B&H Photo. Worth a look if you need a portable computer for work or school.

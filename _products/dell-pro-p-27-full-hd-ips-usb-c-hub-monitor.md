@@ -15,5 +15,17 @@ highlights:
 - Used at B&H, condition 10 (Good as new); the original price shown is B&H's new price
 - "$60 under its usual price"
 source: bh-used
+specs:
+- label: Display
+  value: 27"
+- label: Panel
+  value: Full HD
+- label: Connectivity
+  value: USB-C
+why_deal: B&H Photo has it for $239.95, down from $299.99. Prices change fast, so
+  check the price before you buy.
+description: 'This is the Dell Pro P 27" Full HD IPS USB-C Hub Monitor. From the listing:
+  display 27", panel Full HD, connectivity USB-C. I posted it after checking the price
+  at B&H Photo. Worth a look if you''re building or updating a desktop setup.'
 ---
-B&H Photo has it for $239.95, down from $299.99. Prices change fast, so check the price before you buy.
+This is the Dell Pro P 27" Full HD IPS USB-C Hub Monitor. From the listing: display 27", panel Full HD, connectivity USB-C. I posted it after checking the price at B&H Photo. Worth a look if you're building or updating a desktop setup.

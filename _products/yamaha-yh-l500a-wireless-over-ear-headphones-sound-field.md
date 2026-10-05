@@ -14,5 +14,13 @@ images:
 highlights:
 - "$70 under its usual price"
 source: newegg-outlet
+specs:
+- label: Style
+  value: Wireless
+why_deal: Newegg has it for $159.95, down from $229.95. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Yamaha YH-L500A Wireless Over-Ear Headphones - Sound Field
+  Mode. From the listing: style Wireless. I posted it after checking the price at
+  Newegg. Worth a look if you want better sound without a big setup.'
 ---
-Newegg has it for $159.95, down from $229.95. Prices change fast, so check the price before you buy.
+This is the Yamaha YH-L500A Wireless Over-Ear Headphones - Sound Field Mode. From the listing: style Wireless. I posted it after checking the price at Newegg. Worth a look if you want better sound without a big setup.

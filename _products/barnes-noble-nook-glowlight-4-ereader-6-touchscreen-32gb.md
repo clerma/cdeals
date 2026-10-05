@@ -14,5 +14,16 @@ images:
 highlights:
 - "$40 under its usual price"
 source: target-deals
+specs:
+- label: Storage
+  value: 32GB
+- label: Display
+  value: 6"
+why_deal: Target has it for $129.99, down from $169.99. Prices change fast, so check
+  the price before you buy.
+description: 'This is the Barnes & Noble NOOK Glowlight 4 eReader | 6" Touchscreen
+  | 32GB | BNRV1100. From the listing: storage 32GB, display 6". I posted it after
+  checking the price at Target. Worth a look for reading, browsing, and light everyday
+  use.'
 ---
-Target has it for $129.99, down from $169.99. Prices change fast, so check the price before you buy.
+This is the Barnes & Noble NOOK Glowlight 4 eReader | 6" Touchscreen | 32GB | BNRV1100. From the listing: storage 32GB, display 6". I posted it after checking the price at Target. Worth a look for reading, browsing, and light everyday use.
