@@ -53,7 +53,7 @@ layout: default
             {% capture amz_deal %}{% include amazon-deal.html product=p %}{% endcapture %}{% if amz_deal != "" %}See the savings on Amazon{% else %}Get this deal at {{ p.store }}{% endif %}
             <i class="ci-external-link fs-lg ms-2 me-n1 animate-target"></i>
           </a>
-          <p class="fs-xs text-body-secondary mb-4">Prices change often, so check the price at {{ p.store }} before you buy. {{ site.affiliate_disclosure }} <a class="text-body-secondary" href="{{ '/disclosure/' | relative_url }}">Learn more</a></p>
+          <p class="cdeals-smallprint mb-4">Prices change often, so check the price at {{ p.store }} before you buy. {{ site.affiliate_disclosure }} <a href="{{ '/disclosure/' | relative_url }}">Learn more</a></p>
         {% else %}
           {% include add-to-cart.html product=p class="btn btn-lg btn-primary w-100 mb-3" %}
           <ul class="list-unstyled gap-3 pb-3 mb-4 d-flex flex-column fs-sm">
