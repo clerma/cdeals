@@ -369,6 +369,8 @@ build_candidate = lambda do |item, source|
   next skip.call(item, "already queued/published/rejected") if seen[item[:link]] || seen[item[:guid]]
   next skip.call(item, "excluded keyword") if exclude_re&.match?(title)
   next skip.call(item, "no include keyword") if include_re && !include_re.match?(blob)
+  src_include = words_re.call(Array(source["include_keywords"]))
+  next skip.call(item, "no source include keyword") if src_include && !src_include.match?(blob)
   feed_cat = item[:feed_category].to_s.strip
   next skip.call(item, "non-tech source category (#{feed_cat})") if skip_feed_cat_re&.match?(feed_cat)
   category = category_rules.find { |_, re| re.match?(title) }&.first
