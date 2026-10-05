@@ -53,10 +53,15 @@ module SourceCache
     # Prefer plain; ZenRows only when source asks (caller sets fetch mode via fake source)
     src = { "id" => source_id, "fetch" => "plain", "fallback" => "none" }
     r = fetcher.fetch(url, src, ok_if: ->(b) { b.to_s.length > 2000 })
-    # Soft retry once on rate-limit / transient errors.
+    # Rate limits / blips: back off and retry PLAIN only. Never escalate to ZenRows
+    # for HTTP 429 — that is rate limiting, not "page unreadable without JS".
     if !r.ok && r.error.to_s =~ /429|503|timeout|timed out/i
-      sleep 8
+      sleep 15
       r = fetcher.fetch(url, src, ok_if: ->(b) { b.to_s.length > 2000 })
+      if !r.ok && r.error.to_s =~ /429/i
+        sleep 30
+        r = fetcher.fetch(url, src, ok_if: ->(b) { b.to_s.length > 2000 })
+      end
     end
     unless r.ok
       return { "error" => r.error.to_s, "url" => url, "via" => r.via, "credits" => r.credits.to_i }

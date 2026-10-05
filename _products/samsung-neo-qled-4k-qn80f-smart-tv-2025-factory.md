@@ -18,7 +18,7 @@ specs:
   value: QLED
 why_deal: Woot has it for $2679.99. Prices change fast, so check the price before
   you buy.
-description: 'I pulled these listing details for the Samsung Neo QLED 4K QN80F Smart
-  TV (2025) (Factory Reconditioned): panel QLED. I saw it at Woot and wanted a clean'
+description: This is Samsung's 2025 QN80F, a 4K smart TV from the Neo QLED lineup.
+  This one is factory reconditioned, so it's a good fit if you want a newer Samsung
 ---
-I pulled these listing details for the Samsung Neo QLED 4K QN80F Smart TV (2025) (Factory Reconditioned): panel QLED. I saw it at Woot and wanted a clean product write-up here.
+This is Samsung's 2025 QN80F, a 4K smart TV from the Neo QLED lineup. This one is factory reconditioned, so it's a good fit if you want a newer Samsung QLED set and don't mind buying one that isn't brand new.

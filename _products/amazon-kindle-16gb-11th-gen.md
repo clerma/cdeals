@@ -20,7 +20,7 @@ specs:
   value: 16GB
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Amazon Kindle 16GB (11th Gen):
-  storage 16GB. I posted the Amazon listing so you can confirm the live price.'
+description: The Amazon Kindle 16GB (11th Gen) is Amazon's 11th-generation Kindle
+  with 16GB of storage.
 ---
-I pulled these listing details for the Amazon Kindle 16GB (11th Gen): storage 16GB. I posted the Amazon listing so you can confirm the live price.
+The Amazon Kindle 16GB (11th Gen) is Amazon's 11th-generation Kindle with 16GB of storage.

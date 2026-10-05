@@ -15,7 +15,7 @@ highlights:
 source: woot
 why_deal: Woot has it for $16.99. Prices change fast, so check the price before you
   buy.
-description: 'I looked at the Amazon Alexa Voice Remote Pro. Sign up for our Daily
-  Digest emails! Shipping Note: Shipping to Alaska, Hawaii, and PO Boxes is not'
+description: The Amazon Alexa Voice Remote Pro is Amazon's upgraded voice remote,
+  built for anyone who wants to control their TV setup with Alexa. I'm featuring it
 ---
-I looked at the Amazon Alexa Voice Remote Pro. Sign up for our Daily Digest emails! Shipping Note: Shipping to Alaska, Hawaii, and PO Boxes is not available for this item Warranty: 90 Day Woot Limited Warranty. I saw it at Woot and wanted a clean product write-up here.
+The Amazon Alexa Voice Remote Pro is Amazon's upgraded voice remote, built for anyone who wants to control their TV setup with Alexa. I'm featuring it here among my TV and home theater picks.

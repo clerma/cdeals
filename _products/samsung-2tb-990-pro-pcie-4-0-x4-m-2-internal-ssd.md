@@ -29,7 +29,7 @@ specs:
   value: 8.5 W (Active)5.5 W (Standby)
 why_deal: B&H Photo has it for $389.99, down from $639.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Samsung 2TB 990 PRO PCIe 4.0 x4 M.2 Internal SSD. 2TB
-  Storage Capacity, M.2 2280 Form Factor, PCIe 4.0 x4 / NVMe 2.0 Interface, Sequential
+description: The Samsung 990 PRO is a 2TB M.2 2280 SSD that runs on PCIe 4.0 x4 with
+  NVMe 2.0.
 ---
-I looked at the Samsung 2TB 990 PRO PCIe 4.0 x4 M.2 Internal SSD. 2TB Storage Capacity, M.2 2280 Form Factor, PCIe 4.0 x4 / NVMe 2.0 Interface, Sequential Reads up to 7450 MB/s, Sequential Writes up to 6900 MB/s, Up to 1200TB TBW (Total Bytes Written). I saw it at B&H Photo and wanted a clean product write-up here.
+The Samsung 990 PRO is a 2TB M.2 2280 SSD that runs on PCIe 4.0 x4 with NVMe 2.0.

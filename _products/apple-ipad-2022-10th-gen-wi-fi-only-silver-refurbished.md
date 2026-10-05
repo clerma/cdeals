@@ -24,7 +24,7 @@ specs:
   value: Wi-Fi
 why_deal: MacHeist has it for $279.99, down from $449. Prices change fast, so check
   the price before you buy.
-description: I looked at the Apple iPad (2022) 10th Gen Wi-Fi Only Silver (Refurbished).
-  Save on a refurbished Apple iPad (2022) 10th Gen, Wi-Fi only, featuring the
+description: The refurbished 10th-generation Apple iPad (2022) is a Wi-Fi-only tablet
+  in silver. It runs on Apple's A14 Bionic chip and has a 10.9-inch display, so
 ---
-I looked at the Apple iPad (2022) 10th Gen Wi-Fi Only Silver (Refurbished). Save on a refurbished Apple iPad (2022) 10th Gen, Wi-Fi only, featuring the A14 Bionic chip and a 10.9-inch display. I saw it at MacHeist and wanted a clean product write-up here.
+The refurbished 10th-generation Apple iPad (2022) is a Wi-Fi-only tablet in silver. It runs on Apple's A14 Bionic chip and has a 10.9-inch display, so it's a good fit if you want a full-size iPad without paying for a new one.

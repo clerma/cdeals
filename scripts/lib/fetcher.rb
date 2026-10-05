@@ -19,6 +19,7 @@ require_relative "polite_http"
 #   * never used for a host that has an official source (API / feed) configured,
 #     even a planned one that is still disabled. Exception: an official API
 #     source marked zenrows_until_key: true blocks ZenRows only once its key is set.
+#   * never for HTTP 429 rate limits (caller must back off / use cache)
 #   * cheapest tier first: plain (free) -> js_render (5 credits) -> premium tiers
 #     only when the source sets allow_premium: true. The tier that worked is
 #     remembered per source so the next run starts there.
@@ -76,6 +77,10 @@ class Fetcher
       good = res&.ok? && !wall?(res.body) && (ok_if.nil? || ok_if.call(res.body))
       return Result.new(ok: true, body: res.body, url: final, via: "plain", credits: 0) if good
       err = res&.error || (res && wall?(res.body) ? "bot wall (HTTP #{res.status})" : "HTTP #{res&.status}#{res&.ok? ? ' but no usable content' : ''}")
+      # HTTP 429 is rate limiting — back off at the caller; never spend ZenRows credits to bypass it.
+      if err.to_s =~ /\b429\b/ || res&.status.to_i == 429
+        return Result.new(ok: false, url: url, via: "plain", credits: 0, error: err)
+      end
       return Result.new(ok: false, url: url, via: "plain", credits: 0, error: err) unless fallback
     end
     zenrows(url, source, ok_if: ok_if)

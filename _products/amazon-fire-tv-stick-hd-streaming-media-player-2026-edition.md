@@ -29,7 +29,8 @@ specs:
   value: 'No'
 why_deal: B&H Photo has it for $22.50, down from $46.50. Prices change fast, so check
   the price before you buy.
-description: I looked at the Amazon Fire TV Stick HD Streaming Media Player (2026
-  Edition). Review Amazon Fire TV Stick HD. I saw it at B&H Photo and wanted a clean
+description: It comes with the Alexa Voice Remote, and Alexa+ voice control helps
+  you find something to watch or run your smart home devices. It supports Wi-Fi 6
+  and
 ---
-I looked at the Amazon Fire TV Stick HD Streaming Media Player (2026 Edition). Review Amazon Fire TV Stick HD. I saw it at B&H Photo and wanted a clean product write-up here.
+It comes with the Alexa Voice Remote, and Alexa+ voice control helps you find something to watch or run your smart home devices. It supports Wi-Fi 6 and Bluetooth, and it also works with Amazon Luna and Xbox Game Pass if you want to play games.

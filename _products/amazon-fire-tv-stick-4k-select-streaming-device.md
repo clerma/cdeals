@@ -18,7 +18,7 @@ specs:
   value: 4K
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Amazon Fire TV Stick 4K Select
-  Streaming Device: panel 4K. I posted the Amazon listing so you can confirm the live'
+description: The Amazon Fire TV Stick 4K Select is a streaming device from Amazon
+  for watching content in 4K on your TV.
 ---
-I pulled these listing details for the Amazon Fire TV Stick 4K Select Streaming Device: panel 4K. I posted the Amazon listing so you can confirm the live price.
+The Amazon Fire TV Stick 4K Select is a streaming device from Amazon for watching content in 4K on your TV.

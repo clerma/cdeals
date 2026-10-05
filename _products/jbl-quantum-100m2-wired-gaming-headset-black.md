@@ -29,7 +29,7 @@ specs:
   value: Yes (on Boom)
 why_deal: B&H Photo has it for $29.95, down from $44.95. Prices change fast, so check
   the price before you buy.
-description: I looked at the JBL Quantum 100M2 Wired Gaming Headset (Black). 40mm
-  Dynamic Drivers, Detachable Boom Microphone, Breathable Fabric Memory Foam Earcups,
+description: The JBL Quantum 100M2 is a simple wired gaming headset that plugs in
+  with a built-in 3.5mm cable and works with PCs and gaming consoles. It uses 40mm
 ---
-I looked at the JBL Quantum 100M2 Wired Gaming Headset (Black). 40mm Dynamic Drivers, Detachable Boom Microphone, Breathable Fabric Memory Foam Earcups, Directional Voice-Focused Pickup, Built-In 3.5mm 3.9' Cable, Padded Headband, Compatible with PC and Gaming Consoles. I saw it at B&H Photo and wanted a clean product write-up here.
+The JBL Quantum 100M2 is a simple wired gaming headset that plugs in with a built-in 3.5mm cable and works with PCs and gaming consoles. It uses 40mm dynamic drivers, and on Windows it works with Windows Sonic spatial sound. The detachable boom mic uses directional, voice-focused pickup, so your teammates hear you clearly in chat. For longer sessions, it has breathable fabric earcups with memory foam and a padded headband.

@@ -17,10 +17,10 @@ highlights:
 source: techbargains
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I looked at the Apple AirPods Pro 3. AirPods Pro 3 — The world’s best
-  in-ear Active Noise Cancellation, heart rate sensing during workouts, and an
+description: The AirPods Pro 3 are Apple's newest in-ear earbuds, and they're a good
+  fit if you want strong noise cancellation for commutes plus something useful at
 specs:
 - label: Style
   value: in-ear
 ---
-I looked at the Apple AirPods Pro 3. AirPods Pro 3 — The world’s best in-ear Active Noise Cancellation, heart rate sensing during workouts, and an improved hearing health experience. Up to 2x more than AirPods Pro 2.1 An exceptional spatial listening experience, with high-definition, three-dimensional audio.4 All-new heart rate sensing. I posted the Amazon listing so you can confirm the live price.
+The AirPods Pro 3 are Apple's newest in-ear earbuds, and they're a good fit if you want strong noise cancellation for commutes plus something useful at the gym. Apple says they have the world's best in-ear Active Noise Cancellation, with up to 2x more than the AirPods Pro 2. They also add heart rate sensing for the first time, so you can track your heart rate and calories burned during workouts. On top of that, you get high-definition spatial audio and an improved hearing health experience.

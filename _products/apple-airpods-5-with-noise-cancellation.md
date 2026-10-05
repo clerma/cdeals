@@ -15,10 +15,10 @@ highlights:
 source: techbargains
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I looked at the Apple AirPods 5 with Noise Cancellation. AirPods deliver
-  an unparalleled wireless headphone experience, from magical setup to high-quality
+description: The AirPods 5 with Noise Cancellation are built for easy wireless listening,
+  with simple setup and high-quality sound. Their headline feature is Active
 specs:
 - label: Style
   value: wireless
 ---
-I looked at the Apple AirPods 5 with Noise Cancellation. AirPods deliver an unparalleled wireless headphone experience, from magical setup to high-quality sound. Available with free engraving. I posted the Amazon listing so you can confirm the live price.
+The AirPods 5 with Noise Cancellation are built for easy wireless listening, with simple setup and high-quality sound. Their headline feature is Active Noise Cancellation, which Apple calls the world's best in-ear ANC. They're also available with free engraving, and Apple includes 3 months of Apple Music free.

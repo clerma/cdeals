@@ -15,7 +15,7 @@ highlights:
 source: woot
 why_deal: Woot has it for $149.95. Prices change fast, so check the price before you
   buy.
-description: I filed the Amazon Fire TV 3.1 Soundbar Plus & Subwoofer as a deal worth
-  checking. I saw it at Woot and wanted a clean product write-up here.
+description: The Amazon Fire TV 3.1 Soundbar Plus & Subwoofer is a soundbar and subwoofer
+  set for your TV.
 ---
-I filed the Amazon Fire TV 3.1 Soundbar Plus & Subwoofer as a deal worth checking. I saw it at Woot and wanted a clean product write-up here.
+The Amazon Fire TV 3.1 Soundbar Plus & Subwoofer is a soundbar and subwoofer set for your TV.

@@ -30,7 +30,7 @@ specs:
   value: Up to UHD 4K
 why_deal: B&H Photo has it for $709.95, down from $949. Prices change fast, so check
   the price before you buy.
-description: I looked at the Canon EOS RP Mirrorless Camera. 26.2MP Full-Frame CMOS
-  Sensor, DIGIC 8 Image Processor, UHD 4K and Full HD 1080 Video, 2.36m-Dot OLED
+description: It also shoots UHD 4K video, covers ISO 100 to 40,000, shoots up to 5
+  fps and has Wi-Fi and Bluetooth built in.
 ---
-I looked at the Canon EOS RP Mirrorless Camera. 26.2MP Full-Frame CMOS Sensor, DIGIC 8 Image Processor, UHD 4K and Full HD 1080 Video, 2.36m-Dot OLED Electronic Viewfinder, 3" 1.04m-Dot Vari-Angle Touchscreen LCD, Dual Pixel CMOS AF, 4779 AF Points, ISO 100-40000, Up to 5 fps Shooting, Wi-Fi and Bluetooth Connectivity. I saw it at B&H Photo and wanted a clean product write-up here.
+It also shoots UHD 4K video, covers ISO 100 to 40,000, shoots up to 5 fps and has Wi-Fi and Bluetooth built in.

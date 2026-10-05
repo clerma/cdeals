@@ -16,10 +16,10 @@ highlights:
 source: techbargains
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I looked at the Apple AirPods Max 2. The ultimate over-ear listening
-  experience — in five vibrant colors and with up to 1.5x more Active Noise
+description: AirPods Max 2 are Apple's over-ear headphones for anyone who wants big,
+  immersive sound with strong noise blocking. Apple says they deliver up to 1.5x
 specs:
 - label: Style
   value: over-ear
 ---
-I looked at the Apple AirPods Max 2. The ultimate over-ear listening experience — in five vibrant colors and with up to 1.5x more Active Noise Cancellation than the previous generation. AirPods Max 2 Up to 1.5x more Active Noise Cancellation than the previous generation.1 Improved high‑fidelity sound. I posted the Amazon listing so you can confirm the live price.
+AirPods Max 2 are Apple's over-ear headphones for anyone who wants big, immersive sound with strong noise blocking. Apple says they deliver up to 1.5x more Active Noise Cancellation than the previous generation, plus improved high-fidelity audio with deep bass, expansive mids, and crisp highs. You also get hands-free access to a more powerful, personalized AI assistant on your iPhone, and they come in five vibrant colors.

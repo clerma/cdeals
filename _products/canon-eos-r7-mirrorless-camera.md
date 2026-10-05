@@ -30,7 +30,7 @@ specs:
   value: 'Dual Slot: SD/SDHC/SDXC (UHS-II)'
 why_deal: B&H Photo has it for $1236.50, down from $1649. Prices change fast, so check
   the price before you buy.
-description: I looked at the Canon EOS R7 Mirrorless Camera. Shutter, 2.36m-Dot OLED
-  EVF, 1.6m-Dot Vari-Angle Touchscreen LCD, Sensor-Shift 5-Axis Image Stabilization,
+description: The Canon EOS R7 is an APS-C mirrorless camera built around a 32.5MP
+  sensor and Canon's RF mount. I also like that it has 5-axis sensor-shift
 ---
-I looked at the Canon EOS R7 Mirrorless Camera. Shutter, 2.36m-Dot OLED EVF, 1.6m-Dot Vari-Angle Touchscreen LCD, Sensor-Shift 5-Axis Image Stabilization, Dual UHS-II Memory Card Slots, Multi-Function Shoe, Wi-Fi and Bluetooth. I saw it at B&H Photo and wanted a clean product write-up here.
+The Canon EOS R7 is an APS-C mirrorless camera built around a 32.5MP sensor and Canon's RF mount. I also like that it has 5-axis sensor-shift stabilization, a vari-angle touchscreen, and dual UHS-II card slots.

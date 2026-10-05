@@ -29,7 +29,7 @@ specs:
   value: 1920 x 1200
 why_deal: B&H Photo has it for $1099, down from $1743.24. Prices change fast, so check
   the price before you buy.
-description: I looked at the Dell 16" Pro 16 Laptop. 2.0 GHz Intel Core Ultra 5 vPro
-  12-Core, 16GB DDR5 | 512GB M.2 SSD, 16" 1920 x 1200 60 Hz IPS Display, Integrated
+description: I've been looking at the Dell 16" Pro 16 Laptop. It pairs a 2.0 GHz Intel
+  Core Ultra 5 vPro 12-core processor with 16GB of DDR5 memory and a 512GB SSD,
 ---
-I looked at the Dell 16" Pro 16 Laptop. 2.0 GHz Intel Core Ultra 5 vPro 12-Core, 16GB DDR5 | 512GB M.2 SSD, 16" 1920 x 1200 60 Hz IPS Display, Integrated Intel Arc Graphics, Built-In Intel AI Boost NPU (12 TOPS), Gigabit LAN | Wi-Fi 6E | Bluetooth 5.3. I saw it at B&H Photo and wanted a clean product write-up here.
+I've been looking at the Dell 16" Pro 16 Laptop. It pairs a 2.0 GHz Intel Core Ultra 5 vPro 12-core processor with 16GB of DDR5 memory and a 512GB SSD, plus a 16-inch 1920 x 1200 IPS display. Integrated Intel Arc graphics and an Intel AI Boost NPU (12 TOPS) are built in, with Thunderbolt 4, HDMI 2.1, USB-A, Gigabit LAN, Wi-Fi 6E, and Bluetooth 5.3. It comes with Windows 11 Pro.

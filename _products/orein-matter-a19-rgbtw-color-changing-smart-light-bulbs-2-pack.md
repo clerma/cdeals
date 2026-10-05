@@ -18,8 +18,8 @@ specs:
   value: A19
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the OREiN Matter Smart A19 RGBTW
-  Color Changing LED Light Bulbs with Remote (2-Pack): chip A19. I posted the Amazon'
+description: The OREiN Matter Smart A19 RGBTW LED Light Bulbs are a 2-pack of color-changing
+  bulbs that come with a remote.
 source: techbargains
 ---
-I pulled these listing details for the OREiN Matter Smart A19 RGBTW Color Changing LED Light Bulbs with Remote (2-Pack): chip A19. I posted the Amazon listing so you can confirm the live price.
+The OREiN Matter Smart A19 RGBTW LED Light Bulbs are a 2-pack of color-changing bulbs that come with a remote.

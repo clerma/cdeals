@@ -26,8 +26,7 @@ specs:
   value: UHD
 why_deal: Dell has it for $849.99, down from $999.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Dell Tower Desktop, Core Ultra 5 225 (8GB/512GB). Boost
-  everyday productivity with a powerful, space-saving desktop. Intel® Core™ Ultra
-  5
+description: The Dell Tower is a compact, space-saving desktop for anyone who wants
+  a solid machine for everyday work at home or in the office. It runs an Intel Core
 ---
-I looked at the Dell Tower Desktop, Core Ultra 5 225 (8GB/512GB). Boost everyday productivity with a powerful, space-saving desktop. Intel® Core™ Ultra 5 225 (20 MB cache, 10 cores, 10 threads, 2.7 GHz to 4.9 GHz, 65W) Windows 11 Home Intel® UHD Graphics. I saw it at Dell and wanted a clean product write-up here.
+The Dell Tower is a compact, space-saving desktop for anyone who wants a solid machine for everyday work at home or in the office. It runs an Intel Core Ultra 5 225 with 10 cores that boost up to 4.9 GHz, along with 8GB of DDR5 memory and 512GB of storage. It ships with Windows 11 Home and Intel UHD Graphics, so it's ready for daily tasks right out of the box.

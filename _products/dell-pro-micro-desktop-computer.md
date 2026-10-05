@@ -16,12 +16,12 @@ highlights:
 source: bh-deals
 why_deal: B&H Photo has it for $999, down from $1574.62. Prices change fast, so check
   the price before you buy.
-description: I looked at the Dell Pro Micro Desktop Computer. 2.2 GHz Intel Core Ultra
-  5 235T 14-Core, 16GB 5600 MT/s DDR5 RAM, 512GB M.2 NVMe SSD, Integrated Intel
+description: HDMI 2.1 and DisplayPort 1.4a let you connect your displays, and it has
+  Wi-Fi 6E, Bluetooth and a Gigabit Ethernet port for getting online.
 specs:
 - label: Processor
   value: Intel Core Ultra 5
 - label: Connectivity
   value: Wi-Fi
 ---
-I looked at the Dell Pro Micro Desktop Computer. 2.2 GHz Intel Core Ultra 5 235T 14-Core, 16GB 5600 MT/s DDR5 RAM, 512GB M.2 NVMe SSD, Integrated Intel Graphics, Wi-Fi 6E (802.11ax) | Bluetooth, Gigabit Ethernet Port, USB 3.2 Gen 1 & 2 | USB 2.0, DisplayPort 1.4a | HDMI 2.1, Includes USB Keyboard & Mouse, Windows 11 Pro. I saw it at B&H Photo and wanted a clean product write-up here.
+HDMI 2.1 and DisplayPort 1.4a let you connect your displays, and it has Wi-Fi 6E, Bluetooth and a Gigabit Ethernet port for getting online.

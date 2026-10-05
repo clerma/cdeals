@@ -24,7 +24,7 @@ specs:
   value: Wi-Fi 7
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I looked at the Apple Mac Mini M6 Desktop (16GB RAM, 256GB SSD). Do it
-  all with the ultracompact Mac mini with M6 or M5 Pro. Mac mini now with M6 and
+description: The Apple Mac mini with the M6 chip is a tiny desktop computer that still
+  handles a lot, and Apple pitches it as a powerful platform for AI. This setup
 ---
-I looked at the Apple Mac Mini M6 Desktop (16GB RAM, 256GB SSD). Do it all with the ultracompact Mac mini with M6 or M5 Pro. Mac mini now with M6 and M5 Pro. I posted the Amazon listing so you can confirm the live price.
+The Apple Mac mini with the M6 chip is a tiny desktop computer that still handles a lot, and Apple pitches it as a powerful platform for AI. This setup has 16GB of memory, a 256GB SSD and Wi-Fi 7 in that ultracompact body. I like it for anyone who wants a capable everyday Mac that hardly uses any desk space.

@@ -18,8 +18,8 @@ highlights:
 source: bh-used
 why_deal: B&H Photo has it for $1281.95, down from $1658.44. Prices change fast, so
   check the price before you buy.
-description: I looked at the Microsoft 13.8" Surface Laptop for Business Copilot+
-  PC. Intel Core Ultra 5 (Series 2) 8-Core, 16GB LPDDR5x | 256GB PCIe 4.0 SSD, 13.8"
+description: I've been eyeing this 7th Edition Surface Laptop for Business in Platinum,
+  a Copilot+ PC that runs Windows 11 Pro for work. It has an 8-core Intel Core
 specs:
 - label: Operating System
   value: Windows 11 Pro
@@ -34,4 +34,4 @@ specs:
 - label: Native Resolution
   value: 2304 x 1536
 ---
-I looked at the Microsoft 13.8" Surface Laptop for Business Copilot+ PC. Intel Core Ultra 5 (Series 2) 8-Core, 16GB LPDDR5x | 256GB PCIe 4.0 SSD, 13.8" 2304 x 1536 PixelSense Touchscreen, Intel Arc Graphics | Intel AI Boost NPU, Wi-Fi 7 | Bluetooth 5.4. I saw it at B&H Photo and wanted a clean product write-up here.
+I've been eyeing this 7th Edition Surface Laptop for Business in Platinum, a Copilot+ PC that runs Windows 11 Pro for work. It has an 8-core Intel Core Ultra 5 (Series 2) processor with an Intel AI Boost NPU, plus 16GB of LPDDR5x memory and a 256GB PCIe 4.0 SSD. The 13.8-inch 2304 x 1536 PixelSense touchscreen is sharp, and the front camera supports Windows Studio Effects for video calls. Wi-Fi 7 and Bluetooth 5.4 handle the wireless side.

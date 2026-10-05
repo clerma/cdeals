@@ -29,7 +29,7 @@ specs:
   value: Curved
 why_deal: B&H Photo has it for $799.99, down from $999.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Dell UltraSharp 34" 1440p 120 Hz Curved Thunderbolt Hub
-  Monitor. 34" 21:9 Curved IPS Panel, HDMI | DisplayPort | Thunderbolt 4, 3440 x
+description: I've been looking at Dell's UltraSharp 34-inch curved monitor. It also
+  has two 5W speakers and a 3.5mm audio jack.
 ---
-I looked at the Dell UltraSharp 34" 1440p 120 Hz Curved Thunderbolt Hub Monitor. 34" 21:9 Curved IPS Panel, HDMI | DisplayPort | Thunderbolt 4, 3440 x 1440 at 120 Hz, Up to 5 ms Response Time, 2000:1 Contrast Ratio, 300 nits Brightness, 1.07 Billion Colors. I saw it at B&H Photo and wanted a clean product write-up here.
+I've been looking at Dell's UltraSharp 34-inch curved monitor. It also has two 5W speakers and a 3.5mm audio jack.

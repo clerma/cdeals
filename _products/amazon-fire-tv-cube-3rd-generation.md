@@ -29,7 +29,7 @@ specs:
   value: 16 GB
 why_deal: B&H Photo has it for $109.99, down from $219.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Amazon Fire TV Cube (3rd Generation). Stream Video at
-  4K Resolution, Super Resolution Upscaling of HD Content, Built-In Alexa Voice
+description: The Amazon Fire TV Cube (3rd Generation) is a streaming box for anyone
+  who wants 4K video with Alexa voice control built right in. It handles HDR and
 ---
-I looked at the Amazon Fire TV Cube (3rd Generation). Stream Video at 4K Resolution, Super Resolution Upscaling of HD Content, Built-In Alexa Voice Control, Octa-Core ARM Cortex-M4 Processor, Wi-Fi 6e and Ethernet Connectivity, 1 x HDMI Input & 1 x HDMI Output. I saw it at B&H Photo and wanted a clean product write-up here.
+The Amazon Fire TV Cube (3rd Generation) is a streaming box for anyone who wants 4K video with Alexa voice control built right in. It handles HDR and Dolby Vision for picture and supports Dolby Atmos for sound, and it can upscale HD content with Super Resolution. You can connect over Wi-Fi 6E or Ethernet, and it has an HDMI input along with its HDMI output. It comes with a Bluetooth Fire TV remote.

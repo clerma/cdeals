@@ -31,7 +31,7 @@ specs:
   value: 1x USB-C Input
 why_deal: B&H Photo has it for $2356.95, down from $2999. Prices change fast, so check
   the price before you buy.
-description: I looked at the Canon EOS R5 Mirrorless Camera. Shutter, Dual Pixel CMOS
-  AF II with 1053 Points, 3.2" Vari-Angle Touchscreen LCD, Subject Tracking with
+description: I also like the practical touches, like the 3.2" vari-angle touchscreen
+  and dual CFexpress and SD UHS-II card slots.
 ---
-I looked at the Canon EOS R5 Mirrorless Camera. Shutter, Dual Pixel CMOS AF II with 1053 Points, 3.2" Vari-Angle Touchscreen LCD, Subject Tracking with Deep Learning, CFexpress & SD UHS-II Memory Card Slots. I saw it at B&H Photo and wanted a clean product write-up here.
+I also like the practical touches, like the 3.2" vari-angle touchscreen and dual CFexpress and SD UHS-II card slots.

@@ -16,7 +16,7 @@ highlights:
 source: target-deals
 why_deal: Target has it for $164.99, down from $199.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Polaroid Now Instant Camera Bundle - Film, Case, Album
-  & Quality Photo. Choose from Same Day Delivery, Drive Up or Order Pickup. Free
+description: The Polaroid Now Instant Camera Bundle has everything you need to start
+  shooting instant photos right away. Along with the Polaroid Now camera, it comes
 ---
-I looked at the Polaroid Now Instant Camera Bundle - Film, Case, Album & Quality Photo. Choose from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at Target and wanted a clean product write-up here.
+The Polaroid Now Instant Camera Bundle has everything you need to start shooting instant photos right away. Along with the Polaroid Now camera, it comes with film, a case, an album for your prints, and a photo cloth.

@@ -19,8 +19,8 @@ specs:
   value: A19
 why_deal: Walmart has it for $8.97, down from $22.94. Prices change fast, so check
   the price before you buy.
-description: I looked at the GE Cync A19 Smart LED Light Bulbs, Tunable White (2-Pack).
-  Discover the benefits of a smart home ecosystem with our range of CYNC smart
+description: This 2-pack of GE Cync A19 smart LED bulbs offers tunable white light
+  and works within the Cync smart home ecosystem. I like that you can control your
 source: slickdeals
 ---
-I looked at the GE Cync A19 Smart LED Light Bulbs, Tunable White (2-Pack). Discover the benefits of a smart home ecosystem with our range of CYNC smart home products. Control your lights and other devices from anywhere with one.. I saw it at Walmart and wanted a clean product write-up here.
+This 2-pack of GE Cync A19 smart LED bulbs offers tunable white light and works within the Cync smart home ecosystem. I like that you can control your lights from anywhere, along with other Cync devices you might add later.

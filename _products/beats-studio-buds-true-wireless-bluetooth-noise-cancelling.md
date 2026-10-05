@@ -21,7 +21,7 @@ specs:
   value: Bluetooth
 why_deal: Target has it for $89.99, down from $169.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Beats Studio Buds + True Wireless Bluetooth Noise Cancelling
-  Earbuds. Choose from Same Day Delivery, Drive Up or Order Pickup. Free
+description: The Beats Studio Buds + are true wireless earbuds that connect over Bluetooth
+  and include noise cancelling. If you want a compact pair from Beats that
 ---
-I looked at the Beats Studio Buds + True Wireless Bluetooth Noise Cancelling Earbuds. Choose from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at Target and wanted a clean product write-up here.
+The Beats Studio Buds + are true wireless earbuds that connect over Bluetooth and include noise cancelling. If you want a compact pair from Beats that blocks out some of the noise around you, these are a good pick.

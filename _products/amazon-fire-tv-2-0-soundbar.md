@@ -15,8 +15,8 @@ highlights:
 source: woot
 why_deal: Woot has it for $58.95. Prices change fast, so check the price before you
   buy.
-description: 'I looked at the Amazon Fire TV 2.0 Soundbar. Sign up for our Daily Digest
-  emails! We want you to know: Bold sound. I saw it at Woot and wanted a clean'
+description: It aims for crisper dialog and stronger bass, and DTS Virtual:X and Dolby
+  Audio add spatial sound.
 specs:
 - label: Item Dimensions
   value: 24“ x 3.5” x 2.5“
@@ -31,4 +31,4 @@ specs:
 - label: Surround Sounds Supported
   value: DTS Virtual:X, and Dolby Digital
 ---
-I looked at the Amazon Fire TV 2.0 Soundbar. Sign up for our Daily Digest emails! We want you to know: Bold sound. I saw it at Woot and wanted a clean product write-up here.
+It aims for crisper dialog and stronger bass, and DTS Virtual:X and Dolby Audio add spatial sound.

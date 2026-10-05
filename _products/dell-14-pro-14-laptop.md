@@ -31,7 +31,7 @@ specs:
   value: 1920 x 1200
 why_deal: B&H Photo has it for $999.95, down from $1569.62. Prices change fast, so
   check the price before you buy.
-description: I looked at the Dell 14" Pro 14 Laptop. 3.2 GHz AMD Ryzen 5 220 6-Core,
-  16GB DDR5 | 256GB M.2 SSD, 14" 1920 x 1200 60 Hz IPS Display, Integrated AMD
+description: I've been looking at the Dell Pro 14 as a straightforward 14-inch laptop
+  for everyday work. It runs a 6-core AMD Ryzen 5 220 with 16GB of DDR5 memory and
 ---
-I looked at the Dell 14" Pro 14 Laptop. 3.2 GHz AMD Ryzen 5 220 6-Core, 16GB DDR5 | 256GB M.2 SSD, 14" 1920 x 1200 60 Hz IPS Display, Integrated AMD Radeon Graphics, Wi-Fi 6E (802.11ax) | Bluetooth 5.3, Gigabit Ethernet Port, Thunderbolt 4 | HDMI | USB-A | 3.5mm. I saw it at B&H Photo and wanted a clean product write-up here.
+I've been looking at the Dell Pro 14 as a straightforward 14-inch laptop for everyday work. It runs a 6-core AMD Ryzen 5 220 with 16GB of DDR5 memory and comes with Windows 11 Pro. The 1920 x 1200 IPS screen gives you a bit more vertical room than a standard widescreen panel. On connectivity, it has Thunderbolt 4, HDMI, USB-A, a Gigabit Ethernet port and Wi-Fi 6E, and the 1080p webcam has a privacy shutter for video calls.

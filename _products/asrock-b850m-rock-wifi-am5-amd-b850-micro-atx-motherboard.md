@@ -29,7 +29,7 @@ specs:
   value: 128GB
 why_deal: Newegg has it for $140.99, down from $169.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the ASRock B850M Rock WiFi AM5 AMD B850 Micro ATX Motherboard.
-  Supports AMD Socket AM5 Ryzen 9000, 8000 and 7000 Series Processors 6+1+1 Power
+description: The ASRock B850M Rock WiFi is a Micro ATX AM5 board that works with AMD's
+  Ryzen 9000, 8000 and 7000 Series processors, so it suits a compact Ryzen build.
 ---
-I looked at the ASRock B850M Rock WiFi AM5 AMD B850 Micro ATX Motherboard. Supports AMD Socket AM5 Ryzen 9000, 8000 and 7000 Series Processors 6+1+1 Power Phase, Dr.MOS for VCore 2 x DDR5 DIMMs Supports Dual Channel, up to 8200+ (OC) 1 PCIe 5.0 x16, 1 PCIe 3.0 x16 Graphics Output Options: 1 HDMI, 1 DisplayPort Realtek ALC897 7.1 CH HD Audio Codec 1 Blazing M.2 (PCIe Gen5x4) 1 Hyper M.2 (PCIe Gen4x4) 4 SATA3 1 USB 3.2 Gen1 Type-C (Front) 6 USB 3.2 Gen1 (4 Rear, 2 Front) 6 USB 2.0 (2 Rear, 4 Front) Realtek 2.5G LAN 802.11axe WiFi 6E + Bluetooth. I saw it at Newegg and wanted a clean product write-up here.
+The ASRock B850M Rock WiFi is a Micro ATX AM5 board that works with AMD's Ryzen 9000, 8000 and 7000 Series processors, so it suits a compact Ryzen build. You get a PCIe 5.0 x16 slot for your graphics card and two M.2 slots, one PCIe Gen5 and one Gen4, for fast storage. It has two DDR5 slots that support dual channel at 8200+ with overclocking. For connections, there's Realtek 2.5G LAN, WiFi 6E with Bluetooth, and a front USB-C port.

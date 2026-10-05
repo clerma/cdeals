@@ -24,7 +24,7 @@ specs:
   value: 3440x1440
 why_deal: Walmart has it for $189, down from $249.99. Prices change fast, so check
   the price before you buy.
-description: 'I pulled these listing details for the Acer Nitro EDT340CUR 34" 3440
-  x 1440 120Hz Gaming Monitor: display 34", refresh rate 120 Hz, resolution 3440x1440.'
+description: The Acer Nitro EDT340CUR is a 34-inch gaming monitor with a 3440 x 1440
+  resolution and a 120Hz refresh rate.
 ---
-I pulled these listing details for the Acer Nitro EDT340CUR 34" 3440 x 1440 120Hz Gaming Monitor: display 34", refresh rate 120 Hz, resolution 3440x1440. I saw it at Walmart and wanted a clean product write-up here.
+The Acer Nitro EDT340CUR is a 34-inch gaming monitor with a 3440 x 1440 resolution and a 120Hz refresh rate.

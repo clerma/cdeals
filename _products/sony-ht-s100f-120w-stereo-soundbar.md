@@ -16,10 +16,10 @@ highlights:
 source: bh-deals-categories
 why_deal: B&H Photo has it for $98, down from $158. Prices change fast, so check the
   price before you buy.
-description: I looked at the Sony HT-S100F 120W Stereo Soundbar. 2-Channel Configuration,
-  Up to 120W of Total Power, Bluetooth Audio Streaming, S-Force Surround Sound
+description: The Sony HT-S100F is a 2-channel soundbar with up to 120W of total power,
+  a simple upgrade over your TV's built-in speakers. It connects over HDMI ARC or
 specs:
 - label: Connectivity
   value: Bluetooth
 ---
-I looked at the Sony HT-S100F 120W Stereo Soundbar. 2-Channel Configuration, Up to 120W of Total Power, Bluetooth Audio Streaming, S-Force Surround Sound Technology, 1 x Optical-In / 1 x USB-In, HDMI ARC Audio. I saw it at B&H Photo and wanted a clean product write-up here.
+The Sony HT-S100F is a 2-channel soundbar with up to 120W of total power, a simple upgrade over your TV's built-in speakers. It connects over HDMI ARC or optical, and an optical cable is included. Sony's S-Force Surround Sound technology widens the sound, and Bluetooth lets you stream music from your phone.

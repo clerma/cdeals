@@ -21,7 +21,7 @@ specs:
   value: 16MP
 why_deal: Target has it for $119.99, down from $149.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Kodak PixPro FZ45 Friendly Zoom 16MP 1080p Full HD Digital
-  Camera (Pink). Choose from Same Day Delivery, Drive Up or Order Pickup. Free
+description: The Kodak PixPro FZ45 Friendly Zoom is a simple digital camera in a pink
+  finish. It takes 16MP photos and records 1080p Full HD video.
 ---
-I looked at the Kodak PixPro FZ45 Friendly Zoom 16MP 1080p Full HD Digital Camera (Pink). Choose from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at Target and wanted a clean product write-up here.
+The Kodak PixPro FZ45 Friendly Zoom is a simple digital camera in a pink finish. It takes 16MP photos and records 1080p Full HD video.

@@ -15,11 +15,9 @@ highlights:
 source: woot
 why_deal: Woot has it for $15.99. Prices change fast, so check the price before you
   buy.
-description: 'I pulled these listing details for the (Like-New) Fire TV Stick HD,
-  Alexa Voice Remote: ir device control with included alexa vo Certain functions may
-  not'
+description: A like-new Fire TV Stick HD that comes with an Alexa Voice Remote.
 specs:
 - label: IR device control with included Alexa Vo
   value: Certain functions may not be available on some IR-enabled devices
 ---
-I pulled these listing details for the (Like-New) Fire TV Stick HD, Alexa Voice Remote: ir device control with included alexa vo Certain functions may not be available on some IR-enabled devices. I saw it at Woot and wanted a clean product write-up here.
+A like-new Fire TV Stick HD that comes with an Alexa Voice Remote.

@@ -26,7 +26,7 @@ specs:
   value: 14"
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I looked at the Apple MacBook Pro 14" M5 (16GB/1TB). Find the best MacBook
-  Pro for you with the M5, M5 Pro, or M5 Max chip. Up to 24 hours of battery
+description: This is Apple's 14-inch MacBook Pro with the M5 chip, set up with 16GB
+  of memory and 1TB of storage. I've been looking at it as a strong pick if you want
 ---
-I looked at the Apple MacBook Pro 14" M5 (16GB/1TB). Find the best MacBook Pro for you with the M5, M5 Pro, or M5 Max chip. Up to 24 hours of battery life. I posted the Amazon listing so you can confirm the live price.
+This is Apple's 14-inch MacBook Pro with the M5 chip, set up with 16GB of memory and 1TB of storage. I've been looking at it as a strong pick if you want a fast, portable laptop with plenty of room for files and apps. Apple rates it for up to 24 hours of battery life, and the Liquid Retina XDR display is one of the best screens you'll find on a laptop.

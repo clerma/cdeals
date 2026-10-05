@@ -16,8 +16,8 @@ highlights:
 source: bh-deals
 why_deal: B&H Photo has it for $1998, down from $2498. Prices change fast, so check
   the price before you buy.
-description: I looked at the Sony a7 IV Mirrorless Camera. Fast Hybrid AF, Real-time
-  Eye AF, Focus Breathing Compensation, 5-Axis SteadyShot Image Stabilization,
+description: Sony's a7 IV pairs a 33MP full-frame Exmor R sensor with shooting at
+  up to 10 fps, so it works for stills and action alike. On the video side it records
 specs:
 - label: Display
   value: 3"
@@ -26,4 +26,4 @@ specs:
 - label: Sensor
   value: 33MP
 ---
-I looked at the Sony a7 IV Mirrorless Camera. Fast Hybrid AF, Real-time Eye AF, Focus Breathing Compensation, 5-Axis SteadyShot Image Stabilization, Creative Looks and Soft Skin Effect, 4K 15p UVC/UAC Streaming via USB Type-C. I saw it at B&H Photo and wanted a clean product write-up here.
+Sony's a7 IV pairs a 33MP full-frame Exmor R sensor with shooting at up to 10 fps, so it works for stills and action alike. On the video side it records 4K 60p in 10-bit with S-Cinetone, and focus breathing compensation and 5-axis SteadyShot stabilization help keep footage steady and clean. I also like the 759-point Fast Hybrid AF with Real-time Eye AF, the vari-angle touchscreen, and the option to stream in 4K 15p over USB-C.

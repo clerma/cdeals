@@ -31,8 +31,7 @@ specs:
   value: Curved
 why_deal: B&H Photo has it for $949.95, down from $1399.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Dell UltraSharp 49 U4924DW 49" WQHD Ultrawide Curved
-  Monitor. 49" 32:9 IPS Black Curved Panel, HDMI | DisplayPort | USB-C, WQHD 5120
-  x
+description: The Dell UltraSharp U4924DW is a 49-inch curved ultrawide with a 32:9
+  IPS Black panel running at 5120 x 1440 at 60 Hz. It's a good fit if you want a lot
 ---
-I looked at the Dell UltraSharp 49 U4924DW 49" WQHD Ultrawide Curved Monitor. 49" 32:9 IPS Black Curved Panel, HDMI | DisplayPort | USB-C, WQHD 5120 x 1440 Resolution at 60 Hz, 0.5 ms (Overdrive) Response Time, 2000:1 Static Contrast Ratio, 350 nits Peak Brightness. I saw it at B&H Photo and wanted a clean product write-up here.
+The Dell UltraSharp U4924DW is a 49-inch curved ultrawide with a 32:9 IPS Black panel running at 5120 x 1440 at 60 Hz. It's a good fit if you want a lot of screen space on one desk. It has a 2000:1 static contrast ratio and covers 100% of DCI-P3, and it can show up to 1.07 billion colors. I also like the built-in USB 3.2 Gen 2 hub and KVM switch and the 2.5G Ethernet port, because they let it act as a hub for your desk over HDMI, DisplayPort or USB-C.

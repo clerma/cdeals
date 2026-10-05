@@ -29,7 +29,7 @@ specs:
   value: 1.07 Billion Colors
 why_deal: B&H Photo has it for $179.99, down from $249.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Samsung ViewFinity S7 S71H 27" 4K HDR Monitor. 27" 16:9
-  IPS Panel, HDMI 2.0 | DisplayPort 1.2 | 3.5mm, UHD 4K 3840 x 2160 at 60 Hz, 5 ms
+description: The Samsung ViewFinity S7 S71H is a 27-inch 4K monitor with an IPS panel
+  running at 3840 x 2160 and 60 Hz. It connects over HDMI 2.0 or DisplayPort 1.2
 ---
-I looked at the Samsung ViewFinity S7 S71H 27" 4K HDR Monitor. 27" 16:9 IPS Panel, HDMI 2.0 | DisplayPort 1.2 | 3.5mm, UHD 4K 3840 x 2160 at 60 Hz, 5 ms (GtG) Response Time, 1000:1 Static Contrast Ratio, 300 nits Brightness, 1.07 Billion Colors with HDR10. I saw it at B&H Photo and wanted a clean product write-up here.
+The Samsung ViewFinity S7 S71H is a 27-inch 4K monitor with an IPS panel running at 3840 x 2160 and 60 Hz. It connects over HDMI 2.0 or DisplayPort 1.2 and has a 3.5mm audio jack.

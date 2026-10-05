@@ -31,7 +31,7 @@ specs:
   value: 1.07 Billion Colors (8-Bit+FRC)
 why_deal: B&H Photo has it for $249.95, down from $329.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the LG 32BN50U-B 31.5" 16:9 FreeSync 4K HDR VA Monitor (TAA
-  Compliant). 31.5" Vertical Alignment (VA) Panel, HDMI 2.0 + DisplayPort 1.4
+description: It has HDMI 2.0 and DisplayPort 1.4 inputs, and AMD FreeSync helps keep
+  motion smooth.
 ---
-I looked at the LG 32BN50U-B 31.5" 16:9 FreeSync 4K HDR VA Monitor (TAA Compliant). 31.5" Vertical Alignment (VA) Panel, HDMI 2.0 + DisplayPort 1.4 Inputs, 3840 x 2160 UHD Resolution @ 60 Hz, 3000:1 Static Contrast Ratio, 350 nits, 178°/178° Viewing Angles, 4 ms Response Time (GtG). I saw it at B&H Photo and wanted a clean product write-up here.
+It has HDMI 2.0 and DisplayPort 1.4 inputs, and AMD FreeSync helps keep motion smooth.

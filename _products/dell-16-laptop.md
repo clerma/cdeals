@@ -15,10 +15,10 @@ highlights:
 source: techbargains-pages
 why_deal: Dell has it for $1219.99. Prices change fast, so check the price before
   you buy.
-description: I looked at the Dell 16 Laptop. Enjoy seamless productivity & entertainment
-  with the Dell 16 laptop featuring the latest Intel® Core™ processors, Intel®
+description: It runs Windows 11 Home on an Intel Core 7 150U processor with 10 cores
+  and speeds up to 5.4 GHz, paired with Intel Graphics. It's a solid pick if you
 specs:
 - label: Display
   value: 16"
 ---
-I looked at the Dell 16 Laptop. Enjoy seamless productivity & entertainment with the Dell 16 laptop featuring the latest Intel® Core™ processors, Intel® graphics and built-in dual microphones powered by AI. Compact 16-inch laptop with a modern design and Intel®Core™ processors and graphics that power effortless productivity and captivating entertainment. I saw it at Dell and wanted a clean product write-up here.
+It runs Windows 11 Home on an Intel Core 7 150U processor with 10 cores and speeds up to 5.4 GHz, paired with Intel Graphics. It's a solid pick if you want a big screen for daily use.

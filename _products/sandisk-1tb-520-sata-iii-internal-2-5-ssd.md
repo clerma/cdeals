@@ -29,7 +29,7 @@ specs:
   value: 2.25 Million Hours
 why_deal: B&H Photo has it for $199.99, down from $243.43. Prices change fast, so
   check the price before you buy.
-description: I looked at the SANDISK 1TB 520 SATA III Internal 2.5" SSD. 1TB Storage
-  Capacity, 2.5" / 7mm Form Factor, SATA III 6 Gb/s Interface, Up to 560 MB/s
+description: If you want a simple 1TB drive in the standard 2.5-inch, 7mm SATA size,
+  the SanDisk 520 is a solid pick. It uses 3D NAND and SLC caching to reach up to
 ---
-I looked at the SANDISK 1TB 520 SATA III Internal 2.5" SSD. 1TB Storage Capacity, 2.5" / 7mm Form Factor, SATA III 6 Gb/s Interface, Up to 560 MB/s Sequential Read Speed, Up to 520 MB/s Sequential Write Speed, Endurance (TBW): up to 400TB, 2.25 Million Hour MTTF, 3D NAND Technology. I saw it at B&H Photo and wanted a clean product write-up here.
+If you want a simple 1TB drive in the standard 2.5-inch, 7mm SATA size, the SanDisk 520 is a solid pick. It uses 3D NAND and SLC caching to reach up to 560 MB/s sequential reads and 520 MB/s sequential writes over its SATA III 6 Gb/s connection. It's shock resistant and rated for up to 400TB written, and you can keep an eye on it with the SanDisk Dashboard software.

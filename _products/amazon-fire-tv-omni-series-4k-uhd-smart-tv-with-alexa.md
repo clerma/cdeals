@@ -19,7 +19,7 @@ specs:
   value: 4K
 why_deal: Woot has it for $179.99, down from $399.99. Prices change fast, so check
   the price before you buy.
-description: 'I pulled these listing details for the Amazon Fire TV Omni Series 4K
-  UHD Smart TV with Alexa: panel 4K. I saw it at Woot and wanted a clean product'
+description: The Amazon Fire TV Omni Series is a 4K UHD smart TV with Alexa built
+  in.
 ---
-I pulled these listing details for the Amazon Fire TV Omni Series 4K UHD Smart TV with Alexa: panel 4K. I saw it at Woot and wanted a clean product write-up here.
+The Amazon Fire TV Omni Series is a 4K UHD smart TV with Alexa built in.

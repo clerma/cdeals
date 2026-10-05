@@ -15,8 +15,8 @@ highlights:
 - Free shipping
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I filed the Amazon Echo Studio 3.1.1ch Dolby Atmos Spatial Alexa Smart
-  Speaker as a deal worth checking. I posted the Amazon listing so you can confirm
+description: The Amazon Echo Studio is an Alexa smart speaker with 3.1.1-channel Dolby
+  Atmos spatial audio.
 source: techbargains-amazon-devices
 ---
-I filed the Amazon Echo Studio 3.1.1ch Dolby Atmos Spatial Alexa Smart Speaker as a deal worth checking. I posted the Amazon listing so you can confirm the live price.
+The Amazon Echo Studio is an Alexa smart speaker with 3.1.1-channel Dolby Atmos spatial audio.

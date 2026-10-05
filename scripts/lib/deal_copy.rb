@@ -28,15 +28,17 @@ module DealCopy
     t.gsub(/\.\s*\./, ".")
   end
 
+  # Never leave bare "|" in prose — Jekyll/Kramdown turns them into tables.
+  def prose_safe(text)
+    text.to_s.gsub(/\s*\|\s*/, ", ").gsub(/\s{2,}/, " ").strip
+  end
+
   def clean_value(value)
     v = value.to_s.gsub(/\s+/, " ").strip
-    # Collapse accidental "Foo Foo" duplicates from table scrapes
     v = v.sub(/\A(.+?)\s+\1\z/m, '\1') while v =~ /\A(.+?)\s+\1\z/m
     v.sub(/[,;.]+\z/, "")
   end
 
-  # Pull key specs from free text (title + optional write-up). Returns up to
-  # max [{ "label" => ..., "value" => ... }], first match wins per label.
   def specs_from_text(title, extra: "", category: nil, max: 6)
     blob = "#{title} #{extra}".gsub(/\s+/, " ").strip
     found = []
@@ -133,23 +135,34 @@ module DealCopy
     out
   end
 
-  # Unique first-person summary from overview text when available.
-  # Never invents features. Drops "filed under X on this site" filler.
+  # Turn a feature dump ("A | B | C" or comma list) into one plain sentence clause.
+  def features_to_prose(blob)
+    blob = prose_safe(strip_html(blob))
+    return "" if blob.length < 20
+    # Split on commas that look like feature boundaries when the blob has no periods
+    if blob !~ /[.!?]/ && blob.include?(",")
+      bits = blob.split(/,\s*/).map(&:strip).reject { |b| b.length < 8 }.first(5)
+      return "" if bits.empty?
+      return bits.size == 1 ? bits[0] : "#{bits[0..-2].join(', ')}, and #{bits[-1]}"
+    end
+    blob
+  end
+
+  # Natural 2–4 sentence product write-up. No meta filler (filed/posted/write-up).
+  # Specs stay in the Key specs tab — here we weave standout facts into prose.
   def summary(title:, category:, brand: nil, store: nil, specs: [], amazon: false, overview: nil)
     name = title.to_s.sub(/\A['"]|['"]\z/, "").strip
-    overview = strip_html(overview.to_s)
+    overview = prose_safe(strip_html(overview.to_s))
     brand_s = brand.to_s.strip
-    store_s = store.to_s.strip
+    cat = category.to_s.strip.downcase.sub(/s\z/, "")
+    cat = "item" if cat.empty?
 
-    # Prefer 1–3 clean sentences from the source overview.
-    sentences = overview.split(/(?<=[.!?])\s+/).map(&:strip).reject { |s|
-      s.length < 28 ||
-        s =~ /\b(add to cart|free shipping|sold by|subscribe|prime members|limited time|click here|buy now|sku:|upc:|you save|% off)\b/i ||
-        s =~ /\ABuy\s+/i ||
-        s =~ /\AShop\s+/i
+    filler_re = /\b(add to cart|free shipping|sold by|subscribe|prime members|limited time|click here|buy now|sku:|upc:|you save|% off|i looked at|i filed|i posted|write-up|worth checking)\b/i
+
+    sentences = overview.split(/(?<=[.!?])\s+/).map { |s| prose_safe(s) }.map(&:strip).reject { |s|
+      s.length < 28 || s =~ filler_re || s =~ /\ABuy\s+/i || s =~ /\AShop\s+/i
     }
 
-    # Drop sentences that are just a rephrase of the title / "Buy X featuring"
     title_words = name.downcase.scan(/[a-z0-9]+/).reject { |w| w.length < 3 }
     sentences = sentences.reject { |s|
       sw = s.downcase.scan(/[a-z0-9]+/)
@@ -158,51 +171,50 @@ module DealCopy
       overlap >= [title_words.size * 0.7, 5].max && s.length < name.length + 40
     }
 
-    picked = sentences.first(3)
-    # If overview was one long marketing blob without periods, carve a chunk.
-    if picked.empty? && overview.length >= 80
-      chunk = overview[0, 320].sub(/\s+\S*\z/, "").strip
-      # Prefer cutting after a comma/semicolon if no period
-      if chunk !~ /[.!?]\z/ && (m = chunk.match(/\A(.{100,280}[,;])/))
-        chunk = m[1].sub(/[,;]\z/, ".")
-      elsif chunk !~ /[.!?]\z/
-        chunk = "#{chunk}."
+    # Prefer real prose sentences from the manufacturer/store page.
+    prose = sentences.first(3).map { |s|
+      s = s.sub(/\ABuy\s+.+?\s+featuring\s+/i, "")
+      s = s[0].upcase + s[1..] if s.length > 1
+      s = "#{s}." unless s =~ /[.!?]\z/
+      prose_safe(s)
+    }
+
+    # Feature-dump overviews (B&H meta): convert to one readable sentence, not a raw list.
+    if prose.empty? && overview.length >= 60
+      clause = features_to_prose(overview[0, 280])
+      unless clause.empty?
+        clause = clause.sub(/\ABuy\s+.+?\s+featuring\s+/i, "")
+        clause = clause.sub(/\bReview\b.+/i, "").strip
+        clause = clause[0, 180].sub(/,\s*\S*\z/, "")
+        bit = clause[0, 1].downcase + clause[1..]
+        prose = ["Key listing details include #{bit}."]
+        prose[0] = prose[0].sub(/\.+\z/, ".")
       end
-      picked = [chunk] unless chunk.length < 40
     end
 
     parts = []
-    if picked.any?
-      lead =
-        if brand_s.empty? || name.downcase.include?(brand_s.downcase)
-          "I looked at the #{name}."
-        else
-          "I looked at this #{brand_s} pick: #{name}."
-        end
+    if prose.any?
+      lead = if brand_s.empty? || name.downcase.include?(brand_s.downcase)
+               "I've been looking at the #{name}."
+             else
+               "I've been looking at this #{brand_s} #{cat}: #{name}."
+             end
       parts << lead
-      # Keep source wording; lightly peel "Buy X featuring" if present
-      cleaned = picked.map { |s|
-        s = s.sub(/\ABuy\s+.+?\s+featuring\s+/i, "")
-        s = s[0].upcase + s[1..] if s.length > 1
-        s = "#{s}." unless s =~ /[.!?]\z/
-        s
-      }
-      parts.concat(cleaned.first(2))
+      parts.concat(prose.first(2))
+      # Optional soft audience line from category only (no invented features)
+      if parts.size < 3 && cat =~ /\A(laptop|tablet|monitor|headphone|speaker|camera|phone)\z/
+        parts << "A practical pick if you need a #{cat} with those listing details."
+      end
     elsif specs.any?
-      bits = specs.first(4).map { |s| "#{s['label'].downcase} #{s['value']}" }.join(", ")
-      parts << "I pulled these listing details for the #{name}: #{bits}."
+      # Title-derived specs only — still prose, not a dump; full list lives in Key specs.
+      highlight = specs.first(3).map { |s| "#{s['value']} #{s['label'].downcase}" }.join(", ")
+      parts << "The #{name} is a #{cat} with #{prose_safe(highlight)}."
     else
-      parts << "I filed the #{name} as a deal worth checking."
+      # Title-only honest line — no filing/posting filler.
+      parts << "The #{name} is a #{cat}."
     end
 
-    # Short closer — deal context lives in why_deal; keep body unique for SEO.
-    if amazon
-      parts << "I posted the Amazon listing so you can confirm the live price."
-    elsif !store_s.empty?
-      parts << "I saw it at #{store_s} and wanted a clean product write-up here."
-    end
-
-    parts.map { |p| p.to_s.strip }.reject(&:empty?).join(" ").gsub(/\s+/, " ").strip
+    prose_safe(parts.map { |p| p.to_s.strip }.reject(&:empty?).join(" ").gsub(/\s+/, " ").strip)
   end
 
   def why_deal(price:, compare_at:, store:, amazon:)
@@ -222,7 +234,7 @@ module DealCopy
   end
 
   def meta_description(summary_text, amazon:)
-    t = summary_text.to_s.gsub(/\s+/, " ").strip
+    t = prose_safe(summary_text.to_s.gsub(/\s+/, " ").strip)
     t = t.gsub(/\$[\d,]+(?:\.\d{2})?/, "").gsub(/\s{2,}/, " ").strip if amazon
     return t if t.length <= 155
     cut = t[0, 155]

@@ -29,7 +29,7 @@ specs:
   value: 1.07 Billion Colors
 why_deal: B&H Photo has it for $329.99, down from $499.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Samsung Odyssey OLED G5 G50SF 27" 1440p HDR 180 Hz Gaming
-  Monitor. Review Samsung OLED G5 G50SF. I saw it at B&H Photo and wanted a clean
+description: Samsung's Odyssey OLED G5 is a 27-inch gaming monitor with a QD-OLED
+  panel running at 2560 x 1440 and up to 180 Hz. It's a good fit if you want OLED
 ---
-I looked at the Samsung Odyssey OLED G5 G50SF 27" 1440p HDR 180 Hz Gaming Monitor. Review Samsung OLED G5 G50SF. I saw it at B&H Photo and wanted a clean product write-up here.
+Samsung's Odyssey OLED G5 is a 27-inch gaming monitor with a QD-OLED panel running at 2560 x 1440 and up to 180 Hz. It's a good fit if you want OLED picture quality at 1440p.

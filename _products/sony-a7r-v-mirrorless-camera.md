@@ -18,8 +18,8 @@ highlights:
 source: bh-used
 why_deal: B&H Photo has it for $2474.95, down from $3498. Prices change fast, so check
   the price before you buy.
-description: I looked at the Sony a7R V Mirrorless Camera. 61MP Full-Frame Exmor R
-  BSI CMOS Sensor, BIONZ XR & AI Processing Unit, AI-Based Real-Time Tracking AF
+description: The Sony a7R V is a full-frame mirrorless camera built around a 61MP
+  Exmor R BSI CMOS sensor, so it's aimed at shooters who want as much detail as they
 specs:
 - label: Lens Mount
   value: Sony E
@@ -34,4 +34,4 @@ specs:
 - label: Memory Card Slot
   value: 'Dual Slot: CFexpress Type A / SDXC (UHS-II)'
 ---
-I looked at the Sony a7R V Mirrorless Camera. 61MP Full-Frame Exmor R BSI CMOS Sensor, BIONZ XR & AI Processing Unit, AI-Based Real-Time Tracking AF System, 8K 24p, 4K 60p, FHD 120p 10-Bit Video, 4K 16-Bit Raw Output; S-Log3/S-Cinetone, 9.44m-Dot EVF with 120 fps Refresh Rate. I saw it at B&H Photo and wanted a clean product write-up here.
+The Sony a7R V is a full-frame mirrorless camera built around a 61MP Exmor R BSI CMOS sensor, so it's aimed at shooters who want as much detail as they can get. I like that it pairs Sony's BIONZ XR processor with a dedicated AI Processing Unit for real-time tracking autofocus, and it adds 8-stop, 5-axis image stabilization. On the video side, it records 8K 24p and 4K 60p in 10-bit and offers S-Log3 and S-Cinetone. There's also a 3.2" 4-axis multi-angle touchscreen and dual CFexpress Type A/SD card slots.

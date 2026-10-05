@@ -2,13 +2,14 @@
 # frozen_string_literal: true
 
 # Enrich affiliate deals with source-backed summaries and specs.
-# Non-Amazon: fetch the store listing (plain; optional --zenrows fallback).
+# Non-Amazon: fetch the store listing (plain). --zenrows only for JS-heavy Target pages,
+# never as a workaround for HTTP 429 rate limits.
 # Amazon: never fetch amazon.com — try a manufacturer page when we know one.
 # Cache: /workspace/cdeals-cache (or CDEALS_CACHE).
 #
 #   bundle exec ruby scripts/enrich_deal_copy.rb
 #   bundle exec ruby scripts/enrich_deal_copy.rb --limit 40 --store "B&H Photo"
-#   bundle exec ruby scripts/enrich_deal_copy.rb --zenrows   # Target etc. if plain fails
+#   bundle exec ruby scripts/enrich_deal_copy.rb --zenrows   # Target JS only; not for 429s
 
 require "optparse"
 require "yaml"
@@ -100,40 +101,18 @@ files.each do |path|
         end
       end
     else
-      # Prefer cache / plain. With --zenrows, allow ZenRows fallback (e.g. B&H HTTP 429).
-      if opts[:zenrows]
-        cached = SourceCache.read_cache(url)
-        if cached && cached["overview"].to_s.length > 40
-          overview = cached["overview"].to_s
-          page_specs = cached["specs"] || []
-          via = "cache"
-        elsif !SourceCache.amazon_url?(url)
-          src = { "id" => "enrich-#{fm['store'].to_s.downcase.gsub(/\W+/, '-')}",
-                  "fetch" => "plain", "fallback" => "zenrows" }
-          r = fetcher.fetch(url, src, ok_if: ->(b) { b.to_s.length > 2000 })
-          if r.ok
-            extracted = SourceCache.extract_html(r.body, url)
-            SourceCache.write_cache(url, extracted.merge("via" => r.via, "credits" => r.credits.to_i))
-            overview = extracted["overview"].to_s
-            page_specs = extracted["specs"] || []
-            via = r.via
-            stats[:zenrows_credits] += r.credits.to_i
-          else
-            stats[:fetch_fail] += 1
-            stats[:amazon_skip] += 1 if amazon
-          end
-        end
+      # Plain fetch + cache only. ZenRows is NOT used as a 429 escape hatch.
+      # (Target JS pages use the branch above when --zenrows is set.)
+      data = SourceCache.fetch_page(url, cfg: cfg, fetcher: fetcher, source_id: "enrich")
+      if data["error"]
+        stats[:fetch_fail] += 1
+        stats[:amazon_skip] += 1 if amazon
+        stats[:rate_limited] += 1 if data["error"].to_s =~ /429/
       else
-        data = SourceCache.fetch_page(url, cfg: cfg, fetcher: fetcher, source_id: "enrich")
-        if data["error"]
-          stats[:fetch_fail] += 1
-          stats[:amazon_skip] += 1 if amazon
-        else
-          overview = data["overview"].to_s
-          page_specs = data["specs"] || []
-          via = data["via"] || "fetched"
-          stats[:zenrows_credits] += data["credits"].to_i
-        end
+        overview = data["overview"].to_s
+        page_specs = data["specs"] || []
+        via = data["via"] || "fetched"
+        stats[:zenrows_credits] += data["credits"].to_i
       end
     end
   elsif amazon

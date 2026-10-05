@@ -29,7 +29,7 @@ specs:
   value: 1x Clip-On with Microphone
 why_deal: B&H Photo has it for $45, down from $59. Prices change fast, so check the
   price before you buy.
-description: I looked at the DJI Mic Mini Compact Wireless Microphone System for Camera
-  & Smartphone. 1-Person Interviews, Videos, Streaming, Connects to Cameras,
+description: The DJI Mic Mini is a compact wireless mic system for one-person interviews,
+  videos and streaming. It works with cameras as well as iOS and Android
 ---
-I looked at the DJI Mic Mini Compact Wireless Microphone System for Camera & Smartphone. 1-Person Interviews, Videos, Streaming, Connects to Cameras, iOS/Android Devices, 1 x Clip-On Transmitter with Mic, Compact Dual-Channel Receiver, 2-Level Noise Cancelling. I saw it at B&H Photo and wanted a clean product write-up here.
+The DJI Mic Mini is a compact wireless mic system for one-person interviews, videos and streaming. It works with cameras as well as iOS and Android phones. The kit includes a clip-on transmitter with a built-in mic and a small dual-channel receiver, with up to 1,312 feet of wireless range. It also has two-level noise cancelling, automatic audio limiting and a Safety Track, so a sudden loud moment is less likely to ruin a take.

@@ -29,7 +29,6 @@ specs:
   value: 'No'
 why_deal: B&H Photo has it for $699, down from $1299. Prices change fast, so check
   the price before you buy.
-description: I looked at the Optoma Technology Photon Life PK32 1100-Lumen UHD 4K
-  4LED DLP Home. Review Optoma Technology PK32. I saw it at B&H Photo and wanted a
+description: It uses a 4-LED RGBA light source and is rated at 1100 ISO lumens.
 ---
-I looked at the Optoma Technology Photon Life PK32 1100-Lumen UHD 4K 4LED DLP Home. Review Optoma Technology PK32. I saw it at B&H Photo and wanted a clean product write-up here.
+It uses a 4-LED RGBA light source and is rated at 1100 ISO lumens.

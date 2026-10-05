@@ -19,7 +19,7 @@ specs:
   value: 3rd gen
 why_deal: Target has it for $59.99, down from $99.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Amazon Echo Show 5 (3rd Gen, 2023 release) | Smart Display
-  with Deeper. Choose from Same Day Delivery, Drive Up or Order Pickup. Free
+description: The Amazon Echo Show 5 (3rd Gen, 2023 release) is a compact smart display,
+  and this version is built for deeper bass and clearer sound. You can pick it up
 ---
-I looked at the Amazon Echo Show 5 (3rd Gen, 2023 release) | Smart Display with Deeper. Choose from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at Target and wanted a clean product write-up here.
+The Amazon Echo Show 5 (3rd Gen, 2023 release) is a compact smart display, and this version is built for deeper bass and clearer sound. You can pick it up at Target if you want a small Alexa screen with better audio.

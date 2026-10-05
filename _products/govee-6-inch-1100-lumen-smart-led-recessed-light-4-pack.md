@@ -18,8 +18,8 @@ specs:
   value: 6"
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I looked at the Govee 6" 1100-Lumen Smart LED Recessed Light (4-Pack).
-  Govee leads with next-gen RGBIC technology, offering smart LED strip lights,
+description: This is a four-pack of Govee's 6-inch smart LED recessed lights, and
+  each one is rated at 1100 lumens. If you're putting smart lighting into the ceiling
 source: techbargains
 ---
-I looked at the Govee 6" 1100-Lumen Smart LED Recessed Light (4-Pack). Govee leads with next-gen RGBIC technology, offering smart LED strip lights, outdoor lights, floor lamps, TV backlights, gaming lights, smart bulbs, and more. Govee leads with next-gen RGBIC technology, offering smart LED strip lights, outdoor lights, floor lamps, TV backlights, gaming lights, smart bulbs, and more. I posted the Amazon listing so you can confirm the live price.
+This is a four-pack of Govee's 6-inch smart LED recessed lights, and each one is rated at 1100 lumens. If you're putting smart lighting into the ceiling instead of using lamps or bulbs, this pack covers several fixtures at once.

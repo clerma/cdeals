@@ -29,7 +29,7 @@ specs:
   value: 'No'
 why_deal: B&H Photo has it for $159.99, down from $228.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the SANDISK 1TB Portable SSD V3. 1TB Storage Capacity, 10
-  Gb/s USB-C 3.2 Gen 2 Interface, Read Speeds up to 1000 MB/s, Bus Powered, Drop
+description: The SanDisk 1TB Portable SSD V3 is a small, tough drive for anyone who
+  wants fast storage they can take anywhere. It plugs in over USB-C 3.2 Gen 2 and
 ---
-I looked at the SANDISK 1TB Portable SSD V3. 1TB Storage Capacity, 10 Gb/s USB-C 3.2 Gen 2 Interface, Read Speeds up to 1000 MB/s, Bus Powered, Drop Resistant up to 6.6', Plug-and-Play, Carabiner Loop for Easy Transport, SANDISK App. I saw it at B&H Photo and wanted a clean product write-up here.
+The SanDisk 1TB Portable SSD V3 is a small, tough drive for anyone who wants fast storage they can take anywhere. It plugs in over USB-C 3.2 Gen 2 and reads at up to 1000 MB/s. It runs on bus power, so you don't need a separate power adapter. It can survive drops of up to 6.6 feet, and the carabiner loop lets you clip it to a bag.

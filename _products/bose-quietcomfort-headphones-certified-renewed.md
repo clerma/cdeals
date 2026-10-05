@@ -17,7 +17,6 @@ highlights:
 source: techbargains
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I filed the Bose QuietComfort Headphones (Certified Renewed) as a deal
-  worth checking. I posted the Amazon listing so you can confirm the live price.
+description: Bose QuietComfort Headphones, certified renewed.
 ---
-I filed the Bose QuietComfort Headphones (Certified Renewed) as a deal worth checking. I posted the Amazon listing so you can confirm the live price.
+Bose QuietComfort Headphones, certified renewed.

@@ -29,7 +29,6 @@ specs:
   value: 'Maximum: 1000 MB/s'
 why_deal: B&H Photo has it for $229.99, down from $274.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Samsung 1TB T7 Portable SSD (Titan Gray). 1TB Capacity,
-  USB 3.2 Gen 2 Interface, PCIe NVMe Technology, Read Speeds up to 1050 MB/s, Write
+description: Samsung's 1TB T7 is a compact portable SSD in Titan Gray.
 ---
-I looked at the Samsung 1TB T7 Portable SSD (Titan Gray). 1TB Capacity, USB 3.2 Gen 2 Interface, PCIe NVMe Technology, Read Speeds up to 1050 MB/s, Write Speeds up to 1000 MB/s, 256-Bit AES Hardware Encryption. I saw it at B&H Photo and wanted a clean product write-up here.
+Samsung's 1TB T7 is a compact portable SSD in Titan Gray.

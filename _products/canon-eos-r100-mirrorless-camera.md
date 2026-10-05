@@ -30,7 +30,7 @@ specs:
   value: 'Single Slot: SD/SDHC/SDXC'
 why_deal: B&H Photo has it for $316.95, down from $429. Prices change fast, so check
   the price before you buy.
-description: I looked at the Canon EOS R100 Mirrorless Camera. 24.1MP APS-C CMOS Sensor,
-  DIGIC 8 Image Processor, 4K 24p Video with Crop, Full HD 60p, Dual Pixel CMOS
+description: The Canon EOS R100 is a compact mirrorless camera built around a 24.1MP
+  APS-C sensor and Canon's RF lens mount. I like that it has Dual Pixel CMOS
 ---
-I looked at the Canon EOS R100 Mirrorless Camera. 24.1MP APS-C CMOS Sensor, DIGIC 8 Image Processor, 4K 24p Video with Crop, Full HD 60p, Dual Pixel CMOS AF with 143 AF Zones, 6.5 fps Electronic Shutter, 2.36m-Dot OLED EVF, 3" 1.04m-Dot LCD Screen, Creative Assist Mode. I saw it at B&H Photo and wanted a clean product write-up here.
+The Canon EOS R100 is a compact mirrorless camera built around a 24.1MP APS-C sensor and Canon's RF lens mount. I like that it has Dual Pixel CMOS autofocus with 143 AF zones, plus both an OLED electronic viewfinder and a 3-inch LCD for framing your shots. It shoots Full HD at 60p, or 4K at 24p with a crop. Creative Assist mode, a silent mode for quiet shooting, and built-in Wi-Fi and Bluetooth round it out.

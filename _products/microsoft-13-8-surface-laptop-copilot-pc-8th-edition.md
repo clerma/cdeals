@@ -18,8 +18,8 @@ highlights:
 source: bh-used
 why_deal: B&H Photo has it for $1201.95, down from $1699.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Microsoft 13.8" Surface Laptop Copilot+ PC (8th Edition,
-  Platinum). Snapdragon X2 Elite 12-Core, 16GB PDDR5x | 512GB PCIe 4.0 SSD, 13.8"
+description: Microsoft's 8th Edition Surface Laptop is a 13.8-inch Copilot+ PC in
+  Platinum, a good fit if you want a Windows 11 laptop built around Microsoft's
 specs:
 - label: Operating System
   value: Windows 11 Home
@@ -34,4 +34,4 @@ specs:
 - label: Native Resolution
   value: 2304 x 1536
 ---
-I looked at the Microsoft 13.8" Surface Laptop Copilot+ PC (8th Edition, Platinum). Snapdragon X2 Elite 12-Core, 16GB PDDR5x | 512GB PCIe 4.0 SSD, 13.8" 2304 x 1536 PixelSense Touchscreen, Integrated Qualcomm Adreno Graphics, Wi-Fi 7 (802.11be) | Bluetooth 5.4. I saw it at B&H Photo and wanted a clean product write-up here.
+Microsoft's 8th Edition Surface Laptop is a 13.8-inch Copilot+ PC in Platinum, a good fit if you want a Windows 11 laptop built around Microsoft's on-device AI features. It runs on a 12-core Snapdragon X2 Elite with 16GB of memory and a 512GB SSD, and a Qualcomm Hexagon NPU rated at 80 TOPS handles the AI work. The 2304 x 1536 PixelSense display is a touchscreen. For connectivity you get Wi-Fi 7, Bluetooth 5.4, two USB4 ports, a USB-A port and a headphone jack.

@@ -19,8 +19,7 @@ specs:
   value: Wireless
 why_deal: Woot has it for $49.99, down from $79.95. Prices change fast, so check the
   price before you buy.
-description: I looked at the TV EARS Analog Wireless Headsets System. Sign up for
-  our Daily Digest emails! Shipping Note: Shipping to Alaska, Hawaii, and PO Boxes
-  is
+description: This is the TV EARS Analog Wireless Headsets System, a wireless headset
+  setup made for TV and home theater listening. It could be a good pick if you'd
 ---
-I looked at the TV EARS Analog Wireless Headsets System. Sign up for our Daily Digest emails! Shipping Note: Shipping to Alaska, Hawaii, and PO Boxes is not available for this item Warranty: 90 Day Woot Limited Warranty Shipping Note: Shipping to Alaska, Hawaii, PO Boxes, and APO addresses is not available for this item Warranty: 90 Day Woot Limited Warranty. I saw it at Woot and wanted a clean product write-up here.
+This is the TV EARS Analog Wireless Headsets System, a wireless headset setup made for TV and home theater listening. It could be a good pick if you'd like to listen to the TV through a headset without running a cord across the room.

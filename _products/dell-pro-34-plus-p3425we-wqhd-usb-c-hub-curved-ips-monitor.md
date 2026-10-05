@@ -31,7 +31,7 @@ specs:
   value: Curved
 why_deal: B&H Photo has it for $496.95, down from $699.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Dell Pro 34" Plus P3425WE WQHD USB-C Hub Curved IPS Monitor.
-  34" 21:9 IPS Panel, HDMI | DisplayPort | USB-C, 3440 x 1440 at 100 Hz, 5 ms
+description: It covers 99% of the sRGB color gamut at 350 nits of brightness and carries
+  a 4-star eye comfort certification.
 ---
-I looked at the Dell Pro 34" Plus P3425WE WQHD USB-C Hub Curved IPS Monitor. 34" 21:9 IPS Panel, HDMI | DisplayPort | USB-C, 3440 x 1440 at 100 Hz, 5 ms (GtG) Response Time, 1500:1 Static Contrast Ratio, 350 nits of Brightness, 1.07 Billion Colors, 99% sRGB Color Gamut. I saw it at B&H Photo and wanted a clean product write-up here.
+It covers 99% of the sRGB color gamut at 350 nits of brightness and carries a 4-star eye comfort certification.

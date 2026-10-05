@@ -29,7 +29,8 @@ specs:
   value: Antenna / HDMI
 why_deal: B&H Photo has it for $897.99, down from $1097.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Samsung The Frame QN50LS03FA 50" 4K HDR Smart QLED TV.
-  4K UHD 3840 x 2160 QLED Panel, Art Mode & Modern Picture Frame Design, Quantum HDR,
+description: The Samsung Frame QN50LS03FA looks like a framed piece of art on the
+  wall, and Art Mode shows artwork when you're not watching anything. Switch it on
+  and
 ---
-I looked at the Samsung The Frame QN50LS03FA 50" 4K HDR Smart QLED TV. 4K UHD 3840 x 2160 QLED Panel, Art Mode & Modern Picture Frame Design, Quantum HDR, HDR10+ & HLG Support, Smart TV Powered by One UI Tizen, 60 Hz Native Refresh Rate, Motion Xcelerator & ALLM Support. I saw it at B&H Photo and wanted a clean product write-up here.
+The Samsung Frame QN50LS03FA looks like a framed piece of art on the wall, and Art Mode shows artwork when you're not watching anything. Switch it on and you get a 50" 4K QLED panel with Quantum HDR plus HDR10+ and HLG support, and Motion Xcelerator and ALLM help keep gaming smooth. I also like that the slim-fit wall mount comes in the box, and the One Connect Box keeps your HDMI and USB cables tucked away from the screen.

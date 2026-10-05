@@ -30,8 +30,6 @@ specs:
   value: 16.7 Million Colors
 why_deal: B&H Photo has it for $107.50, down from $139.99. Prices change fast, so
   check the price before you buy.
-description: I looked at the Dell Pro 24 23.8" Full HD 100 Hz Monitor. 23.8" 16:9
-  IPS Panel, HDMI 1.4 | DisplayPort 1.2 | VGA, Full HD (1080p) 1920 x 1080 at 100
-  Hz, 5
+description: The Dell Pro 24 is a 23.8-inch Full HD monitor with an IPS panel.
 ---
-I looked at the Dell Pro 24 23.8" Full HD 100 Hz Monitor. 23.8" 16:9 IPS Panel, HDMI 1.4 | DisplayPort 1.2 | VGA, Full HD (1080p) 1920 x 1080 at 100 Hz, 5 ms (GtG) Response Time, 1000:1 Static Contrast Ratio, 250 nits Brightness, 16.7 Million Colors, 178/178° Viewing Angles. I saw it at B&H Photo and wanted a clean product write-up here.
+The Dell Pro 24 is a 23.8-inch Full HD monitor with an IPS panel.

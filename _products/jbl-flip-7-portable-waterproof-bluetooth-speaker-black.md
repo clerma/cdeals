@@ -29,7 +29,7 @@ specs:
   value: 'No'
 why_deal: B&H Photo has it for $119.95, down from $149.95. Prices change fast, so
   check the price before you buy.
-description: I looked at the JBL Flip 7 Portable Waterproof Bluetooth Speaker (Black).
-  35W 2-Way Speaker System, Water- & Dustproof Design, Can Handle Drops up to
+description: The JBL Flip 7 is a portable Bluetooth speaker for anyone who wants solid
+  sound in something tough enough to take anywhere. It's water- and dustproof and
 ---
-I looked at the JBL Flip 7 Portable Waterproof Bluetooth Speaker (Black). 35W 2-Way Speaker System, Water- & Dustproof Design, Can Handle Drops up to 3.3', Improved Quality with AI Sound Boost, Up to 14 Hours of Battery Life, Up to 2 Extra Hours with Playtime Boost. I saw it at B&H Photo and wanted a clean product write-up here.
+The JBL Flip 7 is a portable Bluetooth speaker for anyone who wants solid sound in something tough enough to take anywhere. It's water- and dustproof and can handle drops of up to 3.3 feet, and its 35W two-way speaker system uses AI Sound Boost to improve audio quality. I like that you get up to 14 hours of battery life, plus up to 2 more hours with Playtime Boost. It also supports Auracast for pairing multiple speakers, and it can play lossless audio from USB-C sources.

@@ -19,7 +19,6 @@ specs:
   value: Full HD
 why_deal: Woot has it for $379.99, down from $499.99. Prices change fast, so check
   the price before you buy.
-description: 'I pulled these listing details for the Epson EF-30 Full HD Personal
-  Lifestyle Projector: panel Full HD. I saw it at Woot and wanted a clean product'
+description: The Epson EF-30 is a Full HD personal lifestyle projector.
 ---
-I pulled these listing details for the Epson EF-30 Full HD Personal Lifestyle Projector: panel Full HD. I saw it at Woot and wanted a clean product write-up here.
+The Epson EF-30 is a Full HD personal lifestyle projector.

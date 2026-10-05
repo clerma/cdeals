@@ -29,7 +29,7 @@ specs:
   value: Wi-Fi 5 (802.11ac)
 why_deal: B&H Photo has it for $44.99, down from $79.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Roku Streaming Stick 4K. Review Roku Streaming Stick
-  4K. I saw it at B&H Photo and wanted a clean product write-up here.
+description: The Roku Streaming Stick 4K plugs into your TV's HDMI port and gives
+  you hundreds of entertainment apps in 4K, with support for HDR10, HDR10+, Dolby
 ---
-I looked at the Roku Streaming Stick 4K. Review Roku Streaming Stick 4K. I saw it at B&H Photo and wanted a clean product write-up here.
+The Roku Streaming Stick 4K plugs into your TV's HDMI port and gives you hundreds of entertainment apps in 4K, with support for HDR10, HDR10+, Dolby Vision and HLG. If your shows are older 720p or 1080p content, it upscales them to near-4K. It runs on dual-band Wi-Fi 5, and the included voice remote handles search plus your TV's power, volume and mute. I like that it also works with Google Assistant, Alexa and Siri, and you can control it from the Android or iOS app.

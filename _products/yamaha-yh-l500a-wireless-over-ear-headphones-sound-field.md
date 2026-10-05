@@ -29,7 +29,7 @@ specs:
   value: 40.0mm
 why_deal: Newegg has it for $159.95, down from $229.95. Prices change fast, so check
   the price before you buy.
-description: 'I looked at the Yamaha YH-L500A Wireless Over-Ear Headphones - Sound
-  Field Mode. Perfect for watching movies and streaming shows at home Sound Field:'
+description: The Yamaha YH-L500A is a wireless over-ear headphone made for watching
+  movies and streaming shows at home. Its Sound Field mode gives a spacious,
 ---
-I looked at the Yamaha YH-L500A Wireless Over-Ear Headphones - Sound Field Mode. Perfect for watching movies and streaming shows at home Sound Field: experience spacious, cinema-like sound from all your Bluetooth-enabled devices, including your tablet, phone, computer and TV Comfortable and lightweight - only 9.3 oz (265 g) Bluetooth Multipoint: pair two of your devices and instantly switch between them Gaming Mode: reduces lag between sound and video when watching videos or playing games Qualcomm aptX Adaptive: stable wireless connectivity and premium streaming quality Google Fast Pair: effortless pairing with Android devices Listening Care: intelligent equalization for full-range sound at lower listening volumes Simple controls: control volume, track selection and modes with easy-access buttons on the earcup Comes with USB-C cable and audio cable. IOS/Android app available to download. I saw it at Newegg and wanted a clean product write-up here.
+The Yamaha YH-L500A is a wireless over-ear headphone made for watching movies and streaming shows at home. Its Sound Field mode gives a spacious, cinema-like sound from your phone, tablet, computer or TV over Bluetooth. At just 9.3 oz it stays light and comfortable. It also has Bluetooth Multipoint so you can switch between two devices, a Gaming Mode that cuts lag between sound and video, and Listening Care, which keeps the sound full when you listen at lower volumes.

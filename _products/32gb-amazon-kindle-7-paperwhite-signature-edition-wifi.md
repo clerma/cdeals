@@ -22,7 +22,7 @@ specs:
   value: WiFi
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the 32GB Amazon Kindle 7" Paperwhite
-  Signature Edition WiFi Tablet (2024): storage 32GB, display 7", connectivity WiFi.'
+description: The 2024 Amazon Kindle Paperwhite Signature Edition has a 7-inch display,
+  32GB of storage and WiFi.
 ---
-I pulled these listing details for the 32GB Amazon Kindle 7" Paperwhite Signature Edition WiFi Tablet (2024): storage 32GB, display 7", connectivity WiFi. I posted the Amazon listing so you can confirm the live price.
+The 2024 Amazon Kindle Paperwhite Signature Edition has a 7-inch display, 32GB of storage and WiFi.

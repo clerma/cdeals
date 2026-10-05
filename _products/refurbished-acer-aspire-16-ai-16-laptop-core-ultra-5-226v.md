@@ -24,8 +24,7 @@ specs:
   value: 16"
 why_deal: Target has it for $519.99, down from $649.99. Prices change fast, so check
   the price before you buy.
-description: I looked at the Refurbished Acer Aspire 16 AI 16" Laptop, Core Ultra
-  5 226V, 16GB, 1TB SSD. Choose from Same Day Delivery, Drive Up or Order Pickup.
-  Free
+description: This manufacturer-refurbished Acer Aspire 16 AI at Target pairs a roomy
+  16" WUXGA display with an Intel Core Ultra 5 226V processor and Arc 130V graphics.
 ---
-I looked at the Refurbished Acer Aspire 16 AI 16" Laptop, Core Ultra 5 226V, 16GB, 1TB SSD. Choose from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35 orders. I saw it at Target and wanted a clean product write-up here.
+This manufacturer-refurbished Acer Aspire 16 AI at Target pairs a roomy 16" WUXGA display with an Intel Core Ultra 5 226V processor and Arc 130V graphics. I like that it comes with 16GB of memory and a 1TB SSD, so there's plenty of room for files and apps. It ships with Windows 11, which makes it an easy pick if you want a big-screen laptop without paying new-condition prices.

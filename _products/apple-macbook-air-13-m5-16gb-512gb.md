@@ -26,7 +26,7 @@ specs:
   value: 13"
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: I looked at the Apple MacBook Air 13" M5 (16GB/512GB). MacBook Air laptop
-  with the superfast M5 chip. Lightweight, with all-day battery life. I posted the
+description: The 13-inch MacBook Air runs on Apple's M5 chip and comes with 16GB of
+  memory and 512GB of storage. It's lightweight and has all-day battery life, so it
 ---
-I looked at the Apple MacBook Air 13" M5 (16GB/512GB). MacBook Air laptop with the superfast M5 chip. Lightweight, with all-day battery life. I posted the Amazon listing so you can confirm the live price.
+The 13-inch MacBook Air runs on Apple's M5 chip and comes with 16GB of memory and 512GB of storage. It's lightweight and has all-day battery life, so it suits anyone who wants a laptop they can carry around without packing a charger. Apple also built it for AI and Apple Intelligence, which makes this configuration a good fit if you want to use those features.

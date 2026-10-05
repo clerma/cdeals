@@ -20,7 +20,6 @@ specs:
   value: 3rd gen
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
-description: 'I pulled these listing details for the Amazon Echo Show 5 (3rd Gen):
-  generation 3rd gen. I posted the Amazon listing so you can confirm the live price.'
+description: The Amazon Echo Show 5 (3rd Gen) is Amazon's smart home display.
 ---
-I pulled these listing details for the Amazon Echo Show 5 (3rd Gen): generation 3rd gen. I posted the Amazon listing so you can confirm the live price.
+The Amazon Echo Show 5 (3rd Gen) is Amazon's smart home display.
