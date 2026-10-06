@@ -40,7 +40,8 @@ layout: default
 
         <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
           {% include price.html product=p size="page" %}
-          {% unless is_deal %}<span class="badge text-bg-success">{{ site.data.strings.product.condition }} {{ p.condition | default: site.data.strings.product.condition_default }}</span>{% endunless %}
+          {%- comment -%} Deals: only when the deal has a condition (no "Used" default on new-item deals). {%- endcomment -%}
+          {% if is_deal == false or p.condition and p.condition != blank %}<span class="badge text-bg-success">{{ site.data.strings.product.condition }} {{ p.condition | default: site.data.strings.product.condition_default }}</span>{% endif %}
         </div>
 
         {% if is_sold %}

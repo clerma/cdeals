@@ -107,7 +107,11 @@ queue.each do |e|
       summary = DealCopy.summary(title: e["title"], category: e["category"], brand: e["brand"],
                                  store: e["store"], specs: specs, amazon: amazon, overview: overview)
     end
-    why = DealCopy.why_deal(price: e["price"], compare_at: e["compare_at"], store: e["store"], amazon: amazon)
+    # Deals with a condition (OWC pre-owned Macs: "Used") never get an original price:
+    # the store's crossed-out price on them is the new price.
+    condition = e["condition"].to_s.strip
+    compare_at = (c = num.call(e["compare_at"])) && num.call(e["price"]) && c > num.call(e["price"]) && condition.empty? ? c : nil
+    why = DealCopy.why_deal(price: e["price"], compare_at: compare_at, store: e["store"], amazon: amazon)
     # Listed on /deals/prime-day/. Amazon only; also catches entries queued before the finder set it.
     prime = true if amazon && (e["prime_day"] ||
       DealTools.prime_day?([e["source_title"], e["title"], e["notes"], e["summary"], e["source_link"], *Array(e["highlights"])].join(" "),
@@ -119,8 +123,9 @@ queue.each do |e|
       "brand" => e["brand"],
       "price" => num.call(e["price"]),
       # Original/list price, only when the source gave a real one higher than the price
-      # (shown struck through with a -NN% badge; left out otherwise).
-      "compare_at" => (c = num.call(e["compare_at"])) && num.call(e["price"]) && c > num.call(e["price"]) ? c : nil,
+      # (shown struck through with a -NN% badge; left out otherwise, and for deals with a condition).
+      "compare_at" => compare_at,
+      "condition" => condition, # e.g. "Used" (shown on the deal); left out when not set
       "store" => e["store"],
       "affiliate_url" => affiliate,
       "expires" => e["expires"],

@@ -15,7 +15,7 @@
   </div>
   <div class="w-100 min-w-0 px-1 pb-2 px-sm-3 pb-sm-3">
     <div class="fs-xs text-body-tertiary mb-2">
-      {% if p.type == "affiliate" %}{{ p.store }}{% else %}{{ p.condition | default: site.data.strings.product.condition_default }}{% endif %} · {{ p.category }}
+      {% if p.type == "affiliate" %}{{ p.store }}{% if p.condition and p.condition != blank %} <span class="badge text-bg-secondary ms-1">{{ site.data.strings.product.condition_badge | replace: '[condition]', p.condition }}</span>{% endif %}{% else %}{{ p.condition | default: site.data.strings.product.condition_default }}{% endif %} · {{ p.category }}
     </div>
     <h3 class="pb-1 mb-2">
       <a class="d-block fs-sm fw-medium text-truncate" href="{{ p.url | relative_url }}">

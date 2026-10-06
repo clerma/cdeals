@@ -34,6 +34,12 @@
     {%- if p.type == "affiliate" %},
     "availability":"https://schema.org/InStock",
     "seller":{"@type":"Organization","name":{{ p.store | jsonify }}}
+      {%- if p.condition and p.condition != blank %}
+        {%- assign _cond = p.condition | downcase -%}
+        {%- if _cond contains "used" or _cond contains "pre-owned" or _cond contains "preowned" or _cond contains "open" -%}{%- assign _cond_url = "UsedCondition" -%}
+        {%- elsif _cond contains "refurb" or _cond contains "renewed" -%}{%- assign _cond_url = "RefurbishedCondition" -%}
+        {%- else -%}{%- assign _cond_url = "NewCondition" -%}{%- endif %},
+    "itemCondition":"https://schema.org/{{ _cond_url }}"{% endif %}
       {%- if p.expires %},
     "priceValidUntil":"{{ p.expires | date: '%Y-%m-%d' }}"{% endif %}
     {%- else %},

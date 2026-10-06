@@ -943,9 +943,12 @@ module DirectSources
   # off at checkout (kept, with a highlight); mail-in rebates and prices shown
   # only in the cart are skipped, and so is anything sold out, on backorder or
   # pre-order, or without an Add to Cart button. Pre-owned Macs
-  # (/configure-my-mac/, "Cond." in the description) or titles saying used /
-  # refurbished / open-box are kept with a condition highlight (like B&H used
-  # and Walmart pre-owned), title as OWC writes it.
+  # (/configure-my-mac/ links, used-mac images, "Used" / "Pre-owned" on a Mac
+  # card) get condition: "Used" and no original price: OWC's crossed-out price
+  # on them is the original new price, so it is dropped and they are kept
+  # without one (no_was_price: the finder's discount rules don't apply).
+  # Other titles saying used / refurbished / open-box keep OWC's crossed-out
+  # price, with a condition highlight. Titles as OWC writes them.
   # listing: (optional Hash, for find_deals.rb's re-check of published deals)
   # gets ok: false unless every batch loaded, and products: { url_key =>
   # { price:, was:, why: } } for every card.
@@ -953,6 +956,8 @@ module DirectSources
   OWC_CART_PRICE_RE = /add(?:ed)?\s+(?:it\s+)?to\s+(?:your\s+)?cart|price\s+in\s+(?:the\s+)?cart|in[\s-]+cart\s+price|call\s+for\s+price|see\s+price/i
   OWC_STOCK_RE = /out\s+of\s+stock|sold\s+out|back[\s-]?order|pre[\s-]?order|coming\s+soon|discontinued|no\s+longer\s+available|notify\s+me/i
   OWC_USED_RE = /\b(?:used|pre[\s-]?owned|refurb\w*|open[\s-]?box|recertified|renewed)\b/i
+  OWC_PREOWNED_RE = /\b(?:used|pre[\s-]?owned)\b/i
+  OWC_MAC_RE = /\b(?:mac\s*(?:mini|pro|studio)|macbook(?:\s*(?:air|pro))?|imac(?:\s*pro)?)\b/i
   OWC_NOT_HARDWARE_RE = /\b(?:software|licen[cs]es?|subscriptions?|gift\s*cards?|e-?gift|service\s+plans?|protection\s+plans?|extended\s+warranty|applecare\+?)\b/i
   OWC_TOOLS_RE = /\b(?:tool\s*kits?|tool\s+sets?|screwdrivers?|spudgers?|pry\s+tools?)\b/i
 
@@ -1037,6 +1042,12 @@ module DirectSources
       meta = "#{txt.call('.product-specials__meta')} #{c.css('.product-specials__badge').map { |b| b['alt'] }.join(' ')}"
       price_txt = "#{txt.call('.product-specials__price')} #{savings}" # not the Add to Cart button
       cart = c.at_css('a[href*="/shop/add/"]')
+      img = abs(page_url, c.at_css("img.product-specials__image")&.[]("src"))
+      used = "#{title} #{desc}" =~ OWC_USED_RE || desc =~ /\bcond(?:ition|\.)/i || u&.path.to_s.start_with?("/configure-my-mac/")
+      # Pre-owned Macs: listed as Used, without OWC's crossed-out (original new) price.
+      used_mac = u&.path.to_s.start_with?("/configure-my-mac/") || img.to_s.include?("/used-mac") ||
+                 ("#{title} #{desc} #{meta}" =~ OWC_PREOWNED_RE && title =~ OWC_MAC_RE)
+      was = nil if used_mac
       why =
         if store_url.nil? then "no product page link"
         elsif title.empty? then "no name"
@@ -1049,7 +1060,7 @@ module DirectSources
         elsif title =~ OWC_NOT_HARDWARE_RE then "not hardware (software / license / gift card / service plan)"
         elsif title =~ OWC_TOOLS_RE && title !~ /\b(?:ssd|memory|ram|drive|upgrade)\b/i then "tools only"
         elsif title_skip&.match?(title) then "title_exclude"
-        elsif was.nil? || was <= price then "no was-price"
+        elsif !used_mac && (was.nil? || was <= price) then "no was-price"
         end
       if listing && store_url && (key = DealTools.url_key(store_url))
         # Unconfirmed price: stock, cart-only and mail-in prices. The rest still shows OWC's price.
@@ -1060,18 +1071,21 @@ module DirectSources
         skipped[why] += 1
         next
       end
-      used = "#{title} #{desc}" =~ OWC_USED_RE || desc =~ /\bcond(?:ition|\.)/i || u.path.start_with?("/configure-my-mac/")
       hl = []
-      hl << "Pre-owned/used#{grade ? " (OWC grade: #{grade})" : ''}: check the condition at #{store}; the crossed-out price is #{store}'s original price" if used
+      if used_mac
+        hl << "Pre-owned#{grade ? " (OWC grade: #{grade})" : ''}: check the condition at #{store}"
+      elsif used
+        hl << "Used, refurbished or open-box: check the condition at #{store}"
+      end
       hl << "Price after #{store}'s instant rebate, taken off at checkout" if savings =~ /instant\s+rebate/i
-      img = abs(page_url, c.at_css("img.product-specials__image")&.[]("src"))
       seg = u.path[%r{\A/item/([^/]+)/}, 1]
-      text = "#{store} price $#{format('%.2f', price)} (was $#{format('%.2f', was)})."
+      text = "#{store} price $#{format('%.2f', price)}#{was ? " (was $#{format('%.2f', was)})" : ''}."
       # OWC's one-line description as listing facts, only when it isn't cut off or promo text.
       facts = desc.empty? || desc.include?("$") || desc.length > 160 || (desc.length >= 110 && desc !~ /[.!)]\z/) ? "" : "Listing details: #{desc}#{desc =~ /[.!?]\z/ ? '' : '.'}"
       base_item(source, title: title, link: page_url, store_url: store_url, price: price, compare_at: was,
                         image: img, brand_hint: seg && CGI.unescape(seg).tr("-", " "), highlights: hl,
-                        condition: used ? "used" : nil, text: text, writeup: facts,
+                        condition: used_mac ? "Used" : (used ? "used" : nil), no_was_price: (true if used_mac),
+                        text: text, writeup: facts,
                         mpns: owc_part_numbers(txt.call(".product-specials__sku")))
     end
     { cards: cards.size, items: items }

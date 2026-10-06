@@ -778,7 +778,9 @@ sites:
   # Rebate" prices are taken off at checkout (kept, with a highlight);
   # mail-in rebates, prices shown only in the cart, sold out / backorder /
   # pre-order and cards without Add to Cart are skipped. Pre-owned Macs are
-  # kept with a condition highlight. Software / licenses / gift cards /
+  # kept WITHOUT OWC's crossed-out price (it's the original new price) and
+  # with condition: Used; require_discount / min-max discount don't apply to
+  # them (owner decision, Oct 6 2026). Software / licenses / gift cards /
   # service plans / tool kits are skipped. Cables, adapters, stands, mounts
   # fall to the global exclude_keywords. Items with no category keyword land
   # in Accessories (enclosures, RAID arrays, hubs), so no require_title_category.
