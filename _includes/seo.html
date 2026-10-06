@@ -42,7 +42,11 @@
   {%- endcapture -%}
   {%- assign seo_description = seo_description | strip_newlines | strip -%}
 {%- elsif seo_cat -%}
+  {%- if site.amazon_only -%}
+  {%- assign seo_description = seo_cat.name | append: " deals I've found on Amazon, checked by hand. Prices change fast, so check the price before you buy." -%}
+  {%- else -%}
   {%- assign seo_description = seo_cat.name | append: " deals I've found at Amazon, B&H, Target, Newegg, and other stores, checked by hand. Prices change fast, so check the price before you buy." -%}
+  {%- endif -%}
 {%- elsif page.excerpt and page.excerpt != "" -%}
   {%- assign seo_description = page.excerpt | strip_html | strip_newlines | strip -%}
 {%- else -%}

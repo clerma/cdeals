@@ -66,6 +66,17 @@ These pages are a starting point, not legal advice.
 
 While none of your own items is for sale (no `_products/` item with `type: sale` and `status: available`), the site reads as a deals site: the footer tagline and site/meta description switch to `tagline_no_sale` / `description_no_sale` in `_config.yml`, the home page uses its `title_no_sale` / `description_no_sale`, and the "Returns & shipping" and "All items for sale" links, the shop hero slides, the selling part of About and the "I also sell my own used items" part of the disclosure are hidden. The shop and returns pages still exist but are left out of `sitemap.xml`. Publish one sale item and all of it comes back on the next build. The switch is `_plugins/selling_mode.rb`; templates use `{% if site.selling %}`. The Terms, Privacy and Returns pages keep their selling sections.
 
+## Amazon-only switch (affiliate networks)
+
+Deals at stores other than Amazon only earn through Skimlinks. While Skimlinks is pending, `_config.yml` has:
+
+```yaml
+affiliate_networks:
+  skimlinks_active: false
+```
+
+and every non-Amazon deal is left out of the whole site: no `/item/` page, card, filter, category pill, search entry, schema, `sitemap.xml` or `llms.txt` line. Category pages with no live deals left aren't built. A deal counts as Amazon when its `store` is Amazon or its `affiliate_url` is on amazon.com / amzn.to; your own `type: sale` items are never hidden. The deal finder keeps saving non-Amazon deals to `_products/`, so they're ready. Meta text that names other stores switches to the `*_amazon_only` values (in `_config.yml`, `index.html`, `deals.html`). Set `skimlinks_active: true` and everything comes back on the next build. The switch is `_plugins/affiliate_networks.rb`.
+
 ## Hosting
 
 The output is a static site, so it can be hosted for free on CloudCannon, Netlify, Cloudflare Pages, or GitHub Pages (via a GitHub Action, because this site uses Jekyll 4). Expired deals are hidden at build time, so schedule a daily rebuild if you use `expires`.

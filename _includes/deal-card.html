@@ -5,7 +5,9 @@
   Amazon deals: "Best deal seen on Amazon" badge; prices from front matter when
   amazon_show_prices is true (savings UI only with both price + compare_at).
   CTA: "See the savings on Amazon".
+  Renders nothing for a deal hidden by affiliate_networks (_config.yml).
 {% endcomment %}
+{% unless site.affiliate_hidden_slugs contains include.slug %}
 {% assign deal = nil %}
 {% for p in site.products %}
   {% if p.slug == include.slug %}{% assign deal = p %}{% break %}{% endif %}
@@ -17,3 +19,4 @@
 {% else %}
 <p class="fs-sm text-danger">Deal not found: <code>{{ include.slug }}</code></p>
 {% endif %}
+{% endunless %}
