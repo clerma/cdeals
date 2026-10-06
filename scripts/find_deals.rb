@@ -420,7 +420,30 @@ def resolve_store_url(item, source, http, max_redirects)
   [nil, "too many redirects"]
 end
 
-def brand_guess(name)
+BRAND_GENERIC_RE = /\A(newest|new|latest|all-new|wifi|wi-fi|dash|smart|wireless|mini|portable|outdoor|indoor|security|camera|cam|bluetooth|video|home|tv|prime|like-new)\z/i
+
+# Brands already used in _products (generic words like "Newest" left out).
+def known_brands
+  @known_brands ||= Dir[File.join(DealTools::PRODUCTS_DIR, "*.md")]
+                    .filter_map { |f| DealTools.front_matter(f)["brand"].to_s.strip }
+                    .reject { |b| b.empty? || b =~ BRAND_GENERIC_RE }.uniq
+end
+
+# known: true (Brad's Deals) also skips generic leading words ("Newest Blink
+# Camera", "WiFi Security Camera") and matches multi-word brands from
+# _products ("Harman Kardon"); after a skipped word only a known brand counts.
+def brand_guess(name, known: false)
+  if known
+    words = name.to_s.split(/\s+/)
+    skipped = words.take_while { |w| w.gsub(/[^\p{Alnum}\-]/, "") =~ BRAND_GENERIC_RE }.size
+    words = words.drop(skipped)
+    multi = known_brands.select { |b| b.include?(" ") }.find { |b| words.join(" ") =~ /\A#{Regexp.escape(b)}\b/i }
+    return multi if multi
+    if skipped.positive?
+      w = words.first.to_s.gsub(/[^\p{Alnum}&\-]/, "")
+      return known_brands.find { |b| b.casecmp?(w) }
+    end
+  end
   w = name.to_s.split(/\s+/).first.to_s.gsub(/[^\p{Alnum}&\-]/, "")
   return nil if w.length < 2 || w =~ /\A(new|the|refurbished|renewed|refurb|restored|open|open-box|select|grand|set|pack|\d.*|2-pack|3-pack|certified|used|apple's|my)\z/i || w == w.downcase
   w
@@ -468,6 +491,7 @@ build_candidate = lambda do |item, source|
     source_blocked[source["id"]] = store_url ? 0 : source_blocked[source["id"]] + (reason =~ /none|robots/ ? 0 : 1)
   end
   notes = []
+  notes << item[:price_note] if item[:price_note]
   store_url = DealTools.clean_store_url(store_url) if store_url
   if store_url
     stats[:resolved] += 1
@@ -530,7 +554,8 @@ build_candidate = lambda do |item, source|
   next skip.call(item, "same product already found (variant)") if seen[title_key]
   image_url = abs_img.call(data[:image].to_s) || item[:image]
   next skip.call(item, "no product image") if source["require_image"] && image_url.to_s.empty?
-  brand = [data[:brand], item[:brand]].map { |b| b.to_s.strip }.find { |b| !b.empty? } || brand_guess(name)
+  brand = [data[:brand], item[:brand]].map { |b| b.to_s.strip }.find { |b| !b.empty? }
+  brand ||= source["parser"] == "bradsdeals" ? brand_guess(name, known: true) || brand_guess(title, known: true) : brand_guess(name)
   # Same product at another store (or already queued): keep the best price.
   sig = DealTools.product_signature(short, brand: brand)
   replaces = nil
@@ -569,7 +594,8 @@ build_candidate = lambda do |item, source|
   end
   prime_text = DealTools.prime_day?("#{blob} #{item[:page] || item[:link]}", store: store, url: store_url)
   prime_src ||= item[:prime_day_source] || [item[:page], item[:listing], item[:link]].find { |u| u.to_s.start_with?("http") } if prime_text
-  overview = ""
+  # Brad's Deals: the deal write-up beats store-page meta for the copy.
+  overview = item[:writeup].to_s
   page_specs = []
   begin
     fm_probe = { "title" => short, "brand" => brand, "store" => store, "affiliate_url" => store_url }
@@ -577,7 +603,7 @@ build_candidate = lambda do |item, source|
     if enrich_url && !enrich_url.empty? && !SourceCache.amazon_url?(enrich_url)
       data = SourceCache.fetch_page(enrich_url, cfg: cfg, source_id: "find")
       unless data["error"]
-        overview = data["overview"].to_s
+        overview = data["overview"].to_s if overview.empty?
         page_specs = data["specs"] || []
       end
     end
@@ -650,6 +676,10 @@ sources.each do |source|
     if (meth = DirectSources::PARSERS[source["parser"].to_s])
       if meth == :macheist_items
         DirectSources.macheist_items(fetcher, source, category_re: Regexp.union(category_rules.map(&:last)), exclude_re: exclude_re)
+      elsif meth == :bradsdeals_items
+        # Same cheap filters as build_candidate, applied before any detail page is opened.
+        DirectSources.bradsdeals_items(fetcher, source, category_re: Regexp.union(category_rules.map(&:last)), exclude_re: exclude_re,
+                                                        known: ->(url) { seen[DealTools.url_key(url)] })
       else
         DirectSources.public_send(meth, fetcher, source)
       end
@@ -694,6 +724,11 @@ sources.each do |source|
   end
   stats[:items_fetched] += items.size
   puts "   #{items.size} items"
+  items.each do |it|
+    next unless (c = it[:price_conflict])
+    stats[:price_conflicts] += 1
+    log.call("  price conflict: #{c[:title].to_s[0, 70]} | listing $#{c[:listing]} | write-up $#{c[:writeup]}")
+  end
   site_source = source.merge("resolve" => source["kind"] == "site" ? "direct" : source["resolve"])
   per_source = (source["max_candidates"] || defaults["max_candidates_per_source"] || 8).to_i
   from_source = 0
@@ -715,6 +750,7 @@ puts
 puts "Items fetched: #{stats[:items_fetched]}  (checked after filters: #{stats[:items_seen]})"
 puts "New candidates: #{added.size}  (store link resolved: #{added.count { |e| e['store_url'] }}, unresolved: #{added.count { |e| !e['store_url'] }})"
 puts "Store pages read: #{stats[:store_fetch_ok]}, failed/blocked: #{stats[:store_fetch_failed]}"
+puts "Price conflicts (listing data vs write-up, over 2%): #{stats[:price_conflicts]}" if stats[:price_conflicts].positive?
 puts "Dropped stale queue entries: #{dropped_stale}" if dropped_stale.positive?
 puts "HTTP requests: #{http.stats[:requests]}, blocked by robots.txt: #{http.stats[:robots_blocked]}, errors: #{http.stats[:errors]}"
 puts "ZenRows: #{fetcher.usage_stats[:requests]} requests, #{fetcher.usage_stats[:credits]} credits this run; " \
