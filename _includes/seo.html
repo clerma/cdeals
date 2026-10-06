@@ -106,3 +106,16 @@
 <!-- Verification -->
 {% if site.google_site_verification and site.google_site_verification != "" %}<meta name="google-site-verification" content="{{ site.google_site_verification }}">{% endif %}
 {% if site.bing_site_verification and site.bing_site_verification != "" %}<meta name="msvalidate.01" content="{{ site.bing_site_verification }}">{% endif %}
+
+<!-- Analytics: Google Analytics 4 -->
+{% comment %}Emitted only when site.google_analytics is set (non-empty). Not gated on jekyll.environment (CloudCannon doesn't set JEKYLL_ENV=production by default); instead skipped for local `jekyll serve` previews, which rewrite site.url to localhost.{% endcomment %}
+{% assign ga_id = site.google_analytics | strip %}
+{% if ga_id != "" %}{% unless site.url contains "localhost" or site.url contains "127.0.0.1" %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ ga_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ ga_id }}');
+</script>
+{% endunless %}{% endif %}
