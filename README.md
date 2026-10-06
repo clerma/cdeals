@@ -187,6 +187,22 @@ bundle exec ruby scripts/find_deals.rb --dry-run -v   # see what it would add an
 
 Each run also re-checks published deals (`_products/*.md`, `type: affiliate`, not already expired) against the items its sources returned, with no extra requests (amazon.com is never fetched). An item whose store link matches a published deal is recorded with its listing price instead of being queued. If the listing price is more than 1% or $0.50 above the published `price`, the deal is expired: `expires:` becomes yesterday and an `expired_reason:` line is added (nothing else in the file changes). A lower price is only reported ("now cheaper: ..."). Sources with `recheck_missing: true` (Walmart, Sam's Club) also expire their own deals (front-matter `source:`) that are no longer in the listing, or are now skipped there (not in stock, member-only price, price range, marketplace seller, no shipping), but only when every listing page loaded and returned at least 10 products. The run ends with "Re-checked published deals: matched N, confirmed N, now cheaper N, expired N" and the expired files with their reasons. `--dry-run` writes nothing; `--no-recheck` turns the step off. Sources not read in a run (`--source`, the `--limit` reached) re-check nothing.
 
+#### Stop on block (403 / 429 / bot wall)
+
+When a site says no, the finder stops asking for the rest of that run. Every source counts: feeds, listing pages, sitemaps, detail and write-up pages (Brad's Deals, Woot offers, MacHeist sales), Walmart / Sam's Club, store-page reads, enrichment and `resolve:` lookups. A request that gets HTTP 403, HTTP 429, a challenge or bot-wall page (captcha, "Access Denied", Cloudflare / PerimeterX checks, "Robot or human?") or a redirect to `/blocked`, `/areyouahuman`, a captcha or a dead-end page:
+
+- blocks that **source** for the run: no more pages, page numbers, sitemaps, detail pages, store pages, enrichment or store-link lookups for it. The log shows one line (`blocked: HTTP 403 at <url>; skipping the rest of bh-deals this run`) and the finder moves on to the next source;
+- blocks the **host** for the run: other sources on it (`bh-deals` blocked → `bh-deals-categories`, `bh-used`) are skipped with one line and no request, and no other source requests that host either (robots.txt included);
+- keeps the source's published deals out of the re-check: deals whose `source:` was blocked are neither expired nor confirmed, and the blocked source's items aren't used as evidence for other deals or for `recheck_missing`. The run prints how many deals were skipped. Items read before the block can still become candidates.
+
+Plain 404 / 500 answers, timeouts and robots.txt disallows aren't blocks. Nothing is retried and there's no ZenRows or proxy fallback after a block. Blocks are kept in memory only (`scripts/lib/run_blocks.rb`) and the next run starts fresh. The run ends with `Blocked this run: bh-deals (HTTP 403, www.bhphotovideo.com), bh-deals-categories (host blocked, www.bhphotovideo.com)` (or `none`).
+
+An offline test runs the finder from a temporary copy against local test servers on 127.0.0.1 (a 403, a 429 after a good page, a captcha page and a 404). It doesn't contact real sites or touch `_products/` or `_deal_queue/`:
+
+```sh
+BUNDLE_WITH=deals bundle exec ruby scripts/test/test_block_stop.rb   # VERBOSE=1 prints the finder output
+```
+
 #### Prime events (Prime Day / Prime Big Deal Days)
 
 `prime_day_roundups:` in `_data/deal_sources.yml` lists Prime Day roundup pages (TechBargains `/sales/prime-day-deals`, Slickdeals `/browse/amazon/`). Each run reads them once and collects the Amazon ASINs and Slickdeals thread IDs on them; an Amazon candidate whose ASIN or thread is listed (or that was read from the page itself) gets `prime_day: true` and `prime_day_source: <page>`. The Slickdeals page is only used while its title says Prime Day / Prime Big Deal Days (`require_title: true`). The `techbargains-prime-day` source reads the TechBargains roundup before the other TechBargains pages. After the event, set `enabled: false` on the roundups and on `techbargains-prime-day`.
