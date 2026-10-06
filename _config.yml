@@ -42,15 +42,14 @@ anycart_api_key: ""
 sovrn_key: ""      # Sovrn Commerce: campaign API key (Settings > "<>" icon)
 skimlinks_id: "310483X1798959"   # Skimlinks: publisher ID, e.g. 123456X1234567 (Settings > Install)
 
-# Which affiliate networks are earning. While Skimlinks is still pending
-# approval, deals at any store other than Amazon earn nothing, so
-# skimlinks_active: false hides them from the whole site (no /item/ page,
-# card, filter, sitemap or llms.txt entry; empty category pages are skipped).
-# The deal finder keeps saving them to _products/. Set it to true once
-# Skimlinks approves the site and they all come back on the next build.
-# The switch is _plugins/affiliate_networks.rb.
+# Which affiliate networks are earning. Skimlinks is still pending approval,
+# so deals at any store other than Amazon earn nothing yet, but they're shown
+# anyway. Set skimlinks_active to false to hide them from the whole site
+# again (no /item/ page, card, filter, sitemap or llms.txt entry; empty
+# category pages are skipped). The deal finder keeps saving them to
+# _products/ either way. The switch is _plugins/affiliate_networks.rb.
 affiliate_networks:
-  skimlinks_active: false
+  skimlinks_active: true
 
 # Amazon Associates tracking ID, e.g. yourtag-20. The deal finder turns every
 # Amazon link into https://www.amazon.com/dp/ASIN?tag=<this>.
