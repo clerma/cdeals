@@ -19,8 +19,8 @@
   <div class="d-flex flex-wrap align-items-center gap-2 pt-4">
     {% if include.prime_pill %}{% include prime-day-pill.html %}{% endif %}
     {% if cats.size > 1 %}
-      <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill active" data-filter="*">{{ site.data.strings.grid.filter_all }}</button>
-      {% for c in cats %}{% assign cname = c.name | default: c %}<button type="button" class="btn btn-sm btn-outline-secondary rounded-pill" data-filter="{{ cname | slugify }}">{{ cname }}</button>{% endfor %}
+      <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill cdeals-filter-pill active" data-filter="*" aria-pressed="true">{{ site.data.strings.grid.filter_all }}</button>
+      {% for c in cats %}{% assign cname = c.name | default: c %}<button type="button" class="btn btn-sm btn-outline-secondary rounded-pill cdeals-filter-pill" data-filter="{{ cname | slugify }}" aria-pressed="false">{{ cname }}</button>{% endfor %}
     {% endif %}
     <span class="fs-sm text-body-secondary ms-auto" data-filter-query hidden>{{ site.data.strings.grid.results_for }} "<span></span>" · <a href="?">{{ site.data.strings.grid.clear }}</a></span>
   </div>

@@ -3,5 +3,5 @@
   has at least one deal (_plugins/prime_day.rb). include.current = active slug.
 {%- endcomment -%}
 {%- if site.prime_day_live and site.prime_day_count > 0 %}
-  <a class="btn btn-sm btn-primary rounded-pill{% if include.current == 'prime-day' %} active{% endif %}" href="{{ '/deals/prime-day/' | relative_url }}"{% if include.current == 'prime-day' %} aria-current="page"{% endif %}><i class="ci-percent fs-sm me-1"></i>Prime Day</a>
+  <a class="btn btn-sm btn-outline-secondary rounded-pill cdeals-filter-pill cdeals-prime-pill{% if include.current == 'prime-day' %} active{% endif %}" href="{{ '/deals/prime-day/' | relative_url }}"{% if include.current == 'prime-day' %} aria-current="page"{% endif %}><i class="ci-percent fs-sm me-1"></i>{{ site.data.strings.header.prime_day }}</a>
 {%- endif -%}

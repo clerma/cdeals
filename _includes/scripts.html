@@ -19,7 +19,9 @@
         if (ok) shown++;
       });
       document.querySelectorAll('[data-filter]').forEach(function (b) {
-        b.classList.toggle('active', b.dataset.filter === state.category);
+        var on = b.dataset.filter === state.category;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
       if (empty) empty.hidden = shown > 0;
       if (qLabel) { qLabel.hidden = !state.q; qLabel.querySelector('span').textContent = state.q; }
