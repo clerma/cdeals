@@ -218,3 +218,17 @@
 }
 .cdeals-filter-pill.active i,
 .cdeals-filter-pill[aria-current=page] i { color: #fff; }
+
+/* Footer: blurb under the logo, "More categories" toggle, copyright link */
+.footer-blurb { max-width: 22rem; }
+.footer-more-toggle .footer-fewer-label,
+.footer-more-toggle:not(.collapsed) .footer-more-label { display: none; }
+.footer-more-toggle:not(.collapsed) .footer-fewer-label { display: inline; }
+.footer-more-toggle .ci-chevron-down { transition: transform .2s ease-in-out; }
+.footer-more-toggle[aria-expanded=true] .ci-chevron-down { transform: rotate(180deg); }
+@media (prefers-reduced-motion: reduce) {
+  .footer-more-toggle .ci-chevron-down { transition: none; }
+}
+.footer-copyright-link { color: inherit; text-decoration: none; }
+.footer-copyright-link:hover,
+.footer-copyright-link:focus-visible { color: inherit; text-decoration: underline; }
