@@ -15,6 +15,9 @@ module SourceCache
 
   ROOT = ENV.fetch("CDEALS_CACHE", "/workspace/cdeals-cache")
   AMAZON_HOSTS = %w[amazon.com amzn.to amzn.com amazon.co.uk].freeze
+  # Store product pages never read for enrichment: OWC (macsales.com) was only
+  # approved for its specials page and load-more fragments, not /item/ pages.
+  NO_PAGE_HOSTS = %w[macsales.com].freeze
 
   def amazon_url?(url)
     host = DealTools.bare_host(URI(url)) rescue ""
@@ -176,6 +179,8 @@ module SourceCache
     return "https://www.linkind.com/" if brand =~ /linkind/ || title =~ /\blinkind\b/
     return "https://www.orein.com/" if brand =~ /orein/ || title =~ /\borein\b/
 
+    store_host = DealTools.bare_host(URI(store_url)) rescue ""
+    return nil if NO_PAGE_HOSTS.any? { |h| store_host == h || store_host.end_with?(".#{h}") }
     return store_url unless amazon_url?(store_url) || fm["store"].to_s =~ /amazon/i
     # Amazon-owned brands: official non-amazon.com sites
     return "https://ring.com/" if title =~ /\bring\b/ || brand == "ring"

@@ -146,6 +146,12 @@ module DealTools
     if bare_host(u) =~ /\A(?:walmart|samsclub)\.com\z/ && (id = u.path[%r{\A/ip/(?:[^/]+/)?(\d+)/?\z}, 1])
       return "#{bare_host(u)}/ip/#{id}"
     end
+    # OWC (eshop.macsales.com): /item/<brand>/<part>/ is the product, no query;
+    # pre-owned Mac configurations keep only their ?sku=.
+    if bare_host(u).end_with?("macsales.com")
+      sku = u.path.start_with?("/configure-my-mac/") && URI.decode_www_form(u.query.to_s).assoc("sku")&.last
+      return "#{bare_host(u)}#{u.path.downcase.chomp('/')}#{sku ? "?sku=#{sku.downcase}" : ''}"
+    end
     q = u.query ? "?#{URI.decode_www_form(u.query).sort.map { |k, v| "#{k}=#{v}" }.join('&')}" : ""
     "#{bare_host(u)}#{u.path.downcase.chomp('/')}#{q}"
   rescue ArgumentError
@@ -343,7 +349,7 @@ module DealTools
   # Same product at different stores: brand + model-number-like tokens +
   # storage sizes + condition. nil when the title has no model-like token
   # (then only the per-store title check applies).
-  SIG_STOP = /\A(?:19|20)\d\d\z|\A\d+(?:hz|w|mah|mm|in|inch|ft|pack|pk|pcs?|ct|th|nd|rd|st|x)\z|\Awi-?fi\d?\z|\A\d+(?:k|p)\z|\Ausb\d?\z|\Ahdmi\d?\z/
+  SIG_STOP = /\A(?:19|20)\d\d\z|\A\d+(?:hz|w|mah|mm|in|inch|ft|pack|pk|pcs?|ct|th|nd|rd|st|x)\z|\Awi-?fi\d?\z|\A\d+(?:k|p)\z|\Ausb\d?\z|\Ahdmi\d?\z|\A\d+gb(?:\/s|ps)\z/
   def product_signature(title, brand: nil)
     t = title.to_s.downcase.gsub(/[®™()\[\],|:;"]/, " ")
     words = t.split(/\s+/).map { |w| w.gsub(/\A[^a-z0-9]+|[^a-z0-9]+\z/, "") }.reject(&:empty?)
@@ -353,6 +359,27 @@ module DealTools
     cond = t =~ /refurb|renewed|open[- ]box|\bused\b|pre-owned/ ? "r" : "n"
     b = (brand.to_s.strip.empty? ? words.first : brand.to_s.downcase.split.first).to_s
     "sig:#{b}|#{models.uniq.sort.join(',')}|#{sizes.uniq.sort.join(',')}|#{cond}"
+  end
+
+  # Part numbers (OWC's Mfr P/N and SKU) as lowercase letters+digits, at least
+  # 6 characters with both letters and digits ("US4EXP1M2" -> "us4exp1m2").
+  def part_numbers(list)
+    Array(list).map { |s| s.to_s.downcase.gsub(/[^a-z0-9]/, "") }.select { |s| s.length >= 6 && s =~ /[a-z]/ && s =~ /\d/ }.uniq
+  end
+
+  # Published deals by part-number-like token of their store URL path or title
+  # (B&H: .../owc_owcus4exp1m2_express_1m2...html): { "mpn:<token>" => [file, store, price] }
+  # (cheapest kept). Only items that carry part numbers (OWC) are looked up here.
+  def existing_part_number_index
+    Dir[File.join(PRODUCTS_DIR, "*.md")].each_with_object({}) do |f, h|
+      fm = front_matter(f)
+      next unless fm["type"].to_s == "affiliate"
+      path = parse_uri(fm["affiliate_url"])&.path.to_s
+      price = fm["price"].to_f
+      part_numbers("#{path} #{fm['title']}".downcase.split(/[^a-z0-9]+/)).each do |t|
+        h["mpn:#{t}"] = [File.basename(f), fm["store"].to_s, price] if h["mpn:#{t}"].nil? || price < h["mpn:#{t}"][2]
+      end
+    end
   end
 
   # Published deals by signature: { sig => [file, store, price] } (cheapest kept).
