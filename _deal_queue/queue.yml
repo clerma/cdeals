@@ -963,3 +963,350 @@
     + Free S/H
   notes: 'Store link not found (Slickdeals lead: store link not in the feed (unknown
     store)). Paste the store link into affiliate_url before approving.'
+- id: d-be50f38
+  status: new
+  title: Unlocked Samsung Galaxy S26 Ultra 256GB Android Smartphone
+  store: Amazon
+  price: 980.0
+  category: Phones
+  brand: Unlocked
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791291851-61ieedowlwl.jpg?h=600&w=600
+  highlights:
+  - Free shipping
+  summary: The Unlocked Samsung Galaxy S26 Ultra 256GB Android Smartphone is a phone
+    with 256GB storage.
+  expires: 2026-10-13
+  found: 2026-10-06
+  source: dealnews
+  source_link: https://www.dealnews.com/Unlocked-Samsung-Galaxy-S26-Ultra-256-GB-Android-Smartphone-for-980-w-Prime-free-shipping/22249484.html?iref=rss
+  source_title: Unlocked Samsung Galaxy S26 Ultra 256GB Android Smartphone for $980
+    w/ Prime + free shipping
+  notes: Store link not found (blocked (redirect to https://www.dealnews.com/dead-end/)).
+    Paste the store link into affiliate_url before approving.
+- id: d-468f8c3
+  status: new
+  title: Philips Sonicare 5950 Series Electric Toothbrush
+  store: Amazon
+  price: 65.0
+  category: Accessories
+  brand: Philips
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1783547217-712jwvh74ol.jpg?h=600&w=600
+  highlights:
+  - Free shipping
+  summary: The Philips Sonicare 5950 Series Electric Toothbrush is an accessory with
+    65w power.
+  expires: 2026-10-13
+  found: 2026-10-06
+  source: dealnews
+  source_link: https://www.dealnews.com/products/Philips-Sonicare/Philips-Sonicare-5950-Series-Electric-Toothbrush/506965.html?iref=rss
+  source_title: Philips Sonicare 5950 Series Electric Toothbrush for $65 w/ Prime
+    + free shipping
+  notes: 'Store link not found (skipped: dealnews was blocked this run). Paste the
+    store link into affiliate_url before approving.'
+- id: d-0dfea07
+  status: new
+  title: Beats Pill Wireless Bluetooth Speaker
+  store: Target
+  price: 70.0
+  category: Audio
+  brand: Beats
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791291639-guest_3080ffe7-7049-49c8-98a4-2c1424a54b0c.avif?h=600&w=600
+  highlights:
+  - Free shipping
+  summary: The Beats Pill Wireless Bluetooth Speaker is an audio device with Wireless
+    style, Bluetooth connectivity.
+  expires: 2026-10-07
+  found: 2026-10-06
+  source: dealnews
+  source_link: https://www.dealnews.com/Beats-Pill-Wireless-Bluetooth-Speaker-for-70-free-shipping/22249465.html?iref=rss
+  source_title: Beats Pill Wireless Bluetooth Speaker for $70 + free shipping
+  notes: 'Store link not found (skipped: dealnews was blocked this run). Paste the
+    store link into affiliate_url before approving.'
+- id: d-0aa9294
+  status: new
+  title: 'lululemon Men''s Coats & Jackets Specials: Up to 56% off'
+  store: lululemon
+  price: 69.0
+  compare_at: 199.0
+  discount_pct: 65
+  category: Accessories
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791291308-lm4aw1s_035268_1.webp?h=600&w=600
+  highlights:
+  - "$130 under its usual price"
+  - Free shipping
+  summary: 'The lululemon Men''s Coats & Jackets Specials: Up to 56% off is an accessory.'
+  expires: 2026-10-13
+  found: 2026-10-06
+  source: dealnews
+  source_link: https://www.dealnews.com/lululemon-Mens-Coats-Jackets-Specials-Up-to-56-off-free-shipping/22249464.html?iref=rss
+  source_title: 'lululemon Men''s Coats & Jackets Specials: Up to 56% off + free shipping'
+  notes: 'Store link not found (skipped: dealnews was blocked this run). Paste the
+    store link into affiliate_url before approving.'
+- id: d-7da414f
+  status: new
+  title: 'Amazon Prime Big Deal Days Video Game Deals: Up to 70% off w/ Prime'
+  store: Amazon
+  price: 29.99
+  category: Gaming
+  brand: Amazon
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791291215-product-trimmed.jpg?h=600&w=600
+  highlights:
+  - Free shipping
+  summary: 'The Amazon Prime Big Deal Days Video Game Deals: Up to 70% off w/ Prime
+    is a gaming product.'
+  expires: 2026-10-08
+  found: 2026-10-06
+  source: dealnews
+  source_link: https://www.dealnews.com/Amazon-Prime-Big-Deal-Days-Video-Game-Deals-Up-to-70-off-w-Prime-free-shipping/22249463.html?iref=rss
+  source_title: 'Amazon Prime Big Deal Days Video Game Deals: Up to 70% off w/ Prime
+    + free shipping'
+  notes: 'Store link not found (skipped: dealnews was blocked this run). Paste the
+    store link into affiliate_url before approving.'
+  prime_day: true
+  prime_day_source: https://www.dealnews.com/Amazon-Prime-Big-Deal-Days-Video-Game-Deals-Up-to-70-off-w-Prime-free-shipping/22249463.html?iref=rss
+- id: d-41af4b1
+  status: new
+  title: Novete Portable Countertop Dishwasher
+  store: Amazon
+  price: 269.99
+  compare_at: 339.0
+  discount_pct: 20
+  category: Accessories
+  brand: Novete
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791291104-draftworks_img_nbdm00jkkejm3apnjee.jpeg?h=600&w=600
+  highlights:
+  - Free shipping
+  - Prime members only
+  summary: The Novete Portable Countertop Dishwasher is an accessory with Portable
+    form.
+  expires: 2026-10-09
+  found: 2026-10-06
+  source: dealnews
+  source_link: https://www.dealnews.com/products/Novete/Novete-Portable-Countertop-Dishwasher/528998.html?iref=rss
+  source_title: Novete Portable Countertop Dishwasher for $270 + free shipping
+  notes: 'Store link not found (skipped: dealnews was blocked this run). Paste the
+    store link into affiliate_url before approving.'
+  prime_day: true
+  prime_day_source: https://www.dealnews.com/products/Novete/Novete-Portable-Countertop-Dishwasher/528998.html?iref=rss
+- id: d-0595984
+  status: new
+  title: 'lululemon Men''s Trouser Specials: Up to 57% off'
+  store: lululemon
+  price: 59.0
+  category: Accessories
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791290578-lm5bf4s_071148_2.webp?h=600&w=600
+  highlights:
+  - Free shipping
+  summary: 'The lululemon Men''s Trouser Specials: Up to 57% off is an accessory.'
+  expires: 2026-10-13
+  found: 2026-10-06
+  source: dealnews
+  source_link: https://www.dealnews.com/lululemon-Mens-Trouser-Specials-Up-to-57-off-free-shipping/22249442.html?iref=rss
+  source_title: 'lululemon Men''s Trouser Specials: Up to 57% off + free shipping'
+  notes: 'Store link not found (skipped: dealnews was blocked this run). Paste the
+    store link into affiliate_url before approving.'
+- id: d-edaf172
+  status: new
+  title: 'lululemon Men''s Shorts Specials: Up to 56% off'
+  store: lululemon
+  price: 39.0
+  compare_at: 59.0
+  discount_pct: 34
+  category: Accessories
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791289960-lm7b80s_072761_2.webp?h=600&w=600
+  highlights:
+  - "$20 under its usual price"
+  - Free shipping
+  summary: 'The lululemon Men''s Shorts Specials: Up to 56% off is an accessory.'
+  expires: 2026-10-13
+  found: 2026-10-06
+  source: dealnews
+  source_link: https://www.dealnews.com/lululemon-Mens-Shorts-Specials-Up-to-56-off-free-shipping/22249441.html?iref=rss
+  source_title: 'lululemon Men''s Shorts Specials: Up to 56% off + free shipping'
+  notes: 'Store link not found (skipped: dealnews was blocked this run). Paste the
+    store link into affiliate_url before approving.'
+- id: d-bf4811a
+  status: new
+  title: Greenworks 24V Compact Brushless Cordless Drill & Impact Driver Combo Kit
+  store: Amazon
+  price: 81.0
+  category: Accessories
+  brand: Greenworks
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/264077.webp
+  highlights:
+  - Free shipping
+  - Prime members only
+  summary: The Greenworks 24V Compact Brushless Cordless Drill & Impact Driver Combo
+    Kit is an accessory.
+  expires: 2026-10-13
+  found: 2026-10-06
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/greenworks-24v-compact-brushless-cordless-drill-impact-driver-combo-kit-1085267/#rss
+  source_title: Greenworks 24V Compact Brushless Cordless Drill & Impact Driver Combo
+    Kit  $81 at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+  prime_day: true
+  prime_day_source: https://bensbargains.com/bargain/greenworks-24v-compact-brushless-cordless-drill-impact-driver-combo-kit-1085267/#rss
+- id: d-94f1594
+  status: new
+  title: Samsung Galaxy Z Fold8 256GB Unlocked Android Smartphone (2026)
+  store: Amazon
+  price: 1550.0
+  category: Phones
+  brand: Samsung
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/291416.webp
+  highlights:
+  - Free shipping
+  - Prime members only
+  summary: The Samsung Galaxy Z Fold8 256GB Unlocked Android Smartphone (2026) is
+    a phone with 256GB storage.
+  expires: 2026-10-13
+  found: 2026-10-06
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/samsung-galaxy-z-fold8-256gb-unlocked-android-smartphone-2026-1085324/#rss
+  source_title: Samsung Galaxy Z Fold8 256GB Unlocked Android Smartphone (2026)  $1550
+    at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+  prime_day: true
+  prime_day_source: https://bensbargains.com/bargain/samsung-galaxy-z-fold8-256gb-unlocked-android-smartphone-2026-1085324/#rss
+- id: d-23b3019
+  status: new
+  title: Donner 2-Channel Audio Power Amplifier w/ Bluetooth
+  store: Amazon
+  price: 76.0
+  category: Audio
+  brand: Donner
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/284629.webp
+  highlights:
+  - Free shipping
+  - Prime members only
+  summary: The Donner 2-Channel Audio Power Amplifier w/ Bluetooth is an audio device
+    with Bluetooth connectivity.
+  expires: 2026-10-13
+  found: 2026-10-06
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/donner-2-channel-audio-power-amplifier-w-bluetooth-1085325/#rss
+  source_title: Donner 2-Channel Audio Power Amplifier w/ Bluetooth  $76 at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+  prime_day: true
+  prime_day_source: https://bensbargains.com/bargain/donner-2-channel-audio-power-amplifier-w-bluetooth-1085325/#rss
+- id: d-581737a
+  status: new
+  title: Prime Big Deal Days Networking / Memory Deals
+  store: Amazon
+  price: 76.0
+  category: Accessories
+  brand: Prime
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/292377.webp
+  highlights:
+  - Prime members only
+  summary: The Prime Big Deal Days Networking / Memory Deals is an accessory.
+  expires: 2026-10-13
+  found: 2026-10-06
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/prime-big-deal-days-networking-memory-deals-1085218/#rss
+  source_title: Prime Big Deal Days Networking / Memory Deals  at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+  prime_day: true
+  prime_day_source: https://bensbargains.com/bargain/prime-big-deal-days-networking-memory-deals-1085218/#rss
+- id: d-36577ff
+  status: new
+  title: 30L Osprey Arcane Duffel Over the Shoulder Carry Pack
+  store: Amazon
+  price: 32.0
+  category: Accessories
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/282116.webp
+  highlights:
+  - Free shipping
+  - Prime members only
+  summary: The 30L Osprey Arcane Duffel Over the Shoulder Carry Pack is an accessory.
+  expires: 2026-10-13
+  found: 2026-10-06
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/30l-osprey-arcane-duffel-over-the-shoulder-carry-pack-1085321/#rss
+  source_title: 30L Osprey Arcane Duffel Over the Shoulder Carry Pack  $32 at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+  prime_day: true
+  prime_day_source: https://bensbargains.com/bargain/30l-osprey-arcane-duffel-over-the-shoulder-carry-pack-1085321/#rss
+- id: d-9c509f8
+  status: new
+  title: 2-Piece Samsonite Omni 2 Hardside Expandable Luggage (20" & 24")
+  store: Amazon
+  price: 120.0
+  category: Accessories
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/256348.webp
+  highlights:
+  - Free shipping
+  summary: The 2-Piece Samsonite Omni 2 Hardside Expandable Luggage (20" & 24") is
+    an accessory with 20" display.
+  expires: 2026-10-13
+  found: 2026-10-06
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/2-piece-samsonite-omni-2-hardside-expandable-luggage-20-24-1085284/#rss
+  source_title: 2-Piece Samsonite Omni 2 Hardside Expandable Luggage (20" & 24")  $120
+    at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+- id: d-f871e3e
+  status: new
+  title: AMD Ryzen 7 7700X 4.5 GHz Eight-Core AM5 Processor
+  store: Amazon
+  price: 189.0
+  category: Computers
+  brand: AMD
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/142476.webp
+  highlights:
+  - Free shipping
+  summary: The AMD Ryzen 7 7700X 4.5 GHz Eight-Core AM5 Processor is a computer with
+    Ryzen 7 7700X processor.
+  expires: 2026-10-13
+  found: 2026-10-06
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/amd-ryzen-7-7700x-4-5-ghz-eight-core-am5-processor-1085245/#rss
+  source_title: AMD Ryzen 7 7700X 4.5 GHz Eight-Core AM5 Processor  $189 at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+- id: d-5d4a2c6
+  status: new
+  title: PHILIPS Hue Wireless Smart Light Switch Button
+  store: Amazon
+  price: 19.0
+  category: Smart Home
+  brand: PHILIPS
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/260009.webp
+  highlights:
+  - Free shipping
+  - Prime members only
+  summary: I've been looking at the PHILIPS Hue Wireless Smart Light Switch Button.
+    Explore Philips Hue smart lighting. The best smart LED lights for daily routines
+    and special moments.
+  expires: 2026-10-13
+  found: 2026-10-06
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/philips-hue-wireless-smart-light-switch-button-1085320/#rss
+  source_title: PHILIPS Hue Wireless Smart Light Switch Button  $19 at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+  prime_day: true
+  prime_day_source: https://bensbargains.com/bargain/philips-hue-wireless-smart-light-switch-button-1085320/#rss
