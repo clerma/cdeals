@@ -6,11 +6,11 @@ layout: default
   Liquid: front matter image, Markdown content, tags, related posts, deal embeds.
 {% endcomment %}
 {% assign crumb = page.breadcrumb_title | default: page.title %}
-{% include page-header.html title=crumb parent=site.data.strings.breadcrumbs.blog parent_url=site.data.strings.breadcrumbs.blog_url %}
+{% include page-header.html title=crumb parent=site.data.strings.breadcrumbs.blog parent_url=site.data.strings.breadcrumbs.blog_url col_class="col-lg-9 col-xl-8" %}
 
 <section class="container pb-5 mb-2 mb-md-3 mb-lg-4 mb-xl-5">
-  <div class="row">
-    <div class="col-lg-8 position-relative z-2">
+  <div class="row justify-content-center">
+    <div class="col-lg-9 col-xl-8">
       <h1 class="h3 mb-4">{{ page.title }}</h1>
 
       <div class="nav align-items-center gap-2 border-bottom pb-4 mt-n1 mb-4 flex-wrap">
@@ -93,7 +93,5 @@ layout: default
       </div>
       {% endif %}
     </div>
-
-    {% include blog-sidebar.html %}
   </div>
 </section>
