@@ -78,6 +78,8 @@ geniuslink_group: ""
 # SEO: search console verification codes (emitted only when filled in)
 google_site_verification: ""
 bing_site_verification: ""
+# Google Analytics 4 measurement ID (gtag.js tag in _includes/seo.html). Leave empty to turn analytics off.
+google_analytics: "G-1HZ57TYMV3"
 
 # ---------------------------------------------------------------------------
 # Build
