@@ -1,0 +1,29 @@
+# Brand logos for the brand row at the bottom of the home page. The home page
+# front matter (`brands:`) picks which of these are shown, and in what order,
+# by `slug`. Add a brand here (with its two logo files) and then add its slug
+# there.
+#   slug:       short id, lowercase, no spaces (used to pick the brand)
+#   name:       brand name, read aloud by screen readers / shown if the logo can't load
+#   logo_light: logo for the light theme (dark artwork)
+#   logo_dark:  logo for the dark theme (light artwork)
+#   query:      what clicking the logo searches for (on my items, or the deals)
+- slug: apple
+  name: Apple
+  logo_light: /assets/images/theme/brand-apple-light.svg
+  logo_dark: /assets/images/theme/brand-apple-dark.svg
+  query: apple
+- slug: samsung
+  name: Samsung
+  logo_light: /assets/images/theme/brand-samsung-light.svg
+  logo_dark: /assets/images/theme/brand-samsung-dark.svg
+  query: samsung
+- slug: sony
+  name: Sony
+  logo_light: /assets/images/theme/brand-sony-light.svg
+  logo_dark: /assets/images/theme/brand-sony-dark.svg
+  query: sony
+- slug: canon
+  name: Canon
+  logo_light: /assets/images/theme/brand-canon-light.svg
+  logo_dark: /assets/images/theme/brand-canon-dark.svg
+  query: canon

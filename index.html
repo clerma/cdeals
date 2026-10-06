@@ -14,8 +14,17 @@ swiper: true   # loads the carousel script (only the home page uses carousels)
 # Everything below is home page content. Items themselves come from _products/.
 just_listed_title: Just listed
 for_sale_title: For sale by me
+for_sale_view_all: View all          # link at the right of the "For sale by me" heading
+for_sale_view_all_url: /shop/
 deals_title: Deals I found
+deals_view_all: View all             # link at the right of the "Deals I found" heading
+deals_view_all_url: /deals/
+# Read aloud by screen readers for the carousel arrows under "Deals I found".
+deals_prev_label: Previous deals
+deals_next_label: Next deals
 prime_day_title: Best Prime Day Deals   # shown only while Prime Day is live (prime_day in _config.yml)
+prime_day_button: See all Prime Day deals   # button under the Prime Day section
+prime_day_button_url: /deals/prime-day/
 
 hero:
   - kicker: "Prime Big Deal Days · Oct 6–7"
@@ -40,6 +49,12 @@ hero:
     link: /about/
     button: How it works
     selling: true   # only shown while I have my own items for sale
+
+# Feature row under the slider. An item with a `link` also gets a link with
+# this text after its words:
+feature_link_label: Learn more
+# Used for [stores] when no store names are available.
+stores_fallback: the stores
 
 # Shown while nothing of mine is for sale ([stores] = the stores of the live deals).
 deal_features:
@@ -78,14 +93,33 @@ banner:
   button: Shop all items
   link: /shop/
   image: /assets/images/theme/banner-laptop.png
+  background: /assets/images/theme/banner-bg.jpg   # photo behind the banner
 
 deals_banner:
   title: Fresh deals I found
   # The store list ("Handpicked from Amazon, Best Buy, and more") and the deal
-  # count are generated from the live deals.
+  # count are generated from the live deals: [stores] = up to 3 store names,
+  # [count] = number of live deals.
+  text: "Handpicked from [stores]"
+  button: "See all [count] deals"
+  button_one: "See all [count] deal"   # used when there is exactly 1 deal
+  link: /deals/
   image: /assets/images/theme/deals-camera.png
+  # Left box: "Up to <biggest discount> % OFF", or, when no deal shows a
+  # discount, the fallback line instead.
+  up_to: "Up to"
+  off_label: "OFF"
+  fallback: "Fresh tech deals"
 
+# Brand logos at the bottom of the page, in this order. Each is a `slug` from
+# _data/brands.yml (add new brands and their logos there).
 brands: [apple, samsung, sony, canon]
+# Last button in the brand row: one while something of mine is for sale
+# (searches my items), one otherwise (searches the deals).
+brands_all_items: All items
+brands_all_items_url: /shop/
+brands_all_deals: All deals
+brands_all_deals_url: /deals/
 ---
 {% assign home = page %}
 {% assign for_sale = site.products | where: "type", "sale" | where: "status", "available" | sort: "date" | reverse %}
@@ -171,9 +205,9 @@ brands: [apple, samsung, sony, canon]
   {% assign prime_top = site.prime_day_deals | slice: 0, 8 %}
   {% include product-grid.html items=prime_top %}
   <div class="text-center pt-4">
-    <a class="btn btn-lg btn-primary" href="{{ '/deals/prime-day/' | relative_url }}">See all Prime Day deals <i class="ci-arrow-up-right fs-lg ms-2 me-n1"></i></a>
+    <a class="btn btn-lg btn-primary" href="{{ home.prime_day_button_url | relative_url }}">{{ home.prime_day_button }} <i class="ci-arrow-up-right fs-lg ms-2 me-n1"></i></a>
   </div>
-  <p class="cdeals-smallprint text-center mt-3 mb-0">{{ site.data.disclosures.affiliate }} <a href="{{ '/disclosure/' | relative_url }}">Learn more</a></p>
+  <p class="cdeals-smallprint text-center mt-3 mb-0">{{ site.data.disclosures.affiliate }} <a href="{{ site.data.disclosures.learn_more_url | relative_url }}">{{ site.data.disclosures.learn_more_label }}</a></p>
 </section>
 {% endif %}
 
@@ -189,7 +223,7 @@ brands: [apple, samsung, sony, canon]
         </div>
         <div class="text-center text-xxl-start ps-xxl-3">
           <h3 class="h6 mb-1">{% if f.link %}<a class="text-reset text-decoration-none" href="{{ f.link | relative_url }}">{{ f.title }}</a>{% else %}{{ f.title }}{% endif %}</h3>
-          <p class="fs-sm mb-0">{% assign stores_txt = store_list | strip | default: "the stores" %}{{ f.text | replace: "[stores]", stores_txt }}{% if f.link %} <a class="text-body-secondary" href="{{ f.link | relative_url }}">Learn more</a>{% endif %}</p>
+          <p class="fs-sm mb-0">{% assign stores_txt = store_list | strip | default: home.stores_fallback %}{{ f.text | replace: "[stores]", stores_txt }}{% if f.link %} <a class="text-body-secondary" href="{{ f.link | relative_url }}">{{ home.feature_link_label }}</a>{% endif %}</p>
         </div>
       </div>
     </div>
@@ -203,7 +237,7 @@ brands: [apple, samsung, sony, canon]
   <h2 class="h3 pb-2 pb-sm-3">{{ page.just_listed_title }}</h2>
   <div class="row">
     <div class="col-lg-4" data-bs-theme="dark">
-      <div class="d-flex flex-column align-items-center justify-content-end h-100 text-center overflow-hidden rounded-5 px-4 px-lg-3 pt-4 pb-5" style="background: #1d2c41 url({{ '/assets/images/theme/banner-bg.jpg' | relative_url }}) center/cover no-repeat">
+      <div class="d-flex flex-column align-items-center justify-content-end h-100 text-center overflow-hidden rounded-5 px-4 px-lg-3 pt-4 pb-5" style="background: #1d2c41 url({{ home.banner.background | relative_url }}) center/cover no-repeat">
         <div class="ratio animate-up-down position-relative z-2 me-lg-4" style="max-width: 300px; margin-bottom: -4%; --cz-aspect-ratio: calc(690 / 640 * 100%)">
           <img src="{{ home.banner.image | relative_url }}" alt="">
         </div>
@@ -233,8 +267,8 @@ brands: [apple, samsung, sony, canon]
   <div class="d-flex align-items-center justify-content-between border-bottom pb-3 pb-md-4">
     <h2 class="h3 mb-0">{{ page.for_sale_title }}</h2>
     <div class="nav ms-3">
-      <a class="nav-link animate-underline px-0 py-2" href="{{ '/shop/' | relative_url }}">
-        <span class="animate-target">View all</span>
+      <a class="nav-link animate-underline px-0 py-2" href="{{ home.for_sale_view_all_url | relative_url }}">
+        <span class="animate-target">{{ home.for_sale_view_all }}</span>
         <i class="ci-chevron-right fs-base ms-1"></i>
       </a>
     </div>
@@ -259,18 +293,18 @@ brands: [apple, samsung, sony, canon]
           <span class="position-absolute top-0 start-0 w-100 h-100 rounded-top-5 d-none d-block-dark" style="background: linear-gradient(90deg, #1b273a 0%, #1f2632 100%)"></span>
         </div>
         {% if best_off > 0 %}
-        <div class="position-relative z-1 text-dark-emphasis fs-sm fw-medium text-uppercase mb-n2">Up to</div>
+        <div class="position-relative z-1 text-dark-emphasis fs-sm fw-medium text-uppercase mb-n2">{{ home.deals_banner.up_to }}</div>
         <div class="position-relative z-1 display-1 text-dark-emphasis text-nowrap mb-0">
           {{ best_off }}
           <span class="d-inline-block ms-n2">
             <span class="d-block fs-1">%</span>
-            <span class="d-block fs-5">OFF</span>
+            <span class="d-block fs-5">{{ home.deals_banner.off_label }}</span>
           </span>
         </div>
         {% else %}
         <div class="position-relative z-1 text-center text-dark-emphasis px-3">
           <i class="ci-percent d-block display-5 mb-2"></i>
-          <div class="h3 text-uppercase fw-bold mb-0">Fresh tech deals</div>
+          <div class="h3 text-uppercase fw-bold mb-0">{{ home.deals_banner.fallback }}</div>
         </div>
         {% endif %}
       </div>
@@ -286,8 +320,8 @@ brands: [apple, samsung, sony, canon]
           <div class="col-md-6 mb-3 mb-md-0">
             <div class="text-center text-md-start py-md-5 px-4 ps-md-5 pe-md-0 me-md-n5">
               <h3 class="text-uppercase fw-bold ps-xxl-3 pb-2 mb-1">{{ home.deals_banner.title }}</h3>
-              <p class="text-body-emphasis ps-xxl-3 mb-3">Handpicked from {{ store_short | strip }}</p>
-              <a class="btn btn-dark ms-xxl-3" href="{{ '/deals/' | relative_url }}">See all {{ deal_count }} {% if deal_count == 1 %}deal{% else %}deals{% endif %} <i class="ci-arrow-up-right fs-base ms-1 me-n1"></i></a>
+              <p class="text-body-emphasis ps-xxl-3 mb-3">{% assign stores_short_txt = store_short | strip %}{{ home.deals_banner.text | replace: "[stores]", stores_short_txt }}</p>
+              <a class="btn btn-dark ms-xxl-3" href="{{ home.deals_banner.link | relative_url }}">{% if deal_count == 1 %}{% assign deals_btn = home.deals_banner.button_one %}{% else %}{% assign deals_btn = home.deals_banner.button %}{% endif %}{{ deals_btn | replace: "[count]", deal_count }} <i class="ci-arrow-up-right fs-base ms-1 me-n1"></i></a>
             </div>
           </div>
           <div class="col-md-6 d-flex justify-content-center justify-content-md-end pb-5 pb-md-0">
@@ -308,17 +342,17 @@ brands: [apple, samsung, sony, canon]
   <div class="d-flex align-items-center justify-content-between border-bottom pb-3 pb-md-4">
     <h2 class="h3 mb-0">{{ page.deals_title }}</h2>
     <div class="nav ms-3">
-      <a class="nav-link animate-underline px-0 py-2" href="{{ '/deals/' | relative_url }}">
-        <span class="animate-target text-nowrap">View all</span>
+      <a class="nav-link animate-underline px-0 py-2" href="{{ home.deals_view_all_url | relative_url }}">
+        <span class="animate-target text-nowrap">{{ home.deals_view_all }}</span>
         <i class="ci-chevron-right fs-base ms-1"></i>
       </a>
     </div>
   </div>
   <div class="position-relative mx-md-1">
-    <button type="button" class="offers-prev btn btn-icon btn-outline-secondary bg-body rounded-circle animate-slide-start position-absolute top-50 start-0 z-2 translate-middle-y ms-n1 d-none d-sm-inline-flex" aria-label="Previous deals">
+    <button type="button" class="offers-prev btn btn-icon btn-outline-secondary bg-body rounded-circle animate-slide-start position-absolute top-50 start-0 z-2 translate-middle-y ms-n1 d-none d-sm-inline-flex" aria-label="{{ home.deals_prev_label }}">
       <i class="ci-chevron-left fs-lg animate-target"></i>
     </button>
-    <button type="button" class="offers-next btn btn-icon btn-outline-secondary bg-body rounded-circle animate-slide-end position-absolute top-50 end-0 z-2 translate-middle-y me-n1 d-none d-sm-inline-flex" aria-label="Next deals">
+    <button type="button" class="offers-next btn btn-icon btn-outline-secondary bg-body rounded-circle animate-slide-end position-absolute top-50 end-0 z-2 translate-middle-y me-n1 d-none d-sm-inline-flex" aria-label="{{ home.deals_next_label }}">
       <i class="ci-chevron-right fs-lg animate-target"></i>
     </button>
     <div class="swiper py-4 px-sm-3" data-swiper='{"slidesPerView": 2, "spaceBetween": 24, "navigation": {"prevEl": ".offers-prev", "nextEl": ".offers-next"}, "breakpoints": {"768": {"slidesPerView": 3}, "992": {"slidesPerView": 4}}}'>
@@ -330,19 +364,22 @@ brands: [apple, samsung, sony, canon]
       </div>
     </div>
   </div>
-  <p class="cdeals-smallprint mb-0">{{ site.data.disclosures.affiliate }} <a href="{{ '/disclosure/' | relative_url }}">Learn more</a></p>
+  <p class="cdeals-smallprint mb-0">{{ site.data.disclosures.affiliate }} <a href="{{ site.data.disclosures.learn_more_url | relative_url }}">{{ site.data.disclosures.learn_more_label }}</a></p>
 </section>
 {% endif %}
 
 <!-- Brands (search the shop, or the deals while nothing is for sale) -->
-{% if for_sale.size > 0 %}{% assign brand_url = '/shop/' %}{% assign brand_all = 'All items' %}{% else %}{% assign brand_url = '/deals/' %}{% assign brand_all = 'All deals' %}{% endif %}
-{% assign brand_n = home.brands.size | plus: 1 %}
+{% if for_sale.size > 0 %}{% assign brand_url = home.brands_all_items_url %}{% assign brand_all = home.brands_all_items %}{% else %}{% assign brand_url = home.brands_all_deals_url %}{% assign brand_all = home.brands_all_deals %}{% endif %}
+{% comment %} Brands listed in front matter (by slug), looked up in _data/brands.yml. {% endcomment -%}
+{% assign shown_brands = "" | split: "" -%}
+{% for slug in home.brands %}{% assign b = site.data.brands | where: "slug", slug | first %}{% if b %}{% assign shown_brands = shown_brands | push: b %}{% endif %}{% endfor -%}
+{% assign brand_n = shown_brands.size | plus: 1 %}
 <section class="container pt-4 pt-md-5 pb-5 mt-sm-2 mb-2 mb-sm-3 mb-md-4 mb-lg-5">
   <div class="brand-logo-strip" style="--brand-n: {{ brand_n }}">
-    {% for b in home.brands %}
-      <a class="btn btn-outline-secondary w-100 h-100 rounded-4 p-3" href="{{ brand_url | relative_url }}?q={{ b }}" aria-label="{{ b | capitalize }}">
-        <img src="{{ '/assets/images/theme/brand-' | append: b | append: '-light.svg' | relative_url }}" class="d-none-dark" alt="{{ b | capitalize }}">
-        <img src="{{ '/assets/images/theme/brand-' | append: b | append: '-dark.svg' | relative_url }}" class="d-none d-block-dark" alt="{{ b | capitalize }}">
+    {% for b in shown_brands %}
+      <a class="btn btn-outline-secondary w-100 h-100 rounded-4 p-3" href="{{ brand_url | relative_url }}?q={{ b.query | url_encode }}" aria-label="{{ b.name | escape }}">
+        <img src="{{ b.logo_light | relative_url }}" class="d-none-dark" alt="{{ b.name | escape }}">
+        <img src="{{ b.logo_dark | relative_url }}" class="d-none d-block-dark" alt="{{ b.name | escape }}">
       </a>
     {% endfor %}
       <a class="btn btn-outline-secondary w-100 h-100 rounded-4 p-3" href="{{ brand_url | relative_url }}">{{ brand_all }} <i class="ci-chevron-right fs-base ms-1"></i></a>
