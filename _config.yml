@@ -90,6 +90,19 @@ permalink: pretty
 # honors this.
 future: false
 
+# The jekyll-cloudcannon-schedule plugin writes /_schedule.txt listing every
+# future-dated post. CloudCannon reads it after each build and schedules a
+# build at each post's time (Site Settings > Schedule > Automatic).
+# _plugins/cloudcannon_schedule_extras.rb adds a build for the Prime Day
+# `ends` date (00:05 Central) and for each entry below.
+# Extra one-off builds CloudCannon should run (written to _schedule.txt).
+# time is Central time "YYYY-MM-DD HH:MM"; past times are ignored.
+# To add one, change the line to `scheduled_builds:` and add entries like:
+scheduled_builds: []
+#  - time: "2026-12-01 00:05"
+#    name: Holiday page goes live
+#    file: index.html              # optional; defaults to _config.yml
+
 # Post dates and "today" checks use Central time even on UTC build servers.
 timezone: America/Chicago
 
@@ -129,6 +142,7 @@ defaults:
 plugins:
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-cloudcannon-schedule
 
 # RSS (jekyll-feed): /feed.xml
 feed:

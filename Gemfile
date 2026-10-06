@@ -6,6 +6,8 @@ gem "jekyll", "~> 4.3"
 group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-feed"
+  # Writes /_schedule.txt so CloudCannon rebuilds when a future-dated post is due.
+  gem "jekyll-cloudcannon-schedule"
 end
 
 # Windows and JRuby do not include zoneinfo files, so bundle the tzinfo-data gem.

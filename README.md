@@ -91,6 +91,17 @@ While `active` is true and today (America/Chicago) is before `ends`, the home pa
 
 The deal finder adds `prime_day: true` to new Amazon deals whose source text or link mentions Prime Day, Prime Big Deal Days, or a Prime exclusive / Prime members price (`DealTools.prime_day?`). `publish_deals.rb` checks entries already in the queue the same way. To add a deal by hand, put `prime_day: true` in its front matter.
 
+## Scheduled posts and builds
+
+`_config.yml` sets `future: false`, so a post dated in the future (Central time) stays off the site until a build runs at or after its date. The `jekyll-cloudcannon-schedule` plugin writes `/_schedule.txt` with one line per future post. CloudCannon reads that file after each build and schedules a build at each time. You'll find them under Site Settings > Schedule > Automatic.
+
+`_plugins/cloudcannon_schedule_extras.rb` adds two more kinds of line to the same file:
+
+- the Prime Day end: a build at 00:05 Central on `prime_day.ends` while `prime_day.active` is true
+- each entry in `scheduled_builds` in `_config.yml` (`time: "YYYY-MM-DD HH:MM"` Central, `name`, optional `file`). Past times are ignored.
+
+A post only appears after a build runs at or after its time. If a scheduled build is missed, the post waits for the next build, so also keep a daily manual schedule in CloudCannon as a fallback. Never add `--future` to the build command: it would publish future posts right away and leave the schedule empty.
+
 ## Hosting
 
 The output is a static site, so it can be hosted for free on CloudCannon, Netlify, Cloudflare Pages, or GitHub Pages (via a GitHub Action, because this site uses Jekyll 4). Expired deals are hidden at build time, so schedule a daily rebuild if you use `expires`.
