@@ -182,3 +182,39 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-bg { transition: none; }
 }
+
+/* Filter pills (/deals/ JS filters, category links, Prime Day link).
+   Unselected: Cartzilla outline-secondary; pressing must not mimic the selected look. */
+.cdeals-filter-pill {
+  --cz-btn-active-color: var(--cz-btn-hover-color);
+  --cz-btn-active-bg: var(--cz-btn-hover-bg);
+  --cz-btn-active-border-color: var(--cz-btn-hover-border-color);
+}
+
+/* Prime Day, unselected: festive outline in the accent */
+.cdeals-prime-pill {
+  --cz-btn-color: #333d4c;
+  --cz-btn-bg: #fff;
+  --cz-btn-border-color: #53abf4;
+  --cz-btn-hover-color: #181d25;
+  --cz-btn-hover-bg: rgba(83, 171, 244, .1);
+  --cz-btn-hover-border-color: #53abf4;
+}
+.cdeals-prime-pill i { color: #53abf4; }
+
+/* Selected pill */
+.cdeals-filter-pill.active,
+.cdeals-filter-pill[aria-current=page] {
+  --cz-btn-color: #fff;
+  --cz-btn-bg: #53abf4;
+  --cz-btn-border-color: #53abf4;
+  --cz-btn-hover-color: #fff;
+  --cz-btn-hover-bg: #2d8fd9;
+  --cz-btn-hover-border-color: #2d8fd9;
+  /* Bootstrap paints .active with the active vars, so keep them on the accent */
+  --cz-btn-active-color: #fff;
+  --cz-btn-active-bg: #53abf4;
+  --cz-btn-active-border-color: #53abf4;
+}
+.cdeals-filter-pill.active i,
+.cdeals-filter-pill[aria-current=page] i { color: #fff; }
