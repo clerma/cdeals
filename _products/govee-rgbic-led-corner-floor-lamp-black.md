@@ -19,5 +19,7 @@ why_deal: Amazon has a good price on this right now. Prices change fast, so chec
 description: I've been looking at Govee's RGBIC LED Corner Floor Lamp, a black floor
   lamp built to sit in a corner of the room. It's from Govee, a brand known for its
 source: 9to5toys
+prime_day: true
+prime_day_source: https://www.techbargains.com/sales/prime-day-deals
 ---
 I've been looking at Govee's RGBIC LED Corner Floor Lamp, a black floor lamp built to sit in a corner of the room. It's from Govee, a brand known for its RGBIC lighting, which also makes LED strip lights, TV backlights, and gaming lights.

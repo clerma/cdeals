@@ -21,5 +21,7 @@ description: AirPods Max 2 are Apple's over-ear headphones for anyone who wants 
 specs:
 - label: Style
   value: over-ear
+prime_day: true
+prime_day_source: https://www.techbargains.com/sales/prime-day-deals
 ---
 AirPods Max 2 are Apple's over-ear headphones for anyone who wants big, immersive sound with strong noise blocking. Apple says they deliver up to 1.5x more Active Noise Cancellation than the previous generation, plus improved high-fidelity audio with deep bass, expansive mids, and crisp highs. You also get hands-free access to a more powerful, personalized AI assistant on your iPhone, and they come in five vibrant colors.
