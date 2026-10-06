@@ -5,6 +5,7 @@ date: 2026-10-06T08:00:00-05:00
 published: true
 description: One smart bulb fixed a light switch I hated, and it changed how I
   run my whole house. Here's why starting small with smart lights is worth it.
+image: /assets/uploads/lightbulb.jpg
 categories:
   - Smart Home
 tags:
