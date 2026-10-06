@@ -24,8 +24,8 @@
   "email":{{ company.email | jsonify }}{% endif %}
   {%- if company.country and company.country != "" %},
   "areaServed":{"@type":"Country","name":{{ company.country | jsonify }}}{% endif %}
-  {%- if site.social.links and site.social.links.size > 0 %},
-  "sameAs":[{% for link in site.social.links %}{{ link | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endif %}
+  {%- if site.data.social.links and site.data.social.links.size > 0 %},
+  "sameAs":[{% for link in site.data.social.links %}{{ link.url | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endif %}
   {%- if site.selling and company.payment_accepted and company.payment_accepted.size > 0 %},
   "paymentAccepted":{{ company.payment_accepted | join: ", " | jsonify }}{% endif %}
   {%- assign client_reviews = site.data.testimonials | where_exp: "t", "t.review" -%}

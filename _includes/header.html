@@ -2,9 +2,9 @@
 {% capture live_cats %}{% include live-categories.html %}{% endcapture %}{% assign live_cats = live_cats | split: "|" %}
 {% comment %} With nothing for sale, search looks through the deals and the shop links are hidden. {% endcomment %}
 {% if sale_items.size > 0 %}
-  {% assign search_url = '/shop/' %}{% assign search_label = 'Search my items' %}
+  {% assign search_url = '/shop/' %}{% assign search_label = site.data.strings.header.search_shop %}
 {% else %}
-  {% assign search_url = '/deals/' %}{% assign search_label = 'Search deals' %}
+  {% assign search_url = '/deals/' %}{% assign search_label = site.data.strings.header.search_deals %}
 {% endif %}
 <header class="navbar navbar-expand-lg navbar-dark bg-dark d-block z-fixed p-0" data-sticky-navbar='{"offset": 500}'>
   <div class="container d-block py-1 py-lg-3" data-bs-theme="dark">
@@ -19,7 +19,7 @@
 
         <!-- Logo -->
         <a href="{{ '/' | relative_url }}" class="navbar-brand me-0 d-flex align-items-center" aria-label="{{ site.title }}">
-          <img src="{{ '/assets/images/brand/logo-horizontal-on-dark.svg' | relative_url }}" class="cdeals-logo-header" width="170" height="40" alt="{{ site.title }} – Bargains on electronics">
+          <img src="{{ site.data.brand.header_logo.src | relative_url }}" class="cdeals-logo-header" width="{{ site.data.brand.header_logo.width }}" height="{{ site.data.brand.header_logo.height }}" alt="{{ site.data.brand.header_logo.alt | replace: '[site]', site.title }}">
         </a>
       </div>
       <div class="col-auto col-lg-9 d-flex align-items-center justify-content-end">
@@ -45,7 +45,7 @@
           {% if sale_items.size > 0 %}
           <!-- Cart: opens the AnyCart drawer; the badge shows AnyCart's live item count.
                Only shown while at least one of my own items is for sale. -->
-          <button type="button" class="btn btn-icon btn-lg btn-secondary position-relative rounded-circle ms-2" data-anycart-open aria-label="Shopping cart">
+          <button type="button" class="btn btn-icon btn-lg btn-secondary position-relative rounded-circle ms-2" data-anycart-open aria-label="{{ site.data.strings.header.cart_label }}">
             <span class="position-absolute top-0 start-100 mt-n1 ms-n3 badge text-bg-success border border-3 border-dark rounded-pill" style="--cz-badge-padding-y: .25em; --cz-badge-padding-x: .42em" data-anycart-count>0</span>
             <span class="position-absolute top-0 start-0 d-flex align-items-center justify-content-center w-100 h-100 rounded-circle animate-slide-end fs-lg">
               <i class="ci-shopping-cart animate-target ms-n1"></i>
@@ -70,7 +70,7 @@
   <div class="collapse navbar-stuck-hide" id="stuckNav">
     <nav class="offcanvas offcanvas-start" id="navbarNav" tabindex="-1" aria-labelledby="navbarNavLabel">
       <div class="offcanvas-header py-3">
-        <h5 class="offcanvas-title" id="navbarNavLabel">Browse {{ site.title }}</h5>
+        <h5 class="offcanvas-title" id="navbarNavLabel">{{ site.data.strings.header.menu_title | replace: '[site]', site.title }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body py-3 py-lg-0">
@@ -82,22 +82,22 @@
               <div class="navbar-nav">
                 <div class="dropdown w-100">
                   <div class="cursor-pointer d-none d-lg-block" data-bs-toggle="dropdown" data-bs-trigger="hover" data-bs-theme="dark">
-                    <a class="position-absolute top-0 start-0 w-100 h-100" href="{{ search_url | relative_url }}"><span class="visually-hidden">Categories</span></a>
+                    <a class="position-absolute top-0 start-0 w-100 h-100" href="{{ search_url | relative_url }}"><span class="visually-hidden">{{ site.data.strings.header.categories }}</span></a>
                     <button type="button" class="btn btn-lg btn-secondary dropdown-toggle w-100 rounded-bottom-0 justify-content-start pe-none">
                       <i class="ci-grid fs-lg"></i>
-                      <span class="ms-2 me-auto">Categories</span>
+                      <span class="ms-2 me-auto">{{ site.data.strings.header.categories }}</span>
                     </button>
                   </div>
                   <button type="button" class="btn btn-lg btn-secondary dropdown-toggle w-100 justify-content-start d-lg-none mb-2" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                     <i class="ci-grid fs-lg"></i>
-                    <span class="ms-2 me-auto">Categories</span>
+                    <span class="ms-2 me-auto">{{ site.data.strings.header.categories }}</span>
                   </button>
                   <ul class="dropdown-menu w-100 rounded-top-0 rounded-bottom-4 py-1 p-lg-1" style="--cz-dropdown-spacer: 0; --cz-dropdown-item-padding-y: .625rem; --cz-dropdown-item-spacer: 0">
                     {% if sale_items.size > 0 %}
                     <li class="pt-2 px-lg-2">
                       <a class="dropdown-item fw-medium" href="{{ '/shop/' | relative_url }}">
                         <i class="ci-grid fs-xl opacity-60 pe-1 me-2"></i>
-                        <span class="text-truncate">All items for sale</span>
+                        <span class="text-truncate">{{ site.data.strings.header.all_for_sale }}</span>
                         <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
                       </a>
                     </li>
@@ -106,7 +106,7 @@
                     <li class="px-lg-2{% if sale_items.size == 0 %} pt-2{% endif %}">
                       <a class="dropdown-item fw-medium text-primary" href="{{ '/deals/prime-day/' | relative_url }}">
                         <i class="ci-percent fs-xl pe-1 me-2"></i>
-                        <span class="text-truncate">Prime Day</span>
+                        <span class="text-truncate">{{ site.data.strings.header.prime_day }}</span>
                         <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
                       </a>
                     </li>
@@ -123,7 +123,7 @@
                     <li class="pb-2 px-lg-2{% if sale_items.size == 0 and live_cats.size == 0 %} pt-2{% endif %}">
                       <a class="dropdown-item fw-medium" href="{{ '/deals/' | relative_url }}">
                         <i class="ci-percent fs-xl opacity-60 pe-1 me-2"></i>
-                        <span class="text-truncate">All deals</span>
+                        <span class="text-truncate">{{ site.data.strings.header.all_deals }}</span>
                         <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
                       </a>
                     </li>
@@ -136,7 +136,7 @@
             <div class="col-lg-9 d-lg-flex pt-3 pt-lg-0 ps-lg-0">
               <ul class="navbar-nav position-relative">
                 {% for item in site.data.navigation %}
-                {% if item.url == '/shop/' and sale_items.size == 0 %}{% continue %}{% endif %}
+                {% if item.selling_only and sale_items.size == 0 %}{% continue %}{% endif %}
                 <li class="nav-item me-lg-n2 me-xl-0">
                   <a class="nav-link{% if page.url == item.url %} active{% endif %}"{% if page.url == item.url %} aria-current="page"{% endif %} href="{{ item.url | relative_url }}">{{ item.title }}</a>
                 </li>

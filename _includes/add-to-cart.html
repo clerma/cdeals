@@ -15,6 +15,6 @@
   data-item-url="{{ p.url | absolute_url }}"
   data-item-image="{{ p.images[0] | absolute_url }}"
   data-item-max-quantity="{{ p.quantity | default: 1 }}"
-  aria-label="Add {{ p.title | escape }} to cart">
-  <i class="ci-shopping-cart {% if include.icon_only %}fs-base{% else %}fs-lg me-2 ms-n1{% endif %} animate-target"></i>{% unless include.icon_only %}Add to cart{% endunless %}
+  aria-label="{{ site.data.strings.product.add_to_cart_label | replace: '[title]', p.title | escape }}">
+  <i class="ci-shopping-cart {% if include.icon_only %}fs-base{% else %}fs-lg me-2 ms-n1{% endif %} animate-target"></i>{% unless include.icon_only %}{{ site.data.strings.product.add_to_cart }}{% endunless %}
 </button>

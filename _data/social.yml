@@ -1,0 +1,15 @@
+# Social profiles (Instagram, YouTube, X, etc.).
+# Used for the og:see_also tags and the "sameAs" list in the site's structured
+# data. Leave the list empty until the profiles are real: an empty list adds
+# nothing to the pages.
+#
+# To add a profile, replace `links: []` with one entry per profile, e.g.:
+#
+# links:
+#   - name: Instagram
+#     url: https://www.instagram.com/your-handle/
+#   - name: YouTube
+#     url: https://www.youtube.com/@your-handle
+#
+# `name` is just a label for you; only `url` appears on the site.
+links: []

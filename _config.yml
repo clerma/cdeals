@@ -75,18 +75,9 @@ amazon_show_prices: true
 # plain amazon.com/dp links with your tag.
 geniuslink_group: ""
 
-# Shown in the footer and on every affiliate deal.
-affiliate_disclosure: >-
-  Some links on this site are affiliate links. If you buy through them I may
-  earn a small commission at no extra cost to you.
-
 # SEO: search console verification codes (emitted only when filled in)
 google_site_verification: ""
 bing_site_verification: ""
-
-# Social profiles (Instagram, YouTube, X, etc.). Feeds schema sameAs. Leave empty until real.
-social:
-  links: []
 
 # ---------------------------------------------------------------------------
 # Build

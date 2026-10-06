@@ -19,10 +19,10 @@
   <div class="d-flex flex-wrap align-items-center gap-2 pt-4">
     {% if include.prime_pill %}{% include prime-day-pill.html %}{% endif %}
     {% if cats.size > 1 %}
-      <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill active" data-filter="*">All</button>
+      <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill active" data-filter="*">{{ site.data.strings.grid.filter_all }}</button>
       {% for c in cats %}{% assign cname = c.name | default: c %}<button type="button" class="btn btn-sm btn-outline-secondary rounded-pill" data-filter="{{ cname | slugify }}">{{ cname }}</button>{% endfor %}
     {% endif %}
-    <span class="fs-sm text-body-secondary ms-auto" data-filter-query hidden>Results for "<span></span>" · <a href="?">Clear</a></span>
+    <span class="fs-sm text-body-secondary ms-auto" data-filter-query hidden>{{ site.data.strings.grid.results_for }} "<span></span>" · <a href="?">{{ site.data.strings.grid.clear }}</a></span>
   </div>
 {% endif %}
 <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4 pt-4"{% if include.filters %} data-filter-grid{% endif %}>
@@ -34,5 +34,5 @@
   {% endfor %}
 </div>
 {% if include.filters %}
-  <p class="text-body-secondary py-5 text-center" data-filter-empty hidden>Nothing matches that right now. <a href="?">Show everything</a></p>
+  <p class="text-body-secondary py-5 text-center" data-filter-empty hidden>{{ site.data.strings.grid.no_matches }} <a href="?">{{ site.data.strings.grid.show_everything }}</a></p>
 {% endif %}

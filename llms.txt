@@ -16,7 +16,7 @@ layout: null
 
 > {{ site.description | strip_html | strip_newlines | strip }}
 
-{% if site.selling %}{{ site.title }} is run by {{ site.author }}. It has two parts: used tech that {{ site.author }} sells directly (checkout through AnyCart and Stripe), and affiliate deals at other stores.{% else %}{{ site.title }} is run by {{ site.author }}. It lists tech deals at other stores, each found and checked by hand.{% endif %} {{ site.affiliate_disclosure | strip }}
+{% if site.selling %}{{ site.title }} is run by {{ site.author }}. It has two parts: used tech that {{ site.author }} sells directly (checkout through AnyCart and Stripe), and affiliate deals at other stores.{% else %}{{ site.title }} is run by {{ site.author }}. It lists tech deals at other stores, each found and checked by hand.{% endif %} {{ site.data.disclosures.affiliate | strip }}
 
 - Website: {{ site.url }}/
 {%- if site.data.company.email and site.data.company.email != "" %}

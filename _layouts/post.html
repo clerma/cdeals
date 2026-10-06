@@ -6,7 +6,7 @@ layout: default
   Liquid: front matter image, Markdown content, tags, related posts, deal embeds.
 {% endcomment %}
 {% assign crumb = page.breadcrumb_title | default: page.title %}
-{% include page-header.html title=crumb parent="Blog" parent_url="/blog/" %}
+{% include page-header.html title=crumb parent=site.data.strings.breadcrumbs.blog parent_url=site.data.strings.breadcrumbs.blog_url %}
 
 <section class="container pb-5 mb-2 mb-md-3 mb-lg-4 mb-xl-5">
   <div class="row">
@@ -18,7 +18,7 @@ layout: default
         {% if pcat %}<span class="nav-link text-body fs-xs text-uppercase p-0">{{ pcat }}</span><hr class="vr my-1 mx-1">{% endif %}
         <span class="text-body-tertiary fs-xs">{{ page.date | date: "%B %-d, %Y" }}</span>
         <hr class="vr my-1 mx-1">
-        <span class="text-body-tertiary fs-xs">By {{ page.author | default: site.author }}</span>
+        <span class="text-body-tertiary fs-xs">{% assign post_author = page.author | default: site.author %}{{ site.data.strings.blog.by | replace: '[author]', post_author }}</span>
       </div>
 
       {% if page.image %}
@@ -35,8 +35,8 @@ layout: default
       </div>
 
       <p class="cdeals-smallprint border-top pt-3 mt-4 mb-0">
-        {{ site.affiliate_disclosure }}
-        <a href="{{ '/disclosure/' | relative_url }}">Learn more</a>
+        {{ site.data.disclosures.affiliate }}
+        <a href="{{ site.data.disclosures.learn_more_url | relative_url }}">{{ site.data.disclosures.learn_more_label }}</a>
       </p>
 
       {% if page.tags and page.tags.size > 0 %}
@@ -59,7 +59,7 @@ layout: default
       {% assign related = related | slice: 0, 3 %}
       {% if related.size > 0 %}
       <div class="pt-5 mt-2 mt-md-3 mt-lg-4 mt-xl-5">
-        <h2 class="h3 pb-2 pb-sm-3">Related articles</h2>
+        <h2 class="h3 pb-2 pb-sm-3">{{ site.data.strings.blog.related }}</h2>
         <div class="d-flex flex-column gap-4 mt-n3">
           {% for post in related %}
           <article class="row align-items-start align-items-md-center gx-0 gy-4 pt-3">
@@ -84,8 +84,8 @@ layout: default
           </article>
           {% endfor %}
           <div class="nav">
-            <a class="nav-link animate-underline px-0 py-2" href="{{ '/blog/' | relative_url }}">
-              <span class="animate-target">View all</span>
+            <a class="nav-link animate-underline px-0 py-2" href="{{ site.data.strings.blog.view_all_url | relative_url }}">
+              <span class="animate-target">{{ site.data.strings.blog.view_all }}</span>
               <i class="ci-chevron-right fs-base ms-1"></i>
             </a>
           </div>

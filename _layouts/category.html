@@ -3,23 +3,23 @@ layout: default
 ---
 {% assign cat = site.data.categories | where: "slug", page.slug | first %}
 {% assign deals = site.products | where: "type", "affiliate" | where: "category", cat.name | sort: "date" | reverse %}
-{% include page-header.html title=cat.name parent="Deals" parent_url="/deals/" %}
+{% include page-header.html title=cat.name parent=site.data.strings.breadcrumbs.deals parent_url=site.data.strings.breadcrumbs.deals_url %}
 <section class="container pb-5 mb-2 mb-md-3 mb-lg-4">
-  <h1 class="h3 mb-1"><i class="{{ cat.icon | default: 'ci-box' }} text-body-tertiary me-2"></i>{{ cat.name }} deals</h1>
-  <p class="text-body-secondary mb-3">{{ cat.name }} deals I've found around the web. Prices change fast, so check the price before you buy.</p>
+  <h1 class="h3 mb-1"><i class="{{ cat.icon | default: 'ci-box' }} text-body-tertiary me-2"></i>{{ site.data.strings.category.heading | replace: '[category]', cat.name }}</h1>
+  <p class="text-body-secondary mb-3">{{ site.data.strings.category.intro | replace: '[category]', cat.name }}</p>
   {% include category-pills.html current=cat.slug %}
   {% include product-grid.html items=deals filters=false %}
   {% assign shown = 0 %}{% assign today = site.time | date: "%Y-%m-%d" %}
   {% for d in deals %}{% if d.expires %}{% assign exp = d.expires | date: "%Y-%m-%d" %}{% if exp < today %}{% continue %}{% endif %}{% endif %}{% assign shown = shown | plus: 1 %}{% endfor %}
   {% if shown == 0 %}
   <div class="text-center bg-body-tertiary rounded-5 py-5 px-3 mt-4">
-    <h2 class="h5 mb-2">No {{ cat.name | downcase }} deals right now</h2>
-    <p class="text-body-secondary mb-4">Check back soon, new deals get added often.</p>
-    <a class="btn btn-primary" href="{{ '/deals/' | relative_url }}">See all deals</a>
+    {% assign cat_lower = cat.name | downcase %}<h2 class="h5 mb-2">{{ site.data.strings.category.empty_heading | replace: '[category]', cat_lower }}</h2>
+    <p class="text-body-secondary mb-4">{{ site.data.strings.category.empty_text }}</p>
+    <a class="btn btn-primary" href="{{ site.data.strings.category.empty_button_url | relative_url }}">{{ site.data.strings.category.empty_button }}</a>
   </div>
   {% endif %}
   <div class="alert alert-info d-flex fs-sm mt-4 mb-0" role="alert">
     <i class="ci-info fs-lg pe-1 mt-1 me-2"></i>
-    <div class="cdeals-smallprint">{{ site.affiliate_disclosure }} <a class="alert-link" href="{{ '/disclosure/' | relative_url }}">Learn more</a></div>
+    <div class="cdeals-smallprint">{{ site.data.disclosures.affiliate }} <a class="alert-link" href="{{ site.data.disclosures.learn_more_url | relative_url }}">{{ site.data.disclosures.learn_more_label }}</a></div>
   </div>
 </section>

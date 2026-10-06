@@ -1,0 +1,8 @@
+# Affiliate disclosure. Shown in the footer, on every deal page, on category
+# pages, at the end of blog posts, on the home page, and in /llms.txt.
+# Keep it to one or two plain sentences (no line breaks).
+affiliate: "Some links on this site are affiliate links. If you buy through them I may earn a small commission at no extra cost to you."
+
+# The link shown right after the disclosure text.
+learn_more_label: "Learn more"
+learn_more_url: /disclosure/

@@ -10,7 +10,7 @@ updated: 2026-10-04
 
 ## Short version
 
-{{ site.affiliate_disclosure }}
+{{ site.data.disclosures.affiliate }}
 
 ## Affiliate links
 

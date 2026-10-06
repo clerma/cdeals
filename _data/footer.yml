@@ -1,0 +1,49 @@
+# Footer (bottom of every page). The logo lives in _data/brand.yml, the
+# tagline under it is `tagline` in _config.yml, and the affiliate disclosure
+# text is in _data/disclosures.yml.
+
+# Button under the logo. icon = a Cartzilla icon class (e.g. ci-mail).
+email_button:
+  label: "Email me"
+  url: /contact/
+  icon: ci-mail
+
+# Link columns, left to right.
+# - selling_only: true  hides that link while nothing of mine is for sale.
+# - auto_categories: true  fills the column with the deal categories that
+#   currently have live deals (from _data/categories.yml); it has no links of
+#   its own and is skipped when there are no live categories.
+columns:
+  - heading: "Shop"
+    links:
+      - label: "All items for sale"
+        url: /shop/
+        selling_only: true
+      - label: "Deals I found"
+        url: /deals/
+  - heading: "Categories"
+    auto_categories: true
+  - heading: "Info"
+    links:
+      - label: "Blog"
+        url: /blog/
+      - label: "About"
+        url: /about/
+      - label: "Returns & shipping"
+        url: /returns/
+        selling_only: true
+      - label: "Contact"
+        url: /contact/
+      - label: "Submit a deal"
+        url: /submit-a-deal/
+  - heading: "Policies"
+    links:
+      - label: "Affiliate disclosure"
+        url: /disclosure/
+      - label: "Terms"
+        url: /terms/
+      - label: "Privacy"
+        url: /privacy/
+
+# Bottom line: "© <year> <author> " followed by this text.
+copyright_suffix: "All rights reserved."

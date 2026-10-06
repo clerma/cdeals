@@ -38,7 +38,7 @@ collection_list: prime_day_deals
   {% if page.show_disclosure %}
   <div class="alert alert-info d-flex fs-sm mt-4 mb-0" role="alert">
     <i class="ci-info fs-lg pe-1 mt-1 me-2"></i>
-    <div class="cdeals-smallprint">{{ site.affiliate_disclosure }} <a class="alert-link" href="{{ '/disclosure/' | relative_url }}">Learn more</a></div>
+    <div class="cdeals-smallprint">{{ site.data.disclosures.affiliate }} <a class="alert-link" href="{{ '/disclosure/' | relative_url }}">Learn more</a></div>
   </div>
   {% endif %}
 </section>

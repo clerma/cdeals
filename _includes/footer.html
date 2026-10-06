@@ -1,28 +1,24 @@
 {% comment %} site.selling: true while at least one of my own items is for sale (_plugins/selling_mode.rb). {% endcomment %}
-{% capture footer_cats %}{% include live-categories.html %}{% endcapture %}{% assign footer_cats = footer_cats | split: "|" %}
+{% assign footer = site.data.footer %}{% assign logo = site.data.brand.footer_logo %}{% capture footer_cats %}{% include live-categories.html %}{% endcapture %}{% assign footer_cats = footer_cats | split: "|" %}
 <footer class="footer position-relative bg-dark">
   <span class="position-absolute top-0 start-0 w-100 h-100 bg-body d-none d-block-dark"></span>
   <div class="container position-relative z-1 pt-sm-2 pt-md-3 pt-lg-4" data-bs-theme="dark">
     <div class="row py-5">
       <div class="col-md-4 pb-4 mb-sm-2">
         <a class="d-inline-block mb-3" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}">
-          <img src="{{ '/assets/images/brand/logo-horizontal-on-dark.svg' | relative_url }}" class="footer-brand-logo" width="186" height="44" alt="{{ site.title }}">
+          <img src="{{ logo.src | relative_url }}" class="footer-brand-logo" width="{{ logo.width }}" height="{{ logo.height }}" alt="{{ site.title }}">
         </a>
         <p class="text-body fs-sm mb-3">{{ site.tagline }}</p>
-        <a class="btn btn-secondary" href="{{ '/contact/' | relative_url }}"><i class="ci-mail fs-base me-2"></i>Email me</a>
+        <a class="btn btn-secondary" href="{{ footer.email_button.url | relative_url }}"><i class="{{ footer.email_button.icon }} fs-base me-2"></i>{{ footer.email_button.label }}</a>
       </div>
       <div class="col-md-8">
         <div class="row row-cols-2 row-cols-sm-4 g-4">
-          <div class="col">
-            <h6 class="mb-3">Shop</h6>
-            <ul class="nav flex-column gap-2">
-              {% if site.selling %}<li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/shop/' | relative_url }}"><span class="animate-target">All items for sale</span></a></li>{% endif %}
-              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/deals/' | relative_url }}"><span class="animate-target">Deals I found</span></a></li>
-            </ul>
-          </div>
+          {%- comment %} Columns and links come from _data/footer.yml. {% endcomment %}
+          {%- for col in footer.columns %}
+          {%- if col.auto_categories %}
           {% if footer_cats.size > 0 %}
           <div class="col">
-            <h6 class="mb-3">Categories</h6>
+            <h6 class="mb-3">{{ col.heading }}</h6>
             <ul class="nav flex-column gap-2">
               {% for c in site.data.categories %}{% unless footer_cats contains c.slug %}{% continue %}{% endunless %}
               <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/deals/' | append: c.slug | append: '/' | relative_url }}"><span class="animate-target">{{ c.name }}</span></a></li>
@@ -30,32 +26,25 @@
             </ul>
           </div>
           {% endif %}
+          {%- else %}
           <div class="col">
-            <h6 class="mb-3">Info</h6>
+            <h6 class="mb-3">{{ col.heading }}</h6>
             <ul class="nav flex-column gap-2">
-              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/blog/' | relative_url }}"><span class="animate-target">Blog</span></a></li>
-              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/about/' | relative_url }}"><span class="animate-target">About</span></a></li>
-              {% if site.selling %}<li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/returns/' | relative_url }}"><span class="animate-target">Returns &amp; shipping</span></a></li>{% endif %}
-              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/contact/' | relative_url }}"><span class="animate-target">Contact</span></a></li>
-              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/submit-a-deal/' | relative_url }}"><span class="animate-target">Submit a deal</span></a></li>
+              {%- for link in col.links %}
+              {% if link.selling_only != true or site.selling %}<li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ link.url | relative_url }}"><span class="animate-target">{{ link.label | escape }}</span></a></li>{% endif %}
+              {%- endfor %}
             </ul>
           </div>
-          <div class="col">
-            <h6 class="mb-3">Policies</h6>
-            <ul class="nav flex-column gap-2">
-              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/disclosure/' | relative_url }}"><span class="animate-target">Affiliate disclosure</span></a></li>
-              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/terms/' | relative_url }}"><span class="animate-target">Terms</span></a></li>
-              <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/privacy/' | relative_url }}"><span class="animate-target">Privacy</span></a></li>
-            </ul>
-          </div>
+          {%- endif %}
+          {%- endfor %}
         </div>
       </div>
     </div>
 
-    <p class="cdeals-smallprint mb-4">{{ site.affiliate_disclosure }} <a href="{{ '/disclosure/' | relative_url }}">Learn more</a></p>
+    <p class="cdeals-smallprint mb-4">{{ site.data.disclosures.affiliate }} <a href="{{ site.data.disclosures.learn_more_url | relative_url }}">{{ site.data.disclosures.learn_more_label }}</a></p>
 
     <div class="border-top py-4">
-      <p class="text-body fs-xs text-center text-md-start mb-0">&copy; {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
+      <p class="text-body fs-xs text-center text-md-start mb-0">&copy; {{ site.time | date: "%Y" }} {{ site.author }}. {{ footer.copyright_suffix }}</p>
     </div>
   </div>
 </footer>
@@ -63,7 +52,7 @@
 <!-- Back to top -->
 <div class="floating-buttons position-fixed top-50 end-0 z-sticky me-3 me-xl-4 pb-4">
   <a class="btn-scroll-top btn btn-sm bg-body border-0 rounded-pill shadow animate-slide-end" href="#top">
-    Top
+    {{ site.data.strings.back_to_top }}
     <i class="ci-arrow-right fs-base ms-1 me-n1 animate-target"></i>
     <span class="position-absolute top-0 start-0 w-100 h-100 border rounded-pill z-0"></span>
     <svg class="position-absolute top-0 start-0 w-100 h-100 z-1" viewBox="0 0 62 32" fill="none" xmlns="http://www.w3.org/2000/svg">

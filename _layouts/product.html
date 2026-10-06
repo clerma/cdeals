@@ -5,9 +5,9 @@ layout: default
 {% assign is_deal = false %}{% if p.type == "affiliate" %}{% assign is_deal = true %}{% endif %}
 {% assign is_sold = false %}{% if p.status == "sold" %}{% assign is_sold = true %}{% endif %}
 {% if is_deal %}
-  {% include page-header.html title=p.title parent="Deals" parent_url="/deals/" %}
+  {% include page-header.html title=p.title parent=site.data.strings.breadcrumbs.deals parent_url=site.data.strings.breadcrumbs.deals_url %}
 {% else %}
-  {% include page-header.html title=p.title parent="For sale" parent_url="/shop/" %}
+  {% include page-header.html title=p.title parent=site.data.strings.breadcrumbs.shop parent_url=site.data.strings.breadcrumbs.shop_url %}
 {% endif %}
 
 <section class="container pb-4 pb-md-5 mb-2 mb-sm-3 mb-lg-4">
@@ -24,7 +24,7 @@ layout: default
       {% if p.images.size > 1 %}
       <div class="d-flex flex-wrap gap-2 pt-3">
         {% for img in p.images %}
-        <button type="button" class="product-thumb btn p-2 bg-body-tertiary border{% if forloop.first %} border-primary{% endif %} rounded-3" data-gallery-thumb="{{ img | relative_url }}" aria-label="Show photo {{ forloop.index }}">
+        <button type="button" class="product-thumb btn p-2 bg-body-tertiary border{% if forloop.first %} border-primary{% endif %} rounded-3" data-gallery-thumb="{{ img | relative_url }}" aria-label="{{ site.data.strings.product.photo_label | replace: '[count]', forloop.index }}">
           <span class="ratio ratio-1x1"><img src="{{ img | relative_url }}" alt="" style="object-fit: contain"></span>
         </button>
         {% endfor %}
@@ -40,32 +40,32 @@ layout: default
 
         <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
           {% include price.html product=p size="page" %}
-          {% unless is_deal %}<span class="badge text-bg-success">Condition: {{ p.condition | default: "Used" }}</span>{% endunless %}
+          {% unless is_deal %}<span class="badge text-bg-success">{{ site.data.strings.product.condition }} {{ p.condition | default: site.data.strings.product.condition_default }}</span>{% endunless %}
         </div>
 
         {% if is_sold %}
           <div class="alert alert-secondary d-flex mb-4" role="alert">
             <i class="ci-check-circle fs-lg pe-1 mt-1 me-2"></i>
-            <div>This one's sold. See <a href="{{ '/shop/' | relative_url }}">what's still for sale</a>.</div>
+            {% capture sold_link %}<a href="{{ site.data.strings.product.sold_link_url | relative_url }}">{{ site.data.strings.product.sold_link }}</a>{% endcapture %}<div>{{ site.data.strings.product.sold_notice | replace: '[link]', sold_link }}</div>
           </div>
         {% elsif is_deal %}
           <a class="btn btn-lg btn-primary w-100 animate-slide-end mb-3" href="{{ p.affiliate_url }}" target="_blank" rel="sponsored nofollow noopener">
-            {% capture amz_deal %}{% include amazon-deal.html product=p %}{% endcapture %}{% if amz_deal != "" %}See the savings on Amazon{% else %}Get this deal at {{ p.store }}{% endif %}
+            {% capture amz_deal %}{% include amazon-deal.html product=p %}{% endcapture %}{% if amz_deal != "" %}{{ site.data.strings.product.cta_amazon }}{% else %}{{ site.data.strings.product.cta_store | replace: '[store]', p.store }}{% endif %}
             <i class="ci-external-link fs-lg ms-2 me-n1 animate-target"></i>
           </a>
-          <p class="cdeals-smallprint mb-4">Prices change often, so check the price at {{ p.store }} before you buy. {{ site.affiliate_disclosure }} <a href="{{ '/disclosure/' | relative_url }}">Learn more</a></p>
+          <p class="cdeals-smallprint mb-4">{{ site.data.strings.product.price_note | replace: '[store]', p.store }} {{ site.data.disclosures.affiliate }} <a href="{{ site.data.disclosures.learn_more_url | relative_url }}">{{ site.data.disclosures.learn_more_label }}</a></p>
         {% else %}
           {% include add-to-cart.html product=p class="btn btn-lg btn-primary w-100 mb-3" %}
           <ul class="list-unstyled gap-3 pb-3 mb-4 d-flex flex-column fs-sm">
-            <li class="d-flex align-items-center"><i class="ci-delivery fs-xl text-dark-emphasis me-2"></i>{{ p.shipping | default: "Ships in 2 business days with tracking" }}</li>
-            <li class="d-flex align-items-center"><i class="ci-credit-card fs-xl text-dark-emphasis me-2"></i>Secure checkout through Stripe</li>
-            <li class="d-flex align-items-center"><i class="ci-rotate-ccw fs-xl text-dark-emphasis me-2"></i><a href="{{ '/returns/' | relative_url }}">Returns &amp; shipping</a></li>
-            <li class="d-flex align-items-center"><i class="ci-mail fs-xl text-dark-emphasis me-2"></i><span>Questions? <a href="{{ '/contact/' | relative_url }}">Email me about this item</a></span></li>
+            <li class="d-flex align-items-center"><i class="ci-delivery fs-xl text-dark-emphasis me-2"></i>{{ p.shipping | default: site.data.strings.product.shipping_default }}</li>
+            <li class="d-flex align-items-center"><i class="ci-credit-card fs-xl text-dark-emphasis me-2"></i>{{ site.data.strings.product.checkout }}</li>
+            <li class="d-flex align-items-center"><i class="ci-rotate-ccw fs-xl text-dark-emphasis me-2"></i><a href="{{ site.data.strings.product.returns_url | relative_url }}">{{ site.data.strings.product.returns | escape }}</a></li>
+            <li class="d-flex align-items-center"><i class="ci-mail fs-xl text-dark-emphasis me-2"></i>{% capture questions_link %}<a href="{{ site.data.strings.product.questions_link_url | relative_url }}">{{ site.data.strings.product.questions_link }}</a>{% endcapture %}<span>{{ site.data.strings.product.questions | replace: '[link]', questions_link }}</span></li>
           </ul>
         {% endif %}
 
         {% if p.highlights and p.highlights.size > 0 %}
-        <h2 class="h6 mb-3">Highlights</h2>
+        <h2 class="h6 mb-3">{{ site.data.strings.product.highlights }}</h2>
         <ul class="list-unstyled d-flex flex-column gap-2 fs-sm mb-0">
           {% for h in p.highlights %}<li class="d-flex align-items-start"><i class="ci-check-circle text-success fs-base mt-1 me-2"></i>{{ h }}</li>{% endfor %}
         </ul>
@@ -80,13 +80,13 @@ layout: default
 <section class="container pb-5 mb-2 mb-md-3 mb-lg-4">
   <div class="border-top pt-5">
     <ul class="nav nav-underline flex-nowrap overflow-auto mb-4" role="tablist">
-      <li class="nav-item"><a class="nav-link active text-nowrap" href="#product-description" data-bs-toggle="tab" role="tab" aria-selected="true">Description</a></li>
-      {% if p.specs and p.specs.size > 0 %}<li class="nav-item"><a class="nav-link text-nowrap" href="#product-specs" data-bs-toggle="tab" role="tab" aria-selected="false">Key specs</a></li>{% endif %}
-      {% if p.why_deal or is_deal %}<li class="nav-item"><a class="nav-link text-nowrap" href="#product-deal" data-bs-toggle="tab" role="tab" aria-selected="false">Why it's a deal</a></li>{% endif %}
+      <li class="nav-item"><a class="nav-link active text-nowrap" href="#product-description" data-bs-toggle="tab" role="tab" aria-selected="true">{{ site.data.strings.product.tab_description }}</a></li>
+      {% if p.specs and p.specs.size > 0 %}<li class="nav-item"><a class="nav-link text-nowrap" href="#product-specs" data-bs-toggle="tab" role="tab" aria-selected="false">{{ site.data.strings.product.tab_specs }}</a></li>{% endif %}
+      {% if p.why_deal or is_deal %}<li class="nav-item"><a class="nav-link text-nowrap" href="#product-deal" data-bs-toggle="tab" role="tab" aria-selected="false">{{ site.data.strings.product.tab_why_deal }}</a></li>{% endif %}
     </ul>
     <div class="tab-content" style="max-width: 48rem">
       <div class="tab-pane fade show active" id="product-description" role="tabpanel">
-        <h2 class="h5 mb-3">About this {% if is_deal %}deal{% else %}item{% endif %}</h2>
+        <h2 class="h5 mb-3">{% if is_deal %}{{ site.data.strings.product.about_deal }}{% else %}{{ site.data.strings.product.about_item }}{% endif %}</h2>
         {%- comment -%}
           Product body is plain prose. Pipe characters in store copy used to become
           Markdown tables (skinny columns). Strip tags and re-wrap as paragraphs.
@@ -108,8 +108,8 @@ layout: default
       </div>
       {% if p.specs and p.specs.size > 0 %}
       <div class="tab-pane fade" id="product-specs" role="tabpanel">
-        <h2 class="h5 mb-3">Key specs</h2>
-        <p class="fs-xs text-body-secondary mb-3">Pulled from the product title and the store listing. Blank when the listing doesn't say.</p>
+        <h2 class="h5 mb-3">{{ site.data.strings.product.tab_specs }}</h2>
+        <p class="fs-xs text-body-secondary mb-3">{{ site.data.strings.product.specs_note }}</p>
         <div class="row row-cols-1 row-cols-sm-2 g-3">
           {% for s in p.specs %}
           <div class="col">
@@ -127,7 +127,7 @@ layout: default
       {% endif %}
       {% if p.why_deal or is_deal %}
       <div class="tab-pane fade" id="product-deal" role="tabpanel">
-        <h2 class="h5 mb-3">Why it's a deal</h2>
+        <h2 class="h5 mb-3">{{ site.data.strings.product.tab_why_deal }}</h2>
         <p class="page-lede fs-sm mb-0">{{ p.why_deal | default: content }}</p>
       </div>
       {% endif %}

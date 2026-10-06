@@ -88,7 +88,7 @@
 <meta name="twitter:title" content="{{ seo_title | escape }}">
 <meta name="twitter:description" content="{{ seo_description | escape }}">
 {% if page_image %}<meta name="twitter:image" content="{{ page_image }}">{% endif %}
-{% for link in site.social.links %}<meta property="og:see_also" content="{{ link }}">
+{% for link in site.data.social.links %}<meta property="og:see_also" content="{{ link.url }}">
 {% endfor %}
 
 <!-- Sitewide schema -->
