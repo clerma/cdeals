@@ -101,9 +101,9 @@ blog:
   related: "Related articles"
   view_all: "View all"
   view_all_url: /blog/
-  sidebar_title: "Sidebar"
-  sidebar_categories: "Blog categories"
-  sidebar_recent: "Recent posts"
+  # Category filter on /blog/ (shown only when posts span 2+ categories).
+  categories_all: "All"
+  categories_label: "Filter posts by category"
 
 # Plain text pages (About, policies, etc.).
 page:
