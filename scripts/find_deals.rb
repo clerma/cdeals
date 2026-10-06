@@ -13,6 +13,7 @@
 #   bundle exec ruby scripts/find_deals.rb --tag-prime-day [--dry-run]
 #            only reads the prime_day_roundups: pages and adds prime_day: true /
 #            prime_day_source: to published Amazon deals listed there
+#   --no-recheck  skip the re-check of published deals (see "re-check" below)
 #
 # Needs the optional "deals" gem group:  bundle config set --local with deals && bundle install
 
@@ -28,7 +29,7 @@ require_relative "lib/source_cache"
 
 
 
-opts = { dry_run: false, source: nil, limit: nil, verbose: false }
+opts = { dry_run: false, source: nil, limit: nil, verbose: false, recheck: true }
 OptionParser.new do |o|
   o.on("--dry-run") { opts[:dry_run] = true }
   o.on("--source ID") { |v| opts[:source] = v }
@@ -36,6 +37,7 @@ OptionParser.new do |o|
   o.on("--verbose", "-v") { opts[:verbose] = true }
   o.on("--deep") { ENV["DEALS_DEEP"] = "1" }
   o.on("--tag-prime-day") { opts[:tag_prime_day] = true }
+  o.on("--no-recheck") { opts[:recheck] = false }
 end.parse!
 
 cfg = DealTools.config
@@ -147,6 +149,29 @@ rejected.each { |e| [e["key"], e["source_link"]].compact.each { |k| seen[k] = "r
 rejected.each do |e|
   k = DealTools.url_key("https://#{e['key']}") if e["key"].to_s =~ %r{\A(?:walmart|samsclub)\.com/ip/}
   seen[k] ||= "rejected before" if k
+end
+
+# Re-check of published deals: active affiliate deals by url_key. Source items
+# matching one are recorded in recheck_hits (key => [{ price:, was:, source: }])
+# and, for recheck_missing: sources, their whole listing in recheck_listings.
+published = {}
+if opts[:recheck]
+  Dir[File.join(DealTools::PRODUCTS_DIR, "*.md")].sort.each do |path|
+    fm = DealTools.front_matter(path)
+    next unless fm["type"].to_s == "affiliate"
+    next if fm["expires"].is_a?(Date) && fm["expires"] < today
+    k = DealTools.url_key(fm["affiliate_url"]) or next
+    published[k] = { path: path, price: fm["price"].to_f, source: fm["source"].to_s }
+  end
+end
+recheck_hits = Hash.new { |h, k| h[k] = [] }
+recheck_listings = {}
+# Store link of an item without any request (tracking links only when the
+# destination is embedded in them).
+item_key = lambda do |it|
+  u = it.key?(:store_url) ? it[:store_url] : it[:link]
+  u = DealTools.embedded_destination(u) || u if DealTools.tracker?(u)
+  DealTools.tracker?(u) ? nil : DealTools.url_key(u)
 end
 
 # Same product across stores: keep the best price. sig -> { price:, store:, entry: (this run) | file: (published) }
@@ -703,7 +728,10 @@ sources.each do |source|
         # Same cheap filters as build_candidate, applied before any detail page is opened.
         DirectSources.bradsdeals_items(fetcher, source, category_re: Regexp.union(category_rules.map(&:last)), exclude_re: exclude_re,
                                                         known: ->(url) { seen[DealTools.url_key(url)] })
+      elsif opts[:recheck] && source["recheck_missing"] && DirectSources.method(meth).parameters.any? { |_, n| n == :listing }
+        DirectSources.public_send(meth, fetcher, source, listing: (recheck_listings[source["id"]] = {}))
       else
+        warn "deal_sources.yml: recheck_missing isn't supported by the #{source['parser']} parser" if source["recheck_missing"]
         DirectSources.public_send(meth, fetcher, source)
       end
     elsif source["parser"] == "techbargains_pages"
@@ -734,6 +762,14 @@ sources.each do |source|
                 store_hint: source["store"], expires: nil)
       end
     end
+  # Published deals seen in this source's items (all of them, before max_items;
+  # items older than max_age_hours don't show today's price).
+  max_age = source["max_age_hours"] || filters["max_age_hours"]
+  items.each do |it|
+    next unless published.any? && it[:price]&.positive? && (k = item_key.call(it)) && published[k]
+    next if it[:published] && max_age && now - it[:published] > max_age.to_f * 3600
+    recheck_hits[k] << { price: it[:price].to_f, was: it[:compare_at], source: source["id"] }
+  end
   items = items.first((source["max_items"] || 30).to_i)
   if source["price_pages"]
     price_texts = source_price_texts(http, source, max_redirects)
@@ -764,6 +800,63 @@ sources.each do |source|
   end
 end
 
+# ------------------------------------------- re-check published deals ---
+# Prices of published deals against the listings read in this run (no extra
+# requests). Listing price higher by more than 1% or $0.50 -> expired; lower is
+# only reported. recheck_missing: sources whose listing loaded (no failed page,
+# at least 10 products) also expire their own deals that are gone from the
+# listing or skipped there (not in stock, member-only price, ...).
+recheck = { matched: 0, confirmed: 0, cheaper: [], expired: [] }
+fmt_money = ->(v) { v == v.round ? "$#{v.round}" : format("$%.2f", v) }
+if opts[:recheck]
+  usable = recheck_listings.select do |id, l|
+    n = l[:products]&.size.to_i
+    ok = l[:ok] && n >= 10
+    puts "Re-check: #{id} listing not used for missing deals (#{l[:ok] ? "only #{n} products" : 'a page failed'})" unless ok
+    ok
+  end
+  published.each do |k, pub|
+    name = File.basename(pub[:path])
+    reason = rec = nil
+    if (l = usable[pub[:source]])
+      if !(rec = l[:products][k])
+        reason = "not on the #{pub[:source]} listing (#{l[:products].size} products, #{today})"
+      elsif rec[:why]
+        reason = "#{rec[:why]} on the #{pub[:source]} listing (#{today})"
+      end
+    end
+    hits = recheck_hits[k]
+    hits += [{ price: rec[:price], was: rec[:was], source: pub[:source] }] if rec && !rec[:why] && rec[:price]
+    next if reason.nil? && hits.empty?
+    recheck[:matched] += 1
+    # The deal's own source wins; otherwise the lowest listing price.
+    hit = hits.select { |h| h[:source] == pub[:source] }.min_by { |h| h[:price] } || hits.min_by { |h| h[:price] }
+    if reason.nil? && hit && pub[:price].positive?
+      diff = hit[:price] - pub[:price]
+      if diff > 0.5 || diff > pub[:price] * 0.01
+        reason = "listing price #{fmt_money.call(hit[:price])} > #{fmt_money.call(pub[:price])} (#{hit[:source]}, #{today})"
+      elsif diff < -0.005
+        recheck[:cheaper] << "now cheaper: #{name}, published #{fmt_money.call(pub[:price])}, listing #{fmt_money.call(hit[:price])} (#{hit[:source]})"
+      end
+    end
+    unless reason
+      recheck[:confirmed] += 1
+      log.call("  confirmed: #{name}#{hit ? " #{fmt_money.call(hit[:price])}#{hit[:was] ? " (was #{fmt_money.call(hit[:was])})" : ''} via #{hit[:source]}" : ''}")
+      next
+    end
+    recheck[:expired] << "#{name}: #{reason}"
+    next if opts[:dry_run]
+    # Only the expires / expired_reason lines change (like --tag-prime-day).
+    text = File.read(pub[:path])
+    m = text.match(/\A---\s*\n(.*?)\n---\s*(\n|\z)/m) or next
+    fm = m[1].gsub(/^expired_reason:.*\n?/, "").sub(/\n\z/, "")
+    exp = "expires: #{today - 1}"
+    fm = fm =~ /^expires:.*$/ ? fm.sub(/^expires:.*$/, exp) : "#{fm}\n#{exp}"
+    fm = "#{fm}\nexpired_reason: #{reason.to_json}"
+    File.write(pub[:path], text[0, m.begin(1)] + fm + text[m.end(1)..])
+  end
+end
+
 queue.concat(added)
 DealTools.save_queue(queue) unless opts[:dry_run]
 # Credits are spent even on a dry run, so the usage counts are always saved.
@@ -786,5 +879,11 @@ puts "Skipped:" unless skips.empty?
 skips.sort_by { |_, n| -n }.each { |r, n| puts "  #{n.to_s.rjust(4)}  #{r}" }
 puts "Unresolved store links:" unless unresolved_reasons.empty?
 unresolved_reasons.sort_by { |_, n| -n }.each { |r, n| puts "  #{n.to_s.rjust(4)}  #{r}" }
+if opts[:recheck]
+  puts "Re-checked published deals: matched #{recheck[:matched]}, confirmed #{recheck[:confirmed]}, " \
+       "now cheaper #{recheck[:cheaper].size}, expired #{recheck[:expired].size}#{opts[:dry_run] && recheck[:expired].any? ? ' (dry run: nothing written)' : ''}"
+  recheck[:cheaper].each { |c| puts "  #{c}" }
+  recheck[:expired].each { |e| puts "  expired #{e}" }
+end
 puts(opts[:dry_run] ? "(dry run: queue not saved)" : "Queue: #{DealTools::QUEUE_FILE.sub("#{DealTools::ROOT}/", '')} (#{queue.size} entries)")
 added.each { |e| puts "  #{e['id']}  #{e['title']} | #{e['price']}#{e['compare_at'] ? " (was #{e['compare_at']})" : ''} | #{e['store']} | #{e['category']} | #{e['affiliate_url'].to_s.empty? ? 'NO STORE LINK' : e['affiliate_url']}" }
