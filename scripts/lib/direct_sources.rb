@@ -1144,15 +1144,159 @@ module DirectSources
     items
   end
 
+  # Woot Developer API (https://developer.woot.com). Needs WOOT_API_KEY (sent
+  # as the x-api-key header, never logged); without it the source is skipped
+  # and the woot sitemap reader runs instead (unless_env). Reads the feeds
+  # listed under the source's feeds: (GET /feed/<name>?page=N, 100 offers a
+  # page), max_pages_per_feed pages each (deep_max_pages_per_feed on --deep),
+  # stopping at the feed's TotalPages. Offer detail (/offers/<id>) is never
+  # requested: everything comes from the feed. A 403 / 429 stops the source
+  # for the run (RunBlocks); other errors stop that feed. No retries.
+  WOOT_API = "https://developer.woot.com"
+  # Woot categories that are tech ("TECH/Headphones", "PC/Peripherals & Accessories", ...).
+  WOOT_TECH_CATEGORIES = %w[TECH/ PC/ Sellout/Electronics Sellout/Computers].freeze
+  WOOT_NOT_HARDWARE_RE = /\b(?:software|subscriptions?|gift\s*cards?|e-?gift)\b/i
+  WOOT_USED_RE = /\b(?:refurb\w*|recondition\w*|renewed|open[\s-]?box|used|pre[\s-]?owned|like[\s-]?new|scratch\w*|dent(?:ed|s)?)\b/i
+
+  def woot_api_items(fetcher, source, now: Time.now)
+    env = Array(source["env"]).first.to_s
+    key = ENV[env].to_s.strip
+    feeds = Array(source["feeds"]).map(&:to_s).reject(&:empty?)
+    return [] if key.empty? || feeds.empty?
+    max_pages = ((DealTools.deep? && source["deep_max_pages_per_feed"]) || source["max_pages_per_feed"] || 3).to_i
+    delay = (source["delay_seconds"] || 2).to_f
+    ua = (fetcher.http.user_agent if fetcher.respond_to?(:http)) || "cDealsFinder/1.0"
+    scrub = ->(s) { s.to_s.gsub(key, "[redacted]") }
+    per_feed = Hash.new { |h, k| h[k] = [] }
+    skipped = Hash.new(0)
+    offers = requests = 0
+    feeds.each do |feed|
+      (1..max_pages).each do |page|
+        url = "#{WOOT_API}/feed/#{URI.encode_www_form_component(feed)}?page=#{page}"
+        break if RunBlocks.source_blocked?(source["id"]) || RunBlocks.refusal(url)
+        sleep delay if requests.positive? && delay.positive?
+        requests += 1
+        begin
+          u = URI(url)
+          http = Net::HTTP.new(u.host, u.port)
+          http.use_ssl = true
+          http.open_timeout = 10
+          http.read_timeout = 30
+          res = http.request(Net::HTTP::Get.new(u.request_uri, "x-api-key" => key, "Accept" => "application/json", "User-Agent" => ua))
+        rescue StandardError => e
+          log scrub.call("#{url}: Woot API error: #{e.class}: #{e.message}")[0, 200]
+          break
+        end
+        body = res.body.to_s
+        # 403 / 429 / bot wall: one log line from RunBlocks, then the source stops.
+        if (why = RunBlocks.block_reason(status: res.code.to_i, body: body, content_type: res["content-type"]))
+          RunBlocks.block!(url, why, own: true)
+          break
+        end
+        unless res.code.to_i == 200
+          log scrub.call("#{url}: Woot API HTTP #{res.code}")
+          break
+        end
+        data = (JSON.parse(body) rescue nil)
+        unless data.is_a?(Hash)
+          log "#{url}: Woot API answer isn't JSON"
+          break
+        end
+        list = Array(data["Items"])
+        offers += list.size
+        per_feed[feed].concat(woot_api_page(list, source, skipped: skipped, now: now))
+        log "#{feed} page #{page} of #{data['TotalPages']}: #{list.size} offers"
+        break if list.empty? || page >= data["TotalPages"].to_i
+      end
+    end
+    # Feeds taken in turn, so one feed can't fill max_items / max_candidates alone.
+    lists = per_feed.values
+    items = {}
+    (0...(lists.map(&:size).max || 0)).each do |i|
+      lists.each { |l| (it = l[i]) && (items[DealTools.url_key(it[:store_url])] ||= it) }
+    end
+    log "#{offers} offers, #{items.size} kept"
+    log "not used: #{skipped.sort_by { |_, n| -n }.map { |w, n| "#{w} #{n}" }.join(', ')}" unless skipped.empty?
+    items.values
+  end
+
+  # Price of a Woot {Minimum, Maximum} pair: the price, nil when missing, or
+  # :range when the variants have different prices.
+  def woot_price(h)
+    return nil unless h.is_a?(Hash)
+    lo = h["Minimum"]
+    hi = h["Maximum"]
+    return nil unless lo.is_a?(Numeric) && lo.positive?
+    return :range if hi.is_a?(Numeric) && (hi - lo).abs >= 0.005
+    lo.to_f.round(2)
+  end
+
+  # Plain offer URL (no query / fragment) on woot.com or a subdomain, else nil.
+  def woot_offer_url(url)
+    u = DealTools.parse_uri(url.to_s.strip) or return nil
+    return nil unless u.host.to_s.downcase =~ /(?:\A|\.)woot\.com\z/ && u.path.start_with?("/offers/")
+    "https://#{u.host.downcase}#{u.path}"
+  end
+
+  # Items from the Items of one feed page (no network).
+  def woot_api_page(offers, source, skipped: Hash.new(0), now: Time.now)
+    title_skip = source["title_exclude"] ? Regexp.new(source["title_exclude"], Regexp::IGNORECASE) : nil
+    keep = Array(source["tech_categories"] || WOOT_TECH_CATEGORIES)
+    tech = ->(c) { keep.any? { |k| k.end_with?("/") ? c.start_with?(k) : c == k } }
+    store = source["store"] || "Woot"
+    Array(offers).filter_map do |o|
+      next unless o.is_a?(Hash)
+      raw = o["Title"].to_s.gsub(/\s+/, " ").strip
+      title = raw.sub(/\A\(new\)\s*/i, "")
+      cats = Array(o["Categories"]).map(&:to_s)
+      url = woot_offer_url(o["Url"])
+      price = woot_price(o["SalePrice"])
+      was = woot_price(o["ListPrice"])
+      ends = (Time.parse(o["EndDate"].to_s) rescue nil) unless o["EndDate"].to_s.empty?
+      why =
+        if url.nil? then "no offer URL"
+        elsif title.empty? then "no title"
+        elsif o["IsSoldOut"] then "sold out"
+        elsif o["IsAvailableOnMobileAppOnly"] then "mobile app only"
+        elsif o["Photo"].to_s.strip.empty? then "no photo"
+        elsif ends && ends < now then "ended"
+        elsif cats.none?(&tech) then "not a tech category"
+        elsif "#{title} #{cats.join(' ')}" =~ WOOT_NOT_HARDWARE_RE then "software / subscription / gift card"
+        elsif price == :range then "variant price range"
+        elsif price.nil? then "no price"
+        elsif was == :range then "variant list price range"
+        elsif was.nil? || was <= price then "no was-price"
+        elsif title_skip&.match?(title) then "title_exclude"
+        end
+      if why
+        skipped[why] += 1
+        next
+      end
+      cond = o["Condition"].to_s.gsub(/\s+/, " ").strip
+      tag = raw[/\A\(([^)]{1,30})\)/, 1].to_s
+      used = "#{tag} #{cond}" =~ WOOT_USED_RE || title =~ WOOT_USED_RE
+      hl = []
+      hl << "Refurbished, open-box or used#{cond.empty? ? '' : " (Woot: #{cond})"}: check the condition notes at #{store}" if used
+      hl << "International version (per #{store})" if cond =~ /international/i
+      sub = cats.select(&tech).filter_map { |c| c.split("/", 2)[1] }.first
+      base_item(source, title: title, link: url, store_url: url, price: price, compare_at: was,
+                        image: o["Photo"].to_s.strip, feed_category: sub, highlights: hl,
+                        condition: (used ? "used" : nil),
+                        expires: ends&.getlocal("-05:00")&.to_date,
+                        text: "#{store} price $#{format('%.2f', price)} (list $#{format('%.2f', was)}).")
+    end
+  end
+
   # Adapters for official sources that need a partner account / key first.
   # Listed in deal_sources.yml with enabled: false; flip them on once the
   # adapter is written and the key is in the environment.
-  PLANNED = %w[walmart_affiliate impact_catalog woot_api amazon_paapi bestbuy_pages].freeze
+  PLANNED = %w[walmart_affiliate impact_catalog amazon_paapi bestbuy_pages].freeze
 
   PARSERS = {
     "bh" => :bh_items, "newegg" => :newegg_items, "newegg_rss" => :newegg_rss_items,
     "macheist" => :macheist_items, "slickdeals_rss" => :slickdeals_items, "target" => :target_items,
     "bestbuy_api" => :bestbuy_api_items, "bradsdeals" => :bradsdeals_items,
-    "samsclub" => :samsclub_items, "walmart" => :walmart_items, "owc" => :owc_items
+    "samsclub" => :samsclub_items, "walmart" => :walmart_items, "owc" => :owc_items,
+    "woot_api" => :woot_api_items
   }.freeze
 end

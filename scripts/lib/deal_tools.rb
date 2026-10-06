@@ -152,6 +152,10 @@ module DealTools
       sku = u.path.start_with?("/configure-my-mac/") && URI.decode_www_form(u.query.to_s).assoc("sku")&.last
       return "#{bare_host(u)}#{u.path.downcase.chomp('/')}#{sku ? "?sku=#{sku.downcase}" : ''}"
     end
+    # Woot offers (woot.com and its subdomains): /offers/<slug> is the offer, no query.
+    if bare_host(u) =~ /(?:\A|\.)woot\.com\z/ && (slug = u.path[%r{\A/offers/([^/]+)/?\z}, 1])
+      return "#{bare_host(u)}/offers/#{slug.downcase}"
+    end
     q = u.query ? "?#{URI.decode_www_form(u.query).sort.map { |k, v| "#{k}=#{v}" }.join('&')}" : ""
     "#{bare_host(u)}#{u.path.downcase.chomp('/')}#{q}"
   rescue ArgumentError

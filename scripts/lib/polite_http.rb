@@ -19,6 +19,9 @@ class PoliteHTTP
 
   attr_reader :stats
 
+  # The User-Agent sent with every request (official API readers reuse it).
+  def user_agent = @ua
+
   def initialize(opts = {})
     @ua = opts["user_agent"] || "cDealsFinder/1.0"
     @open_timeout = (opts["open_timeout"] || 8).to_i

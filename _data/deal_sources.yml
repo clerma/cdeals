@@ -365,16 +365,54 @@ sites:
     # Page 2+ of a TechBargains listing only holds months-old deals (tested
     # Oct 2026), so depth comes from more category/store pages, not paging.
 
-  # Woot (Amazon-owned deal store; not covered by the Amazon tag). Event pages
-  # are server-rendered; woot.com/category/computers etc. are built by
-  # JavaScript, so their offers are read from the matching subdomain sitemaps.
-  # Every offer page is read for the real price, Woot's list price, the end
-  # date (used as `expires`) and stock. ?ref= is stripped. robots.txt allows
-  # /plus/, /offers/ and the sitemaps.
+  # Woot (Amazon-owned deal store; not covered by the Amazon tag).
+  # Woot Developer API (official, parser woot_api in scripts/lib/direct_sources.rb).
+  # Needs WOOT_API_KEY (x-api-key header; never logged). Reads the Electronics
+  # and Computers feeds (GET developer.woot.com/feed/<name>?page=N, 100 offers
+  # a page), max_pages_per_feed pages each (deep_max_pages_per_feed on --deep),
+  # 2 s apart. Not the All feed (5k cap, mixed) or Home (grocery / home goods).
+  # Offer detail (/offers/<id>) is never requested: title, price, list price,
+  # photo, end date and condition come from the feed. Skipped: sold out,
+  # mobile-app-only, no photo / URL, not a TECH/ PC/ Sellout/Electronics /
+  # Sellout/Computers category, software / subscriptions / gift cards, variant
+  # price ranges (SalePrice or ListPrice Minimum != Maximum), no list price
+  # above the sale price. "(NEW)" is dropped from titles; refurbished /
+  # open-box / used offers keep a condition highlight. Links are the feed's
+  # plain offer URL (no query). A 403 / 429 stops the source for the run
+  # (no retries). Without the key it's skipped and the sitemap reader below runs.
+  - id: woot-api
+    name: Woot Developer API (official)
+    store: Woot
+    fetch: api
+    parser: woot_api
+    env: [WOOT_API_KEY]
+    official_for: [woot.com]
+    require_discount: true
+    require_image: true
+    require_title_category: true   # Woot's own categories are broad ("Phones & Accessories" is mostly cases / bands)
+    enrich_store_page: false       # feed data only; woot.com offer pages aren't read
+    max_discount_pct: 85           # list prices far above the sale price look inflated
+    # phone-case / watch-band fluff (global exclude_keywords already drop "case for", screen protectors, cables, ...)
+    title_exclude: '\b(watch bands?|solo loop|sport loop|sport band|phone cases?|(?:iphone|galaxy|pixel|airpods)\b[^()]{0,60}\bcases?)\b'
+    max_items: 400
+    max_candidates: 40
+    expires_days: 3                # when an offer has no EndDate
+    feeds: [Electronics, Computers]
+    max_pages_per_feed: 3          # daily: 6 requests
+    deep_max_pages_per_feed: 10    # --deep: the whole feeds (Electronics ~9 pages, Computers ~6)
+    delay_seconds: 2
+  # Woot HTML fallback, only while WOOT_API_KEY is missing (unless_env; once
+  # the key is set this source is skipped and the API above takes over).
+  # Event pages are server-rendered; woot.com/category/computers etc. are built
+  # by JavaScript, so their offers are read from the matching subdomain
+  # sitemaps. Every offer page is read for the real price, Woot's list price,
+  # the end date (used as `expires`) and stock. ?ref= is stripped. robots.txt
+  # allows /plus/, /offers/ and the sitemaps.
   - id: woot
-    name: Woot
+    name: Woot (sitemap reader, until the API key exists)
     store: Woot
     fetch: sitemap
+    unless_env: [WOOT_API_KEY]
     parser: woot
     max_offers: 200          # every offer page is read (2 s apart), so this is the daily cost
     max_per_sitemap: 70      # newest offers first (sitemap lastmod)
@@ -832,13 +870,6 @@ sites:
     # Add target.com here once a Target Partners (Impact) catalog is set up:
     # that switches Target from ZenRows to the official feed automatically.
     official_for: [macsales.com, adorama.com]
-  - id: woot-api
-    name: Woot developer API (planned; the sitemap reader above works without it)
-    enabled: false
-    fetch: api
-    parser: woot_api
-    env: [WOOT_API_KEY]
-    official_for: [woot.com]
   - id: amazon-paapi
     name: Amazon Product Advertising API (planned; Amazon pages are never scraped)
     enabled: false

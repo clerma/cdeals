@@ -1,0 +1,153 @@
+{
+  "Items": [
+    {
+      "Categories": [
+        "PC",
+        "PC/Peripherals & Accessories"
+      ],
+      "Condition": null,
+      "EndDate": "2026-10-11T05:00:00+00:00",
+      "ForumUrl": "https://forums.woot.com/t/2622700",
+      "IsAvailableOnMobileAppOnly": false,
+      "IsFeatured": false,
+      "IsFulfilledByAmazon": false,
+      "IsSoldOut": false,
+      "IsWootOff": false,
+      "ListPrice": {
+        "Minimum": 99.99,
+        "Maximum": 99.99
+      },
+      "OfferId": "14c909d8-ca56-4170-b2dc-aea69c20c7f4",
+      "Photo": "https://d3gqasl9vmjfd8.cloudfront.net/c570181e-b639-402d-a8c7-ecfa15ba3448.jpg",
+      "SalePrice": {
+        "Minimum": 39.99,
+        "Maximum": 39.99
+      },
+      "Site": "Computers",
+      "Slug": null,
+      "StartDate": "2026-10-06T05:00:00+00:00",
+      "Subtitle": null,
+      "Title": "Belkin Thunderbolt 3 Dock Mini HD",
+      "Url": "https://computers.woot.com/offers/belkin-thunderbolt-3-dock-mini-hd-14"
+    },
+    {
+      "Categories": [
+        "PC",
+        "PC/Peripherals & Accessories"
+      ],
+      "Condition": null,
+      "EndDate": "2026-10-11T05:00:00+00:00",
+      "ForumUrl": "https://forums.woot.com/t/2622651",
+      "IsAvailableOnMobileAppOnly": false,
+      "IsFeatured": false,
+      "IsFulfilledByAmazon": false,
+      "IsSoldOut": false,
+      "IsWootOff": false,
+      "ListPrice": {
+        "Minimum": 79.99,
+        "Maximum": 79.99
+      },
+      "OfferId": "f5397477-c625-4e28-8db2-1590d8485acc",
+      "Photo": "https://d3gqasl9vmjfd8.cloudfront.net/1e50ed55-1339-4984-baa8-fb517fe35403.jpg",
+      "SalePrice": {
+        "Minimum": 39.99,
+        "Maximum": 39.99
+      },
+      "Site": "Computers",
+      "Slug": null,
+      "StartDate": "2026-10-06T05:00:00+00:00",
+      "Subtitle": null,
+      "Title": "Satechi USB-C Hub for Mac Mini M2-M1",
+      "Url": "https://computers.woot.com/offers/satechi-usb-c-hub-for-mac-mini-m2-m1-8"
+    },
+    {
+      "Categories": [
+        "PC",
+        "PC/Peripherals & Accessories"
+      ],
+      "Condition": null,
+      "EndDate": "2026-10-11T05:00:00+00:00",
+      "ForumUrl": "https://forums.woot.com/t/2622696",
+      "IsAvailableOnMobileAppOnly": false,
+      "IsFeatured": false,
+      "IsFulfilledByAmazon": true,
+      "IsSoldOut": false,
+      "IsWootOff": false,
+      "ListPrice": {
+        "Minimum": 29.99,
+        "Maximum": 29.99
+      },
+      "OfferId": "e3e64e05-2ce0-49db-abf8-4df3e71e7fb6",
+      "Photo": "https://d3gqasl9vmjfd8.cloudfront.net/7dcbf849-36e3-403f-883f-38861dc01a34.jpg",
+      "SalePrice": {
+        "Minimum": 12.99,
+        "Maximum": 12.99
+      },
+      "Site": "Computers",
+      "Slug": null,
+      "StartDate": "2026-10-06T05:00:00+00:00",
+      "Subtitle": null,
+      "Title": "HyperDrive 6-in-2 USB-C Hub",
+      "Url": "https://computers.woot.com/offers/hyperdrive-6-in-2-usb-c-hub-4"
+    },
+    {
+      "Categories": [
+        "PC",
+        "PC/Software"
+      ],
+      "Condition": null,
+      "EndDate": "2026-10-31T05:00:00+00:00",
+      "ForumUrl": "https://forums.woot.com/t/2620219",
+      "IsAvailableOnMobileAppOnly": false,
+      "IsFeatured": false,
+      "IsFulfilledByAmazon": false,
+      "IsSoldOut": false,
+      "IsWootOff": false,
+      "ListPrice": null,
+      "OfferId": "635695a1-64f9-4879-9235-33461f62e959",
+      "Photo": "https://d3gqasl9vmjfd8.cloudfront.net/ab4acc1d-80f2-4619-8b37-8a3e60d6e106.jpg",
+      "SalePrice": {
+        "Minimum": 12.99,
+        "Maximum": 12.99
+      },
+      "Site": "Computers",
+      "Slug": null,
+      "StartDate": "2026-10-04T05:00:00+00:00",
+      "Subtitle": null,
+      "Title": "Malwarebytes Standard Premium Software - 3 Devices, 1 Year, Digital",
+      "Url": "https://computers.woot.com/offers/malwarebytes-standard-premium-software-3-devices-1-year-digital"
+    },
+    {
+      "Categories": [
+        "PC",
+        "PC/Peripherals & Accessories"
+      ],
+      "Condition": null,
+      "EndDate": "2026-10-11T05:00:00+00:00",
+      "ForumUrl": "https://forums.woot.com/t/2622740",
+      "IsAvailableOnMobileAppOnly": false,
+      "IsFeatured": false,
+      "IsFulfilledByAmazon": false,
+      "IsSoldOut": false,
+      "IsWootOff": false,
+      "ListPrice": {
+        "Minimum": 79.99,
+        "Maximum": 79.99
+      },
+      "OfferId": "6f3cb217-c217-48a7-a8ce-3a32d3724a7a",
+      "Photo": "https://d3gqasl9vmjfd8.cloudfront.net/8bc4d51e-6675-4f53-9c99-58d063ad5087.jpg",
+      "SalePrice": {
+        "Minimum": 29.99,
+        "Maximum": 29.99
+      },
+      "Site": "Computers",
+      "Slug": null,
+      "StartDate": "2026-10-06T05:00:00+00:00",
+      "Subtitle": null,
+      "Title": "HyperDrive iPad USB-C Hub",
+      "Url": "https://computers.woot.com/offers/hyperdrive-ipad-usb-c-hub-2"
+    }
+  ],
+  "MarketingName": "Computers",
+  "TotalPages": 6
+}
