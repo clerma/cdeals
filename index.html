@@ -26,12 +26,16 @@ prime_day_title: Best Prime Day Deals   # shown only while Prime Day is live (pr
 prime_day_button: See all Prime Day deals   # button under the Prime Day section
 prime_day_button_url: /deals/prime-day/
 
+# Hero slides. Optional `background:` = an image shown behind that slide
+# (cover-cropped, so keep the middle empty); without it the slide uses the
+# default light-blue gradient.
 hero:
   - kicker: "Prime Big Deal Days · Oct 6–7"
     title: Best Prime Day deals
     image: /assets/images/theme/banner-laptop.png
     link: /deals/prime-day/
     button: See Prime Day deals
+    background: /assets/images/theme/prime-day-hero-bg.jpg
     prime_day: true   # only shown while Prime Day is live and has deals (prime_day in _config.yml)
   - kicker: Used, tested, and priced to sell
     title: Gear I've upgraded from
@@ -153,6 +157,11 @@ brands_all_deals_url: /deals/
     <div class="col-12">
       <div class="position-relative">
         <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 rtl-flip" style="background: linear-gradient(90deg, #accbee 0%, #e7f0fd 100%)"></span>
+        {% comment %} One layer per visible slide with a `background`; data-hero-bg = the slide's visible index (= Swiper realIndex), so the skip conditions must match the slide loops below. {% endcomment %}
+        {% assign hero_i = 0 %}{% assign hero_bgs = false %}
+        {% for s in home.hero %}{% if for_sale.size == 0 %}{% if s.link == '/shop/' or s.selling %}{% continue %}{% endif %}{% endif %}{% if s.prime_day and prime_hero == false %}{% continue %}{% endif %}
+        {% if s.background and s.background != "" %}{% assign hero_bgs = true %}<span class="hero-bg position-absolute top-0 start-0 w-100 h-100 rounded-5{% if hero_i == 0 %} is-active{% endif %}" data-hero-bg="{{ hero_i }}" style="--hero-bg: url('{{ s.background | relative_url }}')" aria-hidden="true"></span>{% endif %}
+        {% assign hero_i = hero_i | plus: 1 %}{% endfor %}
         <div class="row justify-content-center align-items-center position-relative z-2">
           <div class="col-lg-6 col-xl-5 offset-xl-1 d-flex align-items-center mt-lg-n3">
             <div class="swiper px-4 px-sm-5 pe-lg-0 ps-xl-0 me-lg-n5" data-swiper='{"spaceBetween": 64, "loop": true, "speed": 400, "controlSlider": "#sliderImages", "autoplay": {"delay": 5500, "disableOnInteraction": false}, "scrollbar": {"el": ".swiper-scrollbar"}}'>
@@ -195,6 +204,25 @@ brands_all_deals_url: /deals/
     </div>
   </div>
 </section>
+{% if hero_bgs %}
+<script>
+  // Fade in the hero background of the active slide (layers above, data-hero-bg = realIndex).
+  (function () {
+    var layers = document.querySelectorAll('.hero-bg');
+    var el = layers.length && layers[0].parentNode.querySelector('.swiper[data-swiper]');
+    if (!el) return;
+    function sync() {
+      var idx = el.swiper.realIndex;
+      for (var i = 0; i < layers.length; i++) layers[i].classList.toggle('is-active', +layers[i].getAttribute('data-hero-bg') === idx);
+    }
+    var tries = 0;
+    (function wait() {
+      if (el.swiper) { sync(); el.swiper.on('realIndexChange', sync); return; }
+      if (++tries < 100) setTimeout(wait, 50);
+    })();
+  })();
+</script>
+{% endif %}
 
 {% comment %} Prime Day: only while live and with at least 4 deals (_plugins/prime_day.rb). White background, so the CTA stays #53abf4 (btn-primary). {% endcomment %}
 {% if site.prime_day_live and site.prime_day_count >= 4 %}

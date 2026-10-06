@@ -157,3 +157,28 @@
   text-decoration: underline;
   text-underline-offset: 0.12em;
 }
+
+/* Home hero: optional per-slide background image (hero[].background), faded in
+   over the default gradient while its slide is active. A soft white wash sits
+   behind the text column so the kicker, title, and button stay readable. */
+.hero-bg {
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity .4s ease;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 48% 62% at 30% 50%, rgba(255, 255, 255, .45) 0%, rgba(255, 255, 255, 0) 100%),
+    var(--hero-bg) center / cover no-repeat;
+}
+.hero-bg.is-active { opacity: 1; }
+@media (max-width: 991.98px) {
+  /* Text sits above the image on small screens */
+  .hero-bg {
+    background:
+      radial-gradient(ellipse 75% 32% at 50% 22%, rgba(255, 255, 255, .45) 0%, rgba(255, 255, 255, 0) 100%),
+      var(--hero-bg) center / cover no-repeat;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg { transition: none; }
+}
