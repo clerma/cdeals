@@ -2,13 +2,14 @@
 {% assign footer = site.data.footer %}{% assign logo = site.data.brand.footer_logo %}{% capture footer_cats %}{% include live-categories.html %}{% endcapture %}{% assign footer_cats = footer_cats | split: "|" %}
 <footer class="footer position-relative bg-dark">
   <span class="position-absolute top-0 start-0 w-100 h-100 bg-body d-none d-block-dark"></span>
-  <div class="container position-relative z-1 pt-sm-2 pt-md-3 pt-lg-4" data-bs-theme="dark">
-    <div class="row py-5">
+  <div class="container position-relative z-1 pt-md-2 pt-lg-3" data-bs-theme="dark">
+    <div class="row pt-5 pb-4">
       <div class="col-md-4 pb-4 mb-sm-2">
         <a class="d-inline-block mb-3" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}">
           <img src="{{ logo.src | relative_url }}" class="footer-brand-logo" width="{{ logo.width }}" height="{{ logo.height }}" alt="{{ site.title }}">
         </a>
         <p class="text-body fs-sm mb-3">{{ site.tagline }}</p>
+        {% if footer.blurb and footer.blurb != "" %}<p class="footer-blurb text-body fs-sm mb-3">{{ footer.blurb | escape }}</p>{% endif %}
         <a class="btn btn-secondary" href="{{ footer.email_button.url | relative_url }}"><i class="{{ footer.email_button.icon }} fs-base me-2"></i>{{ footer.email_button.label }}</a>
       </div>
       <div class="col-md-8">
@@ -19,11 +20,27 @@
           {% if footer_cats.size > 0 %}
           <div class="col">
             <h6 class="mb-3">{{ col.heading }}</h6>
+            {%- comment %} First visible_categories live categories; the rest go in a collapse with a toggle. {% endcomment %}
+            {% assign cat_limit = footer.visible_categories | default: 5 %}{% assign cat_i = 0 %}
             <ul class="nav flex-column gap-2">
-              {% for c in site.data.categories %}{% unless footer_cats contains c.slug %}{% continue %}{% endunless %}
+              {% for c in site.data.categories %}{% unless footer_cats contains c.slug %}{% continue %}{% endunless %}{% assign cat_i = cat_i | plus: 1 %}{% if cat_i > cat_limit %}{% break %}{% endif %}
               <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/deals/' | append: c.slug | append: '/' | relative_url }}"><span class="animate-target">{{ c.name }}</span></a></li>
               {% endfor %}
             </ul>
+            {% if footer_cats.size > cat_limit %}{% assign cat_i = 0 %}
+            <div class="collapse" id="footer-more-categories">
+              <ul class="nav flex-column gap-2 pt-2">
+                {% for c in site.data.categories %}{% unless footer_cats contains c.slug %}{% continue %}{% endunless %}{% assign cat_i = cat_i | plus: 1 %}{% if cat_i <= cat_limit %}{% continue %}{% endif %}
+                <li class="animate-underline"><a class="nav-link d-inline fw-normal text-truncate p-0" href="{{ '/deals/' | append: c.slug | append: '/' | relative_url }}"><span class="animate-target">{{ c.name }}</span></a></li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="nav mt-2">
+              <button type="button" class="nav-link footer-more-toggle animate-underline fs-sm fw-normal p-0 collapsed" data-bs-toggle="collapse" data-bs-target="#footer-more-categories" aria-expanded="false" aria-controls="footer-more-categories">
+                <span class="animate-target footer-more-label">{{ footer.more_categories_label }}</span><span class="animate-target footer-fewer-label">{{ footer.fewer_categories_label }}</span><i class="ci-chevron-down fs-base ms-1" aria-hidden="true"></i>
+              </button>
+            </div>
+            {% endif %}
           </div>
           {% endif %}
           {%- else %}
@@ -41,10 +58,10 @@
       </div>
     </div>
 
-    <p class="cdeals-smallprint mb-4">{{ site.data.disclosures.affiliate }} <a href="{{ site.data.disclosures.learn_more_url | relative_url }}">{{ site.data.disclosures.learn_more_label }}</a></p>
+    <p class="cdeals-smallprint mb-3">{{ site.data.disclosures.affiliate }} <a href="{{ site.data.disclosures.learn_more_url | relative_url }}">{{ site.data.disclosures.learn_more_label }}</a></p>
 
     <div class="border-top py-4">
-      <p class="text-body fs-xs text-center text-md-start mb-0">&copy; {{ site.time | date: "%Y" }} {{ site.author }}. {{ footer.copyright_suffix }}</p>
+      <p class="text-body fs-xs text-center text-md-start mb-0">&copy; {{ site.time | date: "%Y" }} {% assign c_name = footer.copyright_name | default: site.author %}{% if footer.copyright_url and footer.copyright_url != "" %}<a class="footer-copyright-link" href="{{ footer.copyright_url }}" target="_blank" rel="noopener">{{ c_name | escape }}</a>{% else %}{{ c_name | escape }}{% endif %}. {{ footer.copyright_suffix }}</p>
     </div>
   </div>
 </footer>

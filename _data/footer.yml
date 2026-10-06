@@ -8,6 +8,9 @@ email_button:
   url: /contact/
   icon: ci-mail
 
+# Short paragraph under the tagline, in first person. Leave empty to hide it.
+blurb: "cDeals is where I share tech deals I think are worth a look, from laptops and phones to smart home gear. Down the road, I'll sell some of my own used gear here too."
+
 # Link columns, left to right.
 # - selling_only: true  hides that link while nothing of mine is for sale.
 # - auto_categories: true  fills the column with the deal categories that
@@ -45,5 +48,16 @@ columns:
       - label: "Privacy"
         url: /privacy/
 
-# Bottom line: "© <year> <author> " followed by this text.
+# Categories column: how many categories show before the rest are tucked
+# behind the "More categories" toggle (no toggle when there are this many or fewer).
+visible_categories: 5
+more_categories_label: "More categories"
+fewer_categories_label: "Fewer categories"
+
+# Who the copyright line names and where the name links (opens in a new tab;
+# leave the URL empty for plain text). Name falls back to `author` in _config.yml.
+copyright_name: "Carlos Lerma"
+copyright_url: "https://carloslerma.com"
+
+# Bottom line: "© <year> <name>. " followed by this text.
 copyright_suffix: "All rights reserved."

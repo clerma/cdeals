@@ -710,7 +710,29 @@ file_config:
       copyright_suffix:
         type: text
         label: Copyright text
-        comment: 'Bottom line reads "© <year> <author> " followed by this text.'
+        comment: 'Bottom line reads "© <year> <name>. " followed by this text.'
+      blurb:
+        type: textarea
+        label: Blurb under the logo
+        comment: One or two sentences under the footer logo, in first person
+      visible_categories:
+        type: number
+        label: Visible categories
+        comment: How many categories the Categories column shows before the rest go behind the "More categories" toggle.
+      more_categories_label:
+        type: text
+        label: '"More categories" toggle text'
+      fewer_categories_label:
+        type: text
+        label: '"Fewer categories" toggle text'
+      copyright_name:
+        type: text
+        label: Copyright name
+        comment: Name on the copyright line. Falls back to the site author when empty.
+      copyright_url:
+        type: url
+        label: Copyright name link
+        comment: Where the name links (opens in a new tab). Leave empty for no link.
 
   - glob: _data/navigation.yml
     _inputs:
