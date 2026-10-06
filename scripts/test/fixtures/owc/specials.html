@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html><head>
+	<title>MacSales.com Specials | Deals on Macs, Drives, Docks &amp; More</title>
+</head><body>
+<!-- Trimmed copy of https://eshop.macsales.com/shop/specials saved Oct 6 2026: the empty product area and the load-more script. -->
+			
+			
+			
+
+			
+			<div id="product-results-load-more-here" class="product-specials product-specials__grid-view">
+
+
+
+
+
+
+
+<script type="text/javascript" language="javascript">
+
+var busyLoadingMoreResults = false;
+var hazMoreResults = true;
+var curPage = 0;
+var morePages = ['103792,128995,128847,128682,93889,73880,119083,119084,95992,128687,62788,55821,61090,27441,14276,62739,77957,93923,57612,128839,72656','128840,127923,104323,20341,128680,119324,56671,93926,98314,118995,119201,127924,67563,118431,127926,119328,71290,72629,56621,127927,113305,127953,118763,53574,78222,51896,93927,68570,93924,80169,76203,71934,113279,90270,98233,26150,113275,127897,45703,76222,104322,93925,71301,55882,90275,48067,71293,58138,62735,63740,62792,25116,23298,16722,21144,118466,82187,96026,69000,48358,103793,17520,17451','58134,19273,66504,55620,22126,47056,71300,47055,47624,28355,63058,45113,74375,16450,95668,63057,18952,18651,53578,93892,15276,17759,101787,58071,61780,28312,90276,72253,30003,95667,69714,76202,101789,45114,59226,67145,62789,19084,20150,27432,56318,16656,51598,46864,55831,82191,82189,49812,44217,56220,93392,60883,13815,59054,23249,82197,98236,20569,55823,40982,56319,17824,99018','82190,74355,17823,16103,16934,11553,69819,14732,78181,55822,30017,9646,40781,20352,49339,56317,19624,40748,19859,56320,51881,93420,13193,93418,56316,19615,27771,20267,20270,72686,19625,15136,47057,61452,49313,19858,51366,19079,30011,28131,73918,23220,18337,19860,55824,19861,64973,19083,25109,24520,14731,50349,20278,12911,93891,41622,80935,20670,98226,75884,70738,95662,91946','91947,73283,71488,96149,55994,84715,74033,25730,77931,78136,74118,118701,71705,101589,101607,71241,118461,126306,116917,89936,119064,113860,76278,79780,81048,68807,128802,68041,25075,61779,68017,56538,12912,78265,98234,24841,95551,76948,128678,71493,119094,47213,16107,59100,56246,50351,20235,30254,128843,76996,119063,76116,84492,101743,91922,78729,69971,69970,120853,124401,79948,81865,104844','101553,101590,101592,91619,62350,104353,64319,26035,70091,71615,94010,82393,104703,104728,128892,101595,101601,127892,128898,82177,118536,116810,79898,73323,113797,99148,122044,118374,99208,90266,62341,65120,73750,113868,76279,100381,70623,93483,118340'];
+
+$(document).ready(function () {
+
+	$('div.back-to-top').click(function () {
+		$('html, body').animate({
+			scrollTop: $("div.horizontal-scroll__flex").offset().top
+		}, 400)
+	})
+
+	$('A.search-filter-show-all-link').click(function(e){
+		e.preventDefault();
+		$('LI#' + $(this).data('showClass') + '-link').slideUp('fast');
+		$('LI.' + $(this).data('showClass')).slideDown('fast');
+	});
+
+	$('SELECT.search-goto').change(function(){
+		window.location.href = $(this).val();
+	});
+
+	let mobileHiddenByDefault = document.querySelectorAll(".mobile-hidden-default");
+	for (let i = 0; i < mobileHiddenByDefault.length; i++) {
+		mobileHiddenByDefault[i].classList.remove("mobile-hidden-default");
+	}
+
+	$('.match-height').matchHeight();
+	$('.match-height-2').matchHeight();
+	$('.match-height-3').matchHeight();
+
+	if( hazMoreResults == true && busyLoadingMoreResults == false )
+	{
+		busyLoadingMoreResults = true;
+		console.log('loading first results on page ready');
+		loadNextPage();
+	}
+
+});
+
+$(window).scroll(function (event) {
+	function footer() {
+		var scroll = $(window).scrollTop();
+		if (scroll > 850) {
+			$(".footer-nav").fadeIn("slow").addClass("show");
+		}
+		else {
+			$(".footer-nav").fadeOut("slow").removeClass("show");
+		}
+
+		clearTimeout($.data(this, 'scrollTimer'));
+		$.data(this, 'scrollTimer', setTimeout(function () {
+			if ($('.footer-nav').is(':hover')) {
+				footer();
+			}
+			else {
+				$(".footer-nav").fadeOut("slow");
+			}
+		}, 2000));
+	}
+	footer();
+
+	if( hazMoreResults == true && busyLoadingMoreResults == false && isScrolledIntoView($('#search-more-results-preloader')) )
+	{
+		busyLoadingMoreResults = true;
+		console.log('reached the throbber, load more!');
+		loadNextPage();
+	}
+
+});
+
+function loadNextPage()
+{
+	if( morePages.length <= curPage )
+	{
+		console.log('determined that there are no more results to load');
+		$('.preloader-img').hide();
+		hazMoreResults = false;
+		busyLoadingMoreResults = false;
+		$('#search-more-results-preloader').hide();
+		return;
+	}
+	curPage++;
+	console.log('loading page',curPage,morePages[curPage-1]);
+	$('.preloader-img').slideDown();
+	$.get(
+		{
+			url: "/api/search/load-more/?view=specials&items=" + morePages[curPage-1],
+			success: function (data) {
+				$("#product-results-load-more-here").append(data);
+
+				initTimedPromos();
+
+				$('.match-height').matchHeight();
+				$('.match-height-2').matchHeight();
+				$('.match-height-3').matchHeight();
+
+				$('.tp-container').matchHeight();
+
+				busyLoadingMoreResults = false;
+				$('.preloader-img').slideUp();
+
+			}
+		});
+
+}
+
+
+</body></html>

@@ -126,7 +126,7 @@ defaults:
 # against the items the sources returned in that run (no extra requests): a
 # listing price more than 1% or $0.50 above the published price expires the
 # deal (expires: yesterday + expired_reason:); a lower price is only logged.
-# recheck_missing: true (walmart / samsclub parsers only) also expires the
+# recheck_missing: true (walmart / samsclub / owc parsers only) also expires the
 # source's own deals that are gone from its listing or skipped there, but only
 # when every page loaded and the listing had at least 10 products.
 # `find_deals.rb --no-recheck` turns this off.
@@ -178,7 +178,9 @@ http:
 # for scripts (tested Oct 2026). The finder still cleans the URL and uses the
 # feed's price/title/image.
 # samsclub.com: the samsclub source reads everything from the listing JSON.
-skip_store_fetch_hosts: [amazon.com, walmart.com, bestbuy.com, samsclub.com]
+# macsales.com: the owc source reads everything from the specials page's
+# load-more fragments; OWC /item/ pages are never requested.
+skip_store_fetch_hosts: [amazon.com, walmart.com, bestbuy.com, samsclub.com, macsales.com]
 
 # ---------------------------------------------------------------------------
 # Prime Day roundups (Amazon Prime events only: Prime Day in July, Prime Big
@@ -762,6 +764,53 @@ sites:
     title_exclude: '\b(face mask|light therapy|ink|toner)\b'
     urls:
       - https://www.walmart.com/shop/deals/top-100-tech-deals
+  # OWC / MacSales specials (parser owc in scripts/lib/direct_sources.rb).
+  # The specials page has no products in its HTML: its script lists the
+  # product ids in batches (var morePages = ['id,id,...', ...]) and loads each
+  # batch from /api/search/load-more/?view=specials&items=<ids> (HTML product
+  # cards). The reader requests the page once, then up to max_batches batch
+  # URLs, plain and polite (our User-Agent, per-host delay, robots.txt). A 403,
+  # 429 or bot wall stops it for the run (no retries, NEVER ZenRows); so does a
+  # page without morePages or a failed batch. Product pages are never requested
+  # (macsales.com is in skip_store_fetch_hosts; enrich_store_page: false).
+  # Price = the card's price; original price = OWC's crossed-out price only
+  # when shown and higher (cards without one are skipped). "After Instant
+  # Rebate" prices are taken off at checkout (kept, with a highlight);
+  # mail-in rebates, prices shown only in the cart, sold out / backorder /
+  # pre-order and cards without Add to Cart are skipped. Pre-owned Macs are
+  # kept with a condition highlight. Software / licenses / gift cards /
+  # service plans / tool kits are skipped. Cables, adapters, stands, mounts
+  # fall to the global exclude_keywords. Items with no category keyword land
+  # in Accessories (enclosures, RAID arrays, hubs), so no require_title_category.
+  # Same product published from another store: matched by brand + model
+  # signature or by OWC's part number in that deal's store URL / title
+  # (B&H: .../owc_owcus4exp1m2_...); the cheaper one wins, ties keep the
+  # published deal.
+  # The impact-catalogs placeholder below keeps official_for: [macsales.com]:
+  # that only stops ZenRows, not this plain source.
+  - id: owc
+    name: OWC specials
+    note: >-
+      Oct 4 2026: 403 from the edge firewall (even robots.txt), so it was left
+      disabled; Oct 6 2026: plain requests answer 200 again; products come
+      from the specials page's own load-more fragments (owner approved).
+    store: OWC
+    fetch: plain
+    fallback: none
+    parser: owc
+    max_batches: 8            # load-more batches per run (one polite request each; 6 on Oct 6 2026)
+    # Full listing (every batch loaded, at least 10 products): published owc
+    # deals no longer on the specials page, or now sold out / mail-in / cart-only
+    # there, are expired.
+    recheck_missing: true
+    require_discount: true
+    require_image: true
+    enrich_store_page: false
+    max_items: 400
+    max_candidates: 20
+    expires_days: 4
+    title_exclude: '\b(nustand|holder|case|privacy filter|cleaning|labels?)\b'
+    urls: [https://eshop.macsales.com/shop/specials]
   # Planned official sources: adapters not written yet (need partner approval
   # and keys). To add one: write the adapter in scripts/lib/direct_sources.rb,
   # add it to PARSERS, set the env vars, then set enabled: true.
@@ -836,14 +885,6 @@ sites:
     fetch: plain
     fallback: none
     urls: [https://www.adorama.com/specials/l/]
-  - id: owc
-    name: OWC specials
-    enabled: false
-    note: 403 from the edge firewall (even robots.txt); ZenRows bypass not approved. Use the OWC affiliate data feed.
-    store: OWC
-    fetch: plain
-    fallback: none
-    urls: [https://eshop.macsales.com/shop/specials]
 
 #  - id: woot-electronics
 #    name: Woot Electronics

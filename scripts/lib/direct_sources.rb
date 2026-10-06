@@ -926,6 +926,157 @@ module DirectSources
     out
   end
 
+  # -------------------------------------------------------- OWC ---
+  # OWC / MacSales specials (eshop.macsales.com/shop/specials). The page itself
+  # has no products: its script lists the product ids in batches
+  # (var morePages = ['id,id,...', ...]) and fetches each batch from
+  # /api/search/load-more/?view=specials&items=<ids>, an HTML fragment of
+  # product cards (div.product-specials__view). This reader does the same:
+  # the specials page once, then at most max_batches (default 8) batch URLs,
+  # all through the Fetcher (plain polite requests: our User-Agent, per-host
+  # delay, robots.txt). PoliteHTTP sends no extra headers, so no Referer.
+  # A 403 / 429 / bot wall stops the source for the run (RunBlocks); a page
+  # without morePages or a batch that fails ends the run's reading too (no
+  # retries, no ZenRows). Product pages are never requested.
+  # Price = the card's current price; the original price = OWC's crossed-out
+  # price only when shown and higher. "After Instant Rebate" prices are taken
+  # off at checkout (kept, with a highlight); mail-in rebates and prices shown
+  # only in the cart are skipped, and so is anything sold out, on backorder or
+  # pre-order, or without an Add to Cart button. Pre-owned Macs
+  # (/configure-my-mac/, "Cond." in the description) or titles saying used /
+  # refurbished / open-box are kept with a condition highlight (like B&H used
+  # and Walmart pre-owned), title as OWC writes it.
+  # listing: (optional Hash, for find_deals.rb's re-check of published deals)
+  # gets ok: false unless every batch loaded, and products: { url_key =>
+  # { price:, was:, why: } } for every card.
+  OWC_MAIL_IN_RE = /mail[\s-]*in/i
+  OWC_CART_PRICE_RE = /add(?:ed)?\s+(?:it\s+)?to\s+(?:your\s+)?cart|price\s+in\s+(?:the\s+)?cart|in[\s-]+cart\s+price|call\s+for\s+price|see\s+price/i
+  OWC_STOCK_RE = /out\s+of\s+stock|sold\s+out|back[\s-]?order|pre[\s-]?order|coming\s+soon|discontinued|no\s+longer\s+available|notify\s+me/i
+  OWC_USED_RE = /\b(?:used|pre[\s-]?owned|refurb\w*|open[\s-]?box|recertified|renewed)\b/i
+  OWC_NOT_HARDWARE_RE = /\b(?:software|licen[cs]es?|subscriptions?|gift\s*cards?|e-?gift|service\s+plans?|protection\s+plans?|extended\s+warranty|applecare\+?)\b/i
+  OWC_TOOLS_RE = /\b(?:tool\s*kits?|tool\s+sets?|screwdrivers?|spudgers?|pry\s+tools?)\b/i
+
+  # The morePages batches of the specials page: ["id,id,...", ...] (digits and commas only).
+  def owc_more_pages(html)
+    js = html.to_s[/var\s+morePages\s*=\s*\[(.*?)\]\s*;/m, 1] or return []
+    js.scan(/'([^']*)'|"([^"]*)"/).map { |a, b| (a || b).gsub(/\s+/, "") }.select { |s| s.match?(/\A\d+(?:,\d+)*\z/) }
+  end
+
+  # Part numbers for the cross-store check: "Mfr P/N: US4EXP1M2 | OWC SKU: OWCUS4EXP1M2".
+  def owc_part_numbers(sku_text)
+    sku_text.to_s.scan(/(?:Mfr\s*P\/N|OWC\s*SKU)\s*:\s*([^|]+)/i).flatten.map(&:strip).reject(&:empty?)
+  end
+
+  def owc_items(fetcher, source, listing: nil)
+    listing&.merge!(ok: true, products: {})
+    url = DealTools.source_urls(source).first or return []
+    r = fetcher.fetch(url, source, ok_if: ->(b) { b.include?("morePages") })
+    unless r.ok
+      log "#{url}: #{r.error}; stopping #{source['id']} for this run" unless r.blocked
+      listing[:ok] = false if listing
+      return []
+    end
+    batches = owc_more_pages(r.body)
+    if batches.empty?
+      log "#{url}: no morePages batches on the page; stopping #{source['id']} for this run"
+      listing[:ok] = false if listing
+      return []
+    end
+    cap = (source["max_batches"] || 8).to_i
+    log "#{url}: ok via #{r.via}; #{batches.size} batches, #{batches.sum { |b| b.count(',') + 1 }} product ids"
+    if batches.size > cap
+      log "reading the first #{cap} of #{batches.size} batches (max_batches)"
+      listing[:ok] = false if listing
+    end
+    items = {}
+    skipped = Hash.new(0)
+    cards = 0
+    batches.first(cap).each_with_index do |ids, i|
+      burl = abs(url, "/api/search/load-more/?view=specials&items=#{ids}")
+      r = fetcher.fetch(burl, source, ok_if: ->(b) { b.include?("product-specials__view") })
+      unless r.ok
+        log "batch #{i + 1}: #{r.error}; stopping #{source['id']} for this run" unless r.blocked
+        listing[:ok] = false if listing
+        break
+      end
+      found = owc_page(r.body, url, source, skipped: skipped, listing: listing)
+      cards += found[:cards]
+      found[:items].each { |it| items[it[:store_url]] ||= it }
+    end
+    log "#{cards} product cards, #{items.size} kept"
+    log "not used: #{skipped.sort_by { |_, n| -n }.map { |w, n| "#{w} #{n}" }.join(', ')}" unless skipped.empty?
+    items.values
+  end
+
+  # Items from one load-more fragment (no network): { cards:, items: }.
+  # page_url: the specials page (base for the relative links and images).
+  def owc_page(html, page_url, source, skipped: Hash.new(0), listing: nil)
+    title_skip = source["title_exclude"] ? Regexp.new(source["title_exclude"], Regexp::IGNORECASE) : nil
+    store = source["store"] || "OWC"
+    cards = Nokogiri::HTML(html.to_s).css("div.product-specials__view")
+    items = cards.filter_map do |c|
+      txt = ->(sel) { CGI.unescapeHTML(c.at_css(sel)&.text.to_s).tr(" ", " ").gsub(/\s+/, " ").strip }
+      a = c.at_css(".product-specials__product-info a[href]") || c.at_css("a[href]")
+      href = a&.[]("href").to_s
+      u = DealTools.parse_uri(abs(page_url, href))
+      store_url =
+        if u && u.path.start_with?("/item/")
+          "#{u.scheme}://#{u.host}#{u.port == u.default_port ? '' : ":#{u.port}"}#{u.path}"
+        elsif u && u.path.start_with?("/configure-my-mac/") && (sku = CGI.parse(u.query.to_s)["sku"]&.first.to_s) =~ /\A[\w-]+\z/
+          # Pre-owned Mac configurations: the sku is the product.
+          "#{u.scheme}://#{u.host}#{u.port == u.default_port ? '' : ":#{u.port}"}#{u.path}?sku=#{sku}"
+        end
+      raw_title = txt.call("h3.product-specials__product-name")
+      grade = raw_title[/\A\*([^*]{1,20})\*/, 1]
+      title = raw_title.sub(/\A\*[^*]{1,20}\*\s*/, "").gsub(" | ", ", ")
+      desc = txt.call("p.product-specials__description")
+      price_el = c.at_css(".product-specials__price")
+      price = DealTools.first_price(price_el&.text)
+      was = DealTools.first_price(c.at_css(".product-specials__price-strike del")&.text)
+      savings = txt.call(".product-specials__price-savings")
+      meta = "#{txt.call('.product-specials__meta')} #{c.css('.product-specials__badge').map { |b| b['alt'] }.join(' ')}"
+      price_txt = "#{txt.call('.product-specials__price')} #{savings}" # not the Add to Cart button
+      cart = c.at_css('a[href*="/shop/add/"]')
+      why =
+        if store_url.nil? then "no product page link"
+        elsif title.empty? then "no name"
+        elsif meta =~ OWC_STOCK_RE then "not in stock (sold out / backorder / pre-order)"
+        elsif cart.nil? then "no Add to Cart button"
+        elsif price_txt =~ OWC_CART_PRICE_RE || price_el&.at_css('[style*="line-through"], del, s, strike')
+          "price only in the cart"
+        elsif meta =~ OWC_MAIL_IN_RE then "mail-in rebate price"
+        elsif !price&.positive? then "no price"
+        elsif title =~ OWC_NOT_HARDWARE_RE then "not hardware (software / license / gift card / service plan)"
+        elsif title =~ OWC_TOOLS_RE && title !~ /\b(?:ssd|memory|ram|drive|upgrade)\b/i then "tools only"
+        elsif title_skip&.match?(title) then "title_exclude"
+        elsif was.nil? || was <= price then "no was-price"
+        end
+      if listing && store_url && (key = DealTools.url_key(store_url))
+        # Unconfirmed price: stock, cart-only and mail-in prices. The rest still shows OWC's price.
+        rec = { price: price, was: was, why: (why unless ["title_exclude", "no was-price"].include?(why) || why.to_s.start_with?("not hardware", "tools")) }
+        listing[:products][key] = rec if listing[:products][key].nil? || (listing[:products][key][:why] && !rec[:why])
+      end
+      if why
+        skipped[why] += 1
+        next
+      end
+      used = "#{title} #{desc}" =~ OWC_USED_RE || desc =~ /\bcond(?:ition|\.)/i || u.path.start_with?("/configure-my-mac/")
+      hl = []
+      hl << "Pre-owned/used#{grade ? " (OWC grade: #{grade})" : ''}: check the condition at #{store}; the crossed-out price is #{store}'s original price" if used
+      hl << "Price after #{store}'s instant rebate, taken off at checkout" if savings =~ /instant\s+rebate/i
+      img = abs(page_url, c.at_css("img.product-specials__image")&.[]("src"))
+      seg = u.path[%r{\A/item/([^/]+)/}, 1]
+      text = "#{store} price $#{format('%.2f', price)} (was $#{format('%.2f', was)})."
+      # OWC's one-line description as listing facts, only when it isn't cut off or promo text.
+      facts = desc.empty? || desc.include?("$") || desc.length > 160 || (desc.length >= 110 && desc !~ /[.!)]\z/) ? "" : "Listing details: #{desc}#{desc =~ /[.!?]\z/ ? '' : '.'}"
+      base_item(source, title: title, link: page_url, store_url: store_url, price: price, compare_at: was,
+                        image: img, brand_hint: seg && CGI.unescape(seg).tr("-", " "), highlights: hl,
+                        condition: used ? "used" : nil, text: text, writeup: facts,
+                        mpns: owc_part_numbers(txt.call(".product-specials__sku")))
+    end
+    { cards: cards.size, items: items }
+  end
+
   # ------------------------------------------------- Official APIs ---
   # Best Buy Products API (https://developer.bestbuy.com). Needs BESTBUY_API_KEY;
   # without it the source is skipped. Reads onSale=true products in the tech
@@ -988,6 +1139,6 @@ module DirectSources
     "bh" => :bh_items, "newegg" => :newegg_items, "newegg_rss" => :newegg_rss_items,
     "macheist" => :macheist_items, "slickdeals_rss" => :slickdeals_items, "target" => :target_items,
     "bestbuy_api" => :bestbuy_api_items, "bradsdeals" => :bradsdeals_items,
-    "samsclub" => :samsclub_items, "walmart" => :walmart_items
+    "samsclub" => :samsclub_items, "walmart" => :walmart_items, "owc" => :owc_items
   }.freeze
 end

@@ -185,6 +185,9 @@ end
 
 # Same product across stores: keep the best price. sig -> { price:, store:, entry: (this run) | file: (published) }
 sig_seen = DealTools.existing_product_signatures.transform_values { |file, store, price| { price: price, store: store, file: file } }
+# Items with part numbers (OWC's Mfr P/N / SKU) also match a published deal whose
+# store URL or title has that part number ("mpn:<token>" keys, same rules).
+DealTools.existing_part_number_index.each { |k, (file, store, price)| sig_seen[k] = { price: price, store: store, file: file } }
 queue.each do |e|
   next unless e["status"].to_s == "new" && e["price"]
   sig = DealTools.product_signature(e["title"], brand: e["brand"]) or next
@@ -619,13 +622,18 @@ build_candidate = lambda do |item, source|
   brand ||= case source["parser"]
             when "bradsdeals" then brand_guess(name, known: true) || brand_guess(title, known: true)
             when "walmart", "samsclub" then known_brand_only(name)
+            # OWC: a known brand at the start of the title, else the /item/<brand>/ URL segment if it is a known brand.
+            when "owc" then known_brand_only(name) || known_brands.find { |b| b.casecmp?(item[:brand_hint].to_s) }
             else brand_guess(name)
             end
   # Same product at another store (or already queued): keep the best price.
   # At the same price Amazon wins over Walmart / Sam's Club found in this run.
   sig = DealTools.product_signature(short, brand: brand)
+  sig = sig.sub(/\|n\z/, "|r") if sig && item[:condition] == "used" # used at the store, even when the title doesn't say so
+  mpn_keys = DealTools.part_numbers(item[:mpns]).map { |m| "mpn:#{m}" }
   replaces = nil
-  if sig && (prev = sig_seen[sig])
+  prev = (sig && sig_seen[sig]) || mpn_keys.lazy.filter_map { |k| sig_seen[k] }.first
+  if prev
     amazon_over_walmart = prev[:price] == price && prev[:entry] && prev[:store].to_s =~ /walmart|sam's club/i &&
                           DealCopy.amazon?(store, store_url)
     next skip.call(item, "same product cheaper or equal elsewhere") if prev[:price] <= price && !amazon_over_walmart
@@ -698,7 +706,7 @@ build_candidate = lambda do |item, source|
     "prime_day" => (true if prime_src || prime_text),
     "prime_day_source" => prime_src
   }.compact
-  sig_seen[sig] = { price: price, store: store, entry: entry } if sig
+  ([sig] + mpn_keys).compact.each { |k| sig_seen[k] = { price: price, store: store, entry: entry } }
   cat_counts[category] += 1
   seen[dedupe_key] = "already queued"
   seen[title_key] = "already queued"
