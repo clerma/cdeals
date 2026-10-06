@@ -1,16 +1,21 @@
 ---
-layout: post
+_schema: default
 title: Do You Really Need the Latest and Greatest?
-description: The newest model with every top feature isn't always the smart buy. Here's why last year's model is often the better deal, and why maxed-out specs rarely pay you back.
-date: 2026-10-05 12:00:00 -0500
-author: Carlos
-categories: [Buying Guides]
-tags: [buying tips, saving money, previous generation, resale value]
-permalink: /blog/do-you-need-the-latest-and-greatest/
-image: /assets/uploads/sample-iphone.png
+date: 2026-10-05T12:00:00-05:00
 published: true
+description: The newest model with every top feature isn't always the smart buy.
+  Here's why last year's model is often the better deal, and why maxed-out specs
+  rarely pay you back.
+image: /assets/uploads/new-phone.jpg
+categories:
+  - Buying Guides
+tags:
+  - buying tips
+  - saving money
+  - previous generation
+  - resale value
+author: Carlos
 ---
-
 Every year it's the same story. A new phone, laptop or tablet drops, the ads hit, and suddenly the one in your hand feels ancient. It's faster, it's thinner, the camera is better, and there's a shiny new color. So do you need it?
 
 I've been chasing tech my whole life, and if there's one thing I've learned, it's this: **you don't always need the newest version, and you almost never need every top feature.** Some of my favorite purchases were last year's model, bought at a price that made me smile.

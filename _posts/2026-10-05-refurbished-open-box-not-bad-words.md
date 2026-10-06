@@ -1,16 +1,20 @@
 ---
-layout: post
+_schema: default
 title: Why "Refurbished" and "Open Box" Aren't Bad Words
-description: Refurbished and open-box tech can save you a lot of money. Here's what those labels really mean, what to check, and when to buy new instead.
-date: 2026-10-05 10:00:00 -0500
-author: Carlos
-categories: [Buying Guides]
-tags: [refurbished, open box, buying tips, saving money]
-permalink: /blog/refurbished-open-box-not-bad-words/
-image: /assets/uploads/sample-macbook.png
+date: 2026-10-05T10:00:00-05:00
 published: true
+description: Refurbished and open-box tech can save you a lot of money. Here's
+  what those labels really mean, what to check, and when to buy new instead.
+image: /assets/uploads/open-box.jpg
+categories:
+  - Buying Guides
+tags:
+  - refurbished
+  - open box
+  - buying tips
+  - saving money
+author: Carlos
 ---
-
 Say "refurbished" to most people and you can see them picture it: a beat-up laptop with a cracked hinge, a mystery battery, and a seller who disappears the second something goes wrong. "Open box" doesn't fare much better. It sounds like somebody else's leftovers.
 
 I get it. I used to think the same thing. But after years of hunting deals, some of the best tech I've ever owned came with one of those two labels on the box. Most of the time, they just mean you're about to save real money on something that works exactly like new.

@@ -1,16 +1,21 @@
 ---
-layout: post
+_schema: default
 title: Patience Is a Virtue, Even When You're Hunting for a Deal
-description: The best tech deals rarely show up the moment you want something. Here's how waiting a little can save you a lot, and when it's time to stop waiting and buy.
-date: 2026-10-05 11:00:00 -0500
-author: Carlos
-categories: [Buying Guides]
-tags: [buying tips, saving money, price tracking, timing]
-permalink: /blog/patience-finding-the-right-deal/
-image: /assets/uploads/sample-ipad.png
+date: 2026-10-05T11:00:00-05:00
 published: true
+description: The best tech deals rarely show up the moment you want something.
+  Here's how waiting a little can save you a lot, and when it's time to stop
+  waiting and buy.
+image: /assets/uploads/waiting.jpg
+categories:
+  - Buying Guides
+tags:
+  - buying tips
+  - saving money
+  - price tracking
+  - timing
+author: Carlos
 ---
-
 We've all done it. You decide you want a new pair of headphones, a laptop or a TV, and suddenly you want it *today*. You open a store app, add it to your cart, and check out at full price before you've even finished your coffee.
 
 I've done it more times than I'd like to admit. And almost every time, I saw the same thing on sale a few weeks later for a lot less.
