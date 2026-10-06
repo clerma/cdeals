@@ -668,6 +668,13 @@ file_config:
         type: url
       view_all_url:
         type: url
+      categories_all:
+        type: text
+        label: Blog filter "All" pill
+        comment: First pill in the /blog/ category filter (shown only when posts have 2+ categories).
+      categories_label:
+        type: text
+        label: Blog filter label (screen readers)
 
   - glob: _data/footer.yml
     _inputs:
