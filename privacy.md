@@ -4,13 +4,13 @@ title: Privacy Policy
 breadcrumb_title: Privacy
 description: "What information cDeals collects when you browse, buy, or click a deal link, how it's used, which outside services handle it, and the choices you have about it."
 permalink: /privacy/
-updated: 2026-10-04
+updated: 2026-10-06
 ---
 This policy explains what information is collected when you use {{ site.title }}, who collects it, and what you can do about it. The site is run by {{ site.legal_name }}. Contact: use the [contact form]({{ '/contact/' | relative_url }}).
 
 ## The short version
 
-- I don't run my own analytics or ad tracking on this site, and I don't sell or rent your personal information.
+- I use Google Analytics to see how visitors use this site (pages viewed, approximate location, device and browser). Google may set cookies to do this; you can opt out with [Google's browser add-on](https://tools.google.com/dlpage/gaoptout) or by blocking cookies. I don't run ad tracking, and I don't sell or rent your personal information.
 - If you buy an item from me, checkout and payment are handled by AnyCart and Stripe or Square. They share with me what I need to ship your order.
 - Affiliate links and link services (Amazon, Sovrn Commerce or Skimlinks, Geniuslink) may set their own cookies when you use them.
 
