@@ -143,6 +143,11 @@ seen = {}
 DealTools.existing_product_keys.each_key { |k| seen[k] = "already in _products" }
 queue.each { |e| [DealTools.url_key(e["store_url"]), e["source_link"]].compact.each { |k| seen[k] = "already queued" } }
 rejected.each { |e| [e["key"], e["source_link"]].compact.each { |k| seen[k] = "rejected before" } }
+# Walmart / Sam's Club keys saved before url_key went by item id (walmart.com/ip/<slug>/<id>).
+rejected.each do |e|
+  k = DealTools.url_key("https://#{e['key']}") if e["key"].to_s =~ %r{\A(?:walmart|samsclub)\.com/ip/}
+  seen[k] ||= "rejected before" if k
+end
 
 # Same product across stores: keep the best price. sig -> { price:, store:, entry: (this run) | file: (published) }
 sig_seen = DealTools.existing_product_signatures.transform_values { |file, store, price| { price: price, store: store, file: file } }
@@ -449,6 +454,16 @@ def brand_guess(name, known: false)
   w
 end
 
+# Walmart / Sam's Club titles: only a brand already used in _products, at the
+# start of the title (after generic / condition words), in its _products
+# spelling ("SAMSUNG 65\" ..." -> Samsung). Nothing else is guessed.
+def known_brand_only(name)
+  words = name.to_s.split(/\s+/)
+  words = words.drop_while { |w| w.gsub(/[^\p{Alnum}\-]/, "") =~ BRAND_GENERIC_RE || w =~ /\A\(?(?:restored|refurbished|renewed|open|box\)?|pre-owned)\)?\z/i }
+  rest = words.join(" ")
+  known_brands.select { |b| rest =~ /\A#{Regexp.escape(b)}(?![\p{Alnum}])/i }.max_by(&:length)
+end
+
 # --------------------------------------------------------- one item ---
 build_candidate = lambda do |item, source|
   stats[:items_seen] += 1
@@ -555,12 +570,19 @@ build_candidate = lambda do |item, source|
   image_url = abs_img.call(data[:image].to_s) || item[:image]
   next skip.call(item, "no product image") if source["require_image"] && image_url.to_s.empty?
   brand = [data[:brand], item[:brand]].map { |b| b.to_s.strip }.find { |b| !b.empty? }
-  brand ||= source["parser"] == "bradsdeals" ? brand_guess(name, known: true) || brand_guess(title, known: true) : brand_guess(name)
+  brand ||= case source["parser"]
+            when "bradsdeals" then brand_guess(name, known: true) || brand_guess(title, known: true)
+            when "walmart", "samsclub" then known_brand_only(name)
+            else brand_guess(name)
+            end
   # Same product at another store (or already queued): keep the best price.
+  # At the same price Amazon wins over Walmart / Sam's Club found in this run.
   sig = DealTools.product_signature(short, brand: brand)
   replaces = nil
   if sig && (prev = sig_seen[sig])
-    next skip.call(item, "same product cheaper or equal elsewhere") if prev[:price] <= price
+    amazon_over_walmart = prev[:price] == price && prev[:entry] && prev[:store].to_s =~ /walmart|sam's club/i &&
+                          DealCopy.amazon?(store, store_url)
+    next skip.call(item, "same product cheaper or equal elsewhere") if prev[:price] <= price && !amazon_over_walmart
     if prev[:entry]
       added.delete(prev[:entry])
       cat_counts[prev[:entry]["category"]] -= 1
@@ -578,7 +600,7 @@ build_candidate = lambda do |item, source|
   highlights << "Free shipping" if blob =~ /free ship/i
   highlights << "May need a coupon or promo code at checkout" if blob =~ /\bcoupon\b|\bclip\b|promo code|\bcode\b/i
   highlights << "Prime members only" if blob =~ /prime (members|exclusive|only)/i
-  expires = item[:expires] && item[:expires] > today && item[:expires] <= today + 30 ? item[:expires] : today + (source["expires_days"] || defaults["expires_days"] || 7).to_i
+  expires = item[:expires] && item[:expires] >= today && item[:expires] <= today + 30 ? item[:expires] : today + (source["expires_days"] || defaults["expires_days"] || 7).to_i
 
   money_s = ->(v) { v == v.round ? "$#{v.round}" : format("$%.2f", v) }
   amazon = DealCopy.amazon?(store, store_url)
@@ -599,7 +621,8 @@ build_candidate = lambda do |item, source|
   page_specs = []
   begin
     fm_probe = { "title" => short, "brand" => brand, "store" => store, "affiliate_url" => store_url }
-    enrich_url = SourceCache.enrichment_url(fm_probe)
+    # enrich_store_page: false -> the listing data is all there is (Walmart / Sam's Club product pages aren't fetched).
+    enrich_url = source["enrich_store_page"] == false ? nil : SourceCache.enrichment_url(fm_probe)
     if enrich_url && !enrich_url.empty? && !SourceCache.amazon_url?(enrich_url)
       data = SourceCache.fetch_page(enrich_url, cfg: cfg, source_id: "find")
       unless data["error"]

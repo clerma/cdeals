@@ -760,6 +760,152 @@ module DirectSources
     end
   end
 
+  # ---------------------------------------------- Walmart / Sam's Club ---
+  # Walmart-platform listing pages (walmart.com, samsclub.com) are Next.js: the
+  # products sit in <script id="__NEXT_DATA__"> JSON as objects with
+  # "__typename":"Product" and "usItemId" (found anywhere in the tree, deduped
+  # by usItemId). Price = priceInfo.linePrice; the original price is
+  # priceInfo.wasPrice only when shown and higher. Promotions such as "Sam's
+  # Cash Offer" are rewards, never a discount. Member-only / early-access
+  # pricing, variant ranges, missing prices and items not in stock are skipped.
+  # Product pages are never requested (all data comes from the listing JSON).
+  # Both sites load PerimeterX: a challenge ("Robot or human"), a redirect to
+  # /blocked, 403, 429 or a page without __NEXT_DATA__ products stops the
+  # source for this run (no retry, no ZenRows).
+  WN_SAMS_CASH_RE = /sam'?s\s+cash/i
+
+  def wn_products(html)
+    json = html.to_s[%r{<script[^>]*id="__NEXT_DATA__"[^>]*>(.*?)</script>}m, 1] or return []
+    data = begin
+      JSON.parse(json)
+    rescue JSON::ParserError
+      return []
+    end
+    found = {}
+    walk = lambda do |n|
+      case n
+      when Array then n.each { |x| walk.call(x) }
+      when Hash
+        found[n["usItemId"].to_s] ||= n if n["__typename"] == "Product" && n["usItemId"]
+        n.each_value { |v| walk.call(v) if v.is_a?(Hash) || v.is_a?(Array) }
+      end
+    end
+    walk.call(data)
+    found.values
+  end
+
+  def wn_blank?(v) = v.nil? || v.to_s.strip.empty?
+
+  # "Ends Oct 10" / "Ends Dec 31, 2027" -> Date (no year: this year in
+  # America/Chicago, next year when that is well in the past).
+  def wn_promo_end(msg, today)
+    m = msg.to_s.match(/\bends\s+([A-Z][a-z]{2,8})\.?\s+(\d{1,2})(?:,\s*(\d{4}))?/i) or return nil
+    mon = Date::ABBR_MONTHNAMES.index(m[1][0, 3].capitalize) or return nil
+    d = Date.new((m[3] || today.year).to_i, mon, m[2].to_i)
+    m[3] || d >= today - 60 ? d : d.next_year
+  rescue Date::Error
+    nil
+  end
+
+  # shortDescription HTML list -> one plain sentence of facts (no prices or promo text).
+  def wn_facts(html)
+    bits = html.to_s.split(%r{</li>|</p>|</strong>|<br\s*/?>|\n}i).map do |b|
+      CGI.unescapeHTML(b.gsub(/<[^>]+>/, " ")).delete("®™*").gsub(/\s+/, " ").strip.sub(/[\s.;,]+\z/, "")
+    end
+    # Whole bullets only (never cut mid-sentence); store/order/shipping notes left out.
+    bits = bits.reject do |b|
+      b.length < 3 || b.length > 200 || b.include?("$") ||
+        b =~ /sam'?s\s+(?:cash|club)|member|walmart\+|offer|savings|signature|delivery|shipping|pickup|returns?\b|warranty registration/i ||
+        b =~ /\b(?:download|visit|learn\s+more|click|great\s+for|perfect\s+for|ideal\s+for|you'll|you\s+own)\b/i
+    end
+    return "" if bits.empty?
+    "Listing details: #{bits.uniq.first(3).join('; ')}."
+  end
+
+  def samsclub_items(fetcher, source)
+    walmart_next_items(fetcher, source, base: "https://www.samsclub.com", require_shipping: true,
+                                        highlight: "Sam's Club membership required")
+  end
+
+  def walmart_items(fetcher, source)
+    walmart_next_items(fetcher, source, base: "https://www.walmart.com", seller: "Walmart.com")
+  end
+
+  def walmart_next_items(fetcher, source, base:, seller: nil, require_shipping: false, highlight: nil)
+    ok_if = ->(b) { b.include?("__NEXT_DATA__") && b.include?("usItemId") }
+    items = {}
+    DealTools.source_urls(source).each do |url|
+      r = fetcher.fetch(url, source, ok_if: ok_if)
+      err = r.ok ? (r.url.to_s =~ %r{/blocked\b} ? "redirected to #{r.url}" : nil) : r.error
+      if err
+        log "#{url}: #{err}; stopping #{source['id']} for this run"
+        break
+      end
+      log "#{url}: ok via #{r.via}"
+      walmart_next_page(r.body, url, source, base: base, seller: seller, require_shipping: require_shipping,
+                                             highlight: highlight).each { |it| items[it[:store_url]] ||= it }
+    end
+    items.values
+  end
+
+  # Items from one saved/fetched listing page (no network). stats filled when
+  # given. today: the date in Chicago (CDT offset, like the Woot reader).
+  def walmart_next_page(html, url, source, base:, seller: nil, require_shipping: false, highlight: nil,
+                        stats: nil, today: Time.now.getlocal("-05:00").to_date)
+    title_skip = source["title_exclude"] ? Regexp.new(source["title_exclude"], Regexp::IGNORECASE) : nil
+    skipped = Hash.new(0)
+    products = wn_products(html)
+    out = products.filter_map do |p|
+      pi = p["priceInfo"].is_a?(Hash) ? p["priceInfo"] : {}
+      name = CGI.unescapeHTML(p["name"].to_s).gsub(/\s+/, " ").gsub(" | ", ", ").strip
+      price = DealTools.money(pi["linePrice"].to_s.empty? ? nil : pi["linePrice"].to_s)
+      was = wn_blank?(pi["wasPrice"]) ? nil : DealTools.money(pi["wasPrice"].to_s)
+      promos = Array(p["promotionMessages"]).select { |m| m.is_a?(Hash) }
+      price_promo = promos.find { |m| "#{m['badgeTitle']} #{m['message']}" !~ WN_SAMS_CASH_RE && m["expiryDateMessage"].to_s =~ /\bends\b/i }
+      ends = price_promo && wn_promo_end(price_promo["expiryDateMessage"], today)
+      why =
+        if name.empty? then "no name"
+        elsif seller && p["sellerName"].to_s != seller then "sold by a marketplace seller"
+        elsif p.dig("availabilityStatusV2", "value").to_s != "IN_STOCK" then "not in stock"
+        elsif p["isEarlyAccessItem"] == true || p["earlyAccessEvent"] == true || !wn_blank?(pi["eaPricingText"]) ||
+              !wn_blank?(pi["memberPriceString"])
+          "member-only / early-access price"
+        elsif !wn_blank?(pi["priceRangeString"]) then "variant price range"
+        elsif !price&.positive? then "no price (#{pi['linePriceDisplay'].to_s.strip.empty? ? 'missing' : pi['linePriceDisplay']})"
+        elsif require_shipping && Array(p["fulfillmentBadges"]).none? { |b| b.to_s =~ /\bshipping\b/i } then "no shipping (in-club / pickup only)"
+        elsif title_skip&.match?(name) then "title_exclude"
+        elsif ends && ends < today then "promotion already ended"
+        end
+      if why
+        skipped[why] += 1
+        next
+      end
+      path = p["canonicalUrl"].to_s.sub(/[?#].*\z/, "")
+      path = "/ip/#{p['usItemId']}" unless path.start_with?("/ip/")
+      store_url = "#{base}#{path}"
+      img = p.dig("imageInfo", "thumbnailUrl").to_s
+      img = p["image"].to_s if img.empty?
+      img = img.sub(/\?.*\z/, "")
+      compare = was && was > price ? was : nil
+      store = source["store"]
+      hl = []
+      hl << highlight if highlight
+      hl << "Pre-owned: check the condition at #{store}" if p["isPreowned"] == true
+      brand = [p["brand"], p["manufacturerName"]].find { |b| b.is_a?(String) && !b.strip.empty? }&.strip
+      text = "#{store} price $#{format('%.2f', price)}#{compare ? " (was $#{format('%.2f', compare)})" : ''}."
+      base_item(source, title: name, link: url, store_url: store_url, price: price, compare_at: compare,
+                        image: img.empty? ? nil : img, brand: brand, expires: ends, highlights: hl,
+                        text: text, writeup: wn_facts(p["shortDescription"]), us_item_id: p["usItemId"].to_s)
+    end
+    log "#{products.size} products in __NEXT_DATA__, #{out.size} kept"
+    log "not used: #{skipped.sort_by { |_, n| -n }.map { |r, n| "#{r} #{n}" }.join(', ')}" unless skipped.empty?
+    if stats
+      stats[:products] += products.size
+      skipped.each { |r, n| stats[:skipped][r] += n }
+    end
+    out
+  end
+
   # ------------------------------------------------- Official APIs ---
   # Best Buy Products API (https://developer.bestbuy.com). Needs BESTBUY_API_KEY;
   # without it the source is skipped. Reads onSale=true products in the tech
@@ -815,6 +961,7 @@ module DirectSources
   PARSERS = {
     "bh" => :bh_items, "newegg" => :newegg_items, "newegg_rss" => :newegg_rss_items,
     "macheist" => :macheist_items, "slickdeals_rss" => :slickdeals_items, "target" => :target_items,
-    "bestbuy_api" => :bestbuy_api_items, "bradsdeals" => :bradsdeals_items
+    "bestbuy_api" => :bestbuy_api_items, "bradsdeals" => :bradsdeals_items,
+    "samsclub" => :samsclub_items, "walmart" => :walmart_items
   }.freeze
 end
