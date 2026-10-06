@@ -27,5 +27,7 @@ why_deal: Amazon has a good price on this right now. Prices change fast, so chec
 description: The Samsung 49" Odyssey G9 5120x1440 240Hz 1000R Curved Monitor is a
   computer with 49" display, 240 Hz refresh rate, 5120x1440 resolution.
 source: techbargains
+prime_day: true
+prime_day_source: https://www.techbargains.com/sales/prime-day-deals
 ---
 The Samsung 49" Odyssey G9 5120x1440 240Hz 1000R Curved Monitor is a computer with 49" display, 240 Hz refresh rate, 5120x1440 resolution.

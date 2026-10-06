@@ -26,5 +26,7 @@ why_deal: Amazon has a good price on this right now. Prices change fast, so chec
   the current price at Amazon before you buy.
 description: The Apple Mac mini with the M6 chip is a tiny desktop computer that still
   handles a lot, and Apple pitches it as a powerful platform for AI. This setup
+prime_day: true
+prime_day_source: https://www.techbargains.com/sales/prime-day-deals
 ---
 The Apple Mac mini with the M6 chip is a tiny desktop computer that still handles a lot, and Apple pitches it as a powerful platform for AI. This setup has 16GB of memory, a 256GB SSD and Wi-Fi 7 in that ultracompact body. I like it for anyone who wants a capable everyday Mac that hardly uses any desk space.

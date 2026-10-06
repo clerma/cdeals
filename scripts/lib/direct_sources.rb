@@ -772,6 +772,11 @@ module DirectSources
   # Both sites load PerimeterX: a challenge ("Robot or human"), a redirect to
   # /blocked, 403, 429 or a page without __NEXT_DATA__ products stops the
   # source for this run (no retry, no ZenRows).
+  # listing: (optional Hash, for find_deals.rb's re-check of published deals)
+  # gets ok: false when a page failed, and products: { url_key => { price:,
+  # was:, why: } } for every product in the listing JSON, before the skip
+  # filters; why is the skip reason that leaves the price unconfirmed (nil
+  # when kept, or skipped only by title_exclude).
   WN_SAMS_CASH_RE = /sam'?s\s+cash/i
 
   def wn_products(html)
@@ -822,16 +827,17 @@ module DirectSources
     "Listing details: #{bits.uniq.first(3).join('; ')}."
   end
 
-  def samsclub_items(fetcher, source)
+  def samsclub_items(fetcher, source, listing: nil)
     walmart_next_items(fetcher, source, base: "https://www.samsclub.com", require_shipping: true,
-                                        highlight: "Sam's Club membership required")
+                                        highlight: "Sam's Club membership required", listing: listing)
   end
 
-  def walmart_items(fetcher, source)
-    walmart_next_items(fetcher, source, base: "https://www.walmart.com", seller: "Walmart.com")
+  def walmart_items(fetcher, source, listing: nil)
+    walmart_next_items(fetcher, source, base: "https://www.walmart.com", seller: "Walmart.com", listing: listing)
   end
 
-  def walmart_next_items(fetcher, source, base:, seller: nil, require_shipping: false, highlight: nil)
+  def walmart_next_items(fetcher, source, base:, seller: nil, require_shipping: false, highlight: nil, listing: nil)
+    listing&.merge!(ok: true, products: {})
     ok_if = ->(b) { b.include?("__NEXT_DATA__") && b.include?("usItemId") }
     items = {}
     DealTools.source_urls(source).each do |url|
@@ -839,11 +845,12 @@ module DirectSources
       err = r.ok ? (r.url.to_s =~ %r{/blocked\b} ? "redirected to #{r.url}" : nil) : r.error
       if err
         log "#{url}: #{err}; stopping #{source['id']} for this run"
+        listing[:ok] = false if listing
         break
       end
       log "#{url}: ok via #{r.via}"
       walmart_next_page(r.body, url, source, base: base, seller: seller, require_shipping: require_shipping,
-                                             highlight: highlight).each { |it| items[it[:store_url]] ||= it }
+                                             highlight: highlight, listing: listing).each { |it| items[it[:store_url]] ||= it }
     end
     items.values
   end
@@ -851,7 +858,7 @@ module DirectSources
   # Items from one saved/fetched listing page (no network). stats filled when
   # given. today: the date in Chicago (CDT offset, like the Woot reader).
   def walmart_next_page(html, url, source, base:, seller: nil, require_shipping: false, highlight: nil,
-                        stats: nil, today: Time.now.getlocal("-05:00").to_date)
+                        stats: nil, listing: nil, today: Time.now.getlocal("-05:00").to_date)
     title_skip = source["title_exclude"] ? Regexp.new(source["title_exclude"], Regexp::IGNORECASE) : nil
     skipped = Hash.new(0)
     products = wn_products(html)
@@ -876,13 +883,17 @@ module DirectSources
         elsif title_skip&.match?(name) then "title_exclude"
         elsif ends && ends < today then "promotion already ended"
         end
+      path = p["canonicalUrl"].to_s.sub(/[?#].*\z/, "")
+      path = "/ip/#{p['usItemId']}" unless path.start_with?("/ip/")
+      store_url = "#{base}#{path}"
+      if listing && (key = DealTools.url_key(store_url))
+        rec = { price: price, was: was, why: (why unless why == "title_exclude") }
+        listing[:products][key] = rec if listing[:products][key].nil? || (listing[:products][key][:why] && !rec[:why])
+      end
       if why
         skipped[why] += 1
         next
       end
-      path = p["canonicalUrl"].to_s.sub(/[?#].*\z/, "")
-      path = "/ip/#{p['usItemId']}" unless path.start_with?("/ip/")
-      store_url = "#{base}#{path}"
       img = p.dig("imageInfo", "thumbnailUrl").to_s
       img = p["image"].to_s if img.empty?
       img = img.sub(/\?.*\z/, "")

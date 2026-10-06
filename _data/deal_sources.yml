@@ -122,6 +122,14 @@ defaults:
 # Daily vs deep runs: the daily routine reads each source's urls (and only
 # rotate_daily of them for ZenRows sources). `find_deals.rb --deep` also reads
 # deep_urls, deep_pages and deep_max_* for an occasional manual deep pass.
+# Every run also re-checks published deals (_products/*.md, type: affiliate)
+# against the items the sources returned in that run (no extra requests): a
+# listing price more than 1% or $0.50 above the published price expires the
+# deal (expires: yesterday + expired_reason:); a lower price is only logged.
+# recheck_missing: true (walmart / samsclub parsers only) also expires the
+# source's own deals that are gone from its listing or skipped there, but only
+# when every page loaded and the listing had at least 10 products.
+# `find_deals.rb --no-recheck` turns this off.
 # Same product at two stores (brand + model number + size + condition) keeps
 # only the cheaper one; a cheaper find than a published deal is queued with
 # `replaces:` so the old one can be removed on approval.
@@ -705,6 +713,9 @@ sites:
     fetch: plain
     fallback: none
     parser: samsclub
+    # Full listing: published samsclub deals missing from it (or skipped there:
+    # not in stock, member-only price, no shipping, ...) are expired.
+    recheck_missing: true
     # Skips items whose fulfillmentBadges lack "Shipping" (in-club / pickup only).
     # Every kept item gets the highlight "Sam's Club membership required".
     # expires: the Instant Savings "Ends Oct 10" date (Chicago); else expires_days.
@@ -729,6 +740,8 @@ sites:
     fetch: plain
     fallback: none
     parser: walmart
+    # Same for published walmart deals (also: now sold by a marketplace seller).
+    recheck_missing: true
     require_title_category: true
     require_discount: true
     require_image: true
