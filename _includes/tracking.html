@@ -1,0 +1,128 @@
+{% comment %}
+  Analytics and ad tracking. Each tool loads ONLY when its ID is set in
+  _config.yml, and each is deferred so it doesn't slow the first page load:
+    facebook_pixel   - Meta Pixel ID (numbers only). Loads 2s after page load;
+                       skipped when the browser sends Global Privacy Control.
+    clarity_id       - Microsoft Clarity project ID. Loads 3s after the first
+                       scroll / mouse move / touch / key press.
+    google_analytics - GA4 measurement ID (G-XXXXXXXXXX). The gtag queue starts
+                       right away; gtag.js loads on first interaction or after 3s.
+  Included at the top of <body> (not <head>) so the Pixel's <noscript> image
+  is valid HTML. The privacy page reads the same settings.
+{% endcomment %}
+{%- assign fb_id = site.facebook_pixel | strip -%}
+{%- assign clarity_id = site.clarity_id | strip -%}
+{%- assign ga_id = site.google_analytics | strip -%}
+
+{% if fb_id != "" %}
+<!-- Facebook Pixel (2s after window load) -->
+<script>
+  window.addEventListener('load', function () {
+    // Honor Global Privacy Control (California opt-out of ad "sharing").
+    if (navigator.globalPrivacyControl) return;
+    setTimeout(function () {
+      try {
+        if (!window.fbq) {
+          var fbq = function () {
+            fbq.callMethod ? fbq.callMethod.apply(fbq, arguments) : fbq.queue.push(arguments);
+          };
+          fbq.queue = [];
+          fbq.version = '2.0';
+          fbq.loaded = true;
+          window.fbq = fbq;
+          window._fbq = fbq;
+        }
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://connect.facebook.net/en_US/fbevents.js';
+        (document.head || document.documentElement).appendChild(s);
+        window.fbq('init', {{ fb_id | jsonify }});
+        window.fbq('track', 'PageView');
+      } catch (e) {}
+    }, 2000);
+  });
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none" alt=""
+       src="https://www.facebook.com/tr?id={{ fb_id | url_encode }}&amp;ev=PageView&amp;noscript=1">
+</noscript>
+{% endif %}
+
+{% if clarity_id != "" %}
+<!-- Microsoft Clarity (3s after first interaction) -->
+<script>
+  (function () {
+    var CLARITY_ID = {{ clarity_id | jsonify }};
+    var loaded = false;
+
+    function appendScriptSafely(src, attrs) {
+      function doAppend() {
+        try {
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = src;
+          if (attrs) {
+            Object.keys(attrs).forEach(function (k) { s.setAttribute(k, attrs[k]); });
+          }
+          var target = document.head || document.getElementsByTagName("head")[0] || document.body || document.documentElement;
+          if (!target || !target.appendChild) return;
+          target.appendChild(s);
+        } catch (e) {}
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", doAppend, { once: true });
+      } else {
+        doAppend();
+      }
+    }
+
+    function loadClarity() {
+      if (loaded) return;
+      loaded = true;
+      setTimeout(function () {
+        try {
+          window.clarity = window.clarity || function () {
+            (window.clarity.q = window.clarity.q || []).push(arguments);
+          };
+          appendScriptSafely("https://www.clarity.ms/tag/" + encodeURIComponent(CLARITY_ID), { "data-clarity": "1" });
+        } catch (e) {}
+      }, 3000);
+    }
+
+    ["scroll", "mousemove", "touchstart", "keydown"].forEach(function (evt) {
+      window.addEventListener(evt, loadClarity, { once: true, passive: true });
+    });
+  })();
+</script>
+{% endif %}
+
+{% if ga_id != "" %}
+<!--
+  Google Analytics (gtag.js), deferred until first user interaction or a 3s
+  fallback. The gtag() queue and config call fire immediately, so the pageview
+  buffers and flushes when gtag.js loads.
+-->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', {{ ga_id | jsonify }});
+  (function () {
+    var loaded = false;
+    var events = ['scroll', 'mousemove', 'touchstart', 'keydown'];
+    function loadGtag() {
+      if (loaded) return;
+      loaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent({{ ga_id | jsonify }});
+      document.head.appendChild(s);
+      events.forEach(function (e) { window.removeEventListener(e, loadGtag); });
+    }
+    events.forEach(function (e) {
+      window.addEventListener(e, loadGtag, { once: true, passive: true });
+    });
+    setTimeout(loadGtag, 3000);
+  })();
+</script>
+{% endif %}

@@ -72,6 +72,17 @@ _inputs:
   highlights:
     type: array
 
+  # Tracking (_config.yml)
+  google_analytics:
+    type: text
+    comment: GA4 measurement ID, e.g. G-XXXXXXXXXX. Leave empty to turn off.
+  facebook_pixel:
+    type: text
+    comment: Meta Pixel ID (numbers only). Leave empty to turn off.
+  clarity_id:
+    type: text
+    comment: Microsoft Clarity project ID. Leave empty to turn off.
+
   # SEO front matter (any page)
   description:
     type: textarea

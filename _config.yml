@@ -43,6 +43,12 @@ affiliate_disclosure: >-
   Some links on this site are affiliate links. If you buy through them I may
   earn a small commission at no extra cost to you.
 
+# Analytics and ad tracking. Each loads only when its ID is filled in
+# (see _includes/tracking.html). The Privacy page updates itself to match.
+google_analytics: ""   # GA4 measurement ID, e.g. G-XXXXXXXXXX
+facebook_pixel: ""     # Meta Pixel ID (numbers only)
+clarity_id: ""         # Microsoft Clarity project ID
+
 # SEO: search console verification codes (emitted only when filled in)
 google_site_verification: ""
 bing_site_verification: ""
