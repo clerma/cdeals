@@ -1,8 +1,11 @@
 # Main menu (header, mobile menu). Order here = order on the site.
+# Each item: title (the text shown) and url (where it goes).
+# Optional: selling_only: true hides the item while nothing of mine is for sale.
 - title: Home
   url: /
 - title: For sale
   url: /shop/
+  selling_only: true
 - title: Deals
   url: /deals/
 - title: Blog

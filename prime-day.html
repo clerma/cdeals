@@ -12,6 +12,16 @@ prime_day_page: true
 show_disclosure: true
 show_collection: products
 collection_list: prime_day_deals
+# Shown while Prime Day is live but no deal is tagged for it yet.
+empty_heading: No Prime Day deals yet
+empty_text: Check back soon, new deals get added often.
+empty_button: See all deals
+empty_button_url: /deals/
+# Shown once Prime Day is over (prime_day in _config.yml).
+ended_heading: Prime Day has ended
+ended_text: Amazon's Prime Day deals are over, but I keep finding new tech deals every day.
+ended_button: See today's deals
+ended_button_url: /deals/
 ---
 {% assign deals = site.prime_day_deals %}
 {% include page-header.html title=page.breadcrumb_title parent=page.breadcrumb_parent parent_url=page.breadcrumb_parent_url %}
@@ -23,22 +33,22 @@ collection_list: prime_day_deals
     {% include product-grid.html items=deals filters=false %}
     {% if site.prime_day_count == 0 %}
     <div class="text-center bg-body-tertiary rounded-5 py-5 px-3 mt-4">
-      <h2 class="h5 mb-2">No Prime Day deals yet</h2>
-      <p class="text-body-secondary mb-4">Check back soon, new deals get added often.</p>
-      <a class="btn btn-primary" href="{{ '/deals/' | relative_url }}">See all deals</a>
+      <h2 class="h5 mb-2">{{ page.empty_heading }}</h2>
+      <p class="text-body-secondary mb-4">{{ page.empty_text }}</p>
+      <a class="btn btn-primary" href="{{ page.empty_button_url | relative_url }}">{{ page.empty_button }}</a>
     </div>
     {% endif %}
   {% else %}
   <div class="text-center bg-body-tertiary rounded-5 py-5 px-3 mt-4">
-    <h2 class="h5 mb-2">Prime Day has ended</h2>
-    <p class="text-body-secondary mb-4">Amazon's Prime Day deals are over, but I keep finding new tech deals every day.</p>
-    <a class="btn btn-primary" href="{{ '/deals/' | relative_url }}">See today's deals</a>
+    <h2 class="h5 mb-2">{{ page.ended_heading }}</h2>
+    <p class="text-body-secondary mb-4">{{ page.ended_text }}</p>
+    <a class="btn btn-primary" href="{{ page.ended_button_url | relative_url }}">{{ page.ended_button }}</a>
   </div>
   {% endif %}
   {% if page.show_disclosure %}
   <div class="alert alert-info d-flex fs-sm mt-4 mb-0" role="alert">
     <i class="ci-info fs-lg pe-1 mt-1 me-2"></i>
-    <div class="cdeals-smallprint">{{ site.affiliate_disclosure }} <a class="alert-link" href="{{ '/disclosure/' | relative_url }}">Learn more</a></div>
+    <div class="cdeals-smallprint">{{ site.data.disclosures.affiliate }} <a class="alert-link" href="{{ site.data.disclosures.learn_more_url | relative_url }}">{{ site.data.disclosures.learn_more_label }}</a></div>
   </div>
   {% endif %}
 </section>

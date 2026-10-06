@@ -1,10 +1,46 @@
-# CloudCannon editor setup: lets you add products from a form instead of editing files.
-# https://cloudcannon.com/documentation/articles/setting-global-configuration/?ssg=Jekyll
+# CloudCannon editor setup: lets you edit products, posts, pages and the
+# sitewide data files (_data/) from forms instead of editing files.
+# https://cloudcannon.com/documentation/developer-reference/configuration-file/
+#
+# How the field settings below are layered (later wins):
+#   _inputs (bottom of file)          defaults for a key name anywhere on the site
+#   collections_config.<x>._inputs    only inside that collection
+#   file_config (per file glob)       only inside that file (used where the same
+#                                     key name means something else elsewhere)
+#   _structures                       the shape of new items for "Add item" buttons
+#
+# This file is excluded from the Jekyll build: changing it never changes the site.
+
+# Data files that select/multiselect inputs can take their options from
+# (values: data.<key>). deal_sources.yml is left out on purpose: it is the
+# deal finder's settings (scripts/find_deals.rb), not site content.
+data_config:
+  brand:
+    path: _data/brand.yml
+  brands:
+    path: _data/brands.yml
+  categories:
+    path: _data/categories.yml
+  company:
+    path: _data/company.yml
+  disclosures:
+    path: _data/disclosures.yml
+  faqs:
+    path: _data/faqs.yml
+  footer:
+    path: _data/footer.yml
+  navigation:
+    path: _data/navigation.yml
+  social:
+    path: _data/social.yml
+  strings:
+    path: _data/strings.yml
+  testimonials:
+    path: _data/testimonials.yml
 
 collections_config:
   posts:
     path: _posts
-    output: true
     name: Blog posts
     icon: edit_note
     url: /blog/[date|year]/[date|month]/[date|day]/[slug]/
@@ -15,11 +51,21 @@ collections_config:
       default:
         path: .cloudcannon/schemas/blog-post.md
         name: Blog post
+    # Scheduling wording only applies to posts (products also have a date).
+    _inputs:
+      published:
+        type: switch
+        label: Published
+        comment: "Off = draft, never built. On + a future date = scheduled."
+      date:
+        type: datetime
+        label: "Publish date & time (Central)"
+        comment: "A future date schedules the post: it goes live on the first site build on/after that time. Use -0500 during daylight time (CDT, Mar-Nov) and -0600 during standard time (CST). Also sets the post URL under /blog/YYYY/MM/DD/."
   products:
     path: _products
-    output: true
     name: Products
     icon: sell
+    url: /item/[slug]/
     _enabled_editors:
       - data
       - content
@@ -30,11 +76,777 @@ collections_config:
       affiliate:
         path: .cloudcannon/schemas/affiliate.md
         name: Affiliate deal
+    _inputs:
+      date:
+        type: date
+        label: Listing date
+        comment: Used for sorting, newest first.
+  deal_categories:
+    path: _deal_categories
+    name: Deal category pages
+    icon: category
+    url: /deals/[slug]/
+    _enabled_editors:
+      - data
+    _inputs:
+      slug:
+        type: select
+        label: Category
+        comment: Which category in Site data > categories this page is for. The page lives at /deals/<slug>/; the name and icon come from categories.yml.
+        options:
+          values: data.categories
+          value_key: slug
+          preview:
+            text:
+              - key: name
+      title:
+        type: text
+        label: Page title
+        comment: Browser tab / search result title, e.g. "Laptops deals".
   pages:
     path: ""
-    filter: strict
-    output: true
     name: Pages
+    icon: description
+    # Top-level .md and .html files show in the Pages list automatically
+    # (glob replaces the legacy `filter: strict`; `*` does not cross folders,
+    # so _posts/_products are not matched). blog/index.html and llms.txt are
+    # added by name; README.md is excluded.
+    glob:
+      - "*.md"
+      - "*.html"
+      - blog/index.html
+      - llms.txt
+      - "!README.md"
+  data:
+    path: _data
+    name: Site data
+    icon: dataset
+    description: Sitewide text, menus, footer, logos and lists. Changes show on every page.
+    disable_add: true
+    disable_add_folder: true
+    disable_url: true
+    _enabled_editors:
+      - data
+    # deal_sources.yml belongs to the deal finder script; edit it in the repo.
+    glob:
+      - "!deal_sources.yml"
+
+# Per-file field settings, for keys whose meaning depends on the file.
+file_config:
+  # ---- Pages -------------------------------------------------------------
+  - glob: index.html
+    _inputs:
+      title_no_sale:
+        type: text
+        label: Title (nothing for sale)
+        comment: Used instead of the title while none of my own items is for sale.
+      description_no_sale:
+        type: textarea
+        label: Description (nothing for sale)
+      description_amazon_only:
+        type: textarea
+        label: Description (Amazon-only mode)
+        comment: Used while only Amazon deals are shown (affiliate_networks in _config.yml).
+      title_no_sale_amazon_only:
+        type: text
+        label: Title (nothing for sale, Amazon-only)
+      description_no_sale_amazon_only:
+        type: textarea
+        label: Description (nothing for sale, Amazon-only)
+      swiper:
+        type: switch
+        label: Load carousel script
+        comment: Developer setting. Leave on.
+      just_listed_title:
+        type: text
+        label: '"Just listed" heading'
+      for_sale_title:
+        type: text
+        label: '"For sale by me" heading'
+      for_sale_view_all:
+        type: text
+        label: '"For sale" view-all link text'
+        comment: Link at the right of the "For sale by me" heading.
+      for_sale_view_all_url:
+        type: url
+        label: '"For sale" view-all link'
+      deals_title:
+        type: text
+        label: '"Deals I found" heading'
+      deals_view_all:
+        type: text
+        label: '"Deals" view-all link text'
+        comment: Link at the right of the "Deals I found" heading.
+      deals_view_all_url:
+        type: url
+        label: '"Deals" view-all link'
+      deals_prev_label:
+        type: text
+        label: Deals carousel "previous" label
+        comment: Read aloud by screen readers for the carousel arrow.
+      deals_next_label:
+        type: text
+        label: Deals carousel "next" label
+        comment: Read aloud by screen readers for the carousel arrow.
+      prime_day_title:
+        type: text
+        label: Prime Day section heading
+        comment: Shown only while Prime Day is live (prime_day in _config.yml).
+      prime_day_button:
+        type: text
+        label: Prime Day section button text
+      prime_day_button_url:
+        type: url
+        label: Prime Day section button link
+      hero:
+        type: array
+        label: Hero slides
+        comment: Slides at the top of the home page, in order.
+        options:
+          structures: _structures.hero_slide
+      kicker:
+        type: text
+        label: Small text above the title
+      button:
+        type: text
+        label: Button text
+        comment: 'In the deals banner, [count] = number of live deals.'
+      prime_day:
+        type: switch
+        label: Prime Day slide
+        comment: Only shown while Prime Day is live and has deals (prime_day in _config.yml).
+      selling:
+        type: switch
+        label: Only while selling
+        comment: Only shown while I have my own items for sale.
+      feature_link_label:
+        type: text
+        label: Feature link text
+        comment: Added after a feature's text when the feature has a link, e.g. "Learn more".
+      stores_fallback:
+        type: text
+        label: '[stores] fallback'
+        comment: Used for [stores] when no store names are available, e.g. "the stores".
+      deal_features:
+        type: array
+        label: Features (nothing for sale)
+        comment: 'Row under the slider while nothing of mine is for sale. In the text, [stores] = the stores of the live deals.'
+        options:
+          structures: _structures.feature
+      features:
+        type: array
+        label: Features (selling)
+        comment: Row under the slider while I have my own items for sale.
+        options:
+          structures: _structures.feature
+      text:
+        type: text
+        label: Text
+        comment: 'In deal features and the deals banner, [stores] = up to 3 store names of the live deals.'
+      banner:
+        type: object
+        label: For-sale banner
+        comment: Banner shown while I have my own items for sale.
+      background:
+        type: image
+        label: Background image
+        comment: Photo behind the banner.
+      deals_banner:
+        type: object
+        label: Deals banner
+        comment: '[stores] = up to 3 store names, [count] = number of live deals.'
+      button_one:
+        type: text
+        label: Button text (exactly 1 deal)
+        comment: 'Used instead of the button text when there is exactly 1 deal. [count] = 1.'
+      up_to:
+        type: text
+        label: '"Up to" text'
+        comment: 'Left box reads "<up to> <biggest discount>% <off>".'
+      off_label:
+        type: text
+        label: '"OFF" text'
+      fallback:
+        type: text
+        label: No-discount text
+        comment: Shown in the left box instead when no deal shows a discount.
+      brands:
+        type: multiselect
+        label: Brand logos
+        comment: Brand row at the bottom of the page, in this order. Add new brands (and their logos) in Site data > brands.
+        options:
+          values: data.brands
+          value_key: slug
+          preview:
+            text:
+              - key: name
+            image:
+              - key: logo_light
+          picker_preview:
+            text:
+              - key: name
+            image:
+              - key: logo_light
+      brands_all_items:
+        type: text
+        label: Last brand button text (selling)
+        comment: Last button in the brand row while something of mine is for sale (searches my items).
+      brands_all_items_url:
+        type: url
+        label: Last brand button link (selling)
+      brands_all_deals:
+        type: text
+        label: Last brand button text (deals only)
+        comment: Last button in the brand row while nothing of mine is for sale (searches the deals).
+      brands_all_deals_url:
+        type: url
+        label: Last brand button link (deals only)
+
+  - glob: prime-day.html
+    _inputs:
+      heading:
+        type: text
+        label: Page heading
+      breadcrumb_parent:
+        type: text
+        label: Breadcrumb parent text
+      breadcrumb_parent_url:
+        type: url
+        label: Breadcrumb parent link
+      prime_day_page:
+        type: switch
+        label: Prime Day page
+        comment: Developer setting. Leave on.
+      show_collection:
+        type: text
+        label: Collection shown
+        comment: Developer setting. Leave as is.
+      collection_list:
+        type: text
+        label: Item list
+        comment: Developer setting. Leave as is.
+      empty_heading:
+        type: text
+        label: No-deals heading
+        comment: Shown while Prime Day is live but no deal is tagged for it yet.
+      empty_text:
+        type: textarea
+        label: No-deals text
+      empty_button:
+        type: text
+        label: No-deals button text
+      empty_button_url:
+        type: url
+        label: No-deals button link
+      ended_heading:
+        type: text
+        label: Ended heading
+        comment: Shown once Prime Day is over (prime_day in _config.yml).
+      ended_text:
+        type: textarea
+        label: Ended text
+      ended_button:
+        type: text
+        label: Ended button text
+      ended_button_url:
+        type: url
+        label: Ended button link
+
+  - glob: shop.html
+    _inputs:
+      heading:
+        type: text
+        label: Page heading
+      selling_only:
+        type: switch
+        label: Only while selling
+        comment: Left out of sitemap.xml while nothing is for sale.
+      empty_heading:
+        type: text
+        label: Nothing-for-sale heading
+      empty_text:
+        type: textarea
+        label: Nothing-for-sale text
+      empty_button:
+        type: text
+        label: Nothing-for-sale button text
+        comment: Button under the empty message.
+      empty_button_url:
+        type: url
+        label: Nothing-for-sale button link
+      sold_heading:
+        type: text
+        label: '"Recently sold" heading'
+      sold_limit:
+        type: number
+        label: Sold items shown
+        comment: How many recently sold items to show.
+      show_collection:
+        type: text
+        comment: Developer setting. Leave as is.
+      collection_type:
+        type: text
+        comment: Developer setting. Leave as is.
+
+  - glob: deals.html
+    _inputs:
+      heading:
+        type: text
+        label: Page heading
+      title_amazon_only:
+        type: text
+        label: Title (Amazon-only mode)
+        comment: Used while only Amazon deals are shown (affiliate_networks in _config.yml).
+      description_amazon_only:
+        type: textarea
+        label: Description (Amazon-only mode)
+      show_collection:
+        type: text
+        comment: Developer setting. Leave as is.
+      collection_type:
+        type: text
+        comment: Developer setting. Leave as is.
+
+  - glob: blog/index.html
+    _inputs:
+      heading:
+        type: text
+        label: Page heading
+      empty_heading:
+        type: text
+        label: No-posts heading
+        comment: Shown until the first post is published.
+      empty_text:
+        type: textarea
+        label: No-posts text
+        comment: '[link] = the link below (empty link text, pointing to empty link URL).'
+      empty_link:
+        type: text
+        label: No-posts link text
+        comment: Replaces [link] in the text.
+      empty_link_url:
+        type: url
+        label: No-posts link
+
+  - glob: llms.txt
+    _inputs:
+      intro_selling:
+        type: textarea
+        label: Intro (selling)
+        comment: '[site] = site title, [author] = author name. Used while I have my own items for sale.'
+      intro:
+        type: textarea
+        label: Intro (deals only)
+        comment: '[site] = site title, [author] = author name.'
+      website_label:
+        type: text
+        label: '"Website" label'
+      email_label:
+        type: text
+        label: '"Email" label'
+      pages_heading:
+        type: text
+        label: Pages heading
+      home_label:
+        type: text
+        label: Home link text
+      home_note_selling:
+        type: text
+        label: Home note (selling)
+      home_note:
+        type: text
+        label: Home note (deals only)
+      shop_label:
+        type: text
+        label: For sale link text
+      shop_note:
+        type: text
+        label: For sale note
+      deals_label:
+        type: text
+        label: Deals link text
+      deals_note:
+        type: text
+        label: Deals note
+      blog_label:
+        type: text
+        label: Blog link text
+      blog_note:
+        type: text
+        label: Blog note
+      about_label:
+        type: text
+        label: About link text
+      about_note_selling:
+        type: text
+        label: About note (selling)
+      about_note:
+        type: text
+        label: About note (deals only)
+      returns_label:
+        type: text
+        label: Returns link text
+      returns_note:
+        type: text
+        label: Returns note
+      disclosure_label:
+        type: text
+        label: Disclosure link text
+      disclosure_note:
+        type: text
+        label: Disclosure note
+      terms_label:
+        type: text
+        label: Terms link text
+      privacy_label:
+        type: text
+        label: Privacy link text
+      for_sale_heading:
+        type: text
+        label: For sale heading
+      for_sale_line:
+        type: text
+        label: For sale line
+        comment: 'One line per item. [price], [condition], [category]; [brand_part] = ", <brand>" when the item has a brand.'
+      condition_default:
+        type: text
+        label: Default condition
+        comment: Used for [condition] when an item has none.
+      deals_heading:
+        type: text
+        label: Deals heading
+      deal_line:
+        type: text
+        label: Deal line
+        comment: 'One line per deal. [price] = price, [store] = store name.'
+      deal_line_no_price:
+        type: text
+        label: Deal line (no price)
+        comment: 'Used for Amazon deals while amazon_show_prices is false. [store] = store name.'
+      deal_was:
+        type: text
+        label: '"Usually" suffix'
+        comment: 'Added after the deal line when there is an original price. [price] = original price. Keep the leading space.'
+      faq_heading:
+        type: text
+        label: FAQ heading
+      sitemap:
+        type: switch
+        comment: Developer setting. Leave off.
+
+  - glob:
+      - 404.md
+      - thanks.md
+    _inputs:
+      big_text:
+        type: text
+        label: Big text
+        comment: Large text above the heading, e.g. "404".
+      heading:
+        type: text
+        label: Heading
+      text:
+        type: textarea
+        label: Message
+      icon:
+        type: text
+        label: Icon
+        comment: 'Optional Cartzilla icon class shown in a circle, e.g. ci-check. https://cartzilla.createx.studio/docs/icons.html'
+
+  # ---- Site data (_data/) ------------------------------------------------
+  - glob: _data/strings.yml
+    _inputs:
+      # Keys here that share a name with page/product fields elsewhere.
+      categories:
+        type: text
+        label: '"Categories" menu label'
+      prime_day:
+        type: text
+        label: '"Prime Day" menu label'
+      price:
+        type: object
+        label: Prices
+      category:
+        type: object
+        label: Category pages
+        comment: '[category] = category name (lowercase in the empty heading).'
+      condition:
+        type: text
+        label: '"Condition:" label'
+      highlights:
+        type: text
+        label: '"Highlights" heading'
+      # Placeholders
+      menu_title:
+        type: text
+        label: Phone menu title
+        comment: '[site] = site title.'
+      deal_at:
+        type: text
+        label: '"Deal @ store" badge'
+        comment: '[store] = store name.'
+      cta_amazon:
+        type: text
+        label: Main button (Amazon deals)
+      cta_store:
+        type: text
+        label: Main button (other stores)
+        comment: '[store] = store name.'
+      price_note:
+        type: textarea
+        label: Price note
+        comment: '[store] = store name.'
+      condition_default:
+        type: text
+        label: Default condition
+        comment: Shown when an item for sale has no condition set.
+      sold_notice:
+        type: text
+        label: Sold notice
+        comment: '[link] = the sold link below.'
+      sold_link:
+        type: text
+        label: Sold notice link text
+      questions:
+        type: text
+        label: Questions line
+        comment: '[link] = the questions link below.'
+      questions_link:
+        type: text
+        label: Questions link text
+      add_to_cart_label:
+        type: text
+        label: Add to cart (screen readers)
+        comment: '[title] = item title.'
+      photo_label:
+        type: text
+        label: Photo button (screen readers)
+        comment: '[count] = photo number.'
+      specs_note:
+        type: textarea
+        label: Specs note
+      heading:
+        type: text
+        label: Category page heading
+        comment: '[category] = category name.'
+      intro:
+        type: textarea
+        label: Category page intro
+        comment: '[category] = category name.'
+      empty_heading:
+        type: text
+        label: No-deals heading
+        comment: '[category] = category name, lowercase here.'
+      empty_text:
+        type: text
+        label: No-deals text
+      empty_button:
+        type: text
+        label: No-deals button text
+      empty_button_url:
+        type: url
+        label: No-deals button link
+      by:
+        type: text
+        label: Byline
+        comment: '[author] = author name.'
+      stars_label:
+        type: text
+        label: Star rating (screen readers)
+        comment: '[rating] = star rating.'
+      deals_url:
+        type: url
+      shop_url:
+        type: url
+      blog_url:
+        type: url
+      sold_link_url:
+        type: url
+      returns_url:
+        type: url
+      questions_link_url:
+        type: url
+      view_all_url:
+        type: url
+
+  - glob: _data/footer.yml
+    _inputs:
+      email_button:
+        type: object
+        label: Email button
+        comment: Button under the footer logo.
+      icon:
+        type: text
+        label: Icon
+        comment: 'Cartzilla icon class, e.g. ci-mail. https://cartzilla.createx.studio/docs/icons.html'
+      columns:
+        type: array
+        label: Link columns
+        comment: Left to right.
+        options:
+          structures: _structures.footer_column
+      heading:
+        type: text
+        label: Column heading
+      auto_categories:
+        type: switch
+        label: Auto-fill with categories
+        comment: Fills the column with the deal categories that have live deals. The column has no links of its own and is skipped when there are none.
+      links:
+        type: array
+        label: Links
+        options:
+          structures: _structures.footer_link
+      label:
+        type: text
+        label: Link text
+      copyright_suffix:
+        type: text
+        label: Copyright text
+        comment: 'Bottom line reads "© <year> <author> " followed by this text.'
+
+  - glob: _data/navigation.yml
+    _inputs:
+      title:
+        type: text
+        label: Menu text
+      url:
+        type: url
+        label: Link
+
+  - glob: _data/brand.yml
+    _inputs:
+      header_logo:
+        type: object
+        label: Header logo
+        comment: Logo in the top bar on every page.
+      footer_logo:
+        type: object
+        label: Footer logo
+        comment: Logo at the top-left of the footer.
+      src:
+        type: image
+        label: Logo image
+      alt:
+        type: text
+        label: Alt text
+        comment: 'For screen readers / when the image can''t load. [site] = site title.'
+
+  - glob: _data/disclosures.yml
+    _inputs:
+      affiliate:
+        type: textarea
+        label: Affiliate disclosure
+        comment: Shown in the footer, on deal, category and home pages, after blog posts and in /llms.txt. One or two plain sentences, no line breaks.
+      learn_more_label:
+        type: text
+        label: '"Learn more" link text'
+      learn_more_url:
+        type: url
+        label: '"Learn more" link'
+
+  - glob: _data/social.yml
+    _inputs:
+      links:
+        type: array
+        label: Social profiles
+        comment: Used for og:see_also and the "sameAs" structured data. Leave empty until the profiles are real.
+        options:
+          structures: _structures.social_link
+      name:
+        type: text
+        label: Name
+        comment: Just a label for you; only the URL appears on the site.
+
+  - glob: _data/brands.yml
+    _inputs:
+      slug:
+        type: text
+        label: Slug
+        comment: Short id, lowercase, no spaces. Pick it in the home page's Brand logos.
+      name:
+        type: text
+        label: Brand name
+        comment: Read by screen readers / shown if the logo can't load.
+      query:
+        type: text
+        label: Search query
+        comment: What clicking the logo searches for (my items, or the deals).
+
+  - glob: _data/categories.yml
+    _inputs:
+      slug:
+        type: text
+        label: Slug
+        comment: 'Lowercase, dashes. The page is /deals/<slug>/ and needs a stub file in Deal category pages.'
+      name:
+        type: text
+        label: Category name
+        comment: A deal's category must match this exactly.
+      icon:
+        type: text
+        label: Icon
+        comment: 'Cartzilla icon class, e.g. ci-laptop. https://cartzilla.createx.studio/docs/icons.html'
+
+  - glob: _data/company.yml
+    _inputs:
+      email:
+        type: email
+        label: Public email (schema)
+        comment: Leave empty until it's a real address.
+      country:
+        type: text
+        label: Country
+        comment: ISO country code, e.g. US. Leave empty if unsure.
+      payment_accepted:
+        type: array
+        label: Payment methods
+        comment: e.g. Credit Card, Apple Pay. Leave empty to omit.
+      payment_accepted[*]:
+        type: text
+      rating_value:
+        type: text
+        label: Rating value
+        comment: Real numbers only (e.g. from eBay feedback). Both rating fields are needed for review stars in search.
+      review_count:
+        type: text
+        label: Review count
+
+  - glob: _data/faqs.yml
+    _inputs:
+      q:
+        type: text
+        label: Question
+      a:
+        type: textarea
+        label: Answer (on the page)
+        comment: HTML allowed. Keep in sync with the plain answer.
+      a_plain:
+        type: textarea
+        label: Answer (plain text)
+        comment: Goes into structured data for search and AI answers. Keep in sync with the answer.
+
+  - glob: _data/testimonials.yml
+    _inputs:
+      name:
+        type: text
+        label: Buyer name
+        comment: e.g. Jordan P.
+      review:
+        type: textarea
+        label: Review
+        comment: Real buyer reviews only.
+      rating:
+        type: number
+        label: Rating (1-5)
+        comment: Only if the buyer actually rated.
+        options:
+          min: 1
+          max: 5
+      date:
+        type: date
+        label: Review date
+        comment: Optional.
 
 _inputs:
   type:
@@ -84,6 +896,21 @@ _inputs:
     type: image
   highlights:
     type: array
+    comment: Short bullet points.
+  highlights[*]:
+    type: text
+    label: Highlight
+  specs:
+    type: array
+    label: Key specs
+    options:
+      structures: _structures.spec
+  why_deal:
+    type: textarea
+    label: Why it's a deal
+  source:
+    type: text
+    comment: Set by the deal finder. Leave as is.
 
   # SEO front matter (any page)
   description:
@@ -116,10 +943,15 @@ _inputs:
     type: array
     options:
       structures: _structures.button
-  brands:
-    type: multiselect
+  style:
+    type: select
+    label: Button style
     options:
-      values: [apple, samsung, sony, canon, motorola]
+      values:
+        - btn-primary
+        - btn-outline-secondary
+        - btn-secondary
+        - btn-dark
   image:
     type: image
   show_disclosure:
@@ -131,6 +963,44 @@ _inputs:
     type: date
     label: Last updated
     comment: Shown under the heading on policy pages. Change it whenever you edit the policy.
+
+  # Shared by pages and data files
+  link:
+    type: url
+    label: Link
+  url:
+    type: url
+    label: Link
+  background:
+    type: image
+  logo_light:
+    type: image
+    label: Logo (light theme)
+    comment: Dark artwork, shown on the light theme.
+  logo_dark:
+    type: image
+    label: Logo (dark theme)
+    comment: Light artwork, shown on the dark theme.
+  width:
+    type: number
+    comment: Width the logo is drawn at, in pixels. Keep the image's ratio.
+  height:
+    type: number
+    comment: Height the logo is drawn at, in pixels. Keep the image's ratio.
+  selling_only:
+    type: switch
+    label: Only while selling
+    comment: Hidden while nothing of mine is for sale.
+  selling:
+    type: switch
+    label: Only while selling
+    comment: Only shown while I have my own items for sale.
+  auto_categories:
+    type: switch
+    label: Auto-fill with categories
+  icon:
+    type: text
+    comment: 'Cartzilla icon class, e.g. ci-check-shield. https://cartzilla.createx.studio/docs/icons.html'
 
   # Blog post fields
   categories:
@@ -144,27 +1014,180 @@ _inputs:
     type: text
   published:
     type: switch
-    comment: Turn off to keep a draft out of the live site build.
+    label: Published
+    comment: Off = not built (hidden from the site).
   author:
     type: text
     comment: Defaults to Carlos Lerma.
   date:
-    type: datetime
-    comment: Publish date. Also sets the post URL under /blog/YYYY/MM/DD/.
+    type: date
+    label: Date
 
 _structures:
   hero_slide:
     values:
       - label: Slide
-        value: { kicker: "", title: "", image: "", link: /shop/, button: Shop now }
+        icon: view_carousel
+        preview:
+          text:
+            - key: title
+          subtext:
+            - key: kicker
+          image:
+            - key: image
+        value:
+          kicker: ""
+          title: ""
+          image: ""
+          link: /shop/
+          button: Shop now
+          selling: false
   feature:
     values:
       - label: Feature
-        value: { icon: ci-check-shield, title: "", text: "" }
+        icon: star
+        preview:
+          text:
+            - key: title
+          subtext:
+            - key: text
+        value:
+          icon: ci-check-shield
+          title: ""
+          text: ""
+          link: null   # optional; leave empty for no link
   button:
     values:
       - label: Button
-        value: { label: "", url: /, style: btn-primary }
+        icon: touch_app
+        preview:
+          text:
+            - key: label
+          subtext:
+            - key: url
+        value:
+          label: ""
+          url: /
+          style: btn-primary
+  navigation:
+    values:
+      - label: Menu item
+        icon: link
+        preview:
+          text:
+            - key: title
+          subtext:
+            - key: url
+        value:
+          title: ""
+          url: /
+          selling_only: false
+  footer_column:
+    values:
+      - label: Link column
+        icon: view_column
+        preview:
+          text:
+            - key: heading
+        value:
+          heading: ""
+          links: []
+      - label: Categories column (auto-filled)
+        icon: category
+        preview:
+          text:
+            - key: heading
+        value:
+          heading: Categories
+          auto_categories: true
+  footer_link:
+    values:
+      - label: Link
+        icon: link
+        preview:
+          text:
+            - key: label
+          subtext:
+            - key: url
+        value:
+          label: ""
+          url: /
+          selling_only: false
+  social_link:
+    values:
+      - label: Profile
+        icon: public
+        preview:
+          text:
+            - key: name
+          subtext:
+            - key: url
+        value:
+          name: ""
+          url: ""
+  brands:
+    values:
+      - label: Brand
+        icon: branding_watermark
+        preview:
+          text:
+            - key: name
+          image:
+            - key: logo_light
+        value:
+          slug: ""
+          name: ""
+          logo_light: ""
+          logo_dark: ""
+          query: ""
+  category:
+    values:
+      - label: Category
+        icon: category
+        preview:
+          text:
+            - key: name
+          subtext:
+            - key: slug
+        value:
+          slug: ""
+          name: ""
+          icon: ci-tag
+  faqs:
+    values:
+      - label: Question
+        icon: quiz
+        preview:
+          text:
+            - key: q
+        value:
+          q: ""
+          a: ""
+          a_plain: ""
+  testimonials:
+    values:
+      - label: Review
+        icon: reviews
+        preview:
+          text:
+            - key: name
+          subtext:
+            - key: review
+        value:
+          name: ""
+          review: ""
+  spec:
+    values:
+      - label: Spec
+        icon: tune
+        preview:
+          text:
+            - key: label
+          subtext:
+            - key: value
+        value:
+          label: ""
+          value: ""
 
 paths:
   uploads: assets/uploads

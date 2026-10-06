@@ -5,6 +5,11 @@ heading: Our blog
 breadcrumb_title: Blog
 permalink: /blog/
 description: "Tech deal guides, buying tips, and product notes from Carlos Lerma at cDeals."
+# Shown until the first post is published. [link] = empty_link, linking to empty_link_url.
+empty_heading: No posts yet
+empty_text: "Carlos hasn’t published a blog post yet. Check back soon for tech deal guides and buying tips, or browse the [link] page in the meantime."
+empty_link: deals
+empty_link_url: /deals/
 ---
 {% comment %}
   Port of Cartzilla 3 blog-grid-v1.html (main). Demo content replaced with Liquid
@@ -20,9 +25,9 @@ description: "Tech deal guides, buying tips, and product notes from Carlos Lerma
 <section class="container pb-5 mb-2 mb-md-3 mb-lg-4 mb-xl-5">
   <div class="border rounded-4 p-4 p-md-5 text-center">
     <i class="ci-edit fs-1 text-body-tertiary d-block mb-3" aria-hidden="true"></i>
-    <h2 class="h5 mb-2">No posts yet</h2>
+    <h2 class="h5 mb-2">{{ page.empty_heading }}</h2>
     <p class="text-body-secondary mb-0 mx-auto" style="max-width: 36rem">
-      Carlos hasn’t published a blog post yet. Check back soon for tech deal guides and buying tips, or browse the <a href="{{ '/deals/' | relative_url }}">deals</a> page in the meantime.
+      {% capture empty_link %}<a href="{{ page.empty_link_url | relative_url }}">{{ page.empty_link }}</a>{% endcapture %}{{ page.empty_text | replace: "[link]", empty_link }}
     </p>
   </div>
 </section>

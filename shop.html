@@ -6,6 +6,8 @@ selling_only: true   # left out of sitemap.xml while nothing is for sale
 heading: For sale by me
 empty_heading: Nothing for sale right now
 empty_text: Check back soon. New gear gets listed here when I upgrade. In the meantime, see the deals I found.
+empty_button: See the deals I found   # button under the empty message
+empty_button_url: /deals/
 sold_heading: Recently sold
 sold_limit: 8
 breadcrumb_title: For sale
@@ -27,7 +29,7 @@ collection_type: sale
       <div class="d-inline-flex text-dark-emphasis bg-body rounded-circle p-4 mb-3"><i class="ci-box fs-2"></i></div>
       <h2 class="h5 mb-2">{{ page.empty_heading }}</h2>
       <p class="text-body-secondary mb-4">{{ page.empty_text }}</p>
-      <a class="btn btn-primary" href="{{ '/deals/' | relative_url }}">See the deals I found <i class="ci-arrow-up-right fs-base ms-1 me-n1"></i></a>
+      <a class="btn btn-primary" href="{{ page.empty_button_url | relative_url }}">{{ page.empty_button }} <i class="ci-arrow-up-right fs-base ms-1 me-n1"></i></a>
     </div>
   {% endif %}
 

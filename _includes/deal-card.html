@@ -17,6 +17,6 @@
   {% include product-card.html product=deal %}
 </div>
 {% else %}
-<p class="fs-sm text-danger">Deal not found: <code>{{ include.slug }}</code></p>
+<p class="fs-sm text-danger">{{ site.data.strings.deal_card.not_found }} <code>{{ include.slug }}</code></p>
 {% endif %}
 {% endunless %}

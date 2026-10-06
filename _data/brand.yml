@@ -1,0 +1,16 @@
+# Logos. Paths are relative to the site root. width/height are the size the
+# logo is drawn at (in pixels); keep the same ratio as the image file.
+
+# Logo in the top bar on every page.
+header_logo:
+  src: /assets/images/brand/logo-horizontal-on-dark.svg
+  width: 170
+  height: 40
+  # Text for screen readers / when the image can't load. [site] = site title.
+  alt: "[site] – Bargains on electronics"
+
+# Logo at the top-left of the footer.
+footer_logo:
+  src: /assets/images/brand/logo-horizontal-on-dark.svg
+  width: 186
+  height: 44

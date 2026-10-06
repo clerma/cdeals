@@ -1,6 +1,6 @@
 {% comment %}
   Cartzilla blog-grid-v1 / blog-single-v1 sticky sidebar: categories + trending/recent.
-  Social "Follow us" omitted until site.social.links has real URLs.
+  Social "Follow us" omitted until _data/social.yml has real URLs.
 {% endcomment %}
 {% assign side_posts = site.posts | slice: 0, 5 %}
 {% assign cat_names = "" %}
@@ -18,12 +18,12 @@
   <div class="offcanvas-lg offcanvas-end sticky-lg-top ps-lg-4 ps-xl-0" id="blogSidebar">
     <div class="d-none d-lg-block" style="height: 115px"></div>
     <div class="offcanvas-header py-3">
-      <h5 class="offcanvas-title">Sidebar</h5>
+      <h5 class="offcanvas-title">{{ site.data.strings.blog.sidebar_title }}</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#blogSidebar" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body d-block pt-2 py-lg-0">
       {% if cat_list.size > 0 and cat_list[0] != "" %}
-      <h4 class="h6 mb-4">Blog categories</h4>
+      <h4 class="h6 mb-4">{{ site.data.strings.blog.sidebar_categories }}</h4>
       <div class="d-flex flex-wrap gap-3">
         {% for c in cat_list %}
         <span class="btn btn-outline-secondary px-3 pe-none">{{ c }}</span>
@@ -32,7 +32,7 @@
       {% endif %}
 
       {% if side_posts.size > 0 %}
-      <h4 class="h6 {% if cat_list.size > 0 and cat_list[0] != "" %}pt-5{% endif %} mb-0">Recent posts</h4>
+      <h4 class="h6 {% if cat_list.size > 0 and cat_list[0] != "" %}pt-5{% endif %} mb-0">{{ site.data.strings.blog.sidebar_recent }}</h4>
       {% for post in side_posts %}
       <article class="hover-effect-scale position-relative d-flex align-items-center{% unless forloop.last %} border-bottom{% endunless %} py-4">
         <div class="w-100 pe-3">

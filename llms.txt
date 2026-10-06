@@ -2,6 +2,45 @@
 permalink: /llms.txt
 sitemap: false
 layout: null
+# Plain-text summary of the site for AI tools (/llms.txt). Words in [square
+# brackets] are filled in automatically: [site] = site title, [author] =
+# author name, [store] = store name, [price] = a price, [condition] = item
+# condition, [brand] = brand, [category] = category.
+intro_selling: "[site] is run by [author]. It has two parts: used tech that [author] sells directly (checkout through AnyCart and Stripe), and affiliate deals at other stores."
+intro: "[site] is run by [author]. It lists tech deals at other stores, each found and checked by hand."
+website_label: Website
+email_label: Email
+pages_heading: Pages
+# Page list: link text, then the short note after it.
+home_label: Home
+home_note_selling: newest items for sale and featured deals
+home_note: featured deals
+shop_label: For sale
+shop_note: used tech sold directly, with condition notes
+deals_label: Deals
+deals_note: affiliate deals at other stores
+blog_label: Blog
+blog_note: tech deal guides and buying tips
+about_label: About
+about_note_selling: who runs the site and how buying works
+about_note: who runs the site and how deals are picked
+returns_label: Returns & shipping
+returns_note: shipping times, returns, and refunds
+disclosure_label: Affiliate disclosure
+disclosure_note: how affiliate links on the Deals page work
+terms_label: Terms
+privacy_label: Privacy
+for_sale_heading: For sale now
+# One line per item for sale. [brand_part] = ", [brand]" when the item has a brand.
+for_sale_line: "[price], [condition] condition[brand_part], [category]"
+condition_default: used
+deals_heading: Current deals (affiliate)
+# One line per deal. deal_line_no_price is used for Amazon deals while
+# amazon_show_prices is false; deal_was is added when there's an original price.
+deal_line_no_price: "deal at [store] (see current price at [store])"
+deal_line: "[price] at [store]"
+deal_was: " (usually [price])"
+faq_heading: FAQ
 ---
 {%- comment -%}
   Plain-Markdown site summary for AI crawlers. Follows selling mode
@@ -16,48 +55,53 @@ layout: null
 
 > {{ site.description | strip_html | strip_newlines | strip }}
 
-{% if site.selling %}{{ site.title }} is run by {{ site.author }}. It has two parts: used tech that {{ site.author }} sells directly (checkout through AnyCart and Stripe), and affiliate deals at other stores.{% else %}{{ site.title }} is run by {{ site.author }}. It lists tech deals at other stores, each found and checked by hand.{% endif %} {{ site.affiliate_disclosure | strip }}
+{% if site.selling %}{% assign intro = page.intro_selling %}{% else %}{% assign intro = page.intro %}{% endif %}{{ intro | replace: "[site]", site.title | replace: "[author]", site.author }} {{ site.data.disclosures.affiliate | strip }}
 
-- Website: {{ site.url }}/
+- {{ page.website_label }}: {{ site.url }}/
 {%- if site.data.company.email and site.data.company.email != "" %}
-- Email: {{ site.data.company.email }}
+- {{ page.email_label }}: {{ site.data.company.email }}
 {%- endif %}
 
-## Pages
+## {{ page.pages_heading }}
 
 {% if site.selling -%}
-- [Home]({{ '/' | absolute_url }}): newest items for sale and featured deals
-- [For sale]({{ '/shop/' | absolute_url }}): used tech sold directly, with condition notes
+- [{{ page.home_label }}]({{ '/' | absolute_url }}): {{ page.home_note_selling }}
+- [{{ page.shop_label }}]({{ '/shop/' | absolute_url }}): {{ page.shop_note }}
 {%- else -%}
-- [Home]({{ '/' | absolute_url }}): featured deals
+- [{{ page.home_label }}]({{ '/' | absolute_url }}): {{ page.home_note }}
 {%- endif %}
-- [Deals]({{ '/deals/' | absolute_url }}): affiliate deals at other stores
-- [Blog]({{ '/blog/' | absolute_url }}): tech deal guides and buying tips{% for post in site.posts %}
+- [{{ page.deals_label }}]({{ '/deals/' | absolute_url }}): {{ page.deals_note }}
+- [{{ page.blog_label }}]({{ '/blog/' | absolute_url }}): {{ page.blog_note }}{% for post in site.posts %}
   - [{{ post.title }}]({{ post.url | absolute_url }}){% endfor %}
 {%- for c in site.data.categories %}{% assign cat_live = 0 %}{% for d in deals %}{% if d.category == c.name %}{% if d.expires %}{% assign exp = d.expires | date: "%Y-%m-%d" %}{% if exp < today %}{% continue %}{% endif %}{% endif %}{% assign cat_live = cat_live | plus: 1 %}{% endif %}{% endfor %}{% if cat_live > 0 %}
-  - [{{ c.name }} deals]({{ '/deals/' | append: c.slug | append: '/' | absolute_url }})
+  - [{{ site.data.strings.category.heading | replace: "[category]", c.name }}]({{ '/deals/' | append: c.slug | append: '/' | absolute_url }})
 {%- endif %}{% endfor %}
-- [About]({{ '/about/' | absolute_url }}): who runs the site{% if site.selling %} and how buying works{% else %} and how deals are picked{% endif %}
+- [{{ page.about_label }}]({{ '/about/' | absolute_url }}): {% if site.selling %}{{ page.about_note_selling }}{% else %}{{ page.about_note }}{% endif %}
 {%- if site.selling %}
-- [Returns & shipping]({{ '/returns/' | absolute_url }}): shipping times, returns, and refunds
+- [{{ page.returns_label }}]({{ '/returns/' | absolute_url }}): {{ page.returns_note }}
 {%- endif %}
-- [Affiliate disclosure]({{ '/disclosure/' | absolute_url }}): how affiliate links on the Deals page work
-- [Terms]({{ '/terms/' | absolute_url }}) and [Privacy]({{ '/privacy/' | absolute_url }})
+- [{{ page.disclosure_label }}]({{ '/disclosure/' | absolute_url }}): {{ page.disclosure_note }}
+- [{{ page.terms_label }}]({{ '/terms/' | absolute_url }}) and [{{ page.privacy_label }}]({{ '/privacy/' | absolute_url }})
 {% if site.selling %}
-## For sale now
+## {{ page.for_sale_heading }}
 {% for p in for_sale %}
-- [{{ p.title }}]({{ p.url | absolute_url }}): {% include money.html amount=p.price %}, {{ p.condition | default: "used" | downcase }} condition{% if p.brand %}, {{ p.brand }}{% endif %}, {{ p.category }}
+{%- capture price %}{% include money.html amount=p.price %}{% endcapture %}
+{%- capture brand_part %}{% if p.brand %}, {{ p.brand }}{% endif %}{% endcapture %}
+{%- assign condition = p.condition | default: page.condition_default | downcase %}
+- [{{ p.title }}]({{ p.url | absolute_url }}): {{ page.for_sale_line | replace: "[price]", price | replace: "[condition]", condition | replace: "[brand_part]", brand_part | replace: "[category]", p.category }}
 {%- endfor %}
 {% endif %}
-## Current deals (affiliate)
+## {{ page.deals_heading }}
 {% for p in deals %}
 {%- if p.expires %}{% assign exp = p.expires | date: "%Y-%m-%d" %}{% if exp < today %}{% continue %}{% endif %}{% endif %}
 {%- capture amz %}{% include amazon-hidden.html product=p %}{% endcapture %}
-- [{{ p.title }}]({{ p.url | absolute_url }}): {% if amz != "" %}deal at {{ p.store }} (see current price at {{ p.store }}){% else %}{% include money.html amount=p.price %} at {{ p.store }}{% if p.compare_at %} (usually {% include money.html amount=p.compare_at %}){% endif %}{% endif %}
+{%- capture price %}{% include money.html amount=p.price %}{% endcapture %}
+{%- capture was %}{% if p.compare_at %}{% include money.html amount=p.compare_at %}{% endif %}{% endcapture %}
+- [{{ p.title }}]({{ p.url | absolute_url }}): {% if amz != "" %}{{ page.deal_line_no_price | replace: "[store]", p.store }}{% else %}{{ page.deal_line | replace: "[price]", price | replace: "[store]", p.store }}{% if p.compare_at %}{{ page.deal_was | replace: "[price]", was }}{% endif %}{% endif %}
 {%- endfor %}
 {%- if site.data.faqs and site.data.faqs.size > 0 %}
 
-## FAQ
+## {{ page.faq_heading }}
 {% for f in site.data.faqs %}
 **{{ f.q | strip }}**
 {{ f.a_plain | default: f.a | strip_html | strip }}

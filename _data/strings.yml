@@ -1,0 +1,117 @@
+# Sitewide labels and short bits of copy used by the page templates.
+# Edit the words freely. Words in [square brackets] are filled in
+# automatically; keep them as they are:
+#   [site] = site title   [store] = store name   [category] = category name
+#   [author] = author name   [rating] = star rating   [count] = a number
+#   [title] = item title   [link] = the link described on the next line
+
+# Breadcrumb trail at the top of pages ("Home > Deals > ...").
+breadcrumbs:
+  home: "Home"
+  deals: "Deals"
+  deals_url: /deals/
+  shop: "For sale"
+  shop_url: /shop/
+  blog: "Blog"
+  blog_url: /blog/
+
+# Top bar and main menu.
+header:
+  # Search box text: one while something of mine is for sale, one otherwise.
+  search_shop: "Search my items"
+  search_deals: "Search deals"
+  # Title of the slide-out menu on phones.
+  menu_title: "Browse [site]"
+  categories: "Categories"
+  all_for_sale: "All items for sale"
+  prime_day: "Prime Day"
+  all_deals: "All deals"
+  # Read aloud by screen readers for the cart button.
+  cart_label: "Shopping cart"
+
+# Floating button that scrolls back to the top.
+back_to_top: "Top"
+
+# Small labels on product cards and product photos.
+badges:
+  sold: "Sold"
+  amazon_best: "Best deal seen on Amazon"
+  deal_at: "Deal @ [store]"
+
+# Prices.
+price:
+  check_amazon: "Check the live price at Amazon"
+  # Read aloud by screen readers for the crossed-out price.
+  original_price: "Original price"
+
+# Product / deal pages.
+product:
+  # Main button on Amazon deals, and on other stores' deals.
+  cta_amazon: "See the savings on Amazon"
+  cta_store: "Get this deal at [store]"
+  price_note: "Prices change often, so check the price at [store] before you buy."
+  condition: "Condition:"
+  # Shown when an item for sale has no condition set.
+  condition_default: "Used"
+  sold_notice: "This one's sold. See [link]."
+  sold_link: "what's still for sale"
+  sold_link_url: /shop/
+  # Bullet list under the "Add to cart" button.
+  shipping_default: "Ships in 2 business days with tracking"
+  checkout: "Secure checkout through Stripe"
+  returns: "Returns & shipping"
+  returns_url: /returns/
+  questions: "Questions? [link]"
+  questions_link: "Email me about this item"
+  questions_link_url: /contact/
+  add_to_cart: "Add to cart"
+  # Read aloud by screen readers.
+  add_to_cart_label: "Add [title] to cart"
+  photo_label: "Show photo [count]"
+  highlights: "Highlights"
+  # Tabs under the buy box.
+  tab_description: "Description"
+  tab_specs: "Key specs"
+  tab_why_deal: "Why it's a deal"
+  about_deal: "About this deal"
+  about_item: "About this item"
+  specs_note: "Pulled from the product title and the store listing. Blank when the listing doesn't say."
+
+# Filter row and empty message on the deal / shop grids.
+grid:
+  filter_all: "All"
+  results_for: "Results for"
+  clear: "Clear"
+  no_matches: "Nothing matches that right now."
+  show_everything: "Show everything"
+
+# Category pages (/deals/<category>/).
+category:
+  heading: "[category] deals"
+  intro: "[category] deals I've found around the web. Prices change fast, so check the price before you buy."
+  # Shown when a category has no live deals. [category] is lowercase here.
+  empty_heading: "No [category] deals right now"
+  empty_text: "Check back soon, new deals get added often."
+  empty_button: "See all deals"
+  empty_button_url: /deals/
+
+# Blog posts and the blog sidebar.
+blog:
+  by: "By [author]"
+  related: "Related articles"
+  view_all: "View all"
+  view_all_url: /blog/
+  sidebar_title: "Sidebar"
+  sidebar_categories: "Blog categories"
+  sidebar_recent: "Recent posts"
+
+# Plain text pages (About, policies, etc.).
+page:
+  last_updated: "Last updated"
+  testimonials: "What buyers say"
+  stars_label: "[rating] out of 5 stars"
+  faq: "Questions"
+
+# Shown in a blog post when an embedded deal's slug doesn't match any product.
+deal_card:
+  not_found: "Deal not found:"

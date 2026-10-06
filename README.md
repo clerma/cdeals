@@ -51,7 +51,7 @@ Sovrn and Skimlinks keep about 25% of commissions, so join a store directly once
 
 ## Settings
 
-Edit the top of `_config.yml`: `title`, `tagline`, `url`, `contact_email`, `affiliate_disclosure`, plus `legal_name`, `governing_law_state`, and `hosting_provider` for the policy pages.
+Edit the top of `_config.yml`: `title`, `tagline`, `url`, `contact_email`, plus `legal_name`, `governing_law_state`, and `hosting_provider` for the policy pages. The affiliate disclosure text lives in `_data/disclosures.yml`; sitewide labels, links and logos live in `_data/strings.yml`, `_data/footer.yml`, `_data/brand.yml` and `_data/social.yml`.
 
 ## Policy pages
 

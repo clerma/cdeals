@@ -15,7 +15,7 @@
   </div>
   <div class="w-100 min-w-0 px-1 pb-2 px-sm-3 pb-sm-3">
     <div class="fs-xs text-body-tertiary mb-2">
-      {% if p.type == "affiliate" %}{{ p.store }}{% else %}{{ p.condition | default: "Used" }}{% endif %} · {{ p.category }}
+      {% if p.type == "affiliate" %}{{ p.store }}{% else %}{{ p.condition | default: site.data.strings.product.condition_default }}{% endif %} · {{ p.category }}
     </div>
     <h3 class="pb-1 mb-2">
       <a class="d-block fs-sm fw-medium text-truncate" href="{{ p.url | relative_url }}">
@@ -27,9 +27,9 @@
       {% include price.html product=p size="card" %}
       {% if amz_hide != "" %}
       {% elsif p.status == "sold" %}
-        <span class="fs-xs fw-medium text-body-secondary ms-2">Sold</span>
+        <span class="fs-xs fw-medium text-body-secondary ms-2">{{ site.data.strings.badges.sold }}</span>
       {% elsif p.type == "affiliate" %}
-        <a class="product-card-button btn btn-icon btn-secondary animate-slide-end ms-2" href="{{ p.affiliate_url }}" target="_blank" rel="sponsored nofollow noopener" aria-label="Get this deal at {{ p.store }}">
+        <a class="product-card-button btn btn-icon btn-secondary animate-slide-end ms-2" href="{{ p.affiliate_url }}" target="_blank" rel="sponsored nofollow noopener" aria-label="{{ site.data.strings.product.cta_store | replace: '[store]', p.store }}">
           <i class="ci-external-link fs-base animate-target"></i>
         </a>
       {% else %}
