@@ -13,6 +13,10 @@ tagline_no_sale: The best tech deals I find
 description_no_sale: >-
   Hand-checked tech deals from Amazon, B&H, Target, Newegg, Woot, and more,
   picked by a real person.
+# Used instead of description_no_sale while only Amazon deals are shown
+# (affiliate_networks below).
+description_no_sale_amazon_only: >-
+  Hand-checked tech deals on Amazon, picked by a real person.
 author: Carlos Lerma
 url: "https://cdeals.co" # production domain: every canonical URL and schema @id is built from it
 lang: en_US
@@ -37,6 +41,16 @@ anycart_api_key: ""
 # and it earns automatically. Amazon links still need your Associates tag.
 sovrn_key: ""      # Sovrn Commerce: campaign API key (Settings > "<>" icon)
 skimlinks_id: "310483X1798959"   # Skimlinks: publisher ID, e.g. 123456X1234567 (Settings > Install)
+
+# Which affiliate networks are earning. While Skimlinks is still pending
+# approval, deals at any store other than Amazon earn nothing, so
+# skimlinks_active: false hides them from the whole site (no /item/ page,
+# card, filter, sitemap or llms.txt entry; empty category pages are skipped).
+# The deal finder keeps saving them to _products/. Set it to true once
+# Skimlinks approves the site and they all come back on the next build.
+# The switch is _plugins/affiliate_networks.rb.
+affiliate_networks:
+  skimlinks_active: false
 
 # Amazon Associates tracking ID, e.g. yourtag-20. The deal finder turns every
 # Amazon link into https://www.amazon.com/dp/ASIN?tag=<this>.
