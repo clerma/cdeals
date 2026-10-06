@@ -3,12 +3,16 @@
 require "net/http"
 require "uri"
 require "fileutils"
+require_relative "run_blocks"
 
 # Small HTTP client for the deal finder: one User-Agent, timeouts, a minimum
 # delay per host (or the site's robots.txt Crawl-delay), robots.txt checks,
 # and manual redirect handling so tracking hops can be inspected.
+# Stop-on-block (RunBlocks): a 403, 429, bot wall or redirect to a block page
+# blocks the host (and the source being read) for the rest of the run; later
+# requests to it are refused here without touching the network (blocked: set).
 class PoliteHTTP
-  Response = Struct.new(:status, :body, :location, :url, :error, :content_type, keyword_init: true) do
+  Response = Struct.new(:status, :body, :location, :url, :error, :content_type, :blocked, keyword_init: true) do
     def ok? = status.to_i.between?(200, 299)
     def redirect? = status.to_i.between?(300, 399) && location
   end
@@ -44,6 +48,10 @@ class PoliteHTTP
   # One request, no redirect following.
   def get(url, accept: "*/*", robots: true)
     u = URI.parse(url)
+    if (why = RunBlocks.refusal(url))
+      @stats[:refused_blocked] += 1
+      return Response.new(status: 0, url: url, error: "not requested: #{why}", blocked: why)
+    end
     if robots && !allowed?(url)
       @stats[:robots_blocked] += 1
       return Response.new(status: 0, url: url, error: "robots.txt disallows #{u.host}#{u.path}")
@@ -63,7 +71,10 @@ class PoliteHTTP
       body = body.encode("UTF-8", invalid: :replace, undef: :replace) unless body.valid_encoding?
     end
     loc = res["location"] && URI.join(url, res["location"].strip).to_s
-    Response.new(status: res.code.to_i, body: body, location: loc, url: url, content_type: res["content-type"].to_s)
+    type = res["content-type"].to_s
+    why = RunBlocks.block_reason(status: res.code.to_i, body: (body unless type.start_with?("image/")), location: loc, content_type: type)
+    RunBlocks.block!(url, why) if why
+    Response.new(status: res.code.to_i, body: body, location: loc, url: url, content_type: type, blocked: why)
   rescue StandardError => e
     @stats[:errors] += 1
     Response.new(status: 0, url: url, error: "#{e.class}: #{e.message}"[0, 160])
@@ -75,7 +86,7 @@ class PoliteHTTP
     max.times do
       return [current, nil] if block_given? && yield(current)
       res = get(current, robots: robots)
-      return [current, res] unless res.redirect?
+      return [current, res] if res.blocked || !res.redirect?
       current = res.location
     end
     [current, Response.new(status: 0, url: current, error: "too many redirects")]
@@ -88,14 +99,14 @@ class PoliteHTTP
   def robots_read?(url)
     u = URI.parse(url)
     robots_for(u)
-    @robots_ok["#{u.scheme}://#{u.host}"] == true
+    @robots_ok[origin(u)] == true
   end
 
   # robots.txt text obtained another way (the Fetcher reads it through ZenRows
   # when the host refuses direct connections). Cached like a normal read.
   def seed_robots(url, txt)
     u = URI.parse(url)
-    key = "#{u.scheme}://#{u.host}"
+    key = origin(u)
     return if txt.to_s.strip.empty?
     @robots.delete(key)
     cached_robots(key, force: txt) { txt }
@@ -104,6 +115,9 @@ class PoliteHTTP
 
   private
 
+  # scheme://host, plus :port when it isn't the default one.
+  def origin(u) = "#{u.scheme}://#{u.host}#{u.port && u.port != u.default_port ? ":#{u.port}" : ''}"
+
   def match_rule?(rule, path)
     return false if rule.empty?
     re = Regexp.new("\\A" + Regexp.escape(rule).gsub("\\*", ".*").sub(/\\\$\z/, "\\z"))
@@ -111,8 +125,11 @@ class PoliteHTTP
   end
 
   def robots_for(u)
-    key = "#{u.scheme}://#{u.host}"
+    key = origin(u)
     @robots_ok ||= {}
+    # Not even robots.txt from a blocked host / source (and nothing remembered,
+    # so another source still reads the real rules later).
+    return { allow: [], disallow: [], delay: nil } if !@robots.key?(key) && RunBlocks.refusal(u.to_s)
     @robots[key] ||= begin
       rules = { allow: [], disallow: [], delay: nil }
       txt = cached_robots(key) { raw_get("#{key}/robots.txt") }

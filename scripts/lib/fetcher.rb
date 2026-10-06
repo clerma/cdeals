@@ -27,6 +27,9 @@ require_relative "polite_http"
 #     (scripts/state/zenrows_usage.json: counts only, never the key).
 #   * no ZENROWS_API_KEY in the environment -> the source is skipped, not an error.
 #   * the API key is never printed, logged or written; error text is scrubbed.
+#   * stop-on-block (RunBlocks): after a 403 / 429 / bot wall the host and the
+#     source are blocked for the run: no fallback to ZenRows, no next tier,
+#     no further requests (Result#blocked says why).
 class Fetcher
   ZENROWS_ENDPOINT = "https://api.zenrows.com/v1/"
   TIER_CREDITS = { "plain" => 0, "js" => 5, "premium" => 10, "js_premium" => 25 }.freeze
@@ -36,9 +39,9 @@ class Fetcher
     "js_premium" => { "js_render" => "true", "premium_proxy" => "true" }
   }.freeze
   # Bodies that mean "blocked / bot wall", not content.
-  WALL_RE = /captcha-delivery\.com|<title>\s*Client Challenge|px-captcha|\/blocked\?url=|areyouahuman|Access Denied<\/title>|cf-chl-|Attention Required! \| Cloudflare|Please enable JS and disable any ad blocker/i
+  WALL_RE = RunBlocks::WALL_RE
 
-  Result = Struct.new(:ok, :body, :url, :via, :credits, :error, keyword_init: true)
+  Result = Struct.new(:ok, :body, :url, :via, :credits, :error, :blocked, keyword_init: true)
 
   attr_reader :http, :usage_stats
 
@@ -68,12 +71,17 @@ class Fetcher
   def fetch(url, source, ok_if: nil)
     mode = source["fetch"].to_s
     fallback = source["fallback"].to_s == "zenrows"
+    if (why = RunBlocks.refusal(url))
+      return Result.new(ok: false, url: url, via: "plain", credits: 0, error: "not requested: #{why}", blocked: why)
+    end
     unless @http.allowed?(url)
       return Result.new(ok: false, url: url, via: "plain", credits: 0, error: "robots.txt disallows #{url}")
     end
 
     if mode != "zenrows"
       final, res = @http.follow(url)
+      # Blocked (403 / 429 / wall): stop, never fall back to ZenRows.
+      return Result.new(ok: false, url: final, via: "plain", credits: 0, error: res.error || res.blocked, blocked: res.blocked) if res&.blocked
       good = res&.ok? && !wall?(res.body) && (ok_if.nil? || ok_if.call(res.body))
       return Result.new(ok: true, body: res.body, url: final, via: "plain", credits: 0) if good
       err = res&.error || (res && wall?(res.body) ? "bot wall (HTTP #{res.status})" : "HTTP #{res&.status}#{res&.ok? ? ' but no usable content' : ''}")
@@ -133,8 +141,12 @@ class Fetcher
     tiers = tiers.drop_while { |t| t != remembered } if remembered && tiers.include?(remembered)
     last_err = nil
     tiers.each do |tier|
+      if (why = RunBlocks.refusal(url))
+        return Result.new(ok: false, url: url, via: "zenrows", credits: 0, error: "not requested: #{why}", blocked: why)
+      end
       if tier == "plain"
         final, res = @http.follow(url)
+        return Result.new(ok: false, url: final, via: "plain", credits: 0, error: res.error || res.blocked, blocked: res.blocked) if res&.blocked
         if res&.ok? && !wall?(res.body) && (ok_if.nil? || ok_if.call(res.body))
           remember_tier(sid, tier)
           return Result.new(ok: true, body: res.body, url: final, via: "plain", credits: 0)
@@ -152,6 +164,10 @@ class Fetcher
       params["js_instructions"] = JSON.generate(zr["js_instructions"]) if zr["js_instructions"] && params["js_render"]
       status, body, credits, err = zenrows_get(url, params)
       record(sid, credits || (status.to_i.between?(200, 299) ? cost : 0))
+      if status.to_i.between?(200, 299) && wall?(body)
+        why = RunBlocks.block!(url, "bot wall (via ZenRows #{tier})")
+        return Result.new(ok: false, url: url, via: "zenrows:#{tier}", credits: credits || cost, error: why, blocked: why)
+      end
       if status.to_i.between?(200, 299) && !wall?(body) && (ok_if.nil? || ok_if.call(body))
         remember_tier(sid, tier)
         return Result.new(ok: true, body: body, url: url, via: "zenrows:#{tier}", credits: credits || cost)

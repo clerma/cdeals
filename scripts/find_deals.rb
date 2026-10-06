@@ -15,6 +15,10 @@
 #            prime_day_source: to published Amazon deals listed there
 #   --no-recheck  skip the re-check of published deals (see "re-check" below)
 #
+# Stop-on-block (scripts/lib/run_blocks.rb): a 403, 429 or bot-wall answer
+# blocks that source and host for the rest of the run (no more requests, no
+# retries, no ZenRows); its published deals are left out of the re-check.
+#
 # Needs the optional "deals" gem group:  bundle config set --local with deals && bundle install
 
 require "optparse"
@@ -26,6 +30,7 @@ require_relative "lib/fetcher"
 require_relative "lib/direct_sources"
 require_relative "lib/deal_copy"
 require_relative "lib/source_cache"
+require_relative "lib/run_blocks"
 
 
 
@@ -75,7 +80,9 @@ def prime_day_index(http, roundups, max_redirects)
   index = { asins: {}, threads: {}, pages: {} }
   roundups.each do |r|
     url = r["url"]
+    RunBlocks.source = { "id" => "prime-day-roundup #{RunBlocks.host_key(url)}", "url" => url }
     final, res = http.follow(url, max: max_redirects)
+    next if res&.blocked # logged once by RunBlocks
     unless res&.ok?
       puts "   #{url}: #{res&.error || "HTTP #{res&.status}"}"
       next
@@ -91,6 +98,7 @@ def prime_day_index(http, roundups, max_redirects)
     [url, final].filter_map { |u| DealTools.page_key(u) }.each { |k| index[:pages][k] ||= url }
     puts "   #{url}: #{ev[:asins].size} Amazon products, #{ev[:threads].size} Slickdeals threads"
   end
+  RunBlocks.source = nil
   index
 end
 
@@ -130,6 +138,7 @@ if opts[:tag_prime_day]
   end
   puts "Amazon deals checked: #{checked}, on a roundup: #{matched}, tagged: #{tagged}#{opts[:dry_run] ? ' (dry run: nothing written)' : ''}"
   puts "HTTP requests: #{http.stats[:requests]}, blocked by robots.txt: #{http.stats[:robots_blocked]}, errors: #{http.stats[:errors]}"
+  puts "Blocked this run: #{RunBlocks.summary}"
   exit
 end
 
@@ -243,6 +252,7 @@ end
 def source_price_texts(http, source, max_redirects)
   texts = {}
   Array(source["price_pages"]).each do |url|
+    break if RunBlocks.source_blocked?(source["id"])
     _final, res = http.follow(url, max: max_redirects)
     next unless res&.ok?
     Nokogiri::HTML(res.body).css("deal-offer-modal").each do |el|
@@ -268,7 +278,9 @@ end
 def techbargains_page_items(http, source, max_redirects)
   items = {}
   DealTools.source_urls(source).each do |url|
+    break if RunBlocks.source_blocked?(source["id"])
     _final, res = http.follow(url, max: max_redirects)
+    next if res&.blocked # logged once by RunBlocks
     unless res&.ok?
       puts "   #{url}: #{res&.error || "HTTP #{res&.status}"}"
       next
@@ -308,7 +320,9 @@ def woot_items(http, source, max_redirects, cfg_categories)
   offer_urls = []
   deep = DealTools.deep?
   Array(source["listing_urls"]).each do |url|
+    break if RunBlocks.source_blocked?(source["id"])
     _f, res = http.follow(strip_ref.call(url), max: max_redirects)
+    next if res&.blocked # logged once by RunBlocks
     unless res&.ok?
       puts "   #{url}: #{res&.error || "HTTP #{res&.status}"}"
       next
@@ -321,6 +335,7 @@ def woot_items(http, source, max_redirects, cfg_categories)
   end
   slug_re = Regexp.new(cfg_categories.values.flatten.map { |w| Regexp.escape(w.to_s.downcase.tr(" ", "-")) }.join("|"))
   Array(source["sitemaps"]).each do |url|
+    break if RunBlocks.source_blocked?(source["id"])
     _f, res = http.follow(url, max: max_redirects)
     next unless res&.ok?
     locs = Nokogiri::XML(res.body).remove_namespaces!.xpath("//url").map { |u| [u.at_xpath("loc")&.text.to_s, u.at_xpath("lastmod")&.text.to_s] }
@@ -328,6 +343,7 @@ def woot_items(http, source, max_redirects, cfg_categories)
     offer_urls.concat(locs.sort_by { |_, m| m }.reverse.first(((deep && source["deep_max_per_sitemap"]) || source["max_per_sitemap"] || 40).to_i).map(&:first))
   end
   offer_urls.uniq.first(((deep && source["deep_max_offers"]) || source["max_offers"] || 120).to_i).filter_map do |url|
+    next if RunBlocks.source_blocked?(source["id"])
     _f, res = http.follow(url, max: max_redirects)
     next unless res&.ok?
     html = res.body
@@ -440,6 +456,7 @@ def resolve_store_url(item, source, http, max_redirects)
       next
     end
     res = http.get(current)
+    return [nil, res.error || "blocked (#{res.blocked})"] if res.blocked
     if res.redirect?
       return [nil, "redirected to a bot dead-end (#{URI(res.location).host})"] if res.location =~ /dead-end|captcha|blocked/i
       current = res.location
@@ -520,7 +537,9 @@ build_candidate = lambda do |item, source|
   # Resolve the real store link (circuit breaker after 3 blocked in a row).
   store_url = nil
   reason = nil
-  if source_blocked[source["id"]] >= 3
+  if RunBlocks.source_blocked?(source["id"]) && !item.key?(:store_url)
+    reason = "skipped: #{source['id']} was blocked this run"
+  elsif source_blocked[source["id"]] >= 3
     reason = "skipped: #{source['id']} store links kept failing this run"
   elsif item.key?(:store_url)
     # Direct sources already know the product page (or why they don't).
@@ -559,6 +578,8 @@ build_candidate = lambda do |item, source|
       # Already read from the watched store page's JSON-LD / selectors.
     elsif skip_store_hosts.any? { |h| host == h || host.end_with?(".#{h}") }
       notes << "Price/photo from #{source['name']} (#{host} product pages aren't fetched)."
+    elsif RunBlocks.source_blocked?(source["id"]) || RunBlocks.host_blocked?(store_url)
+      notes << "Store page not read (#{source['id']} or #{host} was blocked this run); price/photo from #{source['name']}."
     else
       data, err = store_page_data(http, store_url, max_redirects)
       data ||= {}
@@ -647,7 +668,7 @@ build_candidate = lambda do |item, source|
   begin
     fm_probe = { "title" => short, "brand" => brand, "store" => store, "affiliate_url" => store_url }
     # enrich_store_page: false -> the listing data is all there is (Walmart / Sam's Club product pages aren't fetched).
-    enrich_url = source["enrich_store_page"] == false ? nil : SourceCache.enrichment_url(fm_probe)
+    enrich_url = source["enrich_store_page"] == false || RunBlocks.source_blocked?(source["id"]) ? nil : SourceCache.enrichment_url(fm_probe)
     if enrich_url && !enrich_url.empty? && !SourceCache.amazon_url?(enrich_url)
       data = SourceCache.fetch_page(enrich_url, cfg: cfg, source_id: "find")
       unless data["error"]
@@ -712,11 +733,17 @@ sources.each do |source|
     puts "   skipped: the #{source['parser']} adapter isn't built yet"
     next
   end
+  # A host that answered 403 / 429 / a bot wall earlier this run: no requests at all.
+  if (why = RunBlocks.skip_source?(source))
+    puts "   #{why}"
+    next
+  end
+  RunBlocks.source = source
   # Feeds are published for feed readers, so (like any feed reader) the feed URL
   # itself isn't checked against robots.txt. Everything else is.
   res = source["kind"] == "feed" ? http.follow(source["url"], max: max_redirects, robots: false).last : http.follow(source["url"], max: max_redirects).last unless source["parser"]
   unless source["parser"] || res&.ok?
-    puts "   fetch failed: #{res&.error || "HTTP #{res&.status}"}"
+    puts "   fetch failed: #{res&.error || "HTTP #{res&.status}"}" unless res&.blocked
     stats[:sources_failed] += 1
     next
   end
@@ -799,6 +826,7 @@ sources.each do |source|
     from_source += 1
   end
 end
+RunBlocks.source = nil
 
 # ------------------------------------------- re-check published deals ---
 # Prices of published deals against the listings read in this run (no extra
@@ -806,10 +834,17 @@ end
 # only reported. recheck_missing: sources whose listing loaded (no failed page,
 # at least 10 products) also expire their own deals that are gone from the
 # listing or skipped there (not in stock, member-only price, ...).
-recheck = { matched: 0, confirmed: 0, cheaper: [], expired: [] }
+# Sources blocked this run (403 / 429 / bot wall, or their host was): their
+# deals are skipped entirely and their items are no evidence for other deals.
+recheck = { matched: 0, confirmed: 0, cheaper: [], expired: [], skipped_blocked: Hash.new(0) }
 fmt_money = ->(v) { v == v.round ? "$#{v.round}" : format("$%.2f", v) }
 if opts[:recheck]
+  blocked_ids = RunBlocks.blocked_source_ids
   usable = recheck_listings.select do |id, l|
+    if blocked_ids.include?(id)
+      puts "Re-check: #{id} listing not used (#{id} was blocked this run)"
+      next false
+    end
     n = l[:products]&.size.to_i
     ok = l[:ok] && n >= 10
     puts "Re-check: #{id} listing not used for missing deals (#{l[:ok] ? "only #{n} products" : 'a page failed'})" unless ok
@@ -817,6 +852,11 @@ if opts[:recheck]
   end
   published.each do |k, pub|
     name = File.basename(pub[:path])
+    if blocked_ids.include?(pub[:source])
+      recheck[:skipped_blocked][pub[:source]] += 1
+      log.call("  not re-checked: #{name} (#{pub[:source]} was blocked this run)")
+      next
+    end
     reason = rec = nil
     if (l = usable[pub[:source]])
       if !(rec = l[:products][k])
@@ -825,7 +865,7 @@ if opts[:recheck]
         reason = "#{rec[:why]} on the #{pub[:source]} listing (#{today})"
       end
     end
-    hits = recheck_hits[k]
+    hits = recheck_hits[k].reject { |h| blocked_ids.include?(h[:source]) }
     hits += [{ price: rec[:price], was: rec[:was], source: pub[:source] }] if rec && !rec[:why] && rec[:price]
     next if reason.nil? && hits.empty?
     recheck[:matched] += 1
@@ -884,6 +924,9 @@ if opts[:recheck]
        "now cheaper #{recheck[:cheaper].size}, expired #{recheck[:expired].size}#{opts[:dry_run] && recheck[:expired].any? ? ' (dry run: nothing written)' : ''}"
   recheck[:cheaper].each { |c| puts "  #{c}" }
   recheck[:expired].each { |e| puts "  expired #{e}" }
+  sb = recheck[:skipped_blocked]
+  puts "Re-check skipped #{sb.values.sum} published deals whose source was blocked this run (#{sb.map { |id, n| "#{id} #{n}" }.join(', ')})" unless sb.empty?
 end
+puts "Blocked this run: #{RunBlocks.summary}"
 puts(opts[:dry_run] ? "(dry run: queue not saved)" : "Queue: #{DealTools::QUEUE_FILE.sub("#{DealTools::ROOT}/", '')} (#{queue.size} entries)")
 added.each { |e| puts "  #{e['id']}  #{e['title']} | #{e['price']}#{e['compare_at'] ? " (was #{e['compare_at']})" : ''} | #{e['store']} | #{e['category']} | #{e['affiliate_url'].to_s.empty? ? 'NO STORE LINK' : e['affiliate_url']}" }

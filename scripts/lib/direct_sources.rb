@@ -6,6 +6,7 @@ require "net/http"
 require "uri"
 require "nokogiri"
 require_relative "deal_tools"
+require_relative "run_blocks"
 
 # Readers for stores and feeds checked directly (see "sites:" in
 # _data/deal_sources.yml). Each returns an Array of item hashes in the shape
@@ -34,9 +35,12 @@ module DirectSources
   end
 
   # Fetch every listing URL of a source through the Fetcher; yields (url, body).
+  # Stops at a 403 / 429 / bot wall (RunBlocks logs it once).
   def each_page(fetcher, source, ok_if:)
     DealTools.source_urls(source).each do |url|
+      break if RunBlocks.source_blocked?(source["id"])
       r = fetcher.fetch(url, source, ok_if: ok_if)
+      next if r.blocked
       unless r.ok
         log "#{url}: #{r.error}"
         next
@@ -151,6 +155,7 @@ module DirectSources
   # 2026, but it's the sanctioned feed, so it stays on.
   def newegg_rss_items(fetcher, source)
     r = fetcher.fetch(source["url"], source)
+    return [] if r.blocked
     return (log("#{source['url']}: #{r.error}") || []) unless r.ok
     doc = Nokogiri::XML(r.body).remove_namespaces!
     doc.xpath("//item").filter_map do |it|
@@ -178,8 +183,10 @@ module DirectSources
     skip_re = source["title_exclude"] ? Regexp.new(source["title_exclude"], Regexp::IGNORECASE) : nil
     slugs = slugs.reject { |s| skip_re&.match?(s.tr("-", " ")) }
     slugs.first((source["max_offers"] || 20).to_i).filter_map do |slug|
+      next if RunBlocks.source_blocked?(source["id"])
       url = "https://www.macheist.com/sales/#{slug}"
       r = fetcher.fetch(url, source, ok_if: ->(b) { b.include?("salePrice") })
+      next if r.blocked
       next log("#{url}: #{r.error}") unless r.ok
       html = r.body
       doc = Nokogiri::HTML(html)
@@ -206,6 +213,7 @@ module DirectSources
   # Other leads are queued without a store link for a human to paste one.
   def slickdeals_items(fetcher, source)
     r = fetcher.fetch(source["url"], source)
+    return [] if r.blocked
     return (log("#{source['url']}: #{r.error}") || []) unless r.ok
     doc = Nokogiri::XML(r.body).remove_namespaces!
     doc.xpath("//item").map do |it|
@@ -611,7 +619,7 @@ module DirectSources
       r = fetcher.fetch(url, source, ok_if: ok_if)
       unless r.ok
         # Challenge page / 403 / 429 (or anything else): back off for this run.
-        log "#{url}: #{r.error}; stopping #{source['id']} for this run"
+        log "#{url}: #{r.error}; stopping #{source['id']} for this run" unless r.blocked
         blocked = true
         break
       end
@@ -638,6 +646,7 @@ module DirectSources
     leads.each do |it|
       durl = it[:bd_detail_url]
       unless pages.key?(durl)
+        blocked ||= RunBlocks.source_blocked?(source["id"])
         if blocked || pages.size >= cap
           skipped[blocked ? "detail pages stopped (blocked)" : "detail page cap (#{cap}) reached"] += 1
           next
@@ -645,8 +654,8 @@ module DirectSources
         r = fetcher.fetch(durl, source, ok_if: ok_if)
         pages[durl] = r.ok ? bd_detail(r.body, durl) : nil
         unless r.ok
-          blocked = r.error.to_s =~ /bot wall|no usable content|\b403\b|\b429\b/
-          log "#{durl}: #{r.error}#{blocked ? '; no more detail pages this run' : ''}"
+          blocked = r.blocked || r.error.to_s =~ /bot wall|no usable content|\b403\b|\b429\b/
+          log "#{durl}: #{r.error}#{blocked ? '; no more detail pages this run' : ''}" unless r.blocked
         end
       end
       unless (d = pages[durl])
@@ -844,7 +853,7 @@ module DirectSources
       r = fetcher.fetch(url, source, ok_if: ok_if)
       err = r.ok ? (r.url.to_s =~ %r{/blocked\b} ? "redirected to #{r.url}" : nil) : r.error
       if err
-        log "#{url}: #{err}; stopping #{source['id']} for this run"
+        log "#{url}: #{err}; stopping #{source['id']} for this run" unless r.blocked
         listing[:ok] = false if listing
         break
       end
@@ -929,6 +938,7 @@ module DirectSources
     show = %w[sku name salePrice regularPrice percentSavings url image largeFrontImage manufacturer categoryPath.name priceUpdateDate].join(",")
     items = []
     (1..(source["max_pages"] || 2).to_i).each do |page|
+      break if RunBlocks.source_blocked?(source["id"])
       q = URI.encode_www_form("apiKey" => key, "format" => "json", "show" => show, "pageSize" => (source["page_size"] || 100).to_i,
                               "page" => page, "sort" => "percentSavings.dsc")
       begin
@@ -943,7 +953,12 @@ module DirectSources
         break
       end
       unless res.code.to_i == 200
-        log "Best Buy API HTTP #{res.code}"
+        # 403 / 429: blocked for the run (the logged URL leaves out the key).
+        if [403, 429].include?(res.code.to_i)
+          RunBlocks.block!("https://#{u.host}/v1/products", "HTTP #{res.code}", own: true)
+        else
+          log "Best Buy API HTTP #{res.code}"
+        end
         break
       end
       data = JSON.parse(res.body) rescue {}

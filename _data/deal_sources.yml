@@ -150,6 +150,14 @@ defaults:
 # fallback: zenrows lets a plain source retry through ZenRows when blocked.
 # It is OFF everywhere: a block (captcha / bot wall) means the site doesn't
 # want scripts, and Carlos hasn't approved getting around that.
+# Stop on block (every source, every request: listing pages, sitemaps,
+# detail pages, store pages, enrichment, resolve: lookups): HTTP 403, HTTP 429,
+# a challenge / bot-wall page or a redirect to /blocked, /areyouahuman, a
+# captcha or a dead-end page blocks that source AND its host for the rest of
+# the run. No more requests to either (other sources on the host are skipped),
+# no retries, no ZenRows. Published deals of a blocked source are left out of
+# the re-check. 404 / 500 / timeouts and robots.txt disallows aren't blocks.
+# In memory only: the next run tries again. See scripts/lib/run_blocks.rb.
 # official_for: [host] marks a source as the official one for that store.
 # ZenRows is NEVER used for a host that has an official source in this file,
 # even when its key isn't set yet or the source is still disabled (planned).
@@ -383,6 +391,8 @@ sites:
   # they are server-rendered, so no scraping service is involved).
   # require_title_category: skip items whose title matches no category word
   # (instead of filing them under the Accessories fallback).
+  # The three B&H sources share www.bhphotovideo.com: a 403 / 429 / bot wall
+  # on any of them stops all three for that run (stop on block, see Fetching).
   # ------------------------------------------------------------------------
   - id: bh-deals
     name: B&H deals
