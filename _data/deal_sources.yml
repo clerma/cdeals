@@ -639,10 +639,19 @@ sites:
   # Deals are read from the page's window.__NUXT__ payload (parser bradsdeals in
   # scripts/lib/direct_sources.rb): store link = the listing's untracked_url
   # (Brad's /go/ links are never requested; robots.txt disallows /api/, /go/*,
-  # /c/*, /p/*, /search?query*), price = unit_discount_price, original price
-  # only when Brad's gives a higher unit_regular_price. Store-wide sales and
-  # listings without a numeric price are skipped. Amazon items whose Brad's
-  # write-up says Prime Day / Prime Event / Prime members are tagged prime_day.
+  # /c/*, /p/*, /search?query*). Listing prices are often missing or stale, so
+  # each listing that passes the cheap filters (in stock, store product URL,
+  # category keyword in title, not excluded, not already known, one-product
+  # post) gets its deal's detail page (/deals/<slug>-<id>, at most
+  # max_detail_pages per run, deep_max_detail_pages on --deep) and the price
+  # comes from the write-up there ("from $X to $Y", "was $X, now $Y",
+  # "$Y (reg. $X)", ...); several prices / variants in the write-up = skipped.
+  # No price in the write-up: the listing price only if the page's JSON-LD
+  # offer confirms it. Listing vs write-up more than 2% apart is logged as a
+  # price conflict. A challenge page, 403 or 429 on a detail page stops the
+  # detail pages for the run (items already priced are kept). Store-wide sales
+  # are skipped. Amazon items whose Brad's write-up says Prime Day / Prime
+  # Event / Prime members are tagged prime_day.
   # The feed page ignores merchandise_branches=electronics server-side (home and
   # fashion come back too), so require_title_category keeps only tech.
   # Paging: page=1..3 daily, page=4..5 added on --deep runs (deep_urls).
@@ -658,6 +667,8 @@ sites:
     require_image: true
     max_items: 300
     max_candidates: 40
+    max_detail_pages: 40       # Brad's detail pages read per run (each is one polite request)
+    deep_max_detail_pages: 80
     expires_days: 3
     urls:
       - https://www.bradsdeals.com/categories/electronics

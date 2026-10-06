@@ -150,9 +150,17 @@ module DealCopy
 
   # Natural 2–4 sentence product write-up. No meta filler (filed/posted/write-up).
   # Specs stay in the Key specs tab — here we weave standout facts into prose.
+  # Store-page boilerplate that isn't about the product (Woot meta descriptions).
+  BOILERPLATE_RE = /\bSign up for our Daily Digest emails!?|\bWarranty:\s*\d+\s*Day\s+Woot\s+Limited\s+Warranty\.?|\bShipping Note:[^.!?]*[.!?]?/i
+
+  # Boilerplate removed and repeated sentences dropped.
+  def strip_boilerplate(text)
+    text.to_s.gsub(BOILERPLATE_RE, " ").gsub(/\s+/, " ").strip.split(/(?<=[.!?])\s+/).uniq.join(" ")
+  end
+
   def summary(title:, category:, brand: nil, store: nil, specs: [], amazon: false, overview: nil)
     name = title.to_s.sub(/\A['"]|['"]\z/, "").strip
-    overview = prose_safe(strip_html(overview.to_s))
+    overview = strip_boilerplate(prose_safe(strip_html(overview.to_s)))
     brand_s = brand.to_s.strip
     cat = category.to_s.strip.downcase.sub(/s\z/, "")
     cat = "item" if cat.empty?
