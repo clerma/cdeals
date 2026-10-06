@@ -161,7 +161,8 @@ http:
 # Don't fetch product pages on these hosts: they serve a captcha / time out
 # for scripts (tested Oct 2026). The finder still cleans the URL and uses the
 # feed's price/title/image.
-skip_store_fetch_hosts: [amazon.com, walmart.com, bestbuy.com]
+# samsclub.com: the samsclub source reads everything from the listing JSON.
+skip_store_fetch_hosts: [amazon.com, walmart.com, bestbuy.com, samsclub.com]
 
 # ---------------------------------------------------------------------------
 # Prime Day roundups (Amazon Prime events only: Prime Day in July, Prime Big
@@ -678,6 +679,66 @@ sites:
     deep_urls:
       - https://www.bradsdeals.com/shop/feeds/black-friday-level-deals?page=4&merchandise_branches=electronics&filter=cs15dd35e3c3cc23fd
       - https://www.bradsdeals.com/shop/feeds/black-friday-level-deals?page=5&merchandise_branches=electronics&filter=cs15dd35e3c3cc23fd
+  # ------------------------------------------------------------------------
+  # Walmart and Sam's Club (both on Walmart's platform). The listing pages are
+  # Next.js and carry the products in <script id="__NEXT_DATA__"> JSON (parsers
+  # walmart / samsclub in scripts/lib/direct_sources.rb). On Oct 5 2026 a plain
+  # request with our User-Agent returned 200 with full data for both, so they
+  # are plain polite sources. Both load PerimeterX: if a run gets a challenge
+  # ("Robot or human"), a redirect to /blocked, a 403 / 429 or a page without
+  # __NEXT_DATA__ products, the source logs it and stops for that run. NEVER
+  # ZenRows (fallback: none). Product pages are never requested (walmart.com
+  # and samsclub.com are in skip_store_fetch_hosts; enrich_store_page: false).
+  # Price = priceInfo.linePrice; original price only when the listing shows a
+  # wasPrice above it (require_discount: true, so items without one are
+  # skipped). Skipped: not in stock, member-only / early-access pricing
+  # (memberPriceString, eaPricingText, isEarlyAccessItem, earlyAccessEvent),
+  # variant price ranges, no price. "Sam's Cash" offers are rewards, never a
+  # discount, and aren't mentioned. Same product at Amazon for the same or less
+  # (published, queued or found this run): Amazon is kept. Items already in
+  # _products are matched by item id (walmart.com/ip/<id>), whatever the slug.
+  # Skimlinks: walmart.com is a public Skimlinks merchant; Sam's Club's listing
+  # there is uncertain. The links stay plain store URLs either way.
+  - id: samsclub
+    name: Sam's Club tech deals
+    store: Sam's Club
+    fetch: plain
+    fallback: none
+    parser: samsclub
+    # Skips items whose fulfillmentBadges lack "Shipping" (in-club / pickup only).
+    # Every kept item gets the highlight "Sam's Club membership required".
+    # expires: the Instant Savings "Ends Oct 10" date (Chicago); else expires_days.
+    require_title_category: true
+    require_discount: true
+    require_image: true
+    enrich_store_page: false
+    max_items: 100
+    max_candidates: 30
+    expires_days: 3
+    # Beauty gadgets, ink and office/household supplies on the tech page.
+    title_exclude: '\b(face mask|light therapy|under-eye|anti-aging|skin care|ink|toner|label maker|batteries|bird bath)\b'
+    urls:
+      - https://www.samsclub.com/browse/tech-deals/1240109
+  # Walmart: only items sold by Walmart itself (sellerName "Walmart.com");
+  # marketplace sellers are skipped and counted in the log. Walmart+ early
+  # access items are skipped. The walmart-affiliate-api placeholder below keeps
+  # official_for: [walmart.com]: that only stops ZenRows, not this plain source.
+  - id: walmart
+    name: Walmart top 100 tech deals
+    store: Walmart
+    fetch: plain
+    fallback: none
+    parser: walmart
+    require_title_category: true
+    require_discount: true
+    require_image: true
+    enrich_store_page: false
+    max_items: 100
+    max_candidates: 30
+    expires_days: 3
+    title_exclude: '\b(face mask|light therapy|ink|toner)\b'
+    urls:
+      - https://www.walmart.com/shop/deals/top-100-tech-deals
   # Planned official sources: adapters not written yet (need partner approval
   # and keys). To add one: write the adapter in scripts/lib/direct_sources.rb,
   # add it to PARSERS, set the env vars, then set enabled: true.
@@ -760,14 +821,6 @@ sites:
     fetch: plain
     fallback: none
     urls: [https://eshop.macsales.com/shop/specials]
-  - id: walmart
-    name: Walmart top tech deals
-    enabled: false
-    note: redirected to walmart.com/blocked; ZenRows bypass not approved. Use the Walmart Affiliate API.
-    store: Walmart
-    fetch: plain
-    fallback: none
-    urls: [https://www.walmart.com/shop/deals/top-100-tech-deals]
 
 #  - id: woot-electronics
 #    name: Woot Electronics

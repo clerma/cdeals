@@ -158,12 +158,25 @@ module DealCopy
     text.to_s.gsub(BOILERPLATE_RE, " ").gsub(/\s+/, " ").strip.split(/(?<=[.!?])\s+/).uniq.join(" ")
   end
 
+  # Category (from _data/categories.yml) as a noun for prose: "is a laptop", "this Sony audio device".
+  CATEGORY_NOUNS = {
+    "Audio" => "audio device", "Smart Home" => "smart home device", "TV & Home Theater" => "TV and home theater product",
+    "Accessories" => "accessory", "Computers" => "computer", "Laptops" => "laptop", "Tablets" => "tablet",
+    "Cameras" => "camera", "Gaming" => "gaming product", "Wearables" => "wearable", "Phones" => "phone"
+  }.freeze
+
+  def category_noun(category)
+    c = category.to_s.strip
+    CATEGORY_NOUNS[c] || (c.empty? ? "product" : c.downcase.sub(/s\z/, ""))
+  end
+
+  def a_an(noun) = "#{noun =~ /\A[aeiou]/i ? 'an' : 'a'} #{noun}"
+
   def summary(title:, category:, brand: nil, store: nil, specs: [], amazon: false, overview: nil)
     name = title.to_s.sub(/\A['"]|['"]\z/, "").strip
     overview = strip_boilerplate(prose_safe(strip_html(overview.to_s)))
     brand_s = brand.to_s.strip
-    cat = category.to_s.strip.downcase.sub(/s\z/, "")
-    cat = "item" if cat.empty?
+    cat = category_noun(category)
 
     filler_re = /\b(add to cart|free shipping|sold by|subscribe|prime members|limited time|click here|buy now|sku:|upc:|you save|% off|i looked at|i filed|i posted|write-up|worth checking)\b/i
 
@@ -216,10 +229,10 @@ module DealCopy
     elsif specs.any?
       # Title-derived specs only — still prose, not a dump; full list lives in Key specs.
       highlight = specs.first(3).map { |s| "#{s['value']} #{s['label'].downcase}" }.join(", ")
-      parts << "The #{name} is a #{cat} with #{prose_safe(highlight)}."
+      parts << "The #{name} is #{a_an(cat)} with #{prose_safe(highlight)}."
     else
       # Title-only honest line — no filing/posting filler.
-      parts << "The #{name} is a #{cat}."
+      parts << "The #{name} is #{a_an(cat)}."
     end
 
     prose_safe(parts.map { |p| p.to_s.strip }.reject(&:empty?).join(" ").gsub(/\s+/, " ").strip)

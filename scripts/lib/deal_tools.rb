@@ -141,6 +141,11 @@ module DealTools
       return "amazon:#{a}"
     end
     u = parse_uri(clean_store_url(url)) or return url.to_s.downcase
+    # Walmart / Sam's Club product pages: the item id (usItemId) is the product;
+    # the slug before it varies (/ip/<slug>/<id>, /ip/seort/<id>).
+    if bare_host(u) =~ /\A(?:walmart|samsclub)\.com\z/ && (id = u.path[%r{\A/ip/(?:[^/]+/)?(\d+)/?\z}, 1])
+      return "#{bare_host(u)}/ip/#{id}"
+    end
     q = u.query ? "?#{URI.decode_www_form(u.query).sort.map { |k, v| "#{k}=#{v}" }.join('&')}" : ""
     "#{bare_host(u)}#{u.path.downcase.chomp('/')}#{q}"
   rescue ArgumentError
