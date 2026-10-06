@@ -250,7 +250,7 @@ file_config:
       background:
         type: image
         label: Background image
-        comment: Photo behind the banner.
+        comment: 'For-sale banner: photo behind the banner. Hero slide (optional): image behind that slide, center-cropped to fill (keep the middle empty for the text and product photo); leave empty for the default light-blue gradient.'
       deals_banner:
         type: object
         label: Deals banner
@@ -1042,10 +1042,16 @@ _structures:
             - key: kicker
           image:
             - key: image
+        _inputs:
+          background:
+            type: image
+            label: Background image (optional)
+            comment: Image behind this slide, center-cropped to fill (keep the middle empty for the text and product photo). Leave empty for the default light-blue gradient.
         value:
           kicker: ""
           title: ""
           image: ""
+          background: ""
           link: /shop/
           button: Shop now
           selling: false
