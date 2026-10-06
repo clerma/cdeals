@@ -23,5 +23,7 @@ specs:
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
 description: The Amazon Fire HD 10 is a 10-inch tablet from Amazon with 32GB of storage.
+prime_day: true
+prime_day_source: https://www.techbargains.com/sales/prime-day-deals
 ---
 The Amazon Fire HD 10 is a 10-inch tablet from Amazon with 32GB of storage.

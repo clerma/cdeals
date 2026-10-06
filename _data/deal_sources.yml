@@ -164,6 +164,29 @@ http:
 skip_store_fetch_hosts: [amazon.com, walmart.com, bestbuy.com]
 
 # ---------------------------------------------------------------------------
+# Prime Day roundups (Amazon Prime events only: Prime Day in July, Prime Big
+# Deal Days in October). Each enabled page is read ONCE at the start of a run
+# (robots.txt respected; amazon.com itself is never fetched). An Amazon
+# candidate gets prime_day: true + prime_day_source: <page url> when its ASIN
+# (amazon.com/dp/...) or its Slickdeals thread (/f/<id>) is on one of these
+# pages, or it was read from the page itself. The text rule
+# (DealTools.prime_day?) still applies on its own.
+# `find_deals.rb --tag-prime-day` uses the same pages to tag published deals.
+# After the event: set enabled: false on each (or empty the list).
+# require_title: true -> only used while the page <title> says Prime Day /
+# Prime Big Deal Days (stops tagging when the site repurposes the page).
+# ---------------------------------------------------------------------------
+prime_day_roundups:
+  - url: https://www.techbargains.com/sales/prime-day-deals
+    enabled: true
+  # slickdeals.net/deals/amazon-prime-day/ 301-redirects here; during the
+  # October 2026 event its title is "Top Prime Big Deal Days Deals". Thread
+  # links only (/f/<id>, no ASINs), matched against slickdeals-rss items.
+  - url: https://slickdeals.net/browse/amazon/
+    enabled: true
+    require_title: true
+
+# ---------------------------------------------------------------------------
 # Feeds
 # resolve: how to find the real store link
 #   direct       - the feed item link IS the store link (TechBargains)
@@ -233,6 +256,20 @@ feeds:
 # doesn't publish JSON-LD, give CSS selectors instead. Respects robots.txt.
 # ---------------------------------------------------------------------------
 sites:
+  # Prime event: TechBargains' Prime Day roundup read FIRST, so its items win
+  # de-duplication against the general TechBargains pages below. Everything
+  # from it is tagged prime_day (it's in prime_day_roundups). Same tile format
+  # as techbargains-pages. Set enabled: false after the event.
+  - id: techbargains-prime-day
+    name: TechBargains Prime Day deals
+    fetch: plain
+    parser: techbargains_pages
+    max_age_hours: 168         # early Prime deals are posted days before the event
+    max_items: 300
+    max_candidates: 80
+    expires_days: 3            # Prime event deals end fast
+    urls:
+      - https://www.techbargains.com/sales/prime-day-deals
   # TechBargains category and store pages: each deal tile has the write-up and
   # the store URL embedded in its link, so no tracker is requested. Deals stay
   # listed for days, so allow older posts than the RSS.
@@ -594,6 +631,42 @@ sites:
       - https://www.bestbuy.com/top-deals
       - https://www.bestbuy.com/site/promo/laptop-and-computer-deals
       - https://www.bestbuy.com/site/all-electronics-on-sale/all-computers-tablets-on-sale/pcmcat1632941704767.c?id=pcmcat1632941704767
+  # Brad's Deals (bradsdeals.com, a deal site like TechBargains). Was a
+  # JavaScript "Client Challenge" wall until Oct 2026; on Oct 5 2026 a plain
+  # request with our User-Agent returned the real page, so it's a plain polite
+  # source again. NEVER ZenRows (fallback: none): if a run gets the challenge
+  # page, a 403 or a 429, the source logs it and stops for that run (no retries).
+  # Deals are read from the page's window.__NUXT__ payload (parser bradsdeals in
+  # scripts/lib/direct_sources.rb): store link = the listing's untracked_url
+  # (Brad's /go/ links are never requested; robots.txt disallows /api/, /go/*,
+  # /c/*, /p/*, /search?query*), price = unit_discount_price, original price
+  # only when Brad's gives a higher unit_regular_price. Store-wide sales and
+  # listings without a numeric price are skipped. Amazon items whose Brad's
+  # write-up says Prime Day / Prime Event / Prime members are tagged prime_day.
+  # The feed page ignores merchandise_branches=electronics server-side (home and
+  # fashion come back too), so require_title_category keeps only tech.
+  # Paging: page=1..3 daily, page=4..5 added on --deep runs (deep_urls).
+  # The feed's "Early Prime Day Deals" block links to /stores/amazon, which is
+  # every Amazon deal on the site, not a Prime Day list, so it is NOT a
+  # prime_day_roundups page (no Brad's Prime Day listing URL in the saved pages).
+  - id: bradsdeals
+    name: Brad's Deals electronics
+    fetch: plain
+    fallback: none
+    parser: bradsdeals
+    require_title_category: true
+    require_image: true
+    max_items: 300
+    max_candidates: 40
+    expires_days: 3
+    urls:
+      - https://www.bradsdeals.com/categories/electronics
+      - https://www.bradsdeals.com/shop/feeds/black-friday-level-deals?page=1&merchandise_branches=electronics&filter=cs15dd35e3c3cc23fd
+      - https://www.bradsdeals.com/shop/feeds/black-friday-level-deals?page=2&merchandise_branches=electronics&filter=cs15dd35e3c3cc23fd
+      - https://www.bradsdeals.com/shop/feeds/black-friday-level-deals?page=3&merchandise_branches=electronics&filter=cs15dd35e3c3cc23fd
+    deep_urls:
+      - https://www.bradsdeals.com/shop/feeds/black-friday-level-deals?page=4&merchandise_branches=electronics&filter=cs15dd35e3c3cc23fd
+      - https://www.bradsdeals.com/shop/feeds/black-friday-level-deals?page=5&merchandise_branches=electronics&filter=cs15dd35e3c3cc23fd
   # Planned official sources: adapters not written yet (need partner approval
   # and keys). To add one: write the adapter in scripts/lib/direct_sources.rb,
   # add it to PARSERS, set the env vars, then set enabled: true.
@@ -684,13 +757,6 @@ sites:
     fetch: plain
     fallback: none
     urls: [https://www.walmart.com/shop/deals/top-100-tech-deals]
-  - id: bradsdeals
-    name: Brad's Deals electronics
-    enabled: false
-    note: JavaScript "Client Challenge" wall (even robots.txt); ZenRows bypass not approved.
-    fetch: plain
-    fallback: none
-    urls: [https://www.bradsdeals.com/categories/electronics]
 
 #  - id: woot-electronics
 #    name: Woot Electronics

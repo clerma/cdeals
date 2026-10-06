@@ -21,5 +21,7 @@ specs:
 why_deal: Amazon has a good price on this right now. Prices change fast, so check
   the current price at Amazon before you buy.
 description: The Amazon Echo Show 5 (3rd Gen) is Amazon's smart home display.
+prime_day: true
+prime_day_source: https://www.techbargains.com/sales/prime-day-deals
 ---
 The Amazon Echo Show 5 (3rd Gen) is Amazon's smart home display.

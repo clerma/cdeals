@@ -108,6 +108,10 @@ queue.each do |e|
                                  store: e["store"], specs: specs, amazon: amazon, overview: overview)
     end
     why = DealCopy.why_deal(price: e["price"], compare_at: e["compare_at"], store: e["store"], amazon: amazon)
+    # Listed on /deals/prime-day/. Amazon only; also catches entries queued before the finder set it.
+    prime = true if amazon && (e["prime_day"] ||
+      DealTools.prime_day?([e["source_title"], e["title"], e["notes"], e["summary"], e["source_link"], *Array(e["highlights"])].join(" "),
+                           store: e["store"], url: affiliate))
     fm = {
       "title" => e["title"].to_s.strip,
       "type" => "affiliate",
@@ -127,10 +131,8 @@ queue.each do |e|
       "why_deal" => why,
       "description" => DealCopy.meta_description(summary, amazon: amazon),
       "source" => e["source"], # internal: which feed/site found it (not shown on the site)
-      # Listed on /deals/prime-day/. Amazon only; also catches entries queued before the finder set it.
-      "prime_day" => (true if amazon && (e["prime_day"] ||
-        DealTools.prime_day?([e["source_title"], e["title"], e["notes"], e["summary"], e["source_link"], *Array(e["highlights"])].join(" "),
-                             store: e["store"], url: affiliate)))
+      "prime_day" => prime,
+      "prime_day_source" => (e["prime_day_source"] if prime) # internal: roundup page / source that showed it's a Prime Day deal
     }.reject { |_, v| v.nil? || v == "" }
     body = "#{fm.to_yaml}---\n#{summary}\n"
     path = File.join(DealTools::PRODUCTS_DIR, "#{slug}.md")

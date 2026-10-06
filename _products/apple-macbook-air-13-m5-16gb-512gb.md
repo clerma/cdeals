@@ -28,5 +28,7 @@ why_deal: Amazon has a good price on this right now. Prices change fast, so chec
   the current price at Amazon before you buy.
 description: The 13-inch MacBook Air runs on Apple's M5 chip and comes with 16GB of
   memory and 512GB of storage. It's lightweight and has all-day battery life, so it
+prime_day: true
+prime_day_source: https://www.techbargains.com/sales/prime-day-deals
 ---
 The 13-inch MacBook Air runs on Apple's M5 chip and comes with 16GB of memory and 512GB of storage. It's lightweight and has all-day battery life, so it suits anyone who wants a laptop they can carry around without packing a charger. Apple also built it for AI and Apple Intelligence, which makes this configuration a good fit if you want to use those features.
