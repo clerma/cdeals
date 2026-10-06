@@ -20,5 +20,7 @@ why_deal: Amazon has a good price on this right now. Prices change fast, so chec
   the current price at Amazon before you buy.
 description: The Amazon Fire TV Stick 4K Select is a streaming device from Amazon
   for watching content in 4K on your TV.
+prime_day: true
+prime_day_source: https://www.techbargains.com/sales/prime-day-deals
 ---
 The Amazon Fire TV Stick 4K Select is a streaming device from Amazon for watching content in 4K on your TV.

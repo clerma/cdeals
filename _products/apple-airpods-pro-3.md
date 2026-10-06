@@ -22,5 +22,7 @@ description: The AirPods Pro 3 are Apple's newest in-ear earbuds, and they're a 
 specs:
 - label: Style
   value: in-ear
+prime_day: true
+prime_day_source: https://www.techbargains.com/sales/prime-day-deals
 ---
 The AirPods Pro 3 are Apple's newest in-ear earbuds, and they're a good fit if you want strong noise cancellation for commutes plus something useful at the gym. Apple says they have the world's best in-ear Active Noise Cancellation, with up to 2x more than the AirPods Pro 2. They also add heart rate sensing for the first time, so you can track your heart rate and calories burned during workouts. On top of that, you get high-definition spatial audio and an improved hearing health experience.

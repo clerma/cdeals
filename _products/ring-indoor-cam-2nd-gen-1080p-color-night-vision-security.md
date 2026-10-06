@@ -23,5 +23,7 @@ why_deal: Amazon has a good price on this right now. Prices change fast, so chec
 description: The Ring Indoor Cam (2nd Gen) is a compact security camera for keeping
   an eye on what's happening inside your home, and you check in on it from your
 source: techbargains-amazon-devices
+prime_day: true
+prime_day_source: https://www.techbargains.com/sales/prime-day-deals
 ---
 The Ring Indoor Cam (2nd Gen) is a compact security camera for keeping an eye on what's happening inside your home, and you check in on it from your phone. It records in 1080p and has color night vision, so you can still see what's going on after the lights go out.

@@ -89,7 +89,7 @@ prime_day:
 
 While `active` is true and today (America/Chicago) is before `ends`, the home page shows the top 8 under the hero (only when at least 4 deals qualify), and the Categories menu, the category pills and the `/deals/` filter row link the page. Set `active: false`, or let `ends` pass, and all of those disappear on the next build. The page still builds and says Prime Day has ended, with `noindex` and no `sitemap.xml` entry. The logic is `_plugins/prime_day.rb`.
 
-The deal finder adds `prime_day: true` to new Amazon deals whose source text or link mentions Prime Day, Prime Big Deal Days, or a Prime exclusive / Prime members price (`DealTools.prime_day?`). `publish_deals.rb` checks entries already in the queue the same way. To add a deal by hand, put `prime_day: true` in its front matter.
+The deal finder adds `prime_day: true` to new Amazon deals whose source text or link mentions Prime Day, Prime Big Deal Days, or a Prime exclusive / Prime members price (`DealTools.prime_day?`), or that are listed on a Prime Day roundup page (`prime_day_roundups:` in `_data/deal_sources.yml`, see "Prime events" under Deal finder). It also writes `prime_day_source:` (the roundup page or source link that showed it). `publish_deals.rb` checks entries already in the queue the same way. To add a deal by hand, put `prime_day: true` in its front matter.
 
 ## Scheduled posts and builds
 
@@ -175,7 +175,7 @@ Put your Amazon Associates ID in `amazon_tag` in `_config.yml`. Every Amazon lin
 - `sites:` includes TechBargains category/store pages (`parser: techbargains_pages`) and Woot (`parser: woot`: event pages + computers/electronics sitemaps, each offer page read for price, list price, end date and stock).
 - `defaults:` sets `expires_days`, how many candidates to add per run and per source, how long unreviewed candidates stay in the queue, and whether approved images are downloaded or hotlinked.
 - `http:` sets the User-Agent, timeouts, and a delay between requests to the same host. robots.txt is respected, including Crawl-delay. Like any feed reader, the finder doesn't check robots.txt for the feed URLs themselves.
-- `fetch:` on each source says how it's read: `plain` (polite request), `rss` (official feed), `sitemap`, `api` (official API, skipped until its env vars in `env:` are set) or `zenrows`. Direct store sources (`scripts/lib/direct_sources.rb`): B&H deals and used gear, Newegg Outlet plus Newegg's RSS, MacHeist hardware, the Slickdeals frontpage RSS as leads (only Amazon items resolve, from the ASIN in the feed), Target deals through ZenRows, and the Best Buy Products API (`BESTBUY_API_KEY`). Walmart, Impact catalogs (OWC/Adorama, later Target), the Woot API and Amazon PA-API are listed as disabled placeholders with the env vars they'll need. Adorama, OWC, Walmart and Brad's Deals are disabled: they put up a captcha/bot wall.
+- `fetch:` on each source says how it's read: `plain` (polite request), `rss` (official feed), `sitemap`, `api` (official API, skipped until its env vars in `env:` are set) or `zenrows`. Direct store sources (`scripts/lib/direct_sources.rb`): B&H deals and used gear, Newegg Outlet plus Newegg's RSS, MacHeist hardware, the Slickdeals frontpage RSS as leads (only Amazon items resolve, from the ASIN in the feed), Target deals through ZenRows, the Best Buy Products API (`BESTBUY_API_KEY`), and Brad's Deals (`parser: bradsdeals`, see Known limits). Walmart, Impact catalogs (OWC/Adorama, later Target), the Woot API and Amazon PA-API are listed as disabled placeholders with the env vars they'll need. Adorama, OWC and Walmart are disabled: they put up a captcha/bot wall.
 - **ZenRows** (`zenrows:`): used only for sources with `fetch: zenrows` (Target, whose listings are built by JavaScript), and never for a store that has an official source in the file (`official_for:`). It tries the cheapest option first (plain, then JS rendering at 5 credits; premium proxies only if a source sets `allow_premium: true`), remembers what worked, and stops at a monthly cap (`monthly_credit_cap`, default 4500). Credit counts (no key) are kept in `scripts/state/zenrows_usage.json`. The key comes from the `ZENROWS_API_KEY` environment variable / GitHub secret; without it those sources are skipped.
 
 ### Run it
@@ -184,6 +184,18 @@ Put your Amazon Associates ID in `amazon_tag` in `_config.yml`. Every Amazon lin
 bundle exec ruby scripts/find_deals.rb            # add candidates to _deal_queue/queue.yml
 bundle exec ruby scripts/find_deals.rb --dry-run -v   # see what it would add and why items were skipped
 ```
+
+#### Prime events (Prime Day / Prime Big Deal Days)
+
+`prime_day_roundups:` in `_data/deal_sources.yml` lists Prime Day roundup pages (TechBargains `/sales/prime-day-deals`, Slickdeals `/browse/amazon/`). Each run reads them once and collects the Amazon ASINs and Slickdeals thread IDs on them; an Amazon candidate whose ASIN or thread is listed (or that was read from the page itself) gets `prime_day: true` and `prime_day_source: <page>`. The Slickdeals page is only used while its title says Prime Day / Prime Big Deal Days (`require_title: true`). The `techbargains-prime-day` source reads the TechBargains roundup before the other TechBargains pages. After the event, set `enabled: false` on the roundups and on `techbargains-prime-day`.
+
+```sh
+bundle exec ruby scripts/find_deals.rb --source techbargains-prime-day --dry-run -v
+bundle exec ruby scripts/find_deals.rb --tag-prime-day --dry-run   # published Amazon deals on a roundup
+bundle exec ruby scripts/find_deals.rb --tag-prime-day             # add prime_day / prime_day_source lines to them
+```
+
+`--tag-prime-day` reads only the roundup pages, then adds `prime_day: true` and `prime_day_source:` to `_products/*.md` Amazon deals (`type: affiliate`) whose ASIN is listed, when those lines are missing. It inserts them before the closing `---` and leaves the rest of the file as is. Deals with `prime_day: false` are skipped.
 
 Each candidate in `_deal_queue/queue.yml` has a short title the finder writes itself, price, original price (when known), store, category, brand, image, the cleaned `affiliate_url`, an `expires` date, and `source`/`source_link` so you know where it came from. The finder skips anything already in `_products/`, already in the queue, or rejected before (`_deal_queue/rejected.yml`). Jekyll ignores the `_deal_queue/` folder.
 
@@ -207,6 +219,7 @@ The workflow is in `scripts/find-deals.workflow.yml`. Move it to `.github/workfl
 - **DealNews:** store links redirect scripts to a "dead-end" page, so they stay blank.
 - **Ben's Bargains:** store links are behind a POST click tracker that robots.txt disallows, so they stay blank.
 - **TechBargains:** links go straight to the store, so these always resolve.
+- **Brad's Deals:** plain polite requests only (`fallback: none`, never ZenRows); a challenge page, 403 or 429 stops the source for that run. Deals come from the page's `window.__NUXT__` data: the store link is the listing's `untracked_url` (Brad's `/go/` links are never requested), Amazon only when it's a `/dp/` product page. Store-wide sales and listings without a price in the data are skipped; the original price is used only when Brad's lists a higher regular price. Amazon items whose Brad's write-up mentions Prime Day / Prime Event / Prime members get `prime_day`. Feed pages 1-3 daily, 4-5 on `--deep`. Try it with `bundle exec ruby scripts/find_deals.rb --source bradsdeals --dry-run -v`.
 - **Store product pages:** Amazon, Walmart, and Best Buy return a captcha or time out for scripts, so the finder uses the feed's price and photo for them. The original price is often unknown for those.
 
 ### Deep runs, paging and volume

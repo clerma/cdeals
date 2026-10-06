@@ -273,6 +273,246 @@ module DirectSources
     items.values
   end
 
+  # ----------------------------------------------------- Brad's Deals ---
+  # bradsdeals.com pages are Nuxt: the deals sit in the inline window.__NUXT__
+  # payload, a minified JS object literal (not JSON). Each product deal is a
+  # record:{content_type:"product_listing", headline, images, tracking_link:
+  # {untracked_url, tracked_url}, availability, unit_discount_price,
+  # unit_regular_price, ...}. Values shared across the payload are written as
+  # bare identifiers (a, b, eu...): those are read as nil (unknown), never
+  # guessed. Deal posts (record:{headline, description, listings:[{uid}]})
+  # carry the write-up ("for the October Prime Event at Amazon"), matched to
+  # their product records by uid for Prime evidence only.
+  # Only the listing pages are requested; never /go/ links (robots.txt
+  # disallows /api/, /go/*, /c/*, /p/*, /search?query*). A challenge page,
+  # 403 or 429 stops the source for this run (no retries, no ZenRows).
+
+  # Read one JS literal value at byte offset i of s (binary). Returns [value, next i].
+  # Identifiers, `void 0`, `new Set([...])` and calls come back as nil.
+  def js_value(s, i)
+    i = js_ws(s, i)
+    c = s.getbyte(i)
+    case c
+    when 123 # {
+      h = {}
+      i = js_ws(s, i + 1)
+      while i < s.bytesize && s.getbyte(i) != 125
+        if [34, 39].include?(s.getbyte(i))
+          key, i = js_string(s, i)
+        else
+          j = i
+          j += 1 while j < s.bytesize && s.getbyte(j) != 58 && s.getbyte(j) > 32
+          key = s.byteslice(i, j - i).force_encoding("UTF-8")
+          i = j
+        end
+        i = js_ws(s, i)
+        return [h, s.bytesize] unless s.getbyte(i) == 58
+        h[key], i = js_value(s, i + 1)
+        i = js_ws(s, i)
+        break unless s.getbyte(i) == 44
+        i = js_ws(s, i + 1)
+      end
+      [h, i + 1]
+    when 91 # [
+      a = []
+      i = js_ws(s, i + 1)
+      while i < s.bytesize && s.getbyte(i) != 93
+        v, i = js_value(s, i)
+        a << v
+        i = js_ws(s, i)
+        break unless s.getbyte(i) == 44
+        i = js_ws(s, i + 1)
+      end
+      [a, i + 1]
+    when 34, 39 then js_string(s, i)
+    when 33 then [nil, i + 2] # !0 / !1
+    else
+      tok = s.byteslice(i, 64)[/\A-?(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?/i]
+      return [tok.include?(".") || tok =~ /e/i ? tok.to_f : tok.to_i, i + tok.bytesize] if tok
+      tok = s.byteslice(i, 64)[/\A[A-Za-z_$][\w$.]*/].to_s
+      i += tok.bytesize
+      case tok
+      when "true" then [true, i]
+      when "false" then [false, i]
+      when "void" then [nil, js_value(s, i).last]
+      when "new" then [nil, js_value(s, i).last]
+      else
+        i2 = js_ws(s, i)
+        return [nil, i] unless s.getbyte(i2) == 40
+        depth = 0 # call: skip the (...) arguments
+        while i2 < s.bytesize
+          b = s.getbyte(i2)
+          if [34, 39].include?(b) then i2 = js_string(s, i2).last
+            next
+          end
+          depth += 1 if b == 40
+          depth -= 1 if b == 41
+          i2 += 1
+          break if depth.zero?
+        end
+        [nil, i2]
+      end
+    end
+  end
+
+  def js_ws(s, i)
+    i += 1 while i < s.bytesize && s.getbyte(i) <= 32
+    i
+  end
+
+  # JS string literal at i (quote byte); decodes \uXXXX (incl. surrogate pairs) and \x, \n, etc.
+  def js_string(s, i)
+    q = s.getbyte(i)
+    out = +"".b
+    i += 1
+    while i < s.bytesize
+      b = s.getbyte(i)
+      if b == q
+        str = out.force_encoding("UTF-8")
+        return [str.valid_encoding? ? str : str.scrub, i + 1]
+      elsif b == 92
+        e = s.getbyte(i + 1).chr
+        case e
+        when "u"
+          cp = s.byteslice(i + 2, 4).to_i(16)
+          i += 6
+          if cp.between?(0xD800, 0xDBFF) && s.byteslice(i, 2) == "\\u"
+            lo = s.byteslice(i + 2, 4).to_i(16)
+            if lo.between?(0xDC00, 0xDFFF)
+              cp = 0x10000 + ((cp - 0xD800) << 10) + (lo - 0xDC00)
+              i += 6
+            end
+          end
+          out << [cp].pack("U").b
+          next
+        when "x"
+          out << [s.byteslice(i + 2, 2).to_i(16)].pack("U").b
+          i += 4
+          next
+        when "n" then out << "\n"
+        when "t" then out << "\t"
+        when "r" then out << "\r"
+        else out << e
+        end
+        i += 2
+      else
+        out << b
+        i += 1
+      end
+    end
+    [out.force_encoding("UTF-8").scrub, i]
+  end
+
+  # Every record:{...} object in the page's __NUXT__ payload.
+  def nuxt_records(html)
+    s = html.to_s.b
+    start = s.index("window.__NUXT__") or return []
+    stop = s.index("</script>", start) || s.bytesize
+    s = s.byteslice(start, stop - start)
+    out = []
+    pos = 0
+    while (k = s.index("record:{", pos))
+      v = begin
+        js_value(s, k + 7).first
+      rescue StandardError
+        nil
+      end
+      out << v if v.is_a?(Hash)
+      pos = k + 8
+    end
+    out
+  end
+
+  # Prime event wording. Not "Prime shipping" / "free with Prime" / "Prime
+  # members get free shipping": only a Prime-event or Prime-members price.
+  BD_PRIME_RE = /\bprime[\s-]*(?:days?|big[\s-]*deals?[\s-]*days?|events?|week|exclusives?)\b|\bfor\s+prime\s+members\b|\bprime[\s-]*members?\s+(?:only|exclusive|price|deal|can\s+get\s+this)\b/i
+
+  def bd_text(v)
+    case v
+    when String then v
+    when Hash then v["text"].is_a?(String) ? v["text"] : bd_text(v["children"]) # rich text: text nodes only
+    when Array then v.map { |x| bd_text(x) }.join
+    else ""
+    end
+  end
+
+  def bd_num(v) = v.is_a?(Numeric) && v.positive? ? v.to_f.round(2) : nil
+
+  # Store product URL of a record: untracked_url, else tracked_url with the
+  # destination pulled out of the tracker and affiliate params removed.
+  def bd_store_url(rec)
+    tl = rec["tracking_link"].is_a?(Hash) ? rec["tracking_link"] : {}
+    raw = [tl["untracked_url"], tl["tracked_url"]].find { |u| u.is_a?(String) && u.start_with?("http") } or return nil
+    raw = DealTools.embedded_destination(raw) || raw if DealTools.tracker?(raw)
+    u = DealTools.parse_uri(raw) or return nil
+    host = DealTools.bare_host(u)
+    return nil if host.end_with?("bradsdeals.com") || DealTools.tracker?(raw)
+    if DealTools::AMAZON_HOST.match?(u.host.to_s) || host =~ /\Aamzn\./
+      return nil unless DealTools.asin(raw) # product pages only (/dp/ or /gp/product/)
+    elsif u.path.to_s.chomp("/").empty?
+      return nil # store home page, not a product
+    end
+    DealTools.clean_store_url(raw)
+  end
+
+  def bradsdeals_items(fetcher, source)
+    items = {}
+    DealTools.source_urls(source).each do |url|
+      r = fetcher.fetch(url, source, ok_if: ->(b) { b.include?("window.__NUXT__") })
+      unless r.ok
+        # Challenge page / 403 / 429 (or anything else): back off for this run.
+        log "#{url}: #{r.error}; stopping #{source['id']} for this run"
+        break
+      end
+      log "#{url}: ok via #{r.via}"
+      bradsdeals_page(r.body, url, source).each { |it| items[it[:store_url]] ||= it }
+    end
+    items.values
+  end
+
+  # Items from one saved/fetched page (no network); stats filled when given.
+  def bradsdeals_page(html, url, source, stats: nil)
+    recs = nuxt_records(html)
+    posts = Hash.new { |h, k| h[k] = [] }
+    recs.each do |rec|
+      next unless rec["listings"].is_a?(Array) && rec["headline"].is_a?(String)
+      txt = "#{rec['headline']}. #{bd_text(rec['description'])}"
+      rec["listings"].each { |l| posts[l["uid"]] << txt if l.is_a?(Hash) && l["uid"].is_a?(String) }
+    end
+    listings = recs.select { |r| r["content_type"] == "product_listing" || r["content_type"] == "sale_listing" }
+                   .uniq { |r| r["uid"] }
+    stats[:records] += listings.size if stats
+    listings.filter_map do |rec|
+      why =
+        if rec["content_type"] == "sale_listing" || rec["type"] == "Sale" then "store-wide sale"
+        elsif rec["availability"] != "in_stock" then "not in stock"
+        end
+      store_url = bd_store_url(rec) unless why
+      why ||= "no store product URL" unless store_url
+      price = bd_num(rec["unit_discount_price"]) || bd_num(rec["discount_price"]) unless why
+      why ||= "no numeric price" unless price
+      if why
+        stats[:skipped][why] += 1 if stats
+        next
+      end
+      reg = bd_num(rec["unit_regular_price"]) || bd_num(rec["price"])
+      title_raw = rec["title"].is_a?(String) ? rec["title"] : ""
+      title = rec["headline"].is_a?(String) && !rec["headline"].strip.empty? ? rec["headline"].strip : title_raw.sub(/\s+-\s+[^-]+\z/, "").strip
+      img = Array(rec["images"]).find { |x| x.is_a?(Hash) && x["url"].is_a?(String) }&.[]("url")
+      # Prime evidence: the record's own text or a Brad's Deals post that links to it.
+      texts = [rec["headline"], title_raw, bd_text(rec["callout"]), bd_text(rec["product_description"]), *posts[rec["uid"]]]
+      sentences = texts.grep(String).flat_map { |t| t.split(/(?<=[.!?])\s+/) }.select { |t| BD_PRIME_RE.match?(t) }
+      prime = !sentences.empty?
+      base_item(source, title: title, link: url, store_url: store_url, price: price,
+                        compare_at: reg && reg > price ? reg : nil, image: img,
+                        store_hint: DealTools.store_name(store_url),
+                        # Only the Prime sentences go into the text (Brad's write-ups also say
+                        # "Prime members get free shipping", which isn't evidence).
+                        text: prime ? "Brad's Deals: #{sentences.uniq.first(2).join(' ')[0, 300]} (Prime Day deal)" : "",
+                        prime_day_source: prime ? url : nil)
+    end
+  end
+
   # ------------------------------------------------- Official APIs ---
   # Best Buy Products API (https://developer.bestbuy.com). Needs BESTBUY_API_KEY;
   # without it the source is skipped. Reads onSale=true products in the tech
@@ -328,6 +568,6 @@ module DirectSources
   PARSERS = {
     "bh" => :bh_items, "newegg" => :newegg_items, "newegg_rss" => :newegg_rss_items,
     "macheist" => :macheist_items, "slickdeals_rss" => :slickdeals_items, "target" => :target_items,
-    "bestbuy_api" => :bestbuy_api_items
+    "bestbuy_api" => :bestbuy_api_items, "bradsdeals" => :bradsdeals_items
   }.freeze
 end

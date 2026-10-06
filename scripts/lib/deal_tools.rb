@@ -8,6 +8,7 @@ require "uri"
 require "net/http"
 require "digest"
 require "json"
+require "cgi"
 
 module DealTools
   ROOT = File.expand_path("../..", __dir__)
@@ -71,7 +72,7 @@ module DealTools
   ASIN_RE = %r{/(?:dp|gp/product|gp/aw/d|exec/obidos/ASIN|o/ASIN)/([A-Z0-9]{10})(?:[/?]|$)}i
 
   # Query params that are tracking/affiliate noise, never part of the product.
-  TRACKING_PARAM = /\A(utm_.*|aff.*|irgwc|irclickid|clickid|click_id|cjevent|cjdata|sharedid|subid\d*|u1|ran(mid|eaid|siteid)|siteid|ref|ref_|tag|ascsubtag|camp|creative|linkcode|creativeasin|wmlspartner|sourceid|veh|partner.*|publisherid|clickref|awc|sscid|ascid|mcid|gclid|fbclid|msclkid|adid|lid|th|psc|smid|ie|pd_rd_.*|pf_rd_.*|content-id|sd_.*|sdtid|sdfib|iref|xs|cid|icid|epik|loc|acampid|mpid|intl|rdr)\z/i
+  TRACKING_PARAM = /\A(utm_.*|aff.*|irgwc|irclickid|clickid|click_id|cjevent|cjdata|sharedid|subid\d*|u1|ran(mid|eaid|siteid)|siteid|ref|ref_|tag|ascsubtag|camp|creative|linkcode|creativeasin|wmlspartner|sourceid|veh|campaign_?id|partner.*|publisherid|clickref|awc|sscid|ascid|mcid|gclid|fbclid|msclkid|adid|lid|th|psc|smid|ie|pd_rd_.*|pf_rd_.*|content-id|sd_.*|sdtid|sdfib|iref|xs|cid|icid|epik|loc|acampid|mpid|intl|rdr)\z/i
 
   # Affiliate networks / redirectors: the real URL is often a query param.
   TRACKER_HOST = /(^|\.)(linksynergy\.com|anrdoezrs\.net|dpbolvw\.net|jdoqocy\.com|tkqlhce\.com|kqzyfj\.com|emjcd\.com|shareasale\.com|awin1\.com|skimresources\.com|viglink\.com|redirectingat\.com|sjv\.io|pxf\.io|ojrq\.net|evyy\.net|7tiv\.net|goto\.walmart\.com|go\.magik\.ly|howl\.me|geni\.us|amzn\.to|bit\.ly|tidd\.ly|prf\.hn|avantlink\.com|pjtra\.com|pntrs\.com|slickdeals\.net|dealnews\.com|bensbargains\.com|techbargains\.com|dlnws\.com)$/i
@@ -253,6 +254,36 @@ module DealTools
     return false unless store.to_s =~ /amazon/i || url.to_s =~ /amazon\.|amzn\./i
 
     PRIME_DAY_RE.match?(text.to_s)
+  end
+
+  # Prime Day roundup pages (prime_day_roundups: in deal_sources.yml): listings
+  # whose Amazon products / Slickdeals threads count as Prime Day evidence.
+  PRIME_EVENT_TITLE_RE = /\bprime[\s-]*(?:days?|big[\s-]*deals?[\s-]*days?)\b/i
+
+  def prime_day_roundups(cfg = config)
+    Array(cfg["prime_day_roundups"]).select { |r| r.is_a?(Hash) && r["url"].to_s.start_with?("http") && r["enabled"] != false }
+  end
+
+  # Listing URL without scheme/www/query/trailing slash, for page matching.
+  def page_key(url)
+    u = parse_uri(url) or return nil
+    "#{bare_host(u)}#{u.path.downcase.chomp('/')}"
+  end
+
+  def slickdeals_thread_id(url)
+    u = parse_uri(url) or return nil
+    return nil unless bare_host(u).end_with?("slickdeals.net")
+    u.path[%r{\A/f/(\d+)}, 1]
+  end
+
+  # Amazon ASINs and Slickdeals thread IDs on a roundup page. Store links can
+  # be HTML-escaped, URL-encoded (tracker ?url=...) and JSON-escaped (\/).
+  def prime_day_evidence(html)
+    s = CGI.unescapeHTML(html.to_s).gsub("\\/", "/")
+    2.times { s = s.gsub(/%2F/i, "/").gsub(/%3A/i, ":").gsub(/%3F/i, "?").gsub(/%3D/i, "=").gsub(/%26/i, "&") }
+    asins = s.scan(%r{amazon\.com/(?:[^\s"'<>/?]{1,120}/)?(?:dp|gp/product|gp/aw/d)/([A-Z0-9]{10})(?![A-Z0-9])}i).flatten.map(&:upcase)
+    threads = s.scan(%r{(?:slickdeals\.net|["'=\s])/f/(\d{4,})(?=[-?#/"'\s]|\z)}).flatten
+    { asins: asins.uniq, threads: threads.uniq }
   end
 
   def slugify(str)

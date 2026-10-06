@@ -10,6 +10,9 @@
 #            --verbose (explain every skip),
 #            --deep (also read deep_urls / deep_pages, ignore rotate_daily:
 #                    for an occasional manual deep pass, not the daily run)
+#   bundle exec ruby scripts/find_deals.rb --tag-prime-day [--dry-run]
+#            only reads the prime_day_roundups: pages and adds prime_day: true /
+#            prime_day_source: to published Amazon deals listed there
 #
 # Needs the optional "deals" gem group:  bundle config set --local with deals && bundle install
 
@@ -32,6 +35,7 @@ OptionParser.new do |o|
   o.on("--limit N", Integer) { |v| opts[:limit] = v }
   o.on("--verbose", "-v") { opts[:verbose] = true }
   o.on("--deep") { ENV["DEALS_DEEP"] = "1" }
+  o.on("--tag-prime-day") { opts[:tag_prime_day] = true }
 end.parse!
 
 cfg = DealTools.config
@@ -61,6 +65,71 @@ fallback_category = nil if fallback_category.empty?
 words_re = ->(list) { list.empty? ? nil : Regexp.new("\\b(?:#{list.map { |w| Regexp.escape(w.to_s.downcase) }.join('|')})\\b", Regexp::IGNORECASE) }
 include_re = words_re.call(Array(filters["include_keywords"]))
 exclude_re = words_re.call(Array(filters["exclude_keywords"]))
+
+# ------------------------------------------------ Prime Day roundups ---
+# Pages listed under prime_day_roundups: in deal_sources.yml, read once per run.
+# Returns { asins: { ASIN => url }, threads: { slickdeals id => url }, pages: { page_key => url } }.
+def prime_day_index(http, roundups, max_redirects)
+  index = { asins: {}, threads: {}, pages: {} }
+  roundups.each do |r|
+    url = r["url"]
+    final, res = http.follow(url, max: max_redirects)
+    unless res&.ok?
+      puts "   #{url}: #{res&.error || "HTTP #{res&.status}"}"
+      next
+    end
+    title = Nokogiri::HTML(res.body).at_css("title")&.text.to_s.strip
+    if r["require_title"] && !DealTools::PRIME_EVENT_TITLE_RE.match?(title)
+      puts "   #{url}: not used, page title #{title[0, 80].inspect} doesn't mention Prime Day"
+      next
+    end
+    ev = DealTools.prime_day_evidence(res.body)
+    ev[:asins].each { |a| index[:asins][a] ||= url }
+    ev[:threads].each { |t| index[:threads][t] ||= url } if DealTools.page_key(final).to_s.start_with?("slickdeals.net")
+    [url, final].filter_map { |u| DealTools.page_key(u) }.each { |k| index[:pages][k] ||= url }
+    puts "   #{url}: #{ev[:asins].size} Amazon products, #{ev[:threads].size} Slickdeals threads"
+  end
+  index
+end
+
+prime_roundups = DealTools.prime_day_roundups(cfg)
+prime_index = nil
+unless prime_roundups.empty?
+  puts "== Prime Day roundups (#{prime_roundups.size} pages)"
+  prime_index = prime_day_index(http, prime_roundups, max_redirects)
+end
+
+# Re-check published deals: add prime_day / prime_day_source lines (nothing else
+# in the file changes) to Amazon deals whose ASIN is on a roundup page.
+if opts[:tag_prime_day]
+  abort "No enabled prime_day_roundups in _data/deal_sources.yml" unless prime_index
+  checked = matched = tagged = 0
+  Dir[File.join(DealTools::PRODUCTS_DIR, "*.md")].sort.each do |path|
+    fm = DealTools.front_matter(path)
+    next unless fm["type"].to_s == "affiliate"
+    asin = DealTools.asin(fm["affiliate_url"]) or next
+    checked += 1
+    url = prime_index[:asins][asin] or next
+    matched += 1
+    name = File.basename(path)
+    if fm["prime_day"] == false
+      puts "  skip  #{name} (prime_day: false)"
+      next
+    end
+    add = []
+    add << "prime_day: true" unless fm.key?("prime_day")
+    add << "prime_day_source: #{url}" unless fm.key?("prime_day_source")
+    next if add.empty?
+    text = File.read(path)
+    m = text.match(/\A---\s*\n(.*?)\n---\s*(\n|\z)/m) or next
+    File.write(path, text.insert(m.end(1), "\n#{add.join("\n")}")) unless opts[:dry_run]
+    tagged += 1
+    puts "  tag   #{name}: #{add.join(', ')}"
+  end
+  puts "Amazon deals checked: #{checked}, on a roundup: #{matched}, tagged: #{tagged}#{opts[:dry_run] ? ' (dry run: nothing written)' : ''}"
+  puts "HTTP requests: #{http.stats[:requests]}, blocked by robots.txt: #{http.stats[:robots_blocked]}, errors: #{http.stats[:errors]}"
+  exit
+end
 
 # ------------------------------------------------------------ known items ---
 queue = DealTools.load_queue
@@ -188,7 +257,7 @@ def techbargains_page_items(http, source, max_redirects)
       img = img_el["v-image-loader"].to_s[/imageSrc:\s*'([^']+)'/, 1].to_s if img_el && (img.empty? || img.include?("image-default"))
       img = nil if img.to_s.empty? || img.include?("image-default")
       items[dest] ||= {
-        source: source["id"], title: offer["name"].to_s.strip, link: dest, guid: "tb-#{offer['id']}",
+        source: source["id"], title: offer["name"].to_s.strip, link: dest, guid: "tb-#{offer['id']}", listing: url,
         published: (Time.parse("#{offer['start_date']} UTC") rescue nil), html: html, text: first,
         image: DealTools.bigger_image(img), store_hint: offer.dig("merchant", "name").to_s.sub(/!+\z/, ""), price: nil,
         expires: nil, feed_category: cat
@@ -488,6 +557,18 @@ build_candidate = lambda do |item, source|
 
   money_s = ->(v) { v == v.round ? "$#{v.round}" : format("$%.2f", v) }
   amazon = DealCopy.amazon?(store, store_url)
+  # Prime Day (shown on /deals/prime-day/), Amazon only: the product (ASIN) or
+  # Slickdeals thread is on a prime_day_roundups page, the item was read from
+  # one, or the source text mentions Prime Day / Prime members.
+  prime_src = nil
+  if amazon && prime_index
+    asin = DealTools.asin(store_url)
+    thread = DealTools.slickdeals_thread_id(item[:link]) || DealTools.slickdeals_thread_id(item[:page])
+    prime_src = (asin && prime_index[:asins][asin]) || (thread && prime_index[:threads][thread]) ||
+                [item[:page], item[:listing]].filter_map { |u| prime_index[:pages][DealTools.page_key(u)] }.first
+  end
+  prime_text = DealTools.prime_day?("#{blob} #{item[:page] || item[:link]}", store: store, url: store_url)
+  prime_src ||= item[:prime_day_source] || [item[:page], item[:listing], item[:link]].find { |u| u.to_s.start_with?("http") } if prime_text
   overview = ""
   page_specs = []
   begin
@@ -519,8 +600,8 @@ build_candidate = lambda do |item, source|
     "summary" => summary, "expires" => expires, "found" => today.dup, "source" => source["id"],
     "source_link" => item[:page] || item[:link], "source_title" => title[0, 140], "notes" => notes.empty? ? nil : notes.join(" "),
     "replaces" => replaces,
-    # Amazon deals whose source mentions Prime Day / Prime members (shown on /deals/prime-day/).
-    "prime_day" => (true if DealTools.prime_day?("#{blob} #{item[:page] || item[:link]}", store: store, url: store_url))
+    "prime_day" => (true if prime_src || prime_text),
+    "prime_day_source" => prime_src
   }.compact
   sig_seen[sig] = { price: price, store: store, entry: entry } if sig
   cat_counts[category] += 1
@@ -639,6 +720,7 @@ puts "HTTP requests: #{http.stats[:requests]}, blocked by robots.txt: #{http.sta
 puts "ZenRows: #{fetcher.usage_stats[:requests]} requests, #{fetcher.usage_stats[:credits]} credits this run; " \
      "#{fetcher.credits_this_month}/#{fetcher.cap} credits this month#{fetcher.zenrows_key? ? '' : ' (ZENROWS_API_KEY not set)'}"
 puts "Run: #{DealTools.deep? ? 'deep' : 'daily'}; new per category: #{cat_counts.select { |_, n| n.positive? }.sort_by { |_, n| -n }.map { |c, n| "#{c} #{n}" }.join(', ')}"
+puts "Prime Day tagged: #{added.count { |e| e['prime_day'] }}" if prime_index || added.any? { |e| e["prime_day"] }
 puts "Replaced in this run by a cheaper store: #{replaced.size}" unless replaced.empty?
 replaced.each { |r| puts "  #{r}" }
 puts "Skipped:" unless skips.empty?

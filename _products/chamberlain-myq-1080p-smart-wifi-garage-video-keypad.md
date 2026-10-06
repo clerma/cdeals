@@ -23,5 +23,7 @@ why_deal: Amazon has a good price on this right now. Prices change fast, so chec
   the current price at Amazon before you buy.
 description: The Chamberlain myQ Smart WiFi Garage Video Keypad has a 1080p camera
   built in.
+prime_day: true
+prime_day_source: https://www.techbargains.com/sales/prime-day-deals
 ---
 The Chamberlain myQ Smart WiFi Garage Video Keypad has a 1080p camera built in.
