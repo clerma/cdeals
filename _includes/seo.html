@@ -36,7 +36,7 @@
 {%- elsif is_product -%}
   {%- capture seo_description -%}
     {%- if page.type == "affiliate" and hide_price -%}{{ page.title }} deal at {{ page.store }}. See the current price at {{ page.store }} before you buy.
-    {%- elsif page.type == "affiliate" -%}{{ page.title }} at {{ page.store }}.
+    {%- elsif page.type == "affiliate" -%}{{ page.title }}{% if page.condition and page.condition != blank %} ({{ page.condition | downcase }}){% endif %} at {{ page.store }}.
     {%- else -%}{{ page.title }}, {{ page.condition | default: "used" | downcase }} condition.
     {%- endif -%}
   {%- endcapture -%}

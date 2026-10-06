@@ -4,7 +4,7 @@
     <img src="{{ p.images[0] | relative_url }}" alt="{{ p.title | escape }}" loading="lazy" style="object-fit: contain">
   </div>
   <div class="w-100 min-w-0 ps-2 ps-sm-3">
-    <div class="fs-xs text-body-tertiary mb-2">{{ p.condition | default: p.store }} · {{ p.category }}</div>
+    <div class="fs-xs text-body-tertiary mb-2">{% if p.type == "affiliate" %}{{ p.store }}{% if p.condition and p.condition != blank %} <span class="badge text-bg-secondary ms-1">{{ site.data.strings.product.condition_badge | replace: '[condition]', p.condition }}</span>{% endif %}{% else %}{{ p.condition | default: p.store }}{% endif %} · {{ p.category }}</div>
     <h4 class="mb-2">
       <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="{{ p.url | relative_url }}">
         <span class="animate-target">{{ p.title }}</span>

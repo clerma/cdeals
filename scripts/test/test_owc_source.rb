@@ -29,6 +29,7 @@ require "open3"
 require "stringio"
 require_relative "../lib/fetcher"
 require_relative "../lib/direct_sources"
+require_relative "../lib/deal_copy"
 
 # Net::HTTP answers from OwcStub.routes ("host/path?query" => [status, body]);
 # every request is logged. Unknown URLs: 404. robots.txt allows everything.
@@ -127,9 +128,17 @@ class TestOwcSource < Minitest::Test
 
     mac = items.find { |it| it[:title].start_with?("Mac mini") }
     assert_equal "https://#{HOST}/configure-my-mac/apple-mac-mini-apple-silicon-late-2020?sku=UAEI1HS7XXXXXXB", mac[:store_url]
-    assert_equal "used", mac[:condition]
-    assert_match(/Pre-owned\/used \(OWC grade: NICE!\): check the condition at OWC/, mac[:highlights].first)
+    assert_equal "Used", mac[:condition]
+    assert_equal true, mac[:no_was_price]
+    assert_nil mac[:compare_at] # OWC's crossed-out $1,699 is the new price: dropped
+    assert_equal ["Pre-owned (OWC grade: NICE!): check the condition at OWC"], mac[:highlights]
+    assert_equal "OWC price $869.00.", mac[:text]
     assert_equal "Mac mini 8-Core M1 16GB RAM, 2TB SSD, 8-Core GPU", mac[:title]
+    mbp = items.find { |it| it[:title].include?("MacBook Pro") }
+    assert_equal ["Used", nil, 1769.0], mbp.values_at(:condition, :compare_at, :price)
+    assert_equal ["Pre-owned: check the condition at OWC"], mbp[:highlights] # no grade in OWC's title
+    assert_equal({ price: 869.0, was: nil, why: nil },
+                 listing[:products]["#{HOST}/configure-my-mac/apple-mac-mini-apple-silicon-late-2020?sku=uaei1hs7xxxxxxb"])
 
     # No was-price (ThunderBay 4, ThunderBay 8 kit, hub, stand, dock, miniStack) and cart-only price (Hyper): skipped.
     %w[OWC/TB3IVKIT000 OWC/TB38SRKIT0 Rain-Design/12031 OWC/TB3MDK5P OWC/T4MS9H06N00 Hyper/GN28NGRAY].each do |p|
@@ -139,8 +148,14 @@ class TestOwcSource < Minitest::Test
     items.each do |it|
       assert_match(%r{\Ahttps://#{HOST}/(?:item/|configure-my-mac/[^?]+\?sku=\w+\z)}, it[:store_url])
       refute_includes it[:store_url], "afv="
-      assert it[:compare_at] > it[:price]
+      refute_match(/crossed-out/, it[:highlights].join(" "))
+      if it[:no_was_price]
+        assert_nil it[:compare_at]
+      else
+        assert it[:compare_at] > it[:price]
+      end
     end
+    assert_equal 2, items.count { |it| it[:no_was_price] }
     # Full listing: every batch loaded, all 21 cards recorded for the re-check.
     assert_equal true, listing[:ok]
     assert_equal 21, listing[:products].size
@@ -168,6 +183,49 @@ class TestOwcSource < Minitest::Test
       assert_equal({ why => 1 }, skipped, why)
     end
     assert_equal 1, DirectSources.owc_page(card, SPECIALS, source)[:items].size
+  end
+
+  def mac_mini_card
+    "<div class=\"product-specials__view\">" + batch1.split('<div class="product-specials__view">').find { |c| c.include?("UAEI1HS7XXXXXXB") }
+  end
+
+  # Pre-owned Macs: condition Used, no original price, kept without a discount;
+  # every other card rule still applies.
+  def test_used_mac_cards
+    card = mac_mini_card
+    one = ->(html) { DirectSources.owc_page(html, SPECIALS, source)[:items] }
+    [card, card.sub(%r{<del[^>]*>\$1,699\.00</del>}, ""), # no crossed-out price at all
+     # An /item/ link and a plain image, "Pre-owned" in the title.
+     card.gsub(%r{/configure-my-mac/apple-mac-mini-apple-silicon-late-2020\?sku=UAEI1HS7XXXXXXB}, "/item/Apple/MGNR3LLAUSED/")
+         .sub("used-mac-base-images/UAEI.jpg", "300x300/MGNR3LLA.jpg").sub("*NICE!* Mac mini", "Pre-owned Mac mini")].each do |html|
+      items = one.call(html)
+      assert_equal 1, items.size, html[0, 300]
+      it = items.first
+      assert_equal ["Used", nil, true, 869.0], it.values_at(:condition, :compare_at, :no_was_price, :price)
+      assert_match(/\APre-owned(?: \(OWC grade: NICE!\))?: check the condition at OWC\z/, it[:highlights].first)
+    end
+    { "not in stock (sold out / backorder / pre-order)" => card.sub("Limited Supply, Only 3 left!", "Sold Out"),
+      "no Add to Cart button" => card.sub(%r{<a href="/shop/add/[^>]*>Add to Cart</a>}, ""),
+      "price only in the cart" => card.sub("Limited Supply, Only 3 left!", "Add to cart for price"),
+      "mail-in rebate price" => card.sub("Limited Supply, Only 3 left!", "After Mail-In Rebate"),
+      "no price" => card.sub("Only $869.00", "Only") }.each do |why, html|
+      skipped = Hash.new(0)
+      assert_empty DirectSources.owc_page(html, SPECIALS, source, skipped: skipped)[:items], why
+      assert_equal({ why => 1 }, skipped, why)
+    end
+    # Two used Macs on the same configure page: two products (the sku is the key).
+    k1 = DealTools.url_key("https://#{HOST}/configure-my-mac/apple-mac-mini-apple-silicon-late-2020?sku=UAEI1HS7XXXXXXB")
+    k2 = DealTools.url_key("https://#{HOST}/configure-my-mac/apple-mac-mini-apple-silicon-late-2020?sku=UAEI1HS7YYYYYYB")
+    assert_includes k1, "?sku=uaei1hs7xxxxxxb"
+    refute_equal k1, k2
+    # A refurbished non-Mac keeps OWC's crossed-out price (and needs one).
+    cable = batch1[/<div class="product-specials__view">.*?CBLTB5C0\.3M.*?catpathlink.*?<\/div>\s*<\/div>\s*<\/div>\s*<\/div>/m]
+    refurb = one.call(cable.sub("Universal Thunderbolt Cable (80/120Gb/s)</h3>", "Universal Thunderbolt Cable (80/120Gb/s), Refurbished</h3>")).first
+    assert_equal ["used", 19.99, nil], refurb.values_at(:condition, :compare_at, :no_was_price)
+    assert_equal "Used, refurbished or open-box: check the condition at OWC", refurb[:highlights].first
+    # No "down from" for a deal without an original price.
+    why = DealCopy.why_deal(price: 869.0, compare_at: nil, store: "OWC", amazon: false)
+    assert_equal "OWC has it for $869. Prices change fast, so check the price before you buy.", why
   end
 
   def test_url_key_stable
@@ -297,6 +355,10 @@ class TestOwcSource < Minitest::Test
          "affiliate_url" => "https://www.bhphotovideo.com/c/product/1801760-REG/owc_owcus4exp1m2_express_1m2_portable_nvme.html")
     deal(root, "owc-go-dock.md", "title" => "OWC Thunderbolt Go Dock", "brand" => "OWC", "price" => 199.99, "store" => "OWC",
                                  "source" => "owc", "affiliate_url" => "#{site.base}/item/OWC/TB4DKG11P/")
+    # Used Macs: the listing price ($869) is higher -> expired; the URL keeps its sku.
+    deal(root, "used-mac-mini.md", "title" => "Mac mini M1 16GB 2TB (Used)", "price" => 799, "store" => "OWC", "source" => "owc",
+                                   "condition" => "Used",
+                                   "affiliate_url" => "#{site.base}/configure-my-mac/apple-mac-mini-apple-silicon-late-2020?sku=UAEI1HS7XXXXXXB")
     deal(root, "owc-gone.md", "title" => "OWC Something Gone", "price" => 50, "store" => "OWC", "source" => "owc",
                               "affiliate_url" => "#{site.base}/item/OWC/GONE123/")
     env = { "CDEALS_CACHE" => File.join(root, "cache"), "ZENROWS_API_KEY" => nil, "DEALS_DEEP" => nil }
@@ -315,12 +377,21 @@ class TestOwcSource < Minitest::Test
     assert_equal "#{site.base}/item/OWC/US4EXP4M2/", e["affiliate_url"]
     mbp = queue.find { |x| x["title"].include?("MacBook Pro") }
     assert_equal "Laptops", mbp["category"]
-    assert_includes mbp["highlights"].join(" "), "Pre-owned/used"
+    # Used Mac: kept despite require_discount / min_discount_pct, no original price, condition Used.
+    assert_equal ["Used", 1769.0, "OWC", "#{site.base}/configure-my-mac/apple-macbook-pro-apple-silicon-14-inch-late-2021?sku=UAOP5KS71XXXXXB"],
+                 mbp.values_at("condition", "price", "store", "affiliate_url")
+    refute mbp.key?("compare_at")
+    refute mbp.key?("discount_pct")
+    assert_equal ["Pre-owned: check the condition at OWC"], mbp["highlights"]
+    assert(queue.reject { |x| x["title"].include?("Mac") }.none? { |x| x.key?("condition") }, queue.inspect)
     # Cables / adapters (global exclude_keywords), over max_price, below min discount: not queued.
     refute(titles.any? { |t| t =~ /cable|ThunderBay|Mercury|Thunderbolt Hub/i }, titles.inspect)
 
     # Re-check: the Go Dock is $229.99 on the listing (> $199.99), GONE123 isn't on it.
-    assert_match(/Re-checked published deals: matched 2, confirmed 0, now cheaper 0, expired 2/, out)
+    assert_match(/Re-checked published deals: matched 3, confirmed 0, now cheaper 0, expired 3/, out)
+    mini = File.read(File.join(root, "_products/used-mac-mini.md"))
+    assert_match(/^expired_reason: "listing price \$869 > \$799 \(owc, /, mini)
+    refute_match(/compare_at/, mini) # the re-check never adds an original price
     assert_match(/^expired_reason: "listing price \$229\.99 > \$199\.99 \(owc, /, File.read(File.join(root, "_products/owc-go-dock.md")))
     assert_match(/^expired_reason: "not on the owc listing \(21 products, /, File.read(File.join(root, "_products/owc-gone.md")))
     assert_includes File.read(File.join(root, "_products/owc-express-1m2-usb4-external-ssd-enclosure.md")), "2099-01-01"

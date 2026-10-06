@@ -53,6 +53,9 @@ product:
   condition: "Condition:"
   # Shown when an item for sale has no condition set.
   condition_default: "Used"
+  # Small label next to the store on deal cards that have a condition
+  # (e.g. OWC pre-owned Macs). [condition] is the deal's condition ("Used").
+  condition_badge: "[condition]"
   sold_notice: "This one's sold. See [link]."
   sold_link: "what's still for sale"
   sold_link_url: /shop/

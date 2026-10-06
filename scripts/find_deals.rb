@@ -536,6 +536,10 @@ build_candidate = lambda do |item, source|
   price = item[:price] || DealTools.first_price(title) || DealTools.first_price(item[:text])
   next skip.call(item, "price outside min/max") if price && ((filters["min_price"] && price < filters["min_price"]) || (filters["max_price"] && price > filters["max_price"]))
   compare = item[:compare_at] && price && item[:compare_at] > price ? item[:compare_at] : DealTools.compare_from_text(blob, price)
+  # no_was_price (OWC pre-owned Macs): listed with their condition and no original
+  # price, so the discount rules below don't apply; everything else does.
+  no_was = item[:no_was_price] == true
+  compare = nil if no_was
 
   # Resolve the real store link (circuit breaker after 3 blocked in a row).
   store_url = nil
@@ -599,12 +603,13 @@ build_candidate = lambda do |item, source|
   price = data[:price] if data[:price]&.positive?
   compare = data[:compare_at] if data[:compare_at] && price && data[:compare_at] > price
   compare = nil if compare && price && compare <= price
+  compare = nil if no_was
   discount = compare && price ? ((1 - price / compare) * 100).round : nil
   min_disc = source["min_discount_pct"] || filters["min_discount_pct"]
   if discount && min_disc && discount < min_disc.to_i
     next skip.call(item, "discount below #{min_disc}%")
   end
-  next skip.call(item, "unknown discount") if discount.nil? && (filters["allow_unknown_discount"] == false || source["require_discount"])
+  next skip.call(item, "unknown discount") if discount.nil? && !no_was && (filters["allow_unknown_discount"] == false || source["require_discount"])
   next skip.call(item, "no price found") unless price
   if discount && source["max_discount_pct"] && discount > source["max_discount_pct"].to_i
     next skip.call(item, "discount above #{source['max_discount_pct']}% (inflated list price?)")
@@ -629,7 +634,7 @@ build_candidate = lambda do |item, source|
   # Same product at another store (or already queued): keep the best price.
   # At the same price Amazon wins over Walmart / Sam's Club found in this run.
   sig = DealTools.product_signature(short, brand: brand)
-  sig = sig.sub(/\|n\z/, "|r") if sig && item[:condition] == "used" # used at the store, even when the title doesn't say so
+  sig = sig.sub(/\|n\z/, "|r") if sig && item[:condition].to_s.casecmp?("used") # used at the store, even when the title doesn't say so
   mpn_keys = DealTools.part_numbers(item[:mpns]).map { |m| "mpn:#{m}" }
   replaces = nil
   prev = (sig && sig_seen[sig]) || mpn_keys.lazy.filter_map { |k| sig_seen[k] }.first
@@ -698,6 +703,8 @@ build_candidate = lambda do |item, source|
     "id" => DealTools.deal_id(dedupe_key), "status" => "new", "title" => short, "store" => store,
     "price" => price, "compare_at" => compare, "discount_pct" => discount, "category" => category,
     "brand" => brand,
+    # Shown on the deal ("Used"); only set by sources listing it without a was-price.
+    "condition" => (item[:condition] if no_was),
     "affiliate_url" => store_url ? DealTools.affiliate_url(store_url) : "", "store_url" => store_url,
     "image" => image_url, "highlights" => highlights.first(3),
     "summary" => summary, "expires" => expires, "found" => today.dup, "source" => source["id"],
