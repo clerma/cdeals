@@ -2,10 +2,16 @@
   Hub pages: front matter `show_collection: products` plus optional
   `collection_type: sale|affiliate` to match what the page actually lists.
   Mirrors the visible grid: sold items and expired deals are left out.
+  `collection_list: <site key>` uses a ready-made, already-ordered list instead
+  (e.g. site.prime_day_deals from _plugins/prime_day.rb).
 {% endcomment %}
-{%- assign coll_docs = site[page.show_collection] -%}
-{%- if page.collection_type -%}{%- assign coll_docs = coll_docs | where: "type", page.collection_type -%}{%- endif -%}
-{%- assign coll_docs = coll_docs | where_exp: "d", "d.status != 'sold'" | sort: "date" | reverse -%}
+{%- if page.collection_list -%}
+  {%- assign coll_docs = site[page.collection_list] -%}
+{%- else -%}
+  {%- assign coll_docs = site[page.show_collection] -%}
+  {%- if page.collection_type -%}{%- assign coll_docs = coll_docs | where: "type", page.collection_type -%}{%- endif -%}
+  {%- assign coll_docs = coll_docs | where_exp: "d", "d.status != 'sold'" | sort: "date" | reverse -%}
+{%- endif -%}
 {%- assign today = site.time | date: "%Y-%m-%d" -%}
 {%- if coll_docs and coll_docs.size > 0 -%}
 <script type="application/ld+json">

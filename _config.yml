@@ -51,6 +51,18 @@ skimlinks_id: "310483X1798959"   # Skimlinks: publisher ID, e.g. 123456X1234567 
 affiliate_networks:
   skimlinks_active: true
 
+# Prime Day (Prime Big Deal Days, Oct 6-7, 2026). While active is true and
+# today (America/Chicago) is before `ends`, the home page shows a "Best Prime
+# Day Deals" section (only with 4+ deals) and the menu / category pills link
+# /deals/prime-day/. It lists Amazon deals with `prime_day: true` in front
+# matter (the deal finder adds it when the source mentions Prime Day or a
+# Prime-members price). Set active to false, or let `ends` pass, and all of
+# that disappears; /deals/prime-day/ then says Prime Day has ended (noindex,
+# not in the sitemap). The switch is _plugins/prime_day.rb.
+prime_day:
+  active: true
+  ends: 2026-10-08     # first day AFTER the event; hide from this date on
+
 # Amazon Associates tracking ID, e.g. yourtag-20. The deal finder turns every
 # Amazon link into https://www.amazon.com/dp/ASIN?tag=<this>.
 amazon_tag: "cdeals014-20"

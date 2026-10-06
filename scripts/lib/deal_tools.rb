@@ -243,6 +243,18 @@ module DealTools
        .sub(/(dlnws\.com\/.*)\?h=\d+&w=\d+\z/, "\\1?h=600&w=600")
   end
 
+  # Prime Day evidence in a deal's source text (title, notes, description,
+  # feed/page text, source link): "Prime Day", "Prime Big Deal Days", or a
+  # Prime-exclusive / Prime-members price. Same wording the finder's "Prime
+  # members only" highlight uses. Only Amazon deals get `prime_day: true`.
+  PRIME_DAY_RE = /\bprime[\s-]*(?:days?|big[\s-]*deals?[\s-]*days?|members?|exclusives?|only)\b/i
+
+  def prime_day?(text, store:, url: nil)
+    return false unless store.to_s =~ /amazon/i || url.to_s =~ /amazon\.|amzn\./i
+
+    PRIME_DAY_RE.match?(text.to_s)
+  end
+
   def slugify(str)
     s = str.to_s.downcase.gsub(/['"]/, "").gsub(/[^a-z0-9]+/, "-").gsub(/\A-|-\z/, "")
     s.length > 60 ? s[0, 61].sub(/-[^-]*\z/, "") : s

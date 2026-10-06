@@ -1,6 +1,7 @@
 ---
 title: Samsung Odyssey G55C 32" Curved 2560x1440 165Hz Gaming Monitor
 type: affiliate
+prime_day: true
 category: Computers
 brand: Samsung
 price: 189.99
