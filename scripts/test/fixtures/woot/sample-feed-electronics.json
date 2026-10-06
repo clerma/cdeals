@@ -1,0 +1,153 @@
+{
+  "Items": [
+    {
+      "Categories": [
+        "TECH",
+        "TECH/Portable Audio"
+      ],
+      "Condition": null,
+      "EndDate": "2026-10-10T04:59:00+00:00",
+      "ForumUrl": "https://forums.woot.com/t/2622346",
+      "IsAvailableOnMobileAppOnly": false,
+      "IsFeatured": false,
+      "IsFulfilledByAmazon": false,
+      "IsSoldOut": false,
+      "IsWootOff": false,
+      "ListPrice": {
+        "Minimum": 129.95,
+        "Maximum": 129.95
+      },
+      "OfferId": "28d028cc-20dd-4a5a-bc47-40b59a41abf0",
+      "Photo": "https://d3gqasl9vmjfd8.cloudfront.net/2b55f1c3-e809-46c3-b5fd-73f2a22213f8.jpg",
+      "SalePrice": {
+        "Minimum": 84.95,
+        "Maximum": 84.95
+      },
+      "Site": "Electronics",
+      "Slug": null,
+      "StartDate": "2026-10-06T05:00:00+00:00",
+      "Subtitle": null,
+      "Title": "(NEW) JBL Flip 6 Portable IP67 Waterproof Speaker",
+      "Url": "https://electronics.woot.com/offers/new-jbl-flip-6-portable-ip67-waterproof-speaker"
+    },
+    {
+      "Categories": [
+        "TECH",
+        "TECH/Televisions & Projectors"
+      ],
+      "Condition": "New (1)",
+      "EndDate": "2026-10-07T04:59:00+00:00",
+      "ForumUrl": "https://forums.woot.com/t/2620140",
+      "IsAvailableOnMobileAppOnly": false,
+      "IsFeatured": false,
+      "IsFulfilledByAmazon": true,
+      "IsSoldOut": false,
+      "IsWootOff": false,
+      "ListPrice": {
+        "Minimum": 329.99,
+        "Maximum": 519.99
+      },
+      "OfferId": "f1c469c2-5aae-4e3b-9914-48570d4dc245",
+      "Photo": "https://d3gqasl9vmjfd8.cloudfront.net/6e6c4376-0954-4f80-8c4a-3c2c2102a2d2.jpg",
+      "SalePrice": {
+        "Minimum": 159.99,
+        "Maximum": 199.99
+      },
+      "Site": "Electronics",
+      "Slug": null,
+      "StartDate": "2026-10-04T05:00:00+00:00",
+      "Subtitle": null,
+      "Title": "(NEW) Amazon Fire TV 4-Series 4K UHD Smart TV",
+      "Url": "https://electronics.woot.com/offers/new-amazon-fire-tv-4-series-4k-uhd-smart-tv-5"
+    },
+    {
+      "Categories": [
+        "TECH",
+        "TECH/Portable Audio"
+      ],
+      "Condition": "Amazon Refurbished",
+      "EndDate": "2026-10-07T04:59:00+00:00",
+      "ForumUrl": "https://forums.woot.com/t/2620148",
+      "IsAvailableOnMobileAppOnly": false,
+      "IsFeatured": false,
+      "IsFulfilledByAmazon": true,
+      "IsSoldOut": false,
+      "IsWootOff": false,
+      "ListPrice": null,
+      "OfferId": "97adde44-376f-4294-981c-883bba4a24e6",
+      "Photo": "https://d3gqasl9vmjfd8.cloudfront.net/97a8c8f9-ec76-4b85-befd-e2e5551c5bfd.jpg",
+      "SalePrice": {
+        "Minimum": 16.99,
+        "Maximum": 16.99
+      },
+      "Site": "Electronics",
+      "Slug": null,
+      "StartDate": "2026-10-04T05:00:00+00:00",
+      "Subtitle": null,
+      "Title": "Amazon Fire TV Stick 4K (1st Gen) with Alexa Voice Remote (3rd Gen)",
+      "Url": "https://electronics.woot.com/offers/amazon-fire-tv-stick-4k-1st-gen-with-alexa-voice-remote-3rd-gen-39"
+    },
+    {
+      "Categories": [
+        "TECH",
+        "TECH/Phones & Accessories"
+      ],
+      "Condition": null,
+      "EndDate": "2026-10-31T05:00:00+00:00",
+      "ForumUrl": "https://forums.woot.com/t/2613093",
+      "IsAvailableOnMobileAppOnly": false,
+      "IsFeatured": false,
+      "IsFulfilledByAmazon": false,
+      "IsSoldOut": false,
+      "IsWootOff": false,
+      "ListPrice": {
+        "Minimum": 49.0,
+        "Maximum": 99.0
+      },
+      "OfferId": "27409663-57ef-4d52-b539-0927e4632468",
+      "Photo": "https://d3gqasl9vmjfd8.cloudfront.net/952dcb67-4fa0-40d0-a1e3-ef53f6256531.jpg",
+      "SalePrice": {
+        "Minimum": 6.99,
+        "Maximum": 6.99
+      },
+      "Site": "Electronics",
+      "Slug": null,
+      "StartDate": "2026-09-30T05:00:00+00:00",
+      "Subtitle": null,
+      "Title": "(SIZE 10) Apple Watch Braided Solo Loop & Solo Loop",
+      "Url": "https://electronics.woot.com/offers/size-10-apple-watch-braided-solo-loop-solo-loop-1"
+    },
+    {
+      "Categories": [
+        "TECH",
+        "TECH/Phones & Accessories"
+      ],
+      "Condition": null,
+      "EndDate": "2026-10-31T05:00:00+00:00",
+      "ForumUrl": "https://forums.woot.com/t/2613048",
+      "IsAvailableOnMobileAppOnly": false,
+      "IsFeatured": false,
+      "IsFulfilledByAmazon": false,
+      "IsSoldOut": false,
+      "IsWootOff": false,
+      "ListPrice": {
+        "Minimum": 49.0,
+        "Maximum": 49.0
+      },
+      "OfferId": "61f1c483-f53f-47b6-8b1d-a5a6ca029439",
+      "Photo": "https://d3gqasl9vmjfd8.cloudfront.net/f415ae09-3a57-481e-afa1-dc7641c33be4.jpg",
+      "SalePrice": {
+        "Minimum": 6.99,
+        "Maximum": 6.99
+      },
+      "Site": "Electronics",
+      "Slug": null,
+      "StartDate": "2026-09-30T05:00:00+00:00",
+      "Subtitle": null,
+      "Title": "(SIZE 5) Apple Watch Braided Solo Loop & Solo Loop",
+      "Url": "https://electronics.woot.com/offers/size-5-apple-watch-braided-solo-loop-solo-loop-1"
+    }
+  ],
+  "MarketingName": "Electronics",
+  "TotalPages": 9
+}
