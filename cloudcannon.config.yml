@@ -144,13 +144,15 @@ _inputs:
     type: text
   published:
     type: switch
-    comment: Turn off to keep a draft out of the live site build.
+    label: Published
+    comment: "Off = draft, never built. On + a future date = scheduled."
   author:
     type: text
     comment: Defaults to Carlos Lerma.
   date:
     type: datetime
-    comment: Publish date. Also sets the post URL under /blog/YYYY/MM/DD/.
+    label: "Publish date & time (Central)"
+    comment: "A future date schedules the post: it goes live on the first site build on/after that time. Use -0500 during daylight time (CDT, Mar-Nov) and -0600 during standard time (CST). Also sets the post URL under /blog/YYYY/MM/DD/."
 
 _structures:
   hero_slide:

@@ -93,6 +93,15 @@ social:
 # ---------------------------------------------------------------------------
 permalink: pretty
 
+# Scheduled posts. Jekyll's default is already false; it's set explicitly so a
+# post dated in the future stays off the live site until a build runs on/after
+# that date. CloudCannon runs a plain `jekyll build` (no --future), so it
+# honors this.
+future: false
+
+# Post dates and "today" checks use Central time even on UTC build servers.
+timezone: America/Chicago
+
 collections:
   products:
     output: true
