@@ -45,7 +45,7 @@ affiliate_disclosure: >-
 
 # Analytics and ad tracking. Each loads only when its ID is filled in
 # (see _includes/tracking.html). The Privacy page updates itself to match.
-google_analytics: ""   # GA4 measurement ID, e.g. G-XXXXXXXXXX
+google_analytics: "G-1HZ57TYMV3"   # GA4 measurement ID, e.g. G-XXXXXXXXXX
 facebook_pixel: ""     # Meta Pixel ID (numbers only)
 clarity_id: ""         # Microsoft Clarity project ID
 
