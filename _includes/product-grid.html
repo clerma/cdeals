@@ -1,6 +1,7 @@
 {% comment %}
   Filterable grid of product cards.
   Usage: {% include product-grid.html items=list filters=true %}
+  prime_pill=true adds the Prime Day link (_includes/prime-day-pill.html) to the filter row.
   Expired affiliate deals (an `expires` date in the past at build time) are skipped.
 {% endcomment %}
 {% assign today = site.time | date: "%Y-%m-%d" %}
@@ -16,6 +17,7 @@
   {% for c in site.data.categories %}{% if item_cats contains c.name %}{% assign cats = cats | push: c %}{% endif %}{% endfor %}
   {% for n in item_cats %}{% assign known = site.data.categories | where: "name", n | first %}{% unless known %}{% assign cats = cats | push: n %}{% endunless %}{% endfor %}
   <div class="d-flex flex-wrap align-items-center gap-2 pt-4">
+    {% if include.prime_pill %}{% include prime-day-pill.html %}{% endif %}
     {% if cats.size > 1 %}
       <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill active" data-filter="*">All</button>
       {% for c in cats %}{% assign cname = c.name | default: c %}<button type="button" class="btn btn-sm btn-outline-secondary rounded-pill" data-filter="{{ cname | slugify }}">{{ cname }}</button>{% endfor %}

@@ -1,6 +1,7 @@
 ---
 title: AOC 16T20 15.6" 1080p 60Hz Ultra Slim Smart Portable Monitor
 type: affiliate
+prime_day: true
 category: Computers
 brand: AOC
 price: 47.49

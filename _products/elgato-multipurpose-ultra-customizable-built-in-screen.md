@@ -1,6 +1,7 @@
 ---
 title: Elgato Multipurpose Ultra Customizable Built-in Screen Teleprompter
 type: affiliate
+prime_day: true
 category: Accessories
 brand: Elgato
 price: 219.99

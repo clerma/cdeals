@@ -77,6 +77,20 @@ affiliate_networks:
 
 and every non-Amazon deal is left out of the whole site: no `/item/` page, card, filter, category pill, search entry, schema, `sitemap.xml` or `llms.txt` line. Category pages with no live deals left aren't built. A deal counts as Amazon when its `store` is Amazon or its `affiliate_url` is on amazon.com / amzn.to; your own `type: sale` items are never hidden. The deal finder keeps saving non-Amazon deals to `_products/`, so they're ready. Meta text that names other stores switches to the `*_amazon_only` values (in `_config.yml`, `index.html`, `deals.html`). Set `skimlinks_active: true` and everything comes back on the next build. The switch is `_plugins/affiliate_networks.rb`.
 
+## Prime Day page
+
+`/deals/prime-day/` ("Best Prime Day Deals", `prime-day.html`) lists Amazon deals with `prime_day: true` in front matter that haven't expired: biggest verified discount first (`compare_at` higher than `price`), then the rest, newest first. Non-Amazon deals never show there. The switch is in `_config.yml`:
+
+```yaml
+prime_day:
+  active: true
+  ends: 2026-10-08     # first day AFTER the event; hide from this date on
+```
+
+While `active` is true and today (America/Chicago) is before `ends`, the home page shows the top 8 under the hero (only when at least 4 deals qualify), and the Categories menu, the category pills and the `/deals/` filter row link the page. Set `active: false`, or let `ends` pass, and all of those disappear on the next build. The page still builds and says Prime Day has ended, with `noindex` and no `sitemap.xml` entry. The logic is `_plugins/prime_day.rb`.
+
+The deal finder adds `prime_day: true` to new Amazon deals whose source text or link mentions Prime Day, Prime Big Deal Days, or a Prime exclusive / Prime members price (`DealTools.prime_day?`). `publish_deals.rb` checks entries already in the queue the same way. To add a deal by hand, put `prime_day: true` in its front matter.
+
 ## Hosting
 
 The output is a static site, so it can be hosted for free on CloudCannon, Netlify, Cloudflare Pages, or GitHub Pages (via a GitHub Action, because this site uses Jekyll 4). Expired deals are hidden at build time, so schedule a daily rebuild if you use `expires`.

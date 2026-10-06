@@ -126,7 +126,11 @@ queue.each do |e|
       "specs" => specs.empty? ? nil : specs,
       "why_deal" => why,
       "description" => DealCopy.meta_description(summary, amazon: amazon),
-      "source" => e["source"] # internal: which feed/site found it (not shown on the site)
+      "source" => e["source"], # internal: which feed/site found it (not shown on the site)
+      # Listed on /deals/prime-day/. Amazon only; also catches entries queued before the finder set it.
+      "prime_day" => (true if amazon && (e["prime_day"] ||
+        DealTools.prime_day?([e["source_title"], e["title"], e["notes"], e["summary"], e["source_link"], *Array(e["highlights"])].join(" "),
+                             store: e["store"], url: affiliate)))
     }.reject { |_, v| v.nil? || v == "" }
     body = "#{fm.to_yaml}---\n#{summary}\n"
     path = File.join(DealTools::PRODUCTS_DIR, "#{slug}.md")

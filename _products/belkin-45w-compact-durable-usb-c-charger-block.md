@@ -1,6 +1,7 @@
 ---
 title: Belkin 45W Compact Durable USB-C Charger Block
 type: affiliate
+prime_day: true
 category: Accessories
 brand: Belkin
 price: 12.99

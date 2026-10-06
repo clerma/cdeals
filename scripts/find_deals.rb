@@ -518,7 +518,9 @@ build_candidate = lambda do |item, source|
     "image" => image_url, "highlights" => highlights.first(3),
     "summary" => summary, "expires" => expires, "found" => today.dup, "source" => source["id"],
     "source_link" => item[:page] || item[:link], "source_title" => title[0, 140], "notes" => notes.empty? ? nil : notes.join(" "),
-    "replaces" => replaces
+    "replaces" => replaces,
+    # Amazon deals whose source mentions Prime Day / Prime members (shown on /deals/prime-day/).
+    "prime_day" => (true if DealTools.prime_day?("#{blob} #{item[:page] || item[:link]}", store: store, url: store_url))
   }.compact
   sig_seen[sig] = { price: price, store: store, entry: entry } if sig
   cat_counts[category] += 1

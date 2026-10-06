@@ -124,6 +124,9 @@ _inputs:
     type: image
   show_disclosure:
     type: switch
+  prime_day:
+    type: switch
+    comment: "Prime Day item: a deal listed on /deals/prime-day/, or a hero slide shown only while Prime Day is live (prime_day in _config.yml)."
   updated:
     type: date
     label: Last updated

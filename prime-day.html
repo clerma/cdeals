@@ -1,0 +1,44 @@
+---
+title: "Best Prime Day Deals"
+permalink: /deals/prime-day/
+heading: Best Prime Day Deals
+lede: Amazon Prime Day (Prime Big Deal Days) deals I've found, biggest verified discount first. Prices change fast, so check the price before you buy.
+breadcrumb_title: Prime Day
+breadcrumb_parent: Deals
+breadcrumb_parent_url: /deals/
+description: "The best Amazon Prime Day deals on tech, checked by hand and sorted by biggest verified discount. Prices change fast, so check before you buy."
+# The list, live/ended state, noindex and sitemap come from _plugins/prime_day.rb.
+prime_day_page: true
+show_disclosure: true
+show_collection: products
+collection_list: prime_day_deals
+---
+{% assign deals = site.prime_day_deals %}
+{% include page-header.html title=page.breadcrumb_title parent=page.breadcrumb_parent parent_url=page.breadcrumb_parent_url %}
+<section class="container pb-5 mb-2 mb-md-3 mb-lg-4">
+  <h1 class="h3 mb-1"><i class="ci-percent text-body-tertiary me-2"></i>{{ page.heading }}</h1>
+  <p class="page-lede text-body-secondary mb-3">{{ page.lede }}</p>
+  {% include category-pills.html current="prime-day" %}
+  {% if site.prime_day_live %}
+    {% include product-grid.html items=deals filters=false %}
+    {% if site.prime_day_count == 0 %}
+    <div class="text-center bg-body-tertiary rounded-5 py-5 px-3 mt-4">
+      <h2 class="h5 mb-2">No Prime Day deals yet</h2>
+      <p class="text-body-secondary mb-4">Check back soon, new deals get added often.</p>
+      <a class="btn btn-primary" href="{{ '/deals/' | relative_url }}">See all deals</a>
+    </div>
+    {% endif %}
+  {% else %}
+  <div class="text-center bg-body-tertiary rounded-5 py-5 px-3 mt-4">
+    <h2 class="h5 mb-2">Prime Day has ended</h2>
+    <p class="text-body-secondary mb-4">Amazon's Prime Day deals are over, but I keep finding new tech deals every day.</p>
+    <a class="btn btn-primary" href="{{ '/deals/' | relative_url }}">See today's deals</a>
+  </div>
+  {% endif %}
+  {% if page.show_disclosure %}
+  <div class="alert alert-info d-flex fs-sm mt-4 mb-0" role="alert">
+    <i class="ci-info fs-lg pe-1 mt-1 me-2"></i>
+    <div class="cdeals-smallprint">{{ site.affiliate_disclosure }} <a class="alert-link" href="{{ '/disclosure/' | relative_url }}">Learn more</a></div>
+  </div>
+  {% endif %}
+</section>

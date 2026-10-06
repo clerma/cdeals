@@ -1,0 +1,7 @@
+{%- comment -%}
+  "Prime Day" pill linking /deals/prime-day/. Only while Prime Day is live and
+  has at least one deal (_plugins/prime_day.rb). include.current = active slug.
+{%- endcomment -%}
+{%- if site.prime_day_live and site.prime_day_count > 0 %}
+  <a class="btn btn-sm btn-primary rounded-pill{% if include.current == 'prime-day' %} active{% endif %}" href="{{ '/deals/prime-day/' | relative_url }}"{% if include.current == 'prime-day' %} aria-current="page"{% endif %}><i class="ci-percent fs-sm me-1"></i>Prime Day</a>
+{%- endif -%}

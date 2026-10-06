@@ -1,7 +1,8 @@
 {% comment %}
   Mirrors the visible breadcrumb (_includes/page-header.html). Most specific first:
   product pages go Home > For sale|Deals > item. breadcrumb_title in front
-  matter shortens a crumb label.
+  matter shortens a crumb label; breadcrumb_parent + breadcrumb_parent_url add
+  a middle crumb (e.g. Home > Deals > Prime Day).
 {% endcomment %}
 {%- assign crumb_title = page.breadcrumb_title | default: page.title -%}
 {%- if page.url != '/' -%}
@@ -24,6 +25,9 @@
     ,{"@type":"ListItem","position":3,"name":{{ crumb_cat.name | default: crumb_title | jsonify }},"item":"{{ canonical_url }}"}
   {%- elsif page.collection == "posts" or page.layout == "post" -%}
     ,{"@type":"ListItem","position":2,"name":"Blog","item":"{{ '/blog/' | absolute_url }}"}
+    ,{"@type":"ListItem","position":3,"name":{{ crumb_title | jsonify }},"item":"{{ canonical_url }}"}
+  {%- elsif page.breadcrumb_parent and page.breadcrumb_parent_url -%}
+    ,{"@type":"ListItem","position":2,"name":{{ page.breadcrumb_parent | jsonify }},"item":"{{ page.breadcrumb_parent_url | absolute_url }}"}
     ,{"@type":"ListItem","position":3,"name":{{ crumb_title | jsonify }},"item":"{{ canonical_url }}"}
   {%- elsif page.url == "/blog/" -%}
     ,{"@type":"ListItem","position":2,"name":"Blog","item":"{{ '/blog/' | absolute_url }}"}
