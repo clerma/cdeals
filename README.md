@@ -68,7 +68,7 @@ While none of your own items is for sale (no `_products/` item with `type: sale`
 
 ## Amazon-only switch (affiliate networks)
 
-Deals at stores other than Amazon only earn through Skimlinks. While Skimlinks is pending, `_config.yml` has:
+Deals at stores other than Amazon only earn through Skimlinks. Skimlinks is still pending, but non-Amazon deals are shown anyway (`skimlinks_active: true`). To hide them, set `_config.yml` to:
 
 ```yaml
 affiliate_networks:
