@@ -554,6 +554,28 @@ file_config:
         comment: 'Optional Cartzilla icon class shown in a circle, e.g. ci-check. https://cartzilla.createx.studio/docs/icons.html'
 
   # ---- Site data (_data/) ------------------------------------------------
+  # ---- Site settings -----------------------------------------------------
+  - glob: _config.yml
+    _inputs:
+      geniuslink:
+        type: object
+        comment: Sends Amazon shoppers to their local Amazon store. Amazon links only; other stores use Skimlinks.
+      active:
+        type: switch
+        comment: Load the Geniuslink script.
+      group:
+        type: text
+        label: Group TSID
+        comment: Number from Geniuslink > Groups (default group is 445281).
+      domain:
+        type: text
+        comment: Leave empty for geni.us. Only for a custom Geniuslink domain.
+      honor_existing_tag:
+        type: switch
+        comment: Keep the amazon_tag already on Amazon links.
+      preserve_until_click:
+        type: switch
+        comment: Keep amazon.com links until clicked (Amazon-compliant). Off rewrites them on page load.
   - glob: _data/strings.yml
     _inputs:
       # Keys here that share a name with page/product fields elsewhere.

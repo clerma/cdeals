@@ -167,7 +167,7 @@ module DealTools
     return "" if store_url.to_s.empty?
     if (a = asin(store_url))
       tag = site_config["amazon_tag"].to_s.strip
-      # TODO: geniuslink_group support (would wrap the Amazon link). Pass-through for now.
+      # Keep the plain amazon.com link. Geniuslink (_config.yml geniuslink) wraps it in the browser at click time.
       return tag.empty? ? "https://www.amazon.com/dp/#{a}" : "https://www.amazon.com/dp/#{a}?tag=#{URI.encode_www_form_component(tag)}"
     end
     clean_store_url(store_url)
