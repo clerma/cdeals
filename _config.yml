@@ -40,7 +40,7 @@ anycart_api_key: ""
 # affiliate_url can be a plain store link (woot.com/..., macsales.com/...)
 # and it earns automatically. Amazon links still need your Associates tag.
 sovrn_key: ""      # Sovrn Commerce: campaign API key (Settings > "<>" icon)
-skimlinks_id: "310483X1798959"   # Skimlinks: publisher ID, e.g. 123456X1234567 (Settings > Install)
+skimlinks_id: ""   # Skimlinks paused pending reapproval (reapply after 2027-01-05); restore "310483X1798959" when approved
 
 # Which affiliate networks are earning. Skimlinks is still pending approval,
 # so deals at any store other than Amazon earn nothing yet, but they're shown
