@@ -1,6 +1,6 @@
 {% comment %}
-  Automatic affiliate links (Sovrn Commerce or Skimlinks). Loads only when the
-  matching key is set in _config.yml. Use one service, not both: if both are
+  Automatic affiliate links (Sovrn Commerce or Skimlinks; Geniuslink for
+  Amazon is below). Loads only when the matching key is set in _config.yml. Use one service, not both: if both are
   set, only Sovrn loads so links aren't rewritten twice.
 {% endcomment %}
 {% if site.sovrn_key and site.sovrn_key != "" %}
@@ -14,4 +14,33 @@
 </script>
 {% elsif site.skimlinks_id and site.skimlinks_id != "" %}
 <script src="https://s.skimresources.com/js/{{ site.skimlinks_id }}.skimlinks.js" async></script>
+{% endif %}
+{% comment %}
+  Geniuslink (Amazon only): loads when geniuslink.active and geniuslink.group
+  (the group TSID) are set in _config.yml. It sends shoppers to their local
+  Amazon store. Skimlinks doesn't touch Amazon links, so both can load.
+  preserve_until_click keeps the amazon.com href until the click
+  (addOnClickRedirect); otherwise links are rewritten on load. No API keys here.
+{% endcomment %}
+{% assign gl = site.geniuslink %}
+{% if gl.active and gl.group and gl.group != "" %}
+{% assign gl_domain = gl.domain | default: "" | strip %}
+{% assign gl_domain_check = gl_domain | downcase | remove: "https://" | remove: "http://" | remove: "/" %}
+{% if gl_domain_check == "geni.us" or gl_domain_check == "buy.geni.us" %}{% assign gl_domain = "" %}{% endif %}
+<script src="https://geniuslinkcdn.com/snippet.min.js" defer></script>
+<script>
+  (function () {
+    var tsid = parseInt({{ gl.group | jsonify }}, 10), honor = {{ gl.honor_existing_tag | default: false | jsonify }}, domain = {{ gl_domain | jsonify }};
+    var method = {% if gl.preserve_until_click == false %}'convertToGeoRiotLinks'{% else %}'addOnClickRedirect'{% endif %};
+    var tries = 0;
+    (function init() {
+      var g = window.Georiot;
+      if (g && g.amazon && typeof g.amazon[method] === 'function') {
+        if (domain) { g.amazon[method](tsid, honor, domain); } else { g.amazon[method](tsid, honor); }
+      } else if (tries++ < 50) {
+        setTimeout(init, 200);
+      }
+    })();
+  })();
+</script>
 {% endif %}

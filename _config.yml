@@ -71,9 +71,18 @@ amazon_tag: "cdeals014-20"
 # never invent MSRP). CTA is always "See the savings on Amazon". When false,
 # hide numbers and show badge + CTA only.
 amazon_show_prices: true
-# TODO (optional): Geniuslink group ID. Not used yet; Amazon links stay
-# plain amazon.com/dp links with your tag.
-geniuslink_group: ""
+# Geniuslink: sends Amazon shoppers outside the US to their local Amazon
+# store (international Associates tags are set on the Geniuslink Affiliates
+# page). Links stay plain amazon.com/dp links with amazon_tag; the Geniuslink
+# script (_includes/auto-affiliate.html) only wraps Amazon links. Other stores
+# stay on Skimlinks. API keys (GENIUSLINK_API_KEY / GENIUSLINK_API_SECRET) are
+# only for optional tools and live in the environment, never in this repo.
+geniuslink:
+  active: true
+  group: "445281"            # Group TSID (Geniuslink > Groups; "default" group). Change it here or in CloudCannon.
+  domain: ""                 # blank = geni.us; set only for a custom Geniuslink domain, e.g. https://go.example.com
+  honor_existing_tag: true   # keep the amazon_tag already on our links
+  preserve_until_click: true # amazon.com link until clicked (Amazon-compliant); false = rewrite links on page load
 
 # Shown in the footer and on every affiliate deal.
 affiliate_disclosure: >-

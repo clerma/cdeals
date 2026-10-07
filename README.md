@@ -49,6 +49,8 @@ AnyCart re-checks every price at checkout against its dashboard, so the price in
 
 Sovrn and Skimlinks keep about 25% of commissions, so join a store directly once it sends you a lot of sales. Set only one of the two keys.
 
+**Geniuslink (Amazon only).** Amazon links stay `https://www.amazon.com/dp/ASIN?tag=<amazon_tag>`. When `geniuslink.active` is true and `geniuslink.group` (the group TSID from Geniuslink > Groups, currently `445281`) is set in `_config.yml`, the Geniuslink script sends each Amazon click to the shopper's local Amazon store. With `preserve_until_click: true` the link stays an amazon.com link until it's clicked, and `honor_existing_tag: true` keeps your `amazon_tag` on it. Tags for other countries are set on the Geniuslink Affiliates page. Geniuslink doesn't touch other stores, so they stay on Skimlinks. `GENIUSLINK_API_KEY` / `GENIUSLINK_API_SECRET` are only for optional API tools and go in the environment, never in the repo.
+
 ## Settings
 
 Edit the top of `_config.yml`: `title`, `tagline`, `url`, `contact_email`, plus `legal_name`, `governing_law_state`, and `hosting_provider` for the policy pages. The affiliate disclosure text lives in `_data/disclosures.yml`; sitewide labels, links and logos live in `_data/strings.yml`, `_data/footer.yml`, `_data/brand.yml` and `_data/social.yml`.
