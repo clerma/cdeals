@@ -2055,3 +2055,134 @@
     $11.20 + Free S&H'
   notes: 'Store link not found (Slickdeals lead: store link not in the feed (slickdeals.net)).
     Paste the store link into affiliate_url before approving.'
+- id: d-64a3506
+  status: new
+  title: Unlocked Motorola Moto g 128GB Unlocked Smartphone
+  store: Amazon
+  price: 237.0
+  category: Phones
+  brand: Unlocked
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791391556-61vcwxke4cl.jpg?h=600&w=600
+  highlights:
+  - Free shipping
+  - Prime members only
+  summary: The Unlocked Motorola Moto g 128GB Unlocked Smartphone is a phone with
+    128GB storage.
+  expires: 2026-10-14
+  found: 2026-10-07
+  source: dealnews
+  source_link: https://www.dealnews.com/Unlocked-Motorola-Moto-g-128-GB-Unlocked-Smartphone-for-237-w-Prime-free-shipping/22256965.html?iref=rss
+  source_title: Unlocked Motorola Moto g 128GB Unlocked Smartphone for $237 w/ Prime
+    + free shipping
+  notes: 'Store link not found (skipped: dealnews was blocked this run). Paste the
+    store link into affiliate_url before approving.'
+  prime_day: true
+  prime_day_source: https://www.dealnews.com/Unlocked-Motorola-Moto-g-128-GB-Unlocked-Smartphone-for-237-w-Prime-free-shipping/22256965.html?iref=rss
+- id: d-762ddce
+  status: new
+  title: Unlocked Samsung Galaxy Z Fold8 Ultra 512GB Android Smartphone
+  store: Amazon
+  price: 1900.0
+  category: Phones
+  brand: Unlocked
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791390506-518uen_rmyl.jpg?h=600&w=600
+  highlights:
+  - Free shipping
+  summary: The Unlocked Samsung Galaxy Z Fold8 Ultra 512GB Android Smartphone is a
+    phone with 512GB storage.
+  expires: 2026-10-14
+  found: 2026-10-07
+  source: dealnews
+  source_link: https://www.dealnews.com/products/Samsung/Unlocked-Samsung-Galaxy-Z-Fold8-Ultra-512-GB-Android-Smartphone/541643.html?iref=rss
+  source_title: Unlocked Samsung Galaxy Z Fold8 Ultra 512GB Android Smartphone for
+    $1,900 w/ Prime + free shipping
+  notes: 'Store link not found (skipped: dealnews was blocked this run). Paste the
+    store link into affiliate_url before approving.'
+- id: d-b85d48b
+  status: new
+  title: Skytech Gaming Azure 3 Ryzen 7 / RTX 5060 / 32GB RAM / 1TB SSD Gaming
+  store: Amazon
+  price: 1150.0
+  category: Computers
+  brand: Skytech
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/292813.webp
+  highlights:
+  - Free shipping
+  - Prime members only
+  summary: The Skytech Gaming Azure 3 Ryzen 7 / RTX 5060 / 32GB RAM / 1TB SSD Gaming
+    is a computer with 32GB memory, 1TB SSD storage.
+  expires: 2026-10-14
+  found: 2026-10-07
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/skytech-gaming-azure-3-ryzen-7-rtx-5060-32gb-ram-1tb-ssd-gaming-desktop-1085977/#rss
+  source_title: Skytech Gaming Azure 3 Ryzen 7 / RTX 5060 / 32GB RAM / 1TB SSD Gaming
+    Desktop  $1150 at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+  prime_day: true
+  prime_day_source: https://bensbargains.com/bargain/skytech-gaming-azure-3-ryzen-7-rtx-5060-32gb-ram-1tb-ssd-gaming-desktop-1085977/#rss
+- id: d-145c779
+  status: new
+  title: JBL Tune Buds Noise Cancelling Earbuds (black or white)
+  store: Slickdeals
+  price: 32.95
+  category: Audio
+  brand: Prime
+  affiliate_url: ''
+  image: https://static.slickdealscdn.com/attachment/1/1/7/1/5/2/7/300x300/21869355.thumb
+  highlights:
+  - Prime members only
+  summary: The JBL Tune Buds Noise Cancelling Earbuds (black or white) is an audio
+    device with Noise Cancelling style.
+  expires: 2026-10-10
+  found: 2026-10-07
+  source: slickdeals-rss
+  source_link: https://slickdeals.net/f/20122584-34-95-jbl-tune-buds-noise-cancelling-earbuds-at-amazon
+  source_title: 'Prime Members: JBL Tune Buds Noise Cancelling Earbuds (black or white)
+    $32.95 + Free S&H'
+  notes: 'Store link not found (Slickdeals lead: store link not in the feed (slickdeals.net)).
+    Paste the store link into affiliate_url before approving.'
+- id: d-4c9e9bb
+  status: new
+  title: Anker Zolo 4-Port Up to 50W GaN Wall Charger (2 USB-C + 2 USB-A)
+  store: Best Buy
+  price: 14.0
+  category: Accessories
+  brand: Anker
+  affiliate_url: ''
+  image: https://static.slickdealscdn.com/attachment/1/0/0/2/5/3/4/300x300/21834177.thumb
+  highlights: []
+  summary: The Anker Zolo 4-Port Up to 50W GaN Wall Charger (2 USB-C + 2 USB-A) is
+    an accessory with USB-C connectivity, 50W power.
+  expires: 2026-10-10
+  found: 2026-10-07
+  source: slickdeals-rss
+  source_link: https://slickdeals.net/f/20109519-4-port-anker-zolo-50w-gan-wall-charger-2-usb-c-2-usb-a-white-13-99
+  source_title: Anker Zolo 4-Port Up to 50W GaN Wall Charger (2 USB-C + 2 USB-A) $14
+    + Free S&H
+  notes: 'Store link not found (Slickdeals lead: store link not in the feed (bestbuy.com)).
+    Paste the store link into affiliate_url before approving.'
+- id: d-2a78d08
+  status: new
+  title: Pre-Loved Roborock Robot Vacuum
+  store: Meh
+  price: 229.99
+  category: Smart Home
+  brand: Pre-Loved
+  affiliate_url: https://meh.com/deals/roborock-qx-revo-robot-vacuum-with-mop-with-multifunctional-dock-refurbished-crt
+  store_url: https://meh.com/deals/roborock-qx-revo-robot-vacuum-with-mop-with-multifunctional-dock-refurbished-crt
+  image: https://images.contentstack.io/v3/assets/blt36da8807b5700e24/blt277468ef3f17ac88/6ac63ac461afb8488b24c1c0/73b32d104c1ed4126bfe78d84011492830b059c8.png
+  highlights: []
+  summary: I've been looking at the Pre-Loved Roborock Robot Vacuum. It vacuums and
+    mops with 5500Pa suction and dual spinning mop pads, while the multifunctional
+    dock automatically empties the vacuum, washes and dries the mop pads, and refills
+    the water tank. It also uses LiDAR navigation to map your home.
+  expires: 2026-10-10
+  found: 2026-10-07
+  source: bradsdeals
+  source_link: https://www.bradsdeals.com/deals/pre-loved-roborock-robot-vacuum-230-2026-10-07-blt145e664fc7d2ea04
+  source_title: Pre-Loved Roborock Robot Vacuum
+  notes: 'Price from the Brad''s Deals write-up (drops to $Y): "drops to $229.99".'
