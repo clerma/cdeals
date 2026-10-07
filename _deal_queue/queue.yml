@@ -1907,3 +1907,151 @@
     16GB, 256GB SSD $288 + Free S&H'
   notes: 'Store link not found (Slickdeals lead: store link not in the feed (ebay.com)).
     Paste the store link into affiliate_url before approving.'
+- id: d-2e65ea4
+  status: new
+  title: Flexispot 600-lbs. Capacity Heavy-Duty Office Chair
+  store: Amazon
+  price: 199.99
+  category: Accessories
+  brand: Flexispot
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791377174-draftworks_img_nlleulfgp0386ecobfb.jpeg?h=600&w=600
+  highlights:
+  - Free shipping
+  summary: The Flexispot 600-lbs. Capacity Heavy-Duty Office Chair is an accessory.
+  expires: 2026-10-11
+  found: 2026-10-07
+  source: dealnews
+  source_link: https://www.dealnews.com/products/Flexispot/Flexispot-600-lb-Heavy-Duty-Office-Chair/541601.html?iref=rss
+  source_title: Flexispot 600-lbs. Capacity Heavy-Duty Office Chair for $200 + free
+    shipping
+  notes: Store link not found (blocked (redirect to https://www.dealnews.com/dead-end/)).
+    Paste the store link into affiliate_url before approving.
+- id: d-3c0d004
+  status: new
+  title: XTU S7 Pro 4K Action Camera
+  store: Amazon
+  price: 84.14
+  category: Cameras
+  brand: XTU
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1788522086-draftworks_img_q5rd9lt8ghuaaaljkoa.jpeg?h=600&w=600
+  highlights:
+  - Free shipping
+  - May need a coupon or promo code at checkout
+  summary: The XTU S7 Pro 4K Action Camera is a camera with 4K panel.
+  expires: 2026-10-08
+  found: 2026-10-07
+  source: dealnews
+  source_link: https://www.dealnews.com/XTU-S7-Pro-4-K-Action-Camera-for-84-free-shipping/22256636.html?iref=rss
+  source_title: XTU S7 Pro 4K Action Camera for $84 + free shipping
+  notes: 'Store link not found (skipped: dealnews was blocked this run). Paste the
+    store link into affiliate_url before approving.'
+- id: d-ba7266f
+  status: new
+  title: Flexispot ErgoX Premium Ergonomic Office Chair
+  store: Amazon
+  price: 339.14
+  compare_at: 600.0
+  discount_pct: 43
+  category: Accessories
+  brand: Flexispot
+  affiliate_url: ''
+  image: https://d.dlnws.com/64599/1791377553-6197pj4sagl-ac_sl1500.jpg?h=600&w=600
+  highlights:
+  - Free shipping
+  summary: The Flexispot ErgoX Premium Ergonomic Office Chair is an accessory.
+  expires: 2026-10-08
+  found: 2026-10-07
+  source: dealnews
+  source_link: https://www.dealnews.com/Flexispot-Ergo-X-Premium-Ergonomic-Office-Chair-for-339-free-shipping/22256614.html?iref=rss
+  source_title: Flexispot ErgoX Premium Ergonomic Office Chair for $339 + free shipping
+  notes: 'Store link not found (skipped: dealnews was blocked this run). Paste the
+    store link into affiliate_url before approving.'
+- id: d-2c3dcab
+  status: new
+  title: meross Smart Wi-Fi Garage Door Opener Remote
+  store: Amazon
+  price: 27.0
+  category: Accessories
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/250973.webp
+  highlights:
+  - Free shipping
+  - Prime members only
+  summary: The meross Smart Wi-Fi Garage Door Opener Remote is an accessory with Wi-Fi
+    connectivity.
+  expires: 2026-10-14
+  found: 2026-10-07
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/meross-smart-wi-fi-garage-door-opener-remote-1085843/#rss
+  source_title: meross Smart Wi-Fi Garage Door Opener Remote  $27 at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+  prime_day: true
+  prime_day_source: https://bensbargains.com/bargain/meross-smart-wi-fi-garage-door-opener-remote-1085843/#rss
+- id: d-5af05ef
+  status: new
+  title: AMD Ryzen 5 7600X 6-Core 4.7GHz Socket AM5 Desktop Processor
+  store: Amazon
+  price: 142.0
+  category: Computers
+  brand: AMD
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/136633.webp
+  highlights:
+  - Free shipping
+  - Prime members only
+  summary: The AMD Ryzen 5 7600X 6-Core 4.7GHz Socket AM5 Desktop Processor is a computer
+    with Ryzen 5 7600X processor.
+  expires: 2026-10-14
+  found: 2026-10-07
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/amd-ryzen-5-7600x-6-core-4-7ghz-socket-am5-desktop-processor-1085862/#rss
+  source_title: AMD Ryzen 5 7600X 6-Core 4.7GHz Socket AM5 Desktop Processor  $142
+    at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+  prime_day: true
+  prime_day_source: https://bensbargains.com/bargain/amd-ryzen-5-7600x-6-core-4-7ghz-socket-am5-desktop-processor-1085862/#rss
+- id: d-509d8bc
+  status: new
+  title: 46mm Apple Watch Series 12 GPS Smartwatch (3 Colors, M/L)
+  store: Slickdeals
+  price: 399.99
+  category: Wearables
+  affiliate_url: ''
+  image: https://static.slickdealscdn.com/attachment/1/6/7/9/8/1/2/300x300/21867414.thumb
+  highlights: []
+  summary: The 46mm Apple Watch Series 12 GPS Smartwatch (3 Colors, M/L) is a wearable
+    with GPS connectivity.
+  expires: 2026-10-10
+  found: 2026-10-07
+  source: slickdeals-rss
+  source_link: https://slickdeals.net/f/20101536-349-99-apple-watch-series-12-gps-42mm-smartwatch-space-gray-aluminum-case-navy-blue-sport-band-s-m-at-amazon
+  source_title: 46mm Apple Watch Series 12 GPS Smartwatch (3 Colors, M/L) $400 + Free
+    S/H
+  notes: 'Store link not found (Slickdeals lead: store link not in the feed (slickdeals.net)).
+    Paste the store link into affiliate_url before approving.'
+- id: d-3835269
+  status: new
+  title: BassBloom Roar 3 Portable RGB Bluetooth Speaker (Black)
+  store: Slickdeals
+  price: 15.99
+  category: Audio
+  brand: Prime
+  affiliate_url: ''
+  image: https://static.slickdealscdn.com/attachment/8/6/6/3/0/300x300/21866961.thumb
+  highlights:
+  - May need a coupon or promo code at checkout
+  - Prime members only
+  summary: The BassBloom Roar 3 Portable RGB Bluetooth Speaker (Black) is an audio
+    device with Bluetooth connectivity, Portable form.
+  expires: 2026-10-10
+  found: 2026-10-07
+  source: slickdeals-rss
+  source_link: https://slickdeals.net/f/20114550-prime-bassbloom-roar-3-20w-ipx6-waterproof-portable-bluetooth-5-4-speaker-black-11-19-free-shipping
+  source_title: 'Prime Members: BassBloom Roar 3 Portable RGB Bluetooth Speaker (Black)
+    $11.20 + Free S&H'
+  notes: 'Store link not found (Slickdeals lead: store link not in the feed (slickdeals.net)).
+    Paste the store link into affiliate_url before approving.'
