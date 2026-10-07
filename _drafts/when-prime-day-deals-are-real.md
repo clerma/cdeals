@@ -18,7 +18,7 @@ Prime Day is one of the biggest shopping events of the year. Your inbox fills up
 
 Some of those deals are genuinely great. Some are prices you could have gotten on a random Tuesday. And some aren't deals at all.
 
-The good news is you don't have to guess. Here's how I sort the real ones from the rest.
+The good news is you don't have to guess. Here's how to sort the real ones from the rest.
 
 ## Not every "Prime Day deal" is a Prime Day deal
 
@@ -51,11 +51,11 @@ Based on how these events usually go, a few kinds of products are good to keep a
 - **Things you've already been tracking.** If you know an item's typical price, you'll spot a real drop instantly.
 - **Everyday stuff you'll buy anyway.** Chargers, cables, storage, batteries. Small savings on things you'd buy regardless still count.
 
-And a few things I'm more careful with:
+And a few things to be more careful with:
 
-- **Brands I've never heard of with huge discounts.** A giant percentage off a made-up "was" price isn't a deal.
+- **Brands you've never heard of with huge discounts.** A giant percentage off a made-up "was" price isn't a deal.
 - **Brand-new products.** The newest gear doesn't always get big discounts, and when it does, the price history is too short to tell you much.
-- **Anything I didn't want before the sale started.** That's the impulse buy talking.
+- **Anything you didn't want before the sale started.** That's the impulse buy talking.
 
 ## Don't let the clock rush you
 
@@ -63,7 +63,7 @@ Prime Day comes with countdown timers, "Lightning Deals" and "claimed" progress 
 
 A real deal still makes sense after you check the price history. If the only reason to buy is a timer, let it go. There will be another sale, and many Prime Day prices show up again later in the year around other big shopping events.
 
-## My Prime Day game plan
+## A simple Prime Day game plan
 
 1. **Make a list before the event.** Write down what you actually need or have been waiting on.
 2. **Look up typical prices ahead of time** so you know what a good price looks like.
@@ -75,4 +75,4 @@ A real deal still makes sense after you check the price history. If the only rea
 
 Prime Day deals can be real, and some of them are excellent. But the badge on the listing isn't proof. Price history, a quick comparison and a shopping list will tell you which deals are worth it.
 
-During big events like Prime Day, I check the deals I post on cDeals against their price history first. [Browse the latest deals](/deals/), and if you find a real one I missed, [send it my way](/submit-a-deal/).
+When you're ready, [browse the latest deals](/deals/), and if you find a real one I missed, [send it my way](/submit-a-deal/).

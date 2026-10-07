@@ -14,11 +14,11 @@ tags:
   - timing
 author: Carlos
 ---
-If there's one habit that has saved me more money than any coupon code, it's this: **look at the price history before you hit "Buy."**
+If there's one habit worth building before any coupon code, it's this: **look at the price history before you hit "Buy."**
 
 A sale tag tells you what a store wants you to think. A price history chart tells you what actually happened. Once you get used to reading one, you'll never look at a "40% off" banner the same way again.
 
-Here's how I read them, and what I look for.
+Here's how to read them, and what to look for.
 
 ## Where to find price history
 
@@ -32,7 +32,7 @@ Most of the popular trackers focus on the biggest retailers, so coverage for sma
 
 ## The three numbers that matter
 
-When I pull up a chart, I'm looking for three things before anything else:
+When you pull up a chart, look for three things before anything else:
 
 1. **The typical price.** Where does the line sit most of the time? That's the real everyday price, no matter what the "list price" says.
 2. **The lowest price.** How low has it gone, and how recently? A low from a long time ago may not come back, especially if the product is getting older or a newer model replaced it.
@@ -63,20 +63,20 @@ Price history is a great tool, but it's not the whole story.
 - **Coupons and member pricing.** Clip-on coupons, checkout discounts and member-only prices often don't show up on the chart. The real price may be lower than the line.
 - **The future.** A chart shows you what happened, not what will happen. It's a guide, not a promise.
 
-## How I use it to decide
+## How to use it to decide
 
-Here's the simple routine I follow:
+Here's a simple routine to follow:
 
-1. **Pick the exact product and version** I want.
+1. **Pick the exact product and version** you want.
 2. **Look at the history** and note the typical and lowest prices.
-3. **Set a target price** somewhere between the two that I'd be happy paying.
+3. **Set a target price** somewhere between the two that you'd be happy paying.
 4. **Set an alert** for that target.
 5. **Buy when it hits,** and don't second-guess it.
 
-If I need it right away, I still check the chart. It tells me whether today is a reasonable day to buy or whether I'm paying more than usual. Sometimes the answer is "this is fine," and that's good to know too.
+If you need it right away, it's still worth checking the chart. It tells you whether today is a reasonable day to buy or whether you're paying more than usual. Sometimes the answer is "this is fine," and that's good to know too.
 
 ## The bottom line
 
 Price history turns shopping from guessing into knowing. Thirty seconds with a chart can tell you whether a sale is real, whether you should wait, and what a fair price actually looks like.
 
-That's a big part of how I pick what goes up on cDeals. [Browse the latest deals](/deals/), and if you spot a price that looks too good to pass up, [send it my way](/submit-a-deal/).
+When you're ready, [browse the latest deals](/deals/), and if you spot a price that looks too good to pass up, [send it my way](/submit-a-deal/).

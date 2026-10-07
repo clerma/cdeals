@@ -81,7 +81,7 @@ On big marketplaces, many listings come from third-party sellers who set their o
 
 **How to check:** Look at who's selling and shipping the item, read recent seller reviews, and make sure the item is new if that's what you're paying for.
 
-## My quick fake-discount checklist
+## A quick fake-discount checklist
 
 1. **Check the price history.** Is this actually lower than usual?
 2. **Ignore the crossed-out price.** Compare to what it normally sells for.
