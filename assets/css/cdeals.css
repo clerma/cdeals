@@ -158,6 +158,25 @@
   text-underline-offset: 0.12em;
 }
 
+/* "My take" box on deal pages (my_take front matter): light-blue tint, accent
+   left border. Any button inside sits on light blue, so it uses #1a384c. */
+.cdeals-my-take {
+  background-color: #eef7fe;
+  border-left: 4px solid #53abf4;
+  color: #222934;
+}
+.cdeals-my-take h2,
+.cdeals-my-take i { color: #1a384c; }
+.cdeals-my-take-body > :last-child { margin-bottom: 0; }
+.cdeals-my-take-body a { color: #1a384c; text-decoration: underline; text-underline-offset: 0.12em; }
+.cdeals-my-take .btn-primary { --cz-btn-bg: #1a384c; --cz-btn-border-color: #1a384c; --cz-btn-hover-bg: #142c3c; --cz-btn-hover-border-color: #142c3c; }
+/* Excerpt on deal cards */
+.cdeals-my-take-excerpt {
+  border-left: 2px solid #53abf4;
+  padding-left: 0.5rem;
+  color: var(--cz-secondary-color);
+}
+
 /* Home hero: optional per-slide background image (hero[].background), faded in
    over the default gradient while its slide is active. A soft white wash sits
    behind the text column so the kicker, title, and button stay readable. */

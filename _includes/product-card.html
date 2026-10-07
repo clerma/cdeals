@@ -22,6 +22,10 @@
         <span class="animate-target">{{ p.title }}</span>
       </a>
     </h3>
+    {% assign my_take = p.my_take | strip %}
+    {% if my_take != "" %}
+    <p class="cdeals-my-take-excerpt fs-xs mb-2"><span class="fw-semibold">{{ site.data.strings.product.my_take_label }}:</span> {{ my_take | markdownify | strip_html | strip_newlines | truncatewords: 18 }}</p>
+    {% endif %}
     {% capture amz_hide %}{% include amazon-hidden.html product=p %}{% endcapture %}
     <div class="d-flex align-items-center justify-content-between">
       {% include price.html product=p size="card" %}

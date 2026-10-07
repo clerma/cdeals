@@ -318,6 +318,19 @@ module DealTools
     {}
   end
 
+  # Front matter keys written by hand in CloudCannon, never by the scripts.
+  # Any script that rewrites a whole product file copies these over from the
+  # file on disk first, so a re-run never drops or changes them. The scripts
+  # never generate values for them.
+  MANUAL_KEYS = %w[my_take].freeze
+
+  def keep_manual_fields(path, fm)
+    return fm unless File.exist?(path)
+    old = front_matter(path)
+    MANUAL_KEYS.each { |k| fm[k] = old[k] if old.key?(k) }
+    fm
+  end
+
   def existing_product_keys
     Dir[File.join(PRODUCTS_DIR, "*.md")].each_with_object({}) do |f, h|
       fm = front_matter(f)
