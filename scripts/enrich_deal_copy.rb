@@ -131,7 +131,8 @@ files.each do |path|
   fm["specs"] = specs.empty? ? nil : specs
   fm["why_deal"] = why
   fm["description"] = desc
-  fm = fm.reject { |_, v| v.nil? || v == "" }
+  manual = fm.slice(*DealTools::MANUAL_KEYS) # my_take etc.: kept exactly as written
+  fm = fm.reject { |_, v| v.nil? || v == "" }.merge(manual)
 
   File.write(path, "#{fm.to_yaml}---\n#{summary}\n") unless opts[:dry_run]
   done += 1

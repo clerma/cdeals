@@ -81,6 +81,20 @@ collections_config:
         type: date
         label: Listing date
         comment: Used for sorting, newest first.
+      my_take:
+        type: markdown
+        label: My take
+        comment: Optional. Your own short commentary on this deal, shown in a "My take" box next to the price and buy button on the deal page (and a short excerpt on deal cards). Leave empty to hide it. The deal scripts never write or change this field.
+        options:
+          bold: true
+          italic: true
+          link: true
+          bulletedlist: true
+          numberedlist: true
+          blockquote: false
+          image: false
+          table: false
+          format: p
   deal_categories:
     path: _deal_categories
     name: Deal category pages

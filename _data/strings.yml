@@ -72,6 +72,8 @@ product:
   add_to_cart_label: "Add [title] to cart"
   photo_label: "Show photo [count]"
   highlights: "Highlights"
+  # Heading of the box with my own short commentary (my_take) on a deal.
+  my_take_label: "My take"
   # Tabs under the buy box.
   tab_description: "Description"
   tab_specs: "Key specs"

@@ -12,4 +12,5 @@ shipping: Free USPS shipping (US only)
 date:
 images: []
 highlights: []
+my_take:
 ---

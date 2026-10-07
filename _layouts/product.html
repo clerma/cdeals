@@ -65,6 +65,15 @@ layout: default
           </ul>
         {% endif %}
 
+        {%- comment -%} My take: optional hand-written commentary (my_take, Markdown). Hidden when blank. {%- endcomment -%}
+        {% assign my_take = p.my_take | strip %}
+        {% if my_take != "" %}
+        <aside class="cdeals-my-take rounded-4 p-3 p-sm-4 mb-4" aria-labelledby="my-take-heading">
+          <h2 class="h6 d-flex align-items-center mb-2" id="my-take-heading"><i class="ci-message-circle fs-base me-2"></i>{{ site.data.strings.product.my_take_label }}</h2>
+          <div class="cdeals-my-take-body fs-sm">{{ my_take | markdownify }}</div>
+        </aside>
+        {% endif %}
+
         {% if p.highlights and p.highlights.size > 0 %}
         <h2 class="h6 mb-3">{{ site.data.strings.product.highlights }}</h2>
         <ul class="list-unstyled d-flex flex-column gap-2 fs-sm mb-0">

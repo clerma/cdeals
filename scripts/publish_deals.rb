@@ -139,8 +139,9 @@ queue.each do |e|
       "prime_day" => prime,
       "prime_day_source" => (e["prime_day_source"] if prime) # internal: roundup page / source that showed it's a Prime Day deal
     }.reject { |_, v| v.nil? || v == "" }
-    body = "#{fm.to_yaml}---\n#{summary}\n"
     path = File.join(DealTools::PRODUCTS_DIR, "#{slug}.md")
+    DealTools.keep_manual_fields(path, fm) # slug is new, but never drop a hand-written my_take
+    body = "#{fm.to_yaml}---\n#{summary}\n"
     File.write(path, body) unless opts[:dry_run]
     published << path.sub("#{DealTools::ROOT}/", "")
     e["_done"] = true
