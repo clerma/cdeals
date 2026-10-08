@@ -1,10 +1,10 @@
 {
   "months": {
     "2026-10": {
-      "credits": 485,
-      "requests": 103,
+      "credits": 505,
+      "requests": 107,
       "by_source": {
-        "target-deals": 130,
+        "target-deals": 150,
         "bestbuy-deals-probe": 0,
         "enrich-bh-probe": 5,
         "enrich-b-h-photo": 350,
