@@ -6,6 +6,7 @@ published: true
 description: A price tracker chart can tell you whether a "sale" is really a
   deal. Here's how to read one, what patterns to look for, and how to use it to
   decide when to buy.
+image: /assets/uploads/arturo-anez-ma1xobltz5o-unsplash.jpg
 categories:
   - Buying Guides
 tags:
