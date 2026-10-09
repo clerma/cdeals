@@ -55,7 +55,7 @@ empty_link_url: /deals/
     <article class="col-md-6 col-lg-7" data-blog-categories="{{ featured.categories | join: '|' | escape }}">
       {% if featured.image %}
       <a class="ratio d-flex hover-effect-scale rounded-4 overflow-hidden" href="{{ featured.url | relative_url }}" style="--cz-aspect-ratio: calc(484 / 746 * 100%)">
-        <img src="{{ featured.image | relative_url }}" class="hover-effect-target" alt="{{ featured.title | escape }}">
+        <img src="{{ featured.image | relative_url }}" class="hover-effect-target cd-post-img" alt="{{ featured.title | escape }}">
       </a>
       {% endif %}
       <div class="pt-4">
@@ -81,7 +81,7 @@ empty_link_url: /deals/
         </div>
         {% if post.image %}
         <div class="ratio w-100 rounded overflow-hidden" style="max-width: 196px; --cz-aspect-ratio: calc(140 / 196 * 100%)">
-          <img src="{{ post.image | relative_url }}" class="hover-effect-target" alt="{{ post.title | escape }}" loading="lazy">
+          <img src="{{ post.image | relative_url }}" class="hover-effect-target cd-post-img" alt="{{ post.title | escape }}" loading="lazy">
         </div>
         {% endif %}
       </article>
@@ -99,7 +99,7 @@ empty_link_url: /deals/
     <article class="col" data-blog-categories="{{ post.categories | join: '|' | escape }}">
       {% if post.image %}
       <a class="ratio d-flex hover-effect-scale rounded overflow-hidden" href="{{ post.url | relative_url }}" style="--cz-aspect-ratio: calc(305 / 416 * 100%)">
-        <img src="{{ post.image | relative_url }}" class="hover-effect-target" alt="{{ post.title | escape }}" loading="lazy">
+        <img src="{{ post.image | relative_url }}" class="hover-effect-target cd-post-img" alt="{{ post.title | escape }}" loading="lazy">
       </a>
       {% endif %}
       <div class="pt-4">
