@@ -6,6 +6,7 @@ published: true
 description: Not every sale tag means you're saving money. Here are the most
   common tricks that make ordinary prices look like deals, and how to see
   through them.
+image: /assets/uploads/scam.jpg
 categories:
   - Buying Guides
 tags:
