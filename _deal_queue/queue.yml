@@ -2223,3 +2223,62 @@
     City $4 & More'
   notes: 'Store link not found (Slickdeals lead: store link not in the feed (xbox.com)).
     Paste the store link into affiliate_url before approving.'
+- id: d-7ee6d33
+  status: new
+  title: MSI PRO Z890-P WiFi ProSeries Motherboard (Intel)
+  store: Amazon
+  price: 156.0
+  category: Computers
+  brand: MSI
+  affiliate_url: ''
+  image: https://cdn.bensimages.com/media/img/450/293288.webp
+  highlights:
+  - Free shipping
+  summary: The MSI PRO Z890-P WiFi ProSeries Motherboard (Intel) is a computer with
+    WiFi connectivity.
+  expires: 2026-10-16
+  found: 2026-10-09
+  source: bensbargains
+  source_link: https://bensbargains.com/bargain/msi-pro-z890-p-wifi-proseries-motherboard-intel-1086559/#rss
+  source_title: MSI PRO Z890-P WiFi ProSeries Motherboard (Intel)  $156 at Amazon
+  notes: 'Store link not found (source is set to resolve: none). Paste the store link
+    into affiliate_url before approving.'
+- id: d-fab234c
+  status: new
+  title: Amazon Basics 20,000 mAh High-Capacity Portable Charger Power Bank
+  store: Woot
+  price: 12.99
+  category: Accessories
+  brand: Amazon
+  affiliate_url: ''
+  image: https://static.slickdealscdn.com/attachment/1/1/7/1/5/2/7/300x300/21895101.thumb
+  highlights:
+  - Prime members only
+  summary: The Amazon Basics 20,000 mAh High-Capacity Portable Charger Power Bank
+    is an accessory with Portable form.
+  expires: 2026-10-12
+  found: 2026-10-09
+  source: slickdeals-rss
+  source_link: https://slickdeals.net/f/20132631-12-99-amazon-basics-20-000-mah-high-capacity-portable-charger-power-bank-at-woot
+  source_title: Amazon Basics 20,000 mAh High-Capacity Portable Charger Power Bank
+    $13 + Free S&H w/ Amazon Prime
+  notes: 'Store link not found (Slickdeals lead: store link not in the feed (woot.com)).
+    Paste the store link into affiliate_url before approving.'
+- id: d-f17ebce
+  status: new
+  title: Mortal Kombat Legacy Kollection (Nintendo Switch 2)
+  store: Best Buy
+  price: 29.99
+  category: Gaming
+  brand: Mortal
+  affiliate_url: ''
+  image: https://static.slickdealscdn.com/attachment/4/0/4/0/3/4/4/300x300/21881874.thumb
+  highlights: []
+  summary: The Mortal Kombat Legacy Kollection (Nintendo Switch 2) is a gaming product.
+  expires: 2026-10-12
+  found: 2026-10-09
+  source: slickdeals-rss
+  source_link: https://slickdeals.net/f/20127636-mortal-kombat-legacy-kollection-nintendo-switch-2-29-99-free-shipping
+  source_title: Mortal Kombat Legacy Kollection (Nintendo Switch 2) $30 + Free S&H
+  notes: 'Store link not found (Slickdeals lead: store link not in the feed (bestbuy.com)).
+    Paste the store link into affiliate_url before approving.'
