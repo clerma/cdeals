@@ -2,7 +2,7 @@
 title: 13" MacBook Air M2 16GB RAM, 512GB SSD, 8-Core GPU
 type: affiliate
 category: Laptops
-price: 979
+price: 969
 condition: Used
 store: OWC
 affiliate_url: https://eshop.macsales.com/configure-my-mac/apple-macbook-air-apple-silicon-13-inch-mid-2022?sku=UAKO1HS42XXXXXB
